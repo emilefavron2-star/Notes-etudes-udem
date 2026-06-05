@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!-- saved from url=(0228)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/physiopatho_AUB.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 6 — Physiopathologie des saignements utérins anormaux</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+  .subtitle { font-size: 14px; color: #777; margin-bottom: 24px; }
+  h2 { font-size: 1rem; font-weight: 700; margin: 18px 0 8px; color: #1a1a1a; padding-bottom: 4px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 9px; }
+  ul { margin: 6px 0 10px 20px; }
+  ul li { margin-bottom: 5px; }
+  ol { margin: 8px 0 10px 22px; }
+  ol li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .nav-btn {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; color: #444; transition: all 0.18s; white-space: nowrap;
+  }
+  .nav-btn[data-s="normal"].active    { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="normal"]:hover     { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="anovo"].active     { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="anovo"]:hover      { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="palm"].active      { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="palm"]:hover       { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="clinique"].active  { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="clinique"]:hover   { border-color: #8e44ad; color: #8e44ad; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-green  { background: #27783a; }
+  .h-red    { background: #c0392b; }
+  .h-blue   { background: #1e6fa8; }
+  .h-purple { background: #8e44ad; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-red    { background: #fdecea; border-left: 4px solid #c0392b; }
+  .callout-purple { background: #f5f0ff; border-left: 4px solid #8e44ad; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-left: 18px; margin-top: 6px; }
+  .callout ul li { margin-bottom: 4px; }
+
+  /* ── CYCLE NORMAL — animated steps ── */
+  .steps { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+
+  .step {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 12px 16px; cursor: pointer;
+    border: 1.5px solid #ddd; background: #fff;
+    border-radius: 0; margin-bottom: -1px;
+    transition: background 0.15s;
+  }
+  .step:first-child { border-radius: 8px 8px 0 0; }
+  .step:last-child  { border-radius: 0 0 8px 8px; margin-bottom: 0; }
+  .step:hover { background: #f5f5f5; }
+  .step.active-step { background: #f0faf2; border-color: #27783a; z-index: 1; }
+
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #ddd; color: #666; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .step.active-step .step-num { background: #27783a; color: #fff; }
+
+  .step-body { font-size: 14px; flex: 1; }
+  .step-title { font-weight: 700; margin-bottom: 3px; }
+  .step-detail { display: none; margin-top: 6px; color: #444; }
+  .step.active-step .step-detail { display: block; }
+
+  /* ── ANOVULATOIRE — cascade ── */
+  .cascade { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 16px 0; }
+
+  .casc-node {
+    width: 100%; max-width: 560px;
+    border-radius: 8px; padding: 11px 16px;
+    font-size: 14px; text-align: center; font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .casc-arrow { font-size: 18px; color: #c0392b; margin: 2px 0; }
+
+  .casc-1 { background: #eafaf1; border: 1.5px solid #27783a; color: #27783a; }
+  .casc-2 { background: #fef9e7; border: 1.5px solid #f5a623; color: #c05b00; }
+  .casc-3 { background: #fdecea; border: 1.5px solid #c0392b; color: #c0392b; }
+  .casc-4 { background: #c0392b; border: 1.5px solid #922b21; color: #fff; }
+
+  /* ── PROG ROLES ── */
+  .prog-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 14px 0; }
+  .prog-card {
+    border-radius: 8px; padding: 13px; font-size: 14px;
+    border: 1.5px solid #8e44ad; background: #f5f0ff;
+  }
+  .prog-card .pc-num { font-size: 1.4rem; font-weight: 700; color: #8e44ad; display: block; margin-bottom: 4px; }
+  .prog-card .pc-title { font-weight: 700; margin-bottom: 5px; font-size: 13px; }
+
+  /* ── PALM-COEIN cards ── */
+  .palm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+
+  .palm-card {
+    border-radius: 8px; overflow: hidden; border: 1.5px solid #ddd; cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+  .palm-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+  .palm-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px; font-weight: 700; font-size: 14px;
+    user-select: none;
+  }
+  .palm-arrow { margin-left: auto; font-size: 11px; color: #888; transition: transform 0.2s; }
+  .palm-card.open .palm-arrow { transform: rotate(90deg); }
+
+  .palm-body {
+    display: none; padding: 10px 14px 13px;
+    font-size: 14px; border-top: 1px solid #e8e8e8;
+  }
+  .palm-body ul { margin-left: 16px; margin-top: 4px; }
+  .palm-body ul li { margin-bottom: 4px; }
+
+  .pc-p { border-color: #8e44ad; }
+  .pc-p .palm-header { background: #f5f0ff; color: #6d28d9; }
+  .pc-p .palm-body   { background: #fbf8ff; }
+
+  .pc-a { border-color: #d35400; }
+  .pc-a .palm-header { background: #fff3e0; color: #c05b00; }
+  .pc-a .palm-body   { background: #fffaf5; }
+
+  .pc-l { border-color: #c0392b; }
+  .pc-l .palm-header { background: #fdecea; color: #c0392b; }
+  .pc-l .palm-body   { background: #fff8f8; }
+
+  .pc-m { border-color: #1e6fa8; }
+  .pc-m .palm-header { background: #e8f4fd; color: #1e6fa8; }
+  .pc-m .palm-body   { background: #f5faff; }
+
+  .pc-c { border-color: #27783a; }
+  .pc-c .palm-header { background: #eafaf1; color: #27783a; }
+  .pc-c .palm-body   { background: #f5fdf7; }
+
+  .pc-o { border-color: #b7950b; }
+  .pc-o .palm-header { background: #fef9e7; color: #b7950b; }
+  .pc-o .palm-body   { background: #fffef5; }
+
+  /* ── DETAILS (science) ── */
+  details { margin: 12px 0; }
+  details summary {
+    cursor: pointer; font-weight: 700; color: #1e6fa8;
+    padding: 10px 14px; background: #f0f7ff; border-radius: 6px;
+    list-style: none; display: flex; align-items: center; gap: 8px;
+    user-select: none; font-size: 14px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▶"; font-size: 11px; transition: transform 0.2s; display: inline-block; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .details-body { padding: 12px 16px; border: 1px solid #cde3f7; border-top: none; border-radius: 0 0 6px 6px; font-size: 14px; }
+  details .details-body p { margin-bottom: 8px; }
+  details .details-body p:last-child { margin-bottom: 0; }
+  details .details-body ol { margin-left: 18px; margin-top: 6px; }
+  details .details-body ol li { margin-bottom: 6px; }
+
+  .tag { display: inline-block; border-radius: 4px; padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0; }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f4fd; color: #1e6fa8; }
+  .tag-purple { background: #f3e8fd; color: #6d28d9; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 16px 0; }
+  .footnote { margin-top: 36px; padding-top: 14px; border-top: 1px solid #eee; font-size: 12.5px; color: #777; font-style: italic; }
+
+  @media (max-width: 600px) {
+    .prog-cards { grid-template-columns: 1fr; }
+    .palm-grid  { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>⚙️ Objectif 6 — Physiopathologie des saignements utérins anormaux</h1>
+<p class="subtitle">Cycle normal · Saignement anovulatoire · Classification PALM-COEIN · Perles cliniques</p>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="normal" onclick="show(&#39;normal&#39;,this)">🟢 Cycle normal</button>
+  <button class="nav-btn" data-s="anovo" onclick="show(&#39;anovo&#39;,this)">🔴 Saignement anovulatoire</button>
+  <button class="nav-btn" data-s="palm" onclick="show(&#39;palm&#39;,this)">🔵 PALM-COEIN</button>
+  <button class="nav-btn" data-s="clinique" onclick="show(&#39;clinique&#39;,this)">🟣 Perles cliniques</button>
+</div>
+
+<!-- ══════════════════════════════════
+     CYCLE NORMAL
+═════════════════════════════════════ -->
+<div id="normal" class="section active">
+  <div class="section-header h-green">🟢 Rappel — Saignement menstruel normal (ovulatoire)</div>
+
+  <p>Cliquez sur chaque étape pour en voir le détail.</p>
+
+  <div class="steps">
+    <div class="step" onclick="toggleStep(this)">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Dégénérescence du corps jaune</div>
+        <div class="step-detail">En fin de cycle, sans grossesse, le <strong>corps jaune dégénère</strong> → chute simultanée de la <strong>progestérone</strong> et des <strong>œstrogènes</strong>.</div>
+      </div>
+    </div>
+    <div class="step" onclick="toggleStep(this)">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Constriction des artères spiralées</div>
+        <div class="step-detail">La chute hormonale provoque une <strong>constriction des artères spiralées</strong> de l'endomètre → ischémie de la <strong>couche fonctionnelle</strong>.</div>
+      </div>
+    </div>
+    <div class="step" onclick="toggleStep(this)">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Desquamation contrôlée</div>
+        <div class="step-detail">L'ischémie déclenche une <strong>desquamation contrôlée</strong> de la couche fonctionnelle (les <strong>prostaglandines</strong> participent). La basale est préservée et régénère la fonctionnelle.</div>
+      </div>
+    </div>
+    <div class="step" onclick="toggleStep(this)">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Saignement limité et prévisible</div>
+        <div class="step-detail">Ce retrait hormonal <strong>synchronisé</strong> produit un saignement <strong>limité, ordonné et prévisible</strong>. La clé : c'est la <em>synchronicité</em> du retrait progestéronique qui rend le saignement contrôlé.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:14px;">
+    <p>🔑 <strong>Principe fondamental :</strong> c'est le <strong>retrait synchronisé</strong> de la progestérone qui produit une desquamation ordonnée. Sans progestérone (anovulation), ce mécanisme s'effondre.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SAIGNEMENT ANOVULATOIRE
+═════════════════════════════════════ -->
+<div id="anovo" class="section">
+  <div class="section-header h-red">🔴 Saignement anovulatoire (AUB-O)</div>
+
+  <p>Le <strong>saignement utérin dysfonctionnel</strong> (terme classique, désormais AUB-O) est le plus fréquent à la <strong>ménarche</strong> et à la <strong>ménopause</strong>.</p>
+
+  <h2>Cascade physiopathologique</h2>
+
+  <div class="cascade">
+    <div class="casc-node casc-1">Absence d'ovulation → pas de corps jaune</div>
+    <div class="casc-arrow">↓</div>
+    <div class="casc-node casc-2">Pas de production de progestérone → œstrogènes non opposés</div>
+    <div class="casc-arrow">↓</div>
+    <div class="casc-node casc-3">Endomètre épais, vascularisé, mais sans support structurel</div>
+    <div class="casc-arrow">↓</div>
+    <div class="casc-node casc-4">💥 Hémorragies spontanées, aléatoires, non synchronisées → saignement imprévisible</div>
+  </div>
+
+  <h2>Rôles stabilisateurs de la progestérone (supprimés par l'anovulation)</h2>
+
+  <div class="prog-cards">
+    <div class="prog-card">
+      <span class="pc-num">①</span>
+      <div class="pc-title">Arrêt de la prolifération</div>
+      <p style="font-size:13px;">Transforme l'endomètre en phase <strong>sécrétoire structurée</strong>, arrêtant la prolifération induite par les œstrogènes.</p>
+    </div>
+    <div class="prog-card">
+      <span class="pc-num">②</span>
+      <div class="pc-title">Support stromal</div>
+      <p style="font-size:13px;">Organise le <strong>support stromal</strong> et la maturation des artères spiralées → stabilité mécanique.</p>
+    </div>
+    <div class="prog-card">
+      <span class="pc-num">③</span>
+      <div class="pc-title">Retrait synchronisé</div>
+      <p style="font-size:13px;">Son retrait déclenche une <strong>desquamation complète et uniforme</strong> avec vasoconstriction ordonnée.</p>
+    </div>
+  </div>
+
+  <details>
+    <summary>🔬 Pourquoi l'endomètre devient-il fragile sans progestérone ?</summary>
+    <div class="details-body">
+      <p>Sans progestérone, l'endomètre continue de proliférer <strong>au-delà de son apport vasculaire</strong> → dépasse sa vascularisation → <strong>nécrose focale</strong> → desquamation partielle, asynchrone et répétée de zones différentes → saignement <strong>prolongé, abondant et irrégulier</strong>.</p>
+      <p>C'est aussi la base du continuum :</p>
+      <p style="background:#fdecea;border-radius:6px;padding:8px 12px;font-weight:600;">
+        Prolifération → Hyperplasie → Carcinome de l'endomètre (Obj 10–11)
+      </p>
+    </div>
+  </details>
+
+  <div class="divider"></div>
+
+  <h2>Populations particulières</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;">
+    <div style="border-radius:8px;padding:14px;background:#fdecea;border:1.5px solid #c0392b;font-size:14px;">
+      <div style="font-weight:700;color:#c0392b;margin-bottom:6px;">👧 Adolescente</div>
+      <p><strong>Immaturité de l'axe hypothalamo-hypophyso-ovarien</strong> → cycles mal orchestrés → anovulation fréquente.</p>
+    </div>
+    <div style="border-radius:8px;padding:14px;background:#fff3e0;border:1.5px solid #d35400;font-size:14px;">
+      <div style="font-weight:700;color:#d35400;margin-bottom:6px;">🔄 Périménopause</div>
+      <p>Baisse progressive de la fonction ovarienne → cycles anovulatoires fréquents — réponse <strong>physiologique</strong> normale à cette transition.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:6px;">
+    <p>💡 <strong>Conséquence thérapeutique (Obj 7) :</strong> le problème étant un déficit de progestérone, donner un <strong>progestatif</strong> restaure la stabilisation → provoque un retrait synchronisé → traitement logique du saignement anovulatoire.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PALM-COEIN
+═════════════════════════════════════ -->
+<div id="palm" class="section">
+  <div class="section-header h-blue">🔵 Physiopathologie selon PALM-COEIN</div>
+
+  <p style="margin-bottom:14px;">Cliquez sur chaque catégorie pour voir le mécanisme.</p>
+
+  <div class="palm-grid">
+
+    <div class="palm-card pc-p" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag tag-purple">P</span> Polypes (AUB-P)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Surtout responsables de <strong>saignements intermenstruels</strong> (parfois après effort ou rapport). Excroissances de l'endomètre qui saignent de façon focale et imprévisible.</p>
+      </div>
+    </div>
+
+    <div class="palm-card pc-a" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag" style="background:#fff3e0;color:#c05b00;">A</span> Adénomyose (AUB-A)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Présence de tissu endométrial dans le <strong>myomètre</strong>. Provoque ménorragie et dysménorrhée par saignement intra-myométrial et hypertrophie utérine diffuse.</p>
+      </div>
+    </div>
+
+    <div class="palm-card pc-l" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag tag-red">L</span> Léiomyomes (AUB-L)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Surtout les myomes <strong>sous-muqueux</strong> (impact direct sur la cavité endométriale) → saignement abondant. Les myomes intra-muraux et sous-séreux ont moins d'impact sur le saignement.</p>
+      </div>
+    </div>
+
+    <div class="palm-card pc-m" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag tag-blue">M</span> Malignité / Hyperplasie (AUB-M)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Exposition chronique aux <strong>œstrogènes non opposés</strong> (obésité, anovulation, tamoxifène) → stimulation de la prolifération → hyperplasie → risque de carcinome.</p>
+        <p style="margin-top:6px;">Le risque ↑ nettement avec l'<strong>âge</strong>.</p>
+      </div>
+    </div>
+
+    <div class="palm-card pc-c" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag" style="background:#e8f5e9;color:#27783a;">C</span> Coagulopathie (AUB-C)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Trouble de l'hémostase (ex. maladie de von Willebrand, thrombopénie) empêchant <strong>l'arrêt normal du saignement endométrial</strong> → saignement prolongé ou abondant malgré un cycle ovulatoire.</p>
+      </div>
+    </div>
+
+    <div class="palm-card pc-o" onclick="togglePalm(this)">
+      <div class="palm-header">
+        <span class="tag" style="background:#fef9e7;color:#b7950b;">O</span> Hormonale / Endocrinienne (AUB-O)
+        <span class="palm-arrow">▶</span>
+      </div>
+      <div class="palm-body">
+        <p>Tout événement qui empêche la production d'œstrogène ou bloque son action perturbe les fluctuations normales → saignement anormal ou absent.</p>
+        <p style="margin-top:6px;"><strong>Causes :</strong></p>
+        <ul>
+          <li>Stress physique/émotionnel (↓ gonadotrophines)</li>
+          <li>Tumeurs ovariennes, surrénaliennes ou hypophysaires</li>
+          <li>Anovulation (mécanisme détaillé dans l'onglet précédent)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:6px;">
+    <p>💡 <strong>PALM</strong> = causes structurales (visibles à l'imagerie/histologie) · <strong>COEIN</strong> = causes non structurales. La classification guide l'investigation et le traitement.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PERLES CLINIQUES
+═════════════════════════════════════ -->
+<div id="clinique" class="section">
+  <div class="section-header h-purple">🟣 Perles cliniques</div>
+
+  <div class="callout callout-red">
+    <p>⚠️ <strong>Facteurs concomitants — notion clé :</strong> plusieurs causes coexistent souvent. Ne pas s'arrêter à la première explication trouvée.</p>
+  </div>
+
+  <div style="margin:16px 0;">
+    <div style="border-radius:8px;background:#f5f0ff;border:1.5px solid #8e44ad;padding:16px;font-size:14px;">
+      <p style="font-weight:700;color:#8e44ad;margin-bottom:10px;">📌 Exemple clinique classique</p>
+      <p>Une patiente avec un <strong>fibrome connu</strong> peut ne consulter qu'à la <strong>périménopause</strong> lorsque l'anovulation provoque un saignement abondant/irrégulier.</p>
+      <p style="margin-top:8px;">Elle peut <em>aussi</em> avoir :</p>
+      <ul style="margin-left:18px;margin-top:4px;">
+        <li>Un trouble de l'hémostase sous-jacent (AUB-C)</li>
+        <li>Un saignement provenant d'une malignité <em>indépendante</em> du fibrome (AUB-M)</li>
+      </ul>
+      <p style="margin-top:10px;font-weight:700;">→ Si le saignement persiste malgré le traitement d'une cause identifiée : <strong>rechercher d'autres étiologies</strong>.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Liens entre objectifs</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;">
+    <div style="border-radius:8px;padding:13px;background:#f0faf2;border:1.5px solid #27783a;font-size:14px;">
+      <div style="font-weight:700;color:#27783a;margin-bottom:5px;">Obj 7 — Traitement</div>
+      <p>Progestatif = traitement logique du saignement anovulatoire (restaure le retrait synchronisé). AINS = crampes via prostaglandines.</p>
+    </div>
+    <div style="border-radius:8px;padding:13px;background:#fdecea;border:1.5px solid #c0392b;font-size:14px;">
+      <div style="font-weight:700;color:#c0392b;margin-bottom:5px;">Obj 10–11 — Cancer endomètre</div>
+      <p>Continuum : œstrogènes non opposés → prolifération → hyperplasie → carcinome de Type 1. L'anovulation chronique est un facteur de risque direct.</p>
+    </div>
+    <div style="border-radius:8px;padding:13px;background:#e8f4fd;border:1.5px solid #1e6fa8;font-size:14px;">
+      <div style="font-weight:700;color:#1e6fa8;margin-bottom:5px;">Obj 8–9 — VPH / Col</div>
+      <p>La métrorragie peut signaler une pathologie cervicale (VPH, dysplasie, cancer du col). À différencier d'un saignement endométrial.</p>
+    </div>
+    <div style="border-radius:8px;padding:13px;background:#f5f0ff;border:1.5px solid #8e44ad;font-size:14px;">
+      <div style="font-weight:700;color:#8e44ad;margin-bottom:5px;">Classification PALM-COEIN</div>
+      <p>Remplace la terminologie classique (ménorragie, métrorragie…) par une approche étiologique structurée.</p>
+    </div>
+  </div>
+
+  <details style="margin-top:14px;">
+    <summary>🔬 Résumé — du mécanisme au traitement (raisonnement intégré)</summary>
+    <div class="details-body">
+      <ol>
+        <li><strong>Identifier</strong> si le saignement est ovulatoire ou anovulatoire (anamnèse, régularité).</li>
+        <li><strong>Classer</strong> selon PALM-COEIN (imagerie, biopsie, bilan).</li>
+        <li><strong>Traiter</strong> selon la cause : progestatif si anovulation, AINS si prostaglandines, chirurgie si myome/polype, etc.</li>
+        <li>Ne jamais oublier les <strong>causes concomitantes</strong> si le traitement de première ligne échoue.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<p class="footnote">
+  Guide d'étude basé sur : article <em>Le Médecin du Québec</em> — Dre Hébert/Carreau 2020, Cecil/Goldman ch. 189, Banasik <em>Pathophysiology</em> ch. 33. Couvre les <strong>objectifs 7 à 9</strong>.
+</p>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleStep(el) {
+    const isOpen = el.classList.contains('active-step');
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active-step'));
+    if (!isOpen) el.classList.add('active-step');
+  }
+
+  function togglePalm(card) {
+    const body = card.querySelector('.palm-body');
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open', !isOpen);
+    body.style.display = isOpen ? 'none' : 'block';
+  }
+</script>
+
+
+</body></html>
