@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!-- saved from url=(0224)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/osteoporose.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ostéoporose — Définition, Physiopathologie, Prise en charge</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; }
+  h3 { font-size: 0.95rem; font-weight: 700; margin: 14px 0 8px; color: #333; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 6px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  ol { margin: 8px 0 12px 22px; }
+  ol li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  a { color: #2b8acc; text-decoration: underline; word-break: break-all; }
+  a:hover { color: #1a5a8a; }
+
+  /* ── NAV ── */
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .nav-btn[data-s="definition"].active   { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="definition"]:hover    { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="physio"].active       { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="physio"]:hover        { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="signes"].active       { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="signes"]:hover        { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="evaluation"].active   { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="evaluation"]:hover    { border-color: #8e44ad; color: #8e44ad; }
+  .nav-btn[data-s="prise"].active        { background: #d35400; border-color: #d35400; color: #fff; }
+  .nav-btn[data-s="prise"]:hover         { border-color: #d35400; color: #d35400; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-green  { background: #27783a; }
+  .h-red    { background: #c0392b; }
+  .h-purple { background: #8e44ad; }
+  .h-orange { background: #d35400; }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    border-radius: 6px;
+    padding: 13px 17px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-red    { background: #fdecea; border-left: 4px solid #c0392b; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-top: 6px; }
+
+  /* ── T-SCORE VISUAL ── */
+  .tscore-bar-wrap { margin: 18px 0; }
+
+  .tscore-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .tscore-track {
+    height: 22px;
+    border-radius: 11px;
+    background: linear-gradient(90deg, #c0392b 0%, #e67e22 30%, #f5a623 55%, #27783a 100%);
+    position: relative;
+    overflow: visible;
+  }
+
+  .tscore-marker {
+    position: absolute;
+    top: -4px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .tscore-marker .tick {
+    width: 2px;
+    height: 30px;
+    background: #333;
+    border-radius: 1px;
+  }
+
+  .tscore-marker .tick-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  .tscore-zones {
+    display: flex;
+    margin-top: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tscore-zone {
+    flex: 1;
+    min-width: 120px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+
+  .zone-normal { background: #eafaf1; border: 1px solid #27783a; }
+  .zone-osteo  { background: #fff8e1; border: 1px solid #f5a623; }
+  .zone-osteo2 { background: #fdecea; border: 1px solid #c0392b; }
+
+  /* ── IMAGE PLACEHOLDER ── */
+  .img-placeholder {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    margin: 14px 0;
+    background: #fafafa;
+  }
+
+  /* ── RANKL DIAGRAM ── */
+  .rankl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .rankl-card {
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13.5px;
+  }
+
+  .card-estro { background: #fdecea; border: 1.5px solid #c0392b; }
+  .card-rankl { background: #fff8e1; border: 1.5px solid #f5a623; }
+  .card-opg   { background: #f0f7ff; border: 1.5px solid #2b8acc; }
+  .card-result{ background: #fdecea; border: 1.5px solid #c0392b; grid-column: 1 / -1; }
+
+  .card-title { font-weight: 700; margin-bottom: 6px; font-size: 14px; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #2b3a4a; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f5f5f5; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+
+  /* ── TAGS ── */
+  .tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 2px 2px 0;
+  }
+  .tag-green  { background: #e8f5e9; color: #27783a; }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f4fd; color: #1e6fa8; }
+  .tag-orange { background: #fff3e0; color: #c05b00; }
+
+  /* ── ACCORDION ── */
+  .acc-item { border: 1.5px solid #ddd; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+
+  .acc-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.15s;
+  }
+  .acc-toggle:hover { background: #f5f5f5; }
+  .acc-toggle.open  { background: #f0f4ff; }
+
+  .acc-arrow { margin-left: auto; font-size: 11px; transition: transform 0.2s; color: #888; }
+  .acc-toggle.open .acc-arrow { transform: rotate(90deg); }
+
+  .acc-body {
+    display: none;
+    padding: 12px 18px 14px;
+    font-size: 14px;
+    border-top: 1px solid #e8e8e8;
+    background: #fafafa;
+  }
+
+  /* ── RISK THRESHOLD ── */
+  .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+
+  .thresh-card {
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px;
+  }
+  .thresh-recommend { background: #fdecea; border: 1.5px solid #c0392b; }
+  .thresh-suggest   { background: #fff8e1; border: 1.5px solid #f5a623; }
+
+  .thresh-card .thresh-title { font-weight: 700; margin-bottom: 6px; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+
+  .footnote {
+    margin-top: 36px;
+    padding-top: 14px;
+    border-top: 1px solid #eee;
+    font-size: 12.5px;
+    color: #777;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .rankl-grid { grid-template-columns: 1fr; }
+    .threshold-grid { grid-template-columns: 1fr; }
+    .tscore-zones { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Ostéoporose</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="definition" onclick="show(&#39;definition&#39;,this)">📖 Définition</button>
+  <button class="nav-btn" data-s="physio" onclick="show(&#39;physio&#39;,this)">🦴 Physiopathologie</button>
+  <button class="nav-btn" data-s="signes" onclick="show(&#39;signes&#39;,this)">🩺 Signes &amp; Symptômes</button>
+  <button class="nav-btn" data-s="evaluation" onclick="show(&#39;evaluation&#39;,this)">🔍 Évaluation &amp; Diagnostic</button>
+  <button class="nav-btn" data-s="prise" onclick="show(&#39;prise&#39;,this)">💊 Prise en charge</button>
+</div>
+
+<!-- ══════════════════════════════════
+     DÉFINITION
+═════════════════════════════════════ -->
+<div id="definition" class="section active">
+  <div class="section-header h-blue">📖 Définition</div>
+
+  <div class="callout callout-blue">
+    <p>L'ostéoporose est un <strong>trouble squelettique caractérisé par une résistance osseuse compromise</strong> prédisposant au risque de fracture.</p>
+    <p style="margin-top:8px;">Définition densitométrique (OMS) : <strong>DMO ≤ –2,5 écarts-types</strong> sous le pic de masse osseuse (<strong>score T ≤ –2,5</strong>).</p>
+  </div>
+
+  <p><em>Ostéopénie = score T entre –1,0 et –2,5.</em></p>
+
+  <!-- T-score visual -->
+  <div class="tscore-bar-wrap">
+    <div class="tscore-labels">
+      <span>← Score T plus bas (pire)</span>
+      <span>(meilleur) Score T plus haut →</span>
+    </div>
+    <div class="tscore-track">
+      <!-- marker at -2.5 -->
+      <div class="tscore-marker" style="left: 30%;">
+        <div class="tick"></div>
+        <div class="tick-label">–2,5</div>
+      </div>
+      <!-- marker at -1.0 -->
+      <div class="tscore-marker" style="left: 58%;">
+        <div class="tick"></div>
+        <div class="tick-label">–1,0</div>
+      </div>
+    </div>
+    <div class="tscore-zones">
+      <div class="tscore-zone zone-osteo2">
+        <strong style="color:#c0392b;">Ostéoporose</strong><br>Score T ≤ –2,5
+      </div>
+      <div class="tscore-zone zone-osteo">
+        <strong style="color:#c05b00;">Ostéopénie</strong><br>Score T entre –1,0 et –2,5
+      </div>
+      <div class="tscore-zone zone-normal">
+        <strong style="color:#27783a;">Normal</strong><br>Score T &gt; –1,0
+      </div>
+    </div>
+  </div>
+
+  <!-- Image placeholder -->
+  <div class="img-placeholder">
+    🖼️ Image de référence (DMO / courbe de masse osseuse)<br>
+    <span style="font-size:12px;">Ajouter l'image manuellement dans Notion après l'intégration.</span>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:14px;">
+    <p>💡 <strong>Diagnostic clinique</strong> possible chez une personne ≥ 50 ans qui a subi après 40 ans :</p>
+    <ul>
+      <li>une <strong>fracture de fragilisation</strong> (hanche, colonne, humérus, bassin) consécutive à un traumatisme léger, <strong>OU</strong></li>
+      <li>un <strong>risque absolu de fracture ≥ 20 % sur 10 ans</strong> (FRAX / CAROC).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PHYSIOPATHOLOGIE
+═════════════════════════════════════ -->
+<div id="physio" class="section">
+  <div class="section-header h-green">🦴 Physiopathologie — perte osseuse à la ménopause</div>
+
+  <p>L'os subit un <strong>remodelage</strong> constant : équilibre entre <strong>résorption</strong> (ostéoclastes) et <strong>formation</strong> (ostéoblastes). Après 30 ans, le processus est équilibré (perte de 0,3–0,5 %/an).</p>
+
+  <h2>Mécanisme à la ménopause</h2>
+  <p>La <strong>chute des œstrogènes</strong> est la cause principale de la perte osseuse.</p>
+
+  <div class="rankl-grid">
+    <div class="rankl-card card-estro" style="grid-column:1/-1;">
+      <div class="card-title" style="color:#c0392b;">⬇️ Chute des œstrogènes</div>
+      <p>Déclencheur principal — ↑ régulation des cytokines pro-résorbantes.</p>
+    </div>
+    <div class="rankl-card card-rankl">
+      <div class="card-title" style="color:#c05b00;">↑ RANKL</div>
+      <p>↑ nombre, activité et durée de vie des <strong>ostéoclastes</strong> (aucune apoptose) → ↑ résorption osseuse.</p>
+    </div>
+    <div class="rankl-card card-opg">
+      <div class="card-title" style="color:#1e6fa8;">↓ OPG (ostéoprotégérine)</div>
+      <p>OPG est le « récepteur leurre » qui neutralise normalement RANKL. Sa ↓ <strong>amplifie encore la résorption</strong>.</p>
+    </div>
+    <div class="rankl-card card-result">
+      <div class="card-title" style="color:#c0392b;">🔴 Résultat : découplage du remodelage</div>
+      <p>La résorption dépasse la formation → <strong>perte osseuse accélérée de 1 à 5 %/an</strong> (vs 0,3–0,5 % avant).</p>
+    </div>
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:6px;">
+    <p>💡 L'équilibre <strong>RANKL / OPG</strong> (« yin/yang ») détermine le taux de résorption. La supplémentation œstrogénique peut restaurer l'OPG et ↓ RANKL.</p>
+    <ul style="margin-top:8px;">
+      <li>Cette phase de perte rapide est généralement <strong>limitée à 5–7 ans</strong>.</li>
+      <li>La perte est <strong>plus lente chez les femmes obèses</strong> (œstrogènes produits par aromatisation dans le tissu adipeux).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SIGNES & SYMPTÔMES
+═════════════════════════════════════ -->
+<div id="signes" class="section">
+  <div class="section-header h-red">🩺 Signes &amp; Symptômes</div>
+
+  <div class="callout callout-red">
+    <p>⚠️ <strong>Point clé : l'ostéoporose n'a AUCUNE manifestation clinique avant la fracture</strong> — c'est une maladie « silencieuse ».</p>
+  </div>
+
+  <!-- accordion fractures -->
+  <div class="acc-item">
+    <button class="acc-toggle" onclick="toggleAcc(this)">
+      🦴 Fracture vertébrale — la plus fréquente
+      <span class="acc-arrow">▶</span>
+    </button>
+    <div class="acc-body">
+      <ul>
+        <li>Manifestation clinique <strong>la plus fréquente</strong>.</li>
+        <li>~2/3 sont <strong>asymptomatiques</strong> (découverte fortuite à la radiographie).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="acc-item">
+    <button class="acc-toggle" onclick="toggleAcc(this)">
+      🦵 Fracture de la hanche — la plus grave
+      <span class="acc-arrow">▶</span>
+    </button>
+    <div class="acc-body">
+      <ul>
+        <li>Touche jusqu'à <strong>15 % des femmes à 80 ans</strong>.</li>
+        <li>Risque ↑ exponentiellement avec l'âge.</li>
+        <li>Très grave : <strong>morbidité, surmortalité, perte d'autonomie</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="acc-item">
+    <button class="acc-toggle" onclick="toggleAcc(this)">
+      🤚 Fracture du radius distal (Colles)
+      <span class="acc-arrow">▶</span>
+    </button>
+    <div class="acc-body">
+      <p>Plus fréquente <strong>peu après la ménopause</strong>.</p>
+    </div>
+  </div>
+
+  <div class="acc-item">
+    <button class="acc-toggle" onclick="toggleAcc(this)">
+      📏 Signes cliniques de fracture vertébrale (JAMC)
+      <span class="acc-arrow">▶</span>
+    </button>
+    <div class="acc-body">
+      <ul>
+        <li>Perte de taille <strong>&gt; 2 cm</strong> (prospective) / <strong>&gt; 6 cm</strong> (historique)</li>
+        <li>Distance côte-bassin <strong>≤ 2 travers de doigt</strong></li>
+        <li>Distance occiput-mur <strong>&gt; 5 cm</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     ÉVALUATION & DIAGNOSTIC
+═════════════════════════════════════ -->
+<div id="evaluation" class="section">
+  <div class="section-header h-purple">🔍 Évaluation &amp; Diagnostic</div>
+
+  <h2>Outils de risque sur 10 ans</h2>
+  <p><strong>FRAX</strong> (préféré) ou <strong>CAROC</strong>.</p>
+  <p>
+    🔗 Calculateur FRAX :
+    <a href="https://www.mdcalc.com/calc/10540/fracture-index" target="_blank">
+      https://www.mdcalc.com/calc/10540/fracture-index
+    </a>
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>Facteurs de risque cliniques</h2>
+  <ul>
+    <li>ATCD de fracture après 40 ans</li>
+    <li>Glucocorticoïdes (&gt; 3 mois)</li>
+    <li>≥ 2 chutes/an</li>
+    <li>Fracture de la hanche chez un parent</li>
+    <li>IMC &lt; 20</li>
+    <li>Ostéoporose secondaire</li>
+    <li>Tabagisme actif</li>
+    <li>≥ 3 verres d'alcool/jour</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>Mesure de la DMO par DXA</h2>
+  <p>Ostéodensitométrie — approche <strong>ciblée selon l'âge et les facteurs de risque</strong> (JAMC).</p>
+</div>
+
+<!-- ══════════════════════════════════
+     PRISE EN CHARGE
+═════════════════════════════════════ -->
+<div id="prise" class="section">
+  <div class="section-header h-orange">💊 Prise en charge</div>
+
+  <!-- Sub-tabs -->
+  <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+    <button class="nav-btn active" id="sub-nonpharm" style="border-radius:8px;" onclick="showSub(&#39;nonpharm&#39;,this)">🌿 Non pharmacologique</button>
+    <button class="nav-btn" id="sub-pharm" style="border-radius:8px;" onclick="showSub(&#39;pharm&#39;,this)">💊 Pharmacologique</button>
+  </div>
+
+  <!-- Non pharm -->
+  <div id="sub-nonpharm" class="sub-panel">
+    <div class="callout callout-green">
+      <p>Pour <strong>toutes</strong> les femmes ménopausées — à initier indépendamment du traitement pharmacologique.</p>
+    </div>
+    <ul>
+      <li><span class="tag tag-green">1re ligne</span> <strong>≥ 2 séances/semaine</strong> d'exercices d'équilibre et de renforcement musculaire.</li>
+      <li><span class="tag tag-green">1re ligne</span> Alimentation riche en <strong>calcium et protéines</strong>.</li>
+      <li><span class="tag tag-green">1re ligne</span> <strong>Vitamine D ≥ 400 UI/jour</strong>.</li>
+      <li>Cessation tabagique.</li>
+      <li>Diminution / cessation de l'alcool.</li>
+      <li>Diminution de la caféine.</li>
+      <li>Perte de poids si indiqué.</li>
+    </ul>
+    <div class="callout callout-yellow" style="margin-top:8px;">
+      <p>⚠️ Chez les personnes bien nourries sans carence et ne prenant pas de Rx, les suppléments calcium/vit. D ont des bénéfices <strong>minimes</strong> sur les fractures.</p>
+    </div>
+  </div>
+
+  <!-- Pharm -->
+  <div id="sub-pharm" class="sub-panel" style="display:none;">
+    <p style="margin-bottom:12px;">Deux grandes catégories : <strong>antirésorptifs</strong> (inhibent les ostéoclastes) et <strong>anabolisants</strong> (stimulent la formation).</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Classe</th><th>Agents</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bisphosphonates</strong> <span class="tag tag-green">1re intention</span></td>
+            <td>alendronate, risédronate, acide zolédronique</td>
+            <td>
+              <span class="tag tag-green">Recommandés en 1er</span><br>
+              ↓ ~20–30 fractures vertébrales, 10 non vertébrales, 3 de la hanche / 1000 sur 3 ans.<br>
+              Oraux → troubles digestifs (œsophagite); zolédronique IV → symptômes pseudogrippaux.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Hormonothérapie substitutive</strong></td>
+            <td>Œstrogènes (± progestatif si utérus intact)</td>
+            <td>À privilégier vs bisphosphonates chez les femmes <strong>ménopausées ≤ 10 ans / &lt; 60 ans</strong> dont la priorité est de soulager des <strong>symptômes ménopausiques importants</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Dénosumab</strong> <span class="tag tag-blue">Anti-RANKL</span></td>
+            <td>Injection SC 2×/an</td>
+            <td>
+              Si CI / intolérance aux bisphosphonates.<br>
+              <span class="tag tag-red">⚠️ Arrêt = rebond</span> Perte osseuse rapide + fractures vertébrales en cas d'arrêt → thérapie de transition obligatoire.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Raloxifène</strong> <span class="tag tag-blue">SERM</span></td>
+            <td>—</td>
+            <td>Alternative. À éviter si risque élevé de TEV.</td>
+          </tr>
+          <tr>
+            <td><strong>Anabolisants</strong> <span class="tag tag-orange">2e intention</span></td>
+            <td>tériparatide, romosozumab</td>
+            <td>
+              Si fracture vertébrale sévère récente <strong>ou</strong> &gt; 1 fracture + score T ≤ –2,5 (avis spécialisé).<br>
+              <strong>Suivre d'un antirésorptif</strong> pour conserver les gains.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:18px;">Seuils de traitement (JAMC)</h3>
+    <div class="threshold-grid">
+      <div class="thresh-card thresh-recommend">
+        <div class="thresh-title" style="color:#c0392b;">✅ Recommander</div>
+        <ul style="margin-left:16px;">
+          <li>Risque <strong>≥ 20 % / 10 ans</strong></li>
+          <li>OU score T ≤ –2,5 et <strong>≥ 70 ans</strong></li>
+        </ul>
+      </div>
+      <div class="thresh-card thresh-suggest">
+        <div class="thresh-title" style="color:#c05b00;">💬 Suggérer</div>
+        <ul style="margin-left:16px;">
+          <li>Risque <strong>15–19,9 % / 10 ans</strong></li>
+          <li>OU score T ≤ –2,5 et <strong>&lt; 70 ans</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<p class="footnote">
+  Guide d'étude basé sur : article <em>Le Médecin du Québec</em> — Plourde/Tan 2020 (hormonothérapie) et Dugré/Bustamante 2020 (traitements non hormonaux), INESSS, Mullen &amp; Mistry 2018 <em>Managing Cancer Survivorship Issues</em>. Couvre les <strong>objectifs 16 à 18</strong>.
+</p>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.style.display = isOpen ? 'none' : 'block';
+  }
+
+  function showSub(id, btn) {
+    document.querySelectorAll('.sub-panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('#prise .nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sub-' + id).style.display = 'block';
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
