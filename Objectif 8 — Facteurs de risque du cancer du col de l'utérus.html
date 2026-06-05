@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0232)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/facteurs_risque_col.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 8 — Facteurs de risque du cancer du col de l'utérus</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; padding-bottom: 5px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 6px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .nav-btn {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; color: #444; transition: all 0.18s; white-space: nowrap;
+  }
+
+  .nav-btn[data-s="contexte"].active   { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="contexte"]:hover    { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="mecanisme"].active  { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="mecanisme"]:hover   { border-color: #8e44ad; color: #8e44ad; }
+  .nav-btn[data-s="exposition"].active { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="exposition"]:hover  { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="persistance"].active{ background: #d35400; border-color: #d35400; color: #fff; }
+  .nav-btn[data-s="persistance"]:hover { border-color: #d35400; color: #d35400; }
+  .nav-btn[data-s="tous"].active       { background: #2b3a4a; border-color: #2b3a4a; color: #fff; }
+  .nav-btn[data-s="tous"]:hover        { border-color: #2b3a4a; color: #2b3a4a; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-purple { background: #8e44ad; }
+  .h-red    { background: #c0392b; }
+  .h-orange { background: #d35400; }
+  .h-dark   { background: #2b3a4a; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 13px 17px; margin: 14px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-purple { background: #f5f0ff; border-left: 4px solid #8e44ad; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ── STAT BADGES ── */
+  .stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+  .stat-badge {
+    flex: 1; min-width: 150px;
+    background: #f0f7ff; border: 1.5px solid #2b8acc;
+    border-radius: 8px; padding: 12px 14px; text-align: center; font-size: 14px;
+  }
+  .stat-badge .stat-num { font-size: 1.35rem; font-weight: 700; color: #1e6fa8; display: block; }
+  .stat-badge .stat-label { font-size: 12px; color: #555; margin-top: 3px; }
+
+  /* ── MECHANISM CARDS ── */
+  .mech-row { display: flex; gap: 12px; margin: 14px 0; flex-wrap: wrap; }
+  .mech-card { flex: 1; min-width: 200px; border-radius: 8px; padding: 16px; font-size: 14px; }
+  .mech-a { background: #fdecea; border: 1.5px solid #c0392b; }
+  .mech-b { background: #fff8e1; border: 1.5px solid #d35400; }
+  .mech-card .mech-title { font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+  .mech-a .mech-title { color: #c0392b; }
+  .mech-b .mech-title { color: #c05b00; }
+  .mech-card ul { margin-left: 16px; }
+  .mech-card ul li { margin-bottom: 5px; }
+
+  /* ── FACTOR CARDS ── */
+  .factor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+
+  .factor-card {
+    border-radius: 8px; padding: 13px 15px; font-size: 14px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+
+  .factor-card .fc-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+  .factor-card .fc-body {}
+  .factor-card .fc-title { font-weight: 700; margin-bottom: 4px; }
+  .factor-card .fc-note  { font-size: 13px; color: #555; }
+
+  .fc-red    { background: #fdecea; border: 1.5px solid #c0392b; }
+  .fc-orange { background: #fff8e1; border: 1.5px solid #d35400; }
+  .fc-gray   { background: #f5f5f5; border: 1.5px solid #bbb; }
+
+  /* ── TABLE (all factors) ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #2b3a4a; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f5f5f5; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0;
+  }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-orange { background: #fff3e0; color: #c05b00; }
+  .tag-gray   { background: #f0f0f0; color: #555; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 18px 0; }
+
+  @media (max-width: 600px) {
+    .mech-row { flex-direction: column; }
+    .factor-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎗️ Objectif 8 — Facteurs de risque du cancer du col de l'utérus</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="contexte" onclick="show(&#39;contexte&#39;,this)">📊 Contexte</button>
+  <button class="nav-btn" data-s="mecanisme" onclick="show(&#39;mecanisme&#39;,this)">🧠 Clé de lecture</button>
+  <button class="nav-btn" data-s="exposition" onclick="show(&#39;exposition&#39;,this)">🔴 (A) ↑ Exposition VPH</button>
+  <button class="nav-btn" data-s="persistance" onclick="show(&#39;persistance&#39;,this)">🟠 (B) ↑ Persistance / Progression</button>
+  <button class="nav-btn" data-s="tous" onclick="show(&#39;tous&#39;,this)">📋 Tous les facteurs</button>
+</div>
+
+<!-- ══════════════════════════════════
+     CONTEXTE
+═════════════════════════════════════ -->
+<div id="contexte" class="section active">
+  <div class="section-header h-blue">📊 Contexte épidémiologique</div>
+
+  <div class="stat-row">
+    <div class="stat-badge">
+      <span class="stat-num">3e</span>
+      <span class="stat-label">cancer gynécologique le plus fréquent (É.-U.)</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">&gt; 80 %</span>
+      <span class="stat-label">↓ incidence depuis les années 1950 (dépistage)</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">48 ans</span>
+      <span class="stat-label">âge médian au diagnostic (plus jeune que les autres cancers gynéco)</span>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:6px;">
+    <p>💡 La chute de l'incidence est directement attribuable au <strong>dépistage</strong> (test Pap, puis dépistage du VPH) — l'un des plus grands succès de la médecine préventive.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CLÉ DE LECTURE
+═════════════════════════════════════ -->
+<div id="mecanisme" class="section">
+  <div class="section-header h-purple">🧠 Clé de lecture — 2 mécanismes unificateurs</div>
+
+  <p style="margin-bottom:14px;">La plupart des facteurs de risque se ramènent à <strong>2 mécanismes</strong>. Comprendre cela permet de les retenir sans mémoriser une liste.</p>
+
+  <div class="mech-row">
+    <div class="mech-card mech-a">
+      <div class="mech-title">🔴 (A) ↑ Exposition / Acquisition du VPH</div>
+      <p style="margin-bottom:8px;">Tout ce qui augmente la <strong>probabilité d'entrer en contact</strong> avec le VPH :</p>
+      <ul>
+        <li>Début précoce de l'activité sexuelle</li>
+        <li>Partenaires sexuels multiples</li>
+        <li>ATCD de verrues génitales (condylomes)</li>
+        <li>JSC immature (adolescente/jeune femme)</li>
+      </ul>
+    </div>
+    <div class="mech-card mech-b">
+      <div class="mech-title">🟠 (B) ↑ Persistance / Progression</div>
+      <p style="margin-bottom:8px;">Tout ce qui <strong>empêche la clairance</strong> ou <strong>favorise la progression</strong> :</p>
+      <ul>
+        <li>Tabagisme (carcinogènes cervicaux + immunosuppression locale)</li>
+        <li>Infection VIH / immunosuppression</li>
+        <li>Transplantation, corticoïdes au long cours</li>
+        <li>Co-facteurs hormonaux (contraceptifs oraux)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:6px;">
+    <p>⚠️ Le <strong>VPH reste la cause nécessaire</strong> — sans persistance du VPH, aucun de ces facteurs ne mène au cancer du col. Ils agissent en <em>modulant</em> l'acquisition ou la progression.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     EXPOSITION
+═════════════════════════════════════ -->
+<div id="exposition" class="section">
+  <div class="section-header h-red">🔴 (A) Facteurs liés à l'exposition au VPH</div>
+
+  <div class="factor-grid">
+    <div class="factor-card fc-red">
+      <div class="fc-icon">🦠</div>
+      <div class="fc-body">
+        <div class="fc-title">VPH — facteur central</div>
+        <div class="fc-note">Cause nécessaire. &gt; 99 % des cancers du col.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red">
+      <div class="fc-icon">👧</div>
+      <div class="fc-body">
+        <div class="fc-title">Début précoce de l'activité sexuelle</div>
+        <div class="fc-note">JSC immature plus susceptible + exposition précoce au VPH.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red">
+      <div class="fc-icon">👫</div>
+      <div class="fc-body">
+        <div class="fc-title">Partenaires sexuels multiples</div>
+        <div class="fc-note">↑ probabilité d'exposition au VPH.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red">
+      <div class="fc-icon">🫧</div>
+      <div class="fc-body">
+        <div class="fc-title">ATCD de verrues génitales (condylomes)</div>
+        <div class="fc-note">Marqueur direct d'exposition au VPH.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red">
+      <div class="fc-icon">🤱</div>
+      <div class="fc-body">
+        <div class="fc-title">Multiparité</div>
+        <div class="fc-note">Co-facteur : traumatismes / changements cervicaux répétés.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red">
+      <div class="fc-icon">🌍</div>
+      <div class="fc-body">
+        <div class="fc-title">Disparités ethno-sociales</div>
+        <div class="fc-note">Femmes hispaniques et afro-américaines : accès moindre au dépistage → détection tardive.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-red" style="grid-column: 1 / -1;">
+      <div class="fc-icon">💰</div>
+      <div class="fc-body">
+        <div class="fc-title">Statut socio-économique faible</div>
+        <div class="fc-note">Accès moindre au dépistage → détection à un stade plus avancé.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PERSISTANCE
+═════════════════════════════════════ -->
+<div id="persistance" class="section">
+  <div class="section-header h-orange">🟠 (B) Facteurs liés à la persistance / progression</div>
+
+  <div class="factor-grid">
+    <div class="factor-card fc-orange">
+      <div class="fc-icon">🚬</div>
+      <div class="fc-body">
+        <div class="fc-title">Tabagisme</div>
+        <div class="fc-note">Carcinogènes concentrés dans le mucus cervical + immunosuppression locale → ↑ persistance du VPH.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-orange">
+      <div class="fc-icon">🔴</div>
+      <div class="fc-body">
+        <div class="fc-title">Infection par le VIH</div>
+        <div class="fc-note">Immunosuppression → ↑ persistance et progression de l'infection au VPH.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-orange">
+      <div class="fc-icon">💊</div>
+      <div class="fc-body">
+        <div class="fc-title">Immunodéficience / immunosuppression</div>
+        <div class="fc-note">Transplantation, corticoïdes au long cours — la clairance immunitaire du VPH est compromise.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-orange">
+      <div class="fc-icon">🩺</div>
+      <div class="fc-body">
+        <div class="fc-title">Contraceptifs oraux</div>
+        <div class="fc-note">Co-facteur hormonal — usage prolongé associé à ↑ risque.</div>
+      </div>
+    </div>
+    <div class="factor-card fc-gray" style="grid-column: 1 / -1;">
+      <div class="fc-icon">🧬</div>
+      <div class="fc-body">
+        <div class="fc-title">Exposition in utero au DES (diéthylstilbestrol)</div>
+        <div class="fc-note">Anomalie de la zone de transformation cervicale — mécanisme distinct des deux catégories principales.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TOUS LES FACTEURS
+═════════════════════════════════════ -->
+<div id="tous" class="section">
+  <div class="section-header h-dark">📋 Tous les facteurs de risque (Cecil, Table 189-1)</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Facteur de risque</th><th>Mécanisme</th><th>Commentaire</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>VPH</strong></td>
+          <td><span class="tag tag-red">Central</span></td>
+          <td>Cause nécessaire — détecté dans &gt; 99 % des cancers du col</td>
+        </tr>
+        <tr>
+          <td><strong>Début précoce de l'activité sexuelle</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>JSC immature plus susceptible + exposition précoce</td>
+        </tr>
+        <tr>
+          <td><strong>Partenaires sexuels multiples</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>↑ probabilité d'exposition au VPH</td>
+        </tr>
+        <tr>
+          <td><strong>ATCD de verrues génitales</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>Marqueur d'exposition au VPH</td>
+        </tr>
+        <tr>
+          <td><strong>Multiparité</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>Traumatismes / changements cervicaux répétés</td>
+        </tr>
+        <tr>
+          <td><strong>Statut socio-économique faible</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>Accès moindre au dépistage → détection tardive</td>
+        </tr>
+        <tr>
+          <td><strong>Disparités ethniques</strong></td>
+          <td><span class="tag tag-red">(A)</span></td>
+          <td>Femmes hispaniques et afro-américaines — barrières d'accès/dépistage</td>
+        </tr>
+        <tr>
+          <td><strong>Tabagisme</strong></td>
+          <td><span class="tag tag-orange">(B)</span></td>
+          <td>Carcinogènes cervicaux + immunosuppression locale → ↑ persistance VPH</td>
+        </tr>
+        <tr>
+          <td><strong>Infection par le VIH</strong></td>
+          <td><span class="tag tag-orange">(B)</span></td>
+          <td>Immunosuppression → ↑ persistance et progression</td>
+        </tr>
+        <tr>
+          <td><strong>Immunodéficience / immunosuppression</strong></td>
+          <td><span class="tag tag-orange">(B)</span></td>
+          <td>Transplantation, corticoïdes — clairance du VPH compromise</td>
+        </tr>
+        <tr>
+          <td><strong>Contraceptifs oraux</strong></td>
+          <td><span class="tag tag-orange">(B)</span></td>
+          <td>Co-facteur hormonal, usage prolongé</td>
+        </tr>
+        <tr>
+          <td><strong>Exposition in utero au DES</strong></td>
+          <td><span class="tag tag-gray">Autre</span></td>
+          <td>Anomalie de la zone de transformation cervicale</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
