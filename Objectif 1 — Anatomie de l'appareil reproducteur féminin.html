@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!-- saved from url=(0242)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/anatomie_reproducteur_feminin.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 1 — Anatomie de l'appareil reproducteur féminin</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+  .subtitle { font-size: 14px; color: #777; margin-bottom: 24px; }
+  h2 { font-size: 1rem; font-weight: 700; margin: 18px 0 8px; color: #1a1a1a; padding-bottom: 4px; border-bottom: 2px solid #e8e8e8; }
+  h3 { font-size: 0.9rem; font-weight: 700; margin: 12px 0 6px; color: #444; }
+  p  { margin-bottom: 9px; }
+  ul { margin: 6px 0 10px 20px; }
+  ul li { margin-bottom: 5px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── TOP NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+  .nav-btn {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; color: #444; transition: all 0.18s; white-space: nowrap;
+  }
+
+  .nav-btn[data-s="vue"].active       { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="vue"]:hover        { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="ovaires"].active   { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="ovaires"]:hover    { border-color: #8e44ad; color: #8e44ad; }
+  .nav-btn[data-s="trompes"].active   { background: #d35400; border-color: #d35400; color: #fff; }
+  .nav-btn[data-s="trompes"]:hover    { border-color: #d35400; color: #d35400; }
+  .nav-btn[data-s="uterus"].active    { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="uterus"]:hover     { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="vagin"].active     { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="vagin"]:hover      { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="externe"].active   { background: #b7950b; border-color: #b7950b; color: #fff; }
+  .nav-btn[data-s="externe"]:hover    { border-color: #b7950b; color: #b7950b; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-purple { background: #8e44ad; }
+  .h-orange { background: #d35400; }
+  .h-red    { background: #c0392b; }
+  .h-green  { background: #27783a; }
+  .h-yellow { background: #b7950b; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-red    { background: #fdecea; border-left: 4px solid #c0392b; }
+  .callout-purple { background: #f5f0ff; border-left: 4px solid #8e44ad; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-left: 18px; margin-top:6px; }
+  .callout ul li { margin-bottom:4px; }
+
+  /* ── INTERACTIVE DIAGRAM (vue d'ensemble) ── */
+  .diagram-wrap {
+    position: relative;
+    margin: 0 auto 20px;
+    max-width: 560px;
+  }
+
+  .diagram-wrap svg { width: 100%; height: auto; display: block; }
+
+  .organ-btn {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .organ-btn:hover { opacity: 0.8; }
+  .organ-btn.highlight { filter: drop-shadow(0 0 6px rgba(0,0,0,0.4)); }
+
+  .info-panel {
+    display: none;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+    margin-top: 12px;
+    animation: fadeIn 0.18s ease;
+  }
+  .info-panel.active { display: block; }
+  .info-panel h3 { margin-bottom: 8px; }
+
+  .hint { text-align: center; font-size: 13px; color: #888; margin-bottom: 10px; }
+
+  /* ── UTERUS LAYERS ── */
+  .layers { display: flex; flex-direction: column; gap: 0; margin: 14px 0; border-radius: 10px; overflow: hidden; border: 1.5px solid #ddd; }
+
+  .layer {
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .layer-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    font-weight: 700; font-size: 14.5px;
+    user-select: none;
+  }
+
+  .layer-arrow { margin-left: auto; font-size: 11px; color: #888; transition: transform 0.2s; }
+  .layer.open .layer-arrow { transform: rotate(90deg); }
+
+  .layer-body {
+    display: none;
+    padding: 10px 16px 14px;
+    font-size: 14px;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .layer-endo   .layer-header { background: #fdecea; }
+  .layer-myo    .layer-header { background: #fff3e0; }
+  .layer-sereux .layer-header { background: #f0f7ff; }
+
+  .layer-endo   .layer-body { background: #fff8f8; }
+  .layer-myo    .layer-body { background: #fffaf5; }
+  .layer-sereux .layer-body { background: #f5faff; }
+
+  /* ── TROMPES PARTS ── */
+  .trompe-grid { display: flex; gap: 0; margin: 14px 0; border: 1.5px solid #ddd; border-radius: 10px; overflow: hidden; }
+
+  .trompe-part {
+    flex: 1; padding: 12px 10px; text-align: center; cursor: pointer;
+    font-size: 13px; font-weight: 600; border-right: 1px solid #ddd;
+    transition: background 0.15s;
+    background: #fff;
+  }
+  .trompe-part:last-child { border-right: none; }
+  .trompe-part:hover { background: #f5f5f5; }
+  .trompe-part.active-part { background: #fff3e0; color: #c05b00; }
+
+  .trompe-detail {
+    display: none;
+    padding: 12px 16px;
+    font-size: 14px;
+    background: #fffaf5;
+    border: 1.5px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    animation: fadeIn 0.18s ease;
+  }
+  .trompe-detail.active { display: block; }
+
+  /* ── FOLLICLE STAGES ── */
+  .follicle-row {
+    display: flex; gap: 6px; margin: 14px 0; flex-wrap: wrap;
+  }
+
+  .follicle-stage {
+    flex: 1; min-width: 100px; border-radius: 8px; padding: 10px 12px;
+    text-align: center; font-size: 13px; cursor: pointer;
+    border: 1.5px solid #ccc; background: #fff;
+    transition: all 0.15s;
+  }
+  .follicle-stage:hover { border-color: #8e44ad; background: #f5f0ff; }
+  .follicle-stage.active-f { background: #8e44ad; color: #fff; border-color: #8e44ad; }
+  .follicle-stage .f-icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .follicle-stage .f-label { font-weight: 700; font-size: 12px; }
+
+  .follicle-info {
+    display: none; background: #f5f0ff; border: 1.5px solid #8e44ad;
+    border-radius: 8px; padding: 12px 16px; font-size: 14px; margin-top: 4px;
+    animation: fadeIn 0.18s ease;
+  }
+  .follicle-info.active { display: block; }
+
+  /* ── JSC VISUAL ── */
+  .jsc-visual {
+    display: flex; gap: 0; margin: 14px 0; border-radius: 10px; overflow: hidden; border: 1.5px solid #ddd;
+    font-size: 14px; text-align: center;
+  }
+  .jsc-left  { flex: 1; background: #fdecea; padding: 16px 12px; }
+  .jsc-mid   { width: 70px; background: #2b3a4a; color: #fff; padding: 16px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; gap: 4px; }
+  .jsc-right { flex: 1; background: #f0f7ff; padding: 16px 12px; }
+  .jsc-title { font-weight: 700; margin-bottom: 6px; font-size: 13.5px; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 16px 0; }
+
+  @media (max-width: 600px) {
+    .trompe-grid { flex-direction: column; }
+    .trompe-part { border-right: none; border-bottom: 1px solid #ddd; }
+    .trompe-part:last-child { border-bottom: none; }
+    .jsc-visual { flex-direction: column; }
+    .jsc-mid { width: 100%; flex-direction: row; padding: 10px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🧬 Objectif 1 — Anatomie de l'appareil reproducteur féminin</h1>
+<p class="subtitle">Ovaires · Trompes · Utérus · Vagin · Organes externes — Cliquez sur les onglets ou les éléments interactifs pour explorer.</p>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="vue" onclick="show(&#39;vue&#39;,this)">🗺️ Vue d'ensemble</button>
+  <button class="nav-btn" data-s="ovaires" onclick="show(&#39;ovaires&#39;,this)">🟣 Ovaires</button>
+  <button class="nav-btn" data-s="trompes" onclick="show(&#39;trompes&#39;,this)">🟠 Trompes de Fallope</button>
+  <button class="nav-btn" data-s="uterus" onclick="show(&#39;uterus&#39;,this)">🔴 Utérus</button>
+  <button class="nav-btn" data-s="vagin" onclick="show(&#39;vagin&#39;,this)">🟢 Vagin &amp; Col</button>
+  <button class="nav-btn" data-s="externe" onclick="show(&#39;externe&#39;,this)">🟡 Organes externes</button>
+</div>
+
+<!-- ══════════════════════════════════
+     VUE D'ENSEMBLE — SVG cliquable
+═════════════════════════════════════ -->
+<div id="vue" class="section active">
+  <div class="section-header h-blue">🗺️ Vue d'ensemble — cliquez sur un organe</div>
+
+  <p class="hint">👆 Cliquez sur chaque organe pour afficher ses infos clés</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Ligament large (background) -->
+      <ellipse cx="280" cy="230" rx="195" ry="110" fill="#f0e6ff" stroke="#c9a8e8" stroke-width="1.5" stroke-dasharray="6,3"></ellipse>
+      <text x="280" y="355" text-anchor="middle" font-size="11" fill="#9b59b6" font-style="italic">Ligament large</text>
+
+      <!-- Trompes -->
+      <g class="organ-btn" id="btn-trompe-g" onclick="showInfo(&#39;info-trompes&#39;)">
+        <path d="M200,195 Q160,175 130,170 Q110,168 100,160 Q90,152 98,145" fill="none" stroke="#d35400" stroke-width="6" stroke-linecap="round"></path>
+        <!-- fimbriae -->
+        <line x1="98" y1="145" x2="86" y2="138" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="98" y1="145" x2="90" y2="133" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="98" y1="145" x2="100" y2="131" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="98" y1="145" x2="108" y2="133" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <text x="130" y="155" font-size="11" fill="#d35400" font-weight="bold">Trompe G</text>
+      </g>
+
+      <g class="organ-btn" id="btn-trompe-d" onclick="showInfo(&#39;info-trompes&#39;)">
+        <path d="M360,195 Q400,175 430,170 Q450,168 460,160 Q470,152 462,145" fill="none" stroke="#d35400" stroke-width="6" stroke-linecap="round"></path>
+        <line x1="462" y1="145" x2="474" y2="138" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="462" y1="145" x2="470" y2="133" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="462" y1="145" x2="460" y2="131" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="462" y1="145" x2="452" y2="133" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+        <text x="390" y="155" font-size="11" fill="#d35400" font-weight="bold">Trompe D</text>
+      </g>
+
+      <!-- Ovaires -->
+      <g class="organ-btn" onclick="showInfo(&#39;info-ovaires&#39;)">
+        <ellipse cx="95" cy="175" rx="22" ry="15" fill="#c9a8e8" stroke="#8e44ad" stroke-width="2"></ellipse>
+        <text x="62" y="200" font-size="11" fill="#8e44ad" font-weight="bold">Ovaire G</text>
+      </g>
+      <g class="organ-btn" onclick="showInfo(&#39;info-ovaires&#39;)">
+        <ellipse cx="465" cy="175" rx="22" ry="15" fill="#c9a8e8" stroke="#8e44ad" stroke-width="2"></ellipse>
+        <text x="433" y="200" font-size="11" fill="#8e44ad" font-weight="bold">Ovaire D</text>
+      </g>
+
+      <!-- Utérus -->
+      <g class="organ-btn" onclick="showInfo(&#39;info-uterus&#39;)">
+        <!-- Corps utérin -->
+        <path d="M200,195 Q200,150 280,145 Q360,150 360,195 L355,265 Q340,290 280,295 Q220,290 205,265 Z" fill="#f4a8a8" stroke="#c0392b" stroke-width="2.5"></path>
+        <!-- Cavité -->
+        <path d="M240,195 Q240,175 280,172 Q320,175 320,195 L317,255 Q308,268 280,270 Q252,268 243,255 Z" fill="#c0392b" opacity="0.3"></path>
+        <text x="280" y="235" text-anchor="middle" font-size="13" fill="#7b241c" font-weight="bold">Utérus</text>
+        <text x="280" y="250" text-anchor="middle" font-size="10" fill="#7b241c">fundus + corps</text>
+      </g>
+
+      <!-- Col -->
+      <g class="organ-btn" onclick="showInfo(&#39;info-vagin&#39;)">
+        <rect x="255" y="295" width="50" height="40" rx="6" fill="#f4a8a8" stroke="#c0392b" stroke-width="2"></rect>
+        <text x="280" y="320" text-anchor="middle" font-size="11" fill="#7b241c" font-weight="bold">Col</text>
+      </g>
+
+      <!-- Vagin -->
+      <g class="organ-btn" onclick="showInfo(&#39;info-vagin&#39;)">
+        <path d="M258,335 Q255,380 260,420 Q270,435 280,436 Q290,435 300,420 Q305,380 302,335 Z" fill="#a8d8a8" stroke="#27783a" stroke-width="2"></path>
+        <text x="280" y="410" text-anchor="middle" font-size="12" fill="#1e5c2e" font-weight="bold">Vagin</text>
+      </g>
+
+      <!-- Ligament utéro-sacré labels -->
+      <text x="165" y="305" font-size="10" fill="#888" font-style="italic">Lig. utéro-sacré</text>
+      <line x1="215" y1="300" x2="195" y2="308" stroke="#bbb" stroke-width="1" stroke-dasharray="3,2"></line>
+      <text x="345" y="305" font-size="10" fill="#888" font-style="italic">Lig. utéro-sacré</text>
+      <line x1="345" y1="300" x2="365" y2="308" stroke="#bbb" stroke-width="1" stroke-dasharray="3,2"></line>
+
+      <!-- Légende -->
+      <rect x="10" y="10" width="160" height="96" rx="6" fill="#f9f9f9" stroke="#ddd" stroke-width="1"></rect>
+      <text x="20" y="27" font-size="11" font-weight="bold" fill="#444">Légende (cliquer)</text>
+      <circle cx="22" cy="42" r="5" fill="#c9a8e8" stroke="#8e44ad" stroke-width="1.5"></circle>
+      <text x="32" y="46" font-size="11" fill="#8e44ad">Ovaires</text>
+      <line x1="17" y1="57" x2="27" y2="57" stroke="#d35400" stroke-width="3" stroke-linecap="round"></line>
+      <text x="32" y="61" font-size="11" fill="#d35400">Trompes</text>
+      <rect x="17" y="68" width="10" height="10" rx="2" fill="#f4a8a8" stroke="#c0392b" stroke-width="1.5"></rect>
+      <text x="32" y="77" font-size="11" fill="#c0392b">Utérus / Col</text>
+      <rect x="17" y="83" width="10" height="10" rx="2" fill="#a8d8a8" stroke="#27783a" stroke-width="1.5"></rect>
+      <text x="32" y="92" font-size="11" fill="#27783a">Vagin</text>
+    </svg>
+  </div>
+
+  <!-- Info panels (shown on click) -->
+  <div id="info-ovaires" class="info-panel">
+    <h3 style="color:#8e44ad;">🟣 Ovaires</h3>
+    <p>Gonades femelles situées près des parois latérales du pelvis. Cortex contient les follicules; médulla richement vascularisée. <strong>Toute la réserve d'ovules est établie à la naissance</strong> — aucune nouvelle oogonie après.</p>
+    <p style="margin-top:6px;font-size:13px;color:#888;">→ Cliquez sur l'onglet « Ovaires » pour plus de détails.</p>
+  </div>
+
+  <div id="info-trompes" class="info-panel">
+    <h3 style="color:#d35400;">🟠 Trompes de Fallope</h3>
+    <p>~10 cm, 4 parties : infundibulum (fimbriae) → ampoule → isthme → partie utérine. <strong>Fécondation dans le tiers supérieur</strong>. Propulsion par cils et péristaltisme.</p>
+    <p style="margin-top:6px;font-size:13px;color:#888;">→ Cliquez sur l'onglet « Trompes » pour explorer les 4 parties.</p>
+  </div>
+
+  <div id="info-uterus" class="info-panel">
+    <h3 style="color:#c0392b;">🔴 Utérus</h3>
+    <p>Organe creux en poire (~8×4×2 cm). Fundus → corps → col. 3 couches : <strong>endomètre</strong> (muqueuse), <strong>myomètre</strong> (muscle lisse), <strong>séreuse</strong>.</p>
+    <p style="margin-top:6px;font-size:13px;color:#888;">→ Cliquez sur l'onglet « Utérus » pour explorer les 3 couches.</p>
+  </div>
+
+  <div id="info-vagin" class="info-panel">
+    <h3 style="color:#27783a;">🟢 Vagin &amp; Col</h3>
+    <p>Col : canal reliant cavité utérine et vagin (os interne → os externe). <strong>JSC (jonction squamo-cylindrique)</strong> = zone de transformation, cible du VPH. Vagin : conduit élastique tapissé d'épithélium pavimenteux stratifié.</p>
+    <p style="margin-top:6px;font-size:13px;color:#888;">→ Cliquez sur l'onglet « Vagin &amp; Col » pour plus de détails.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     OVAIRES
+═════════════════════════════════════ -->
+<div id="ovaires" class="section">
+  <div class="section-header h-purple">🟣 Ovaires — gonades femelles</div>
+
+  <ul>
+    <li>Situés près des parois latérales de la cavité pelvienne; taille variable selon l'âge et la phase du cycle.</li>
+    <li>Recouverts d'un <strong>épithélium simple</strong>, sous lequel se trouve la <strong>tunica albuginea</strong> (tissu conjonctif fibreux dense).</li>
+    <li><strong>Cortex</strong> : stroma + ovules à divers stades de maturation.</li>
+    <li><strong>Médulla</strong> : tissu conjonctif lâche richement vascularisé et innervé.</li>
+  </ul>
+
+  <div class="callout callout-purple">
+    <p>🧠 <strong>Réserve ovarienne :</strong> à la naissance, des centaines de milliers d'oogonies sont déjà présentes. <strong>Toute la réserve d'ovules est établie durant le développement embryonnaire</strong> — aucune nouvelle oogonie après la naissance.</p>
+  </div>
+
+  <h2>Folliculogenèse — cliquez sur un stade</h2>
+  <div class="follicle-row">
+    <div class="follicle-stage" onclick="showFollicle(&#39;f1&#39;,this)">
+      <span class="f-icon">🔵</span>
+      <span class="f-label">Follicule primordial</span>
+    </div>
+    <div class="follicle-stage" onclick="showFollicle(&#39;f2&#39;,this)">
+      <span class="f-icon">🟡</span>
+      <span class="f-label">Follicule primaire</span>
+    </div>
+    <div class="follicle-stage" onclick="showFollicle(&#39;f3&#39;,this)">
+      <span class="f-icon">🟠</span>
+      <span class="f-label">Follicule secondaire</span>
+    </div>
+    <div class="follicle-stage" onclick="showFollicle(&#39;f4&#39;,this)">
+      <span class="f-icon">⭐</span>
+      <span class="f-label">Follicule de De Graaf</span>
+    </div>
+    <div class="follicle-stage" onclick="showFollicle(&#39;f5&#39;,this)">
+      <span class="f-icon">💥</span>
+      <span class="f-label">Ovulation</span>
+    </div>
+    <div class="follicle-stage" onclick="showFollicle(&#39;f6&#39;,this)">
+      <span class="f-icon">🌑</span>
+      <span class="f-label">Atrésie</span>
+    </div>
+  </div>
+
+  <div id="f1" class="follicle-info"><strong>Follicule primordial :</strong> oogonie entourée d'une seule couche de cellules de la granulosa aplaties. État de repos — constitue la réserve ovarienne.</div>
+  <div id="f2" class="follicle-info"><strong>Follicule primaire :</strong> les cellules de la granulosa deviennent cubiques. L'ovocyte grossit et la zone pellucide commence à se former.</div>
+  <div id="f3" class="follicle-info"><strong>Follicule secondaire :</strong> plusieurs couches de cellules de la granulosa; apparition de la thèque interne et externe. Réponse croissante à la FSH.</div>
+  <div id="f4" class="follicle-info"><strong>Follicule de De Graaf (mature) :</strong> antrum rempli de liquide folliculaire; ovocyte I suspendu dans le cumulus oophorus. Prêt pour l'ovulation sous la poussée du pic de LH.</div>
+  <div id="f5" class="follicle-info"><strong>Ovulation :</strong> rupture du follicule sous le pic de LH (~jour 14). L'ovocyte II est libéré. La fécondation doit se produire dans les 12–24 h dans le tiers supérieur de la trompe.</div>
+  <div id="f6" class="follicle-info"><strong>Atrésie folliculaire :</strong> la grande majorité des follicules dégénèrent à tout moment du cycle. Sur les ~400 000 follicules à la puberté, seuls ~400 seront ovulés durant toute la vie reproductive.</div>
+</div>
+
+<!-- ══════════════════════════════════
+     TROMPES DE FALLOPE
+═════════════════════════════════════ -->
+<div id="trompes" class="section">
+  <div class="section-header h-orange">🟠 Trompes de Fallope (oviductes)</div>
+
+  <p>~<strong>10 cm</strong> de long, situées dans le bord supérieur du ligament large. Cliquez sur chaque partie pour en savoir plus.</p>
+
+  <div class="trompe-grid">
+    <div class="trompe-part" onclick="showTrompe(&#39;t1&#39;,this)">Infundibulum<br><span style="font-size:11px;font-weight:400;">(extrémité libre)</span></div>
+    <div class="trompe-part" onclick="showTrompe(&#39;t2&#39;,this)">Ampoule<br><span style="font-size:11px;font-weight:400;">(la + longue)</span></div>
+    <div class="trompe-part" onclick="showTrompe(&#39;t3&#39;,this)">Isthme<br><span style="font-size:11px;font-weight:400;">(portion étroite)</span></div>
+    <div class="trompe-part" onclick="showTrompe(&#39;t4&#39;,this)">Partie utérine<br><span style="font-size:11px;font-weight:400;">(jonction)</span></div>
+  </div>
+
+  <div id="t1" class="trompe-detail">
+    <strong>Infundibulum :</strong> extrémité libre en forme d'entonnoir, bordée de projections digitiformes appelées <strong>fimbriae</strong>. Les fimbriae « captent » l'ovocyte libéré lors de l'ovulation et le dirigent vers la trompe.
+  </div>
+  <div id="t2" class="trompe-detail">
+    <strong>Ampoule :</strong> portion la plus longue (~5 cm). C'est ici que se produit la <strong>fécondation</strong> (tiers supérieur / ampoule). L'épithélium cilié est particulièrement développé.
+  </div>
+  <div id="t3" class="trompe-detail">
+    <strong>Isthme :</strong> portion étroite et musculeuse proche de l'utérus. La propulsion de l'ovule/embryon se fait par les <strong>cils</strong> et les <strong>contractions péristaltiques</strong>.
+  </div>
+  <div id="t4" class="trompe-detail">
+    <strong>Partie utérine (interstitielle) :</strong> traverse la paroi de l'utérus pour s'ouvrir dans la cavité utérine. Portion la plus étroite — site de stérilisation tubaire (ligature ou coagulation).
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:14px;">
+    <p>⚠️ <strong>Grossesse ectopique :</strong> si un embryon reste bloqué dans la trompe (souvent l'ampoule ou l'isthme), il peut implanter là → grossesse tubaire = urgence chirurgicale.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     UTÉRUS
+═════════════════════════════════════ -->
+<div id="uterus" class="section">
+  <div class="section-header h-red">🔴 Utérus</div>
+
+  <p>Organe creux en forme de poire (~<strong>8 cm</strong> long, <strong>4 cm</strong> large, <strong>2 cm</strong> épais à l'état non gravide). Régions : <strong>fundus</strong> → <strong>corps</strong> → <strong>col</strong>.</p>
+
+  <p>Le col contient un canal reliant la cavité utérine (<strong>os interne</strong>) au vagin (<strong>os externe</strong>).</p>
+
+  <h2>Les 3 couches de la paroi — cliquez pour développer</h2>
+
+  <div class="layers">
+    <div class="layer layer-endo" onclick="toggleLayer(this)">
+      <div class="layer-header">
+        <span style="color:#c0392b;">🔴</span>
+        <span style="color:#c0392b;">Endomètre</span>
+        <span style="font-weight:400;font-size:13px;color:#888;margin-left:8px;">muqueuse interne</span>
+        <span class="layer-arrow">▶</span>
+      </div>
+      <div class="layer-body">
+        <p>Composé de <strong>deux couches</strong> :</p>
+        <ul>
+          <li><strong>Couche basale</strong> (profonde, mince) : permanente, régénère la fonctionnelle après chaque cycle.</li>
+          <li><strong>Couche fonctionnelle</strong> (superficielle, épaisse) : prolifère sous l'effet des œstrogènes, desquame sous l'effet de la progestérone. <em>= les menstruations.</em></li>
+        </ul>
+        <div class="callout callout-red" style="margin-top:8px;">
+          <p>🔑 Seule la couche <strong>fonctionnelle</strong> desquame (menstruations); la basale est conservée et régénère. Un endomètre stimulé en continu par des <strong>œstrogènes non opposés</strong> s'épaissit → hyperplasie → carcinome (Obj 6, 10, 11).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer layer-myo" onclick="toggleLayer(this)">
+      <div class="layer-header">
+        <span style="color:#c05b00;">🟠</span>
+        <span style="color:#c05b00;">Myomètre</span>
+        <span style="font-weight:400;font-size:13px;color:#888;margin-left:8px;">couche musculaire moyenne</span>
+        <span class="layer-arrow">▶</span>
+      </div>
+      <div class="layer-body">
+        <p>Trois couches de <strong>muscle lisse</strong> dont les fibres sont orientées différemment (longitudinale, circulaire, oblique).</p>
+        <div class="callout callout-yellow" style="margin-top:8px;">
+          <p>🔑 Les <strong>léiomyomes (fibromes)</strong> naissent du myomètre. Leur contractilité explique les <strong>crampes menstruelles</strong> (via prostaglandines) et l'efficacité des <strong>AINS</strong> (Obj 7).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer layer-sereux" onclick="toggleLayer(this)">
+      <div class="layer-header">
+        <span style="color:#1e6fa8;">🔵</span>
+        <span style="color:#1e6fa8;">Séreuse (périmètre)</span>
+        <span style="font-weight:400;font-size:13px;color:#888;margin-left:8px;">couche externe</span>
+        <span class="layer-arrow">▶</span>
+      </div>
+      <div class="layer-body">
+        <p>Simple couche de cellules <strong>mésothéliales</strong> — recouvre le corps utérin.</p>
+        <div class="callout callout-blue" style="margin-top:8px;">
+          <p>🔑 L'envahissement de la séreuse par un carcinome de l'endomètre <strong>fait basculer la stadification</strong> (passage au stade III — Obj 11).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     VAGIN & COL
+═════════════════════════════════════ -->
+<div id="vagin" class="section">
+  <div class="section-header h-green">🟢 Vagin &amp; Col de l'utérus</div>
+
+  <h2>Vagin</h2>
+  <ul>
+    <li>Conduit <strong>musculaire élastique</strong> : sert au coït, à l'évacuation de l'endomètre desquamé et de voie inférieure du canal de naissance.</li>
+    <li>Situé en avant du rectum et en arrière de l'urètre/vessie.</li>
+    <li>Tapissé d'une muqueuse d'<strong>épithélium pavimenteux stratifié</strong>; replis transverses = <strong>rugae</strong>.</li>
+    <li>La paroi s'amincit avec l'âge (atrophie post-ménopausique).</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>Jonction squamo-cylindrique (JSC) — Zone de transformation</h2>
+  <p>Rencontre entre deux types d'épithélium au niveau du col :</p>
+
+  <div class="jsc-visual">
+    <div class="jsc-left">
+      <div class="jsc-title" style="color:#c0392b;">Épithélium pavimenteux</div>
+      <p style="font-size:13px;">Exocol + vagin<br>Stratifié, résistant</p>
+    </div>
+    <div class="jsc-mid">
+      ⚡<br>JSC
+    </div>
+    <div class="jsc-right">
+      <div class="jsc-title" style="color:#1e6fa8;">Épithélium cylindrique</div>
+      <p style="font-size:13px;">Endocol<br>Simple couche, sécrétoire</p>
+    </div>
+  </div>
+
+  <div class="callout callout-red" style="margin-top:8px;">
+    <p>🔑 La JSC est en <strong>métaplasie active</strong> → cible privilégiée du <strong>VPH</strong> → siège de la quasi-totalité des dysplasies et cancers du col (Obj 8–9).</p>
+    <p style="margin-top:6px;">Plus exposée chez l'adolescente/jeune femme (<strong>ectropion</strong>) → vulnérabilité accrue à une infection précoce.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     ORGANES EXTERNES
+═════════════════════════════════════ -->
+<div id="externe" class="section">
+  <div class="section-header h-yellow">🟡 Organes génitaux externes (vulve)</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;">
+
+    <div style="border-radius:8px;padding:14px;background:#fffbeb;border:1.5px solid #b7950b;font-size:14px;">
+      <div style="font-weight:700;color:#b7950b;margin-bottom:6px;">🏔️ Mont du pubis</div>
+      <p>Eminence adipeuse recouverte de poils pubiens sus le pubis.</p>
+    </div>
+
+    <div style="border-radius:8px;padding:14px;background:#fffbeb;border:1.5px solid #b7950b;font-size:14px;">
+      <div style="font-weight:700;color:#b7950b;margin-bottom:6px;">👄 Grandes lèvres</div>
+      <p>Deux replis cutanés adipeux qui protègent les structures internes.</p>
+    </div>
+
+    <div style="border-radius:8px;padding:14px;background:#fffbeb;border:1.5px solid #b7950b;font-size:14px;">
+      <div style="font-weight:700;color:#b7950b;margin-bottom:6px;">〰️ Petites lèvres</div>
+      <p>Replis cutanéo-muqueux sans tissu adipeux, entourant le vestibule.</p>
+    </div>
+
+    <div style="border-radius:8px;padding:14px;background:#fffbeb;border:1.5px solid #b7950b;font-size:14px;">
+      <div style="font-weight:700;color:#b7950b;margin-bottom:6px;">⭐ Clitoris</div>
+      <p>Corps de tissu érectile (~2 cm), recouvert du prépuce. Gland très sensible (riche en terminaisons nerveuses).</p>
+    </div>
+
+    <div style="border-radius:8px;padding:14px;background:#fffbeb;border:1.5px solid #b7950b;font-size:14px;grid-column:1/-1;">
+      <div style="font-weight:700;color:#b7950b;margin-bottom:8px;">🔵 Vestibule du vagin</div>
+      <p>Espace délimité par les petites lèvres. Contient :</p>
+      <ul style="margin-left:16px;margin-top:6px;">
+        <li><strong>Ouverture du vagin</strong> (introïtus)</li>
+        <li><strong>Méat urétral</strong></li>
+        <li><strong>Glandes de Bartholin</strong> (grandes glandes vestibulaires) — lubrification lors de l'excitation</li>
+        <li><strong>Glandes de Skene</strong> (para-urétrales) — lubrification</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showInfo(id) {
+    document.querySelectorAll('.info-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById(id);
+    if (panel) panel.classList.add('active');
+  }
+
+  function toggleLayer(el) {
+    const body = el.querySelector('.layer-body');
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open', !isOpen);
+    body.style.display = isOpen ? 'none' : 'block';
+  }
+
+  function showTrompe(id, btn) {
+    document.querySelectorAll('.trompe-detail').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.trompe-part').forEach(b => b.classList.remove('active-part'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active-part');
+  }
+
+  function showFollicle(id, btn) {
+    document.querySelectorAll('.follicle-info').forEach(f => f.classList.remove('active'));
+    document.querySelectorAll('.follicle-stage').forEach(b => b.classList.remove('active-f'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active-f');
+  }
+</script>
+
+
+</body></html>
