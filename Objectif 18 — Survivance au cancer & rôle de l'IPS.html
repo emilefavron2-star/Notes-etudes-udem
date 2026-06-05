@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0234)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/survivance_cancer_ips.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 18 — Survivance au cancer &amp; rôle de l'IPS</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; padding-bottom: 5px; border-bottom: 2px solid #e8e8e8; }
+  h3 { font-size: 0.95rem; font-weight: 700; margin: 14px 0 8px; color: #333; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 6px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .nav-btn[data-s="definition"].active  { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="definition"]:hover   { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="enjeux"].active      { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="enjeux"]:hover       { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="ips"].active         { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="ips"]:hover          { border-color: #27783a; color: #27783a; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-red    { background: #c0392b; }
+  .h-green  { background: #27783a; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 13px 17px; margin: 14px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ── STAT BADGES ── */
+  .stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+  .stat-badge {
+    flex: 1; min-width: 130px;
+    background: #f0f7ff; border: 1.5px solid #2b8acc;
+    border-radius: 8px; padding: 12px 14px; text-align: center;
+    font-size: 14px;
+  }
+  .stat-badge .stat-num { font-size: 1.4rem; font-weight: 700; color: #1e6fa8; display: block; }
+  .stat-badge .stat-label { font-size: 12px; color: #555; margin-top: 3px; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #2b3a4a; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f5f5f5; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+
+  /* ── ENJEUX TABS (sub) ── */
+  .sub-nav { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+
+  .sub-btn {
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.15s;
+  }
+  .sub-btn[data-sub="physique"].active  { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .sub-btn[data-sub="physique"]:hover   { border-color: #c0392b; color: #c0392b; }
+  .sub-btn[data-sub="financier"].active { background: #d35400; border-color: #d35400; color: #fff; }
+  .sub-btn[data-sub="financier"]:hover  { border-color: #d35400; color: #d35400; }
+  .sub-btn[data-sub="relations"].active { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .sub-btn[data-sub="relations"]:hover  { border-color: #8e44ad; color: #8e44ad; }
+
+  .sub-panel { display: none; animation: fadeIn 0.2s ease; }
+  .sub-panel.active { display: block; }
+
+  /* ── IPS CHECKLIST ── */
+  .ips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+
+  .ips-card {
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px;
+    border: 1.5px solid #27783a;
+    background: #f0faf2;
+  }
+
+  .ips-card .ips-title {
+    font-weight: 700;
+    color: #27783a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ips-card.ips-highlight {
+    background: #e8f5e9;
+    border-color: #1b5e20;
+    grid-column: 1 / -1;
+  }
+
+  .ips-card.ips-highlight .ips-title { color: #1b5e20; }
+
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0;
+  }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-blue   { background: #e8f4fd; color: #1e6fa8; }
+  .tag-green  { background: #e8f5e9; color: #27783a; }
+  .tag-orange { background: #fff3e0; color: #c05b00; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 18px 0; }
+
+  @media (max-width: 600px) {
+    .ips-grid { grid-template-columns: 1fr; }
+    .stat-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎗️ Objectif 18 — Survivance au cancer &amp; rôle de l'IPS</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="definition" onclick="show(&#39;definition&#39;,this)">📖 Définition</button>
+  <button class="nav-btn" data-s="enjeux" onclick="show(&#39;enjeux&#39;,this)">⚠️ Enjeux vécus</button>
+  <button class="nav-btn" data-s="ips" onclick="show(&#39;ips&#39;,this)">🩺 Rôle de l'IPS</button>
+</div>
+
+<!-- ══════════════════════════════════
+     DÉFINITION
+═════════════════════════════════════ -->
+<div id="definition" class="section active">
+  <div class="section-header h-blue">📖 Définition</div>
+
+  <div class="callout callout-blue">
+    <p>Un <strong>survivant du cancer</strong> = « toute personne ayant reçu un diagnostic de cancer, depuis le moment du diagnostic jusqu'à la fin de sa vie ».</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-badge">
+      <span class="stat-num">&gt; 15,5 M</span>
+      <span class="stat-label">survivants aux É.-U. (2016)</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">~64 %</span>
+      <span class="stat-label">survivent &gt; 5 ans</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">~40 %</span>
+      <span class="stat-label">survivent &gt; 10 ans</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">majorité</span>
+      <span class="stat-label">&lt; 65 ans</span>
+    </div>
+  </div>
+
+  <p style="margin-top:14px;">La transition vers la communauté génère <strong>incertitude, anxiété et isolement</strong> (suivi oncologique moins fréquent). L'IPS/IPSPL en première ligne est <strong>idéalement placé</strong> pour améliorer la qualité de vie.</p>
+
+  <div class="callout callout-yellow" style="margin-top:14px;">
+    <p>💡 <strong>Contexte gynéco-oncologique (Cecil ch. 189) :</strong> le clinicien de 1re ligne a un rôle essentiel dans la <strong>reconnaissance des survivants de cancers gynécologiques</strong>, l'orientation vers les spécialistes appropriés et la gestion des enjeux de survivance, puisque la population de survivants croît à mesure que les résultats s'améliorent.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     ENJEUX VÉCUS
+═════════════════════════════════════ -->
+<div id="enjeux" class="section">
+  <div class="section-header h-red">⚠️ Enjeux vécus par les survivants</div>
+
+  <div class="sub-nav">
+    <button class="sub-btn active" data-sub="physique" onclick="showSub(&#39;physique&#39;,this)">🦴 Effets physiques à long terme</button>
+    <button class="sub-btn" data-sub="financier" onclick="showSub(&#39;financier&#39;,this)">💸 Emploi &amp; fardeau financier</button>
+    <button class="sub-btn" data-sub="relations" onclick="showSub(&#39;relations&#39;,this)">💜 Relations &amp; intimité</button>
+  </div>
+
+  <!-- Physique -->
+  <div id="sub-physique" class="sub-panel active">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Effet</th><th>Détails</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cardiotoxicité</strong></td>
+            <td>
+              Surtout les <strong>anthracyclines</strong> (doxorubicine) → cardiomyopathie / IC (risque ×2, ×4 si combiné au trastuzumab).<br>
+              3 types : <span class="tag tag-orange">aiguë</span> <span class="tag tag-red">chronique précoce &lt; 1 an (la + fréquente)</span> <span class="tag tag-blue">chronique tardive (années-décennies)</span><br>
+              → Dépister/gérer les FdR CV modifiables ; échocardiogramme 6–12 mois post-traitement chez les patients à haut risque.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Neuropathie périphérique (CIPN)</strong></td>
+            <td>
+              Incidence <strong>~38 %</strong>. Surtout <strong>platines, vinca-alcaloïdes, taxanes, bortézomib</strong>.<br>
+              Distribution symétrique « gants et chaussettes », sensorielle, dose-dépendante.<br>
+              Tx : <span class="tag tag-green">duloxétine (efficace)</span> gabapentine, antidépresseurs tricycliques.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Ostéoporose</strong></td>
+            <td>Liée aux inhibiteurs de l'aromatase, au tamoxifène, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>Symptômes ménopausiques</strong></td>
+            <td>Bouffées, sueurs nocturnes, atrophie vaginale (ex. avec le tamoxifène).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Financier -->
+  <div id="sub-financier" class="sub-panel">
+    <div class="callout" style="background:#fff8e1;border-left:4px solid #d35400;">
+      <p><strong>💸 Toxicité financière</strong></p>
+      <p style="margin-top:6px;">Coût des traitements + perte de revenu = impact financier majeur.</p>
+    </div>
+    <p><strong>Plus à risque :</strong></p>
+    <ul>
+      <li>Survivants <strong>jeunes (&lt; 65 ans)</strong></li>
+      <li>Faible scolarité</li>
+      <li>Minorités ethniques</li>
+      <li>Faible revenu</li>
+    </ul>
+    <p style="margin-top:8px;">Certains épuisent leurs économies, contractent des prêts ou font <strong>faillite</strong>.</p>
+  </div>
+
+  <!-- Relations -->
+  <div id="sub-relations" class="sub-panel">
+    <ul>
+      <li>Modification des <strong>dynamiques familiales</strong> et du rôle du survivant.</li>
+      <li><strong>Dysfonction sexuelle</strong> : sécheresse vaginale, ↓ libido, douleur, fatigue.</li>
+      <li>Enjeux d'<strong>image corporelle</strong> — surtout chez les survivantes jeunes ou de cancers gynécologiques/du sein.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     RÔLE DE L'IPS
+═════════════════════════════════════ -->
+<div id="ips" class="section">
+  <div class="section-header h-green">🩺 Rôle de l'IPS (PCNP) — Points clés</div>
+
+  <div class="ips-grid">
+    <div class="ips-card">
+      <div class="ips-title">🔍 Reconnaître &amp; gérer</div>
+      <p>Reconnaître et gérer les effets physiques et psychosociaux à long terme. Être familier avec les <strong>toxicités des traitements</strong>.</p>
+    </div>
+    <div class="ips-card">
+      <div class="ips-title">🗣️ Anamnèse complète</div>
+      <p>Examen physique complet à chaque visite. Interroger sur la <strong>stabilité financière, les relations, l'emploi, l'accès aux soins</strong>.</p>
+    </div>
+    <div class="ips-card">
+      <div class="ips-title">🛡️ Dépistage &amp; prévention</div>
+      <p>Intégrer les tests de dépistage selon les <strong>facteurs de risque</strong> (promotion de la santé).</p>
+    </div>
+    <div class="ips-card">
+      <div class="ips-title">🤝 Orientation interdisciplinaire</div>
+      <p>Au besoin : travailleurs sociaux, psychothérapeutes, conseillers familiaux, nutritionnistes, cardiologue.</p>
+    </div>
+    <div class="ips-card">
+      <div class="ips-title">📢 Plaidoyer (advocacy)</div>
+      <p>Aider à accéder aux <strong>ressources gratuites / gouvernementales</strong>.</p>
+    </div>
+    <div class="ips-card">
+      <div class="ips-title">⚡ Détection précoce</div>
+      <p>Détection précoce, prévention et gestion immédiate des enjeux de survivance = <strong>clé</strong>.</p>
+    </div>
+
+    <!-- Plan de soins — full width -->
+    <div class="ips-card ips-highlight">
+      <div class="ips-title">📋 Plan de soins de survivance <em>(Survivorship Care Plan)</em></div>
+      <p>Recommandé par l'IOM. Inclut :</p>
+      <ul style="margin-left:18px;margin-top:6px;">
+        <li><strong>Résumé du traitement</strong></li>
+        <li>Effets tardifs potentiels et leur prévention</li>
+        <li>Recommandations de dépistage</li>
+        <li>Enjeux psychosociaux / financiers</li>
+        <li>Habitudes de vie saines</li>
+        <li>Counseling génétique et ressources de soutien</li>
+      </ul>
+      <p style="margin-top:10px;">C'est un <strong>outil de communication</strong> entre oncologue, survivant et 1re ligne. Malheureusement <strong>sous-utilisé</strong> → l'IPS devrait en demander une copie.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:6px;">
+    <p>💡 Une bonne communication <strong>survivant – oncologue – IPS</strong> améliore la qualité de vie.</p>
+  </div>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function showSub(id, btn) {
+    document.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sub-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
