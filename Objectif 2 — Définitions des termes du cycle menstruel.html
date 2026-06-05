@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!-- saved from url=(0237)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/terminologie_saignements.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 2 — Définitions des termes du cycle menstruel</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+  .subtitle { font-size: 14px; color: #777; margin-bottom: 24px; }
+  h2 { font-size: 1rem; font-weight: 700; margin: 18px 0 10px; color: #1a1a1a; padding-bottom: 4px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 9px; }
+  ul { margin: 6px 0 10px 20px; }
+  ul li { margin-bottom: 5px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .nav-btn {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; color: #444; transition: all 0.18s; white-space: nowrap;
+  }
+  .nav-btn[data-s="frise"].active     { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="frise"]:hover      { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="termes"].active    { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="termes"]:hover     { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="parametres"].active{ background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="parametres"]:hover { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="figo"].active      { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="figo"]:hover       { border-color: #8e44ad; color: #8e44ad; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-red    { background: #c0392b; }
+  .h-green  { background: #27783a; }
+  .h-purple { background: #8e44ad; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-purple { background: #f5f0ff; border-left: 4px solid #8e44ad; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-left: 18px; margin-top: 6px; }
+  .callout ul li { margin-bottom: 4px; }
+
+  /* ── TIMELINE INTERACTIVE ── */
+  .timeline-wrap { margin: 20px 0; position: relative; }
+
+  .timeline-axis {
+    position: relative;
+    height: 60px;
+    margin: 0 10px;
+  }
+
+  .tl-track {
+    position: absolute;
+    top: 28px;
+    left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #e8e8e8 0%, #2b8acc 30%, #27783a 55%, #2b8acc 75%, #e8e8e8 100%);
+    border-radius: 3px;
+  }
+
+  .tl-marker {
+    position: absolute;
+    top: 14px;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center;
+    cursor: pointer;
+  }
+
+  .tl-marker .tl-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px currentColor;
+    transition: transform 0.15s;
+    margin-bottom: 4px;
+  }
+  .tl-marker:hover .tl-dot { transform: scale(1.3); }
+  .tl-marker .tl-day { font-size: 10px; font-weight: 700; white-space: nowrap; margin-top: 28px; }
+
+  /* zones on timeline */
+  .tl-zone {
+    position: absolute;
+    top: 22px; height: 14px;
+    border-radius: 3px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  /* ── TERM CARDS (clickable) ── */
+  .term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+
+  .term-card {
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    border: 1.5px solid #ddd;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+  .term-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+  .term-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px;
+    font-weight: 700; font-size: 14.5px;
+    user-select: none;
+  }
+
+  .term-arrow { margin-left: auto; font-size: 11px; color: #888; transition: transform 0.2s; }
+  .term-card.open .term-arrow { transform: rotate(90deg); }
+
+  .term-body {
+    display: none;
+    padding: 10px 14px 13px;
+    font-size: 14px;
+    border-top: 1px solid #e8e8e8;
+  }
+  .term-body ul { margin-left: 16px; margin-top: 4px; }
+  .term-body ul li { margin-bottom: 4px; }
+
+  .tc-metro  { border-color: #c0392b; }
+  .tc-metro  .term-header { background: #fdecea; color: #c0392b; }
+  .tc-metro  .term-body   { background: #fff8f8; }
+
+  .tc-meno   { border-color: #d35400; }
+  .tc-meno   .term-header { background: #fff3e0; color: #c05b00; }
+  .tc-meno   .term-body   { background: #fffaf5; }
+
+  .tc-menomeno { border-color: #8e44ad; }
+  .tc-menomeno .term-header { background: #f5f0ff; color: #6d28d9; }
+  .tc-menomeno .term-body   { background: #fbf8ff; }
+
+  .tc-ameno  { border-color: #1e6fa8; }
+  .tc-ameno  .term-header { background: #e8f4fd; color: #1e6fa8; }
+  .tc-ameno  .term-body   { background: #f5faff; }
+
+  .tc-oligo  { border-color: #27783a; }
+  .tc-oligo  .term-header { background: #eafaf1; color: #27783a; }
+  .tc-oligo  .term-body   { background: #f5fdf7; }
+
+  .tc-poly   { border-color: #b7950b; }
+  .tc-poly   .term-header { background: #fef9e7; color: #b7950b; }
+  .tc-poly   .term-body   { background: #fffef5; }
+
+  /* ── PARAMETRES FIGO ── */
+  .param-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+
+  .param-card {
+    border-radius: 8px; padding: 14px; font-size: 14px;
+    border: 1.5px solid #27783a; background: #f0faf2;
+  }
+  .param-card .param-title { font-weight: 700; color: #27783a; margin-bottom: 6px; font-size: 13.5px; }
+  .param-card .param-val   { font-size: 1.15rem; font-weight: 700; color: #1a1a1a; }
+  .param-card .param-sub   { font-size: 12px; color: #666; margin-top: 3px; }
+
+  .param-card.danger { border-color: #c0392b; background: #fdecea; }
+  .param-card.danger .param-title { color: #c0392b; }
+
+  /* ── CYCLE QUIZ ── */
+  .quiz-wrap { margin: 18px 0; }
+  .quiz-q { font-weight: 700; margin-bottom: 10px; font-size: 15px; }
+  .quiz-opts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+
+  .quiz-opt {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13.5px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .quiz-opt:hover { border-color: #2b8acc; }
+  .quiz-opt.correct { background: #27783a; border-color: #27783a; color: #fff; }
+  .quiz-opt.wrong   { background: #c0392b; border-color: #c0392b; color: #fff; }
+
+  .quiz-feedback {
+    display: none; padding: 10px 14px; border-radius: 6px;
+    font-size: 14px; margin-top: 6px;
+    animation: fadeIn 0.18s ease;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .quiz-feedback.ko  { background: #fdecea; border-left: 4px solid #c0392b; }
+
+  .quiz-next { margin-top: 10px; padding: 7px 18px; border-radius: 16px; border: 2px solid #1e6fa8; background: #fff; font-size: 13px; font-weight: 600; color: #1e6fa8; cursor: pointer; display: none; }
+  .quiz-next:hover { background: #1e6fa8; color: #fff; }
+
+  .quiz-score { font-weight: 700; font-size: 15px; margin-top: 12px; display: none; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 16px 0; }
+
+  .tag { display: inline-block; border-radius: 4px; padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0; }
+  .tag-abandon { background: #fde8e8; color: #c0392b; }
+  .tag-ok      { background: #e8f5e9; color: #27783a; }
+
+  @media (max-width: 600px) {
+    .term-grid { grid-template-columns: 1fr; }
+    .param-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📖 Objectif 2 — Définitions des termes du cycle menstruel</h1>
+<p class="subtitle">Terminologie classique · Paramètres FIGO · Classification PALM-COEIN</p>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="frise" onclick="show(&#39;frise&#39;,this)">📅 Frise interactive</button>
+  <button class="nav-btn" data-s="termes" onclick="show(&#39;termes&#39;,this)">📚 Termes &amp; définitions</button>
+  <button class="nav-btn" data-s="parametres" onclick="show(&#39;parametres&#39;,this)">📊 Paramètres FIGO</button>
+  <button class="nav-btn" data-s="figo" onclick="show(&#39;figo&#39;,this)">🧠 Quiz rapide</button>
+</div>
+
+<!-- ══════════════════════════════════
+     FRISE INTERACTIVE
+═════════════════════════════════════ -->
+<div id="frise" class="section active">
+  <div class="section-header h-blue">📅 Frise interactive — situer les anomalies dans le cycle</div>
+
+  <div class="callout callout-yellow">
+    <p>⚠️ La FIGO (2007-2011) recommande d'<strong>abandonner</strong> les termes classiques (ménorragie, métrorragie…) au profit d'une terminologie <strong>descriptive</strong> (volume, régularité, fréquence, durée) et de la classification <strong>PALM-COEIN</strong>. Ces définitions restent utiles à connaître.</p>
+  </div>
+
+  <p style="margin-top:14px;font-size:14px;">Cliquez sur un point de la frise pour voir le terme associé.</p>
+
+  <!-- SVG timeline -->
+  <div style="position:relative;margin:24px 0 60px;">
+    <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;">
+
+      <!-- Axis -->
+      <line x1="40" y1="50" x2="660" y2="50" stroke="#ddd" stroke-width="3" stroke-linecap="round"></line>
+
+      <!-- Normal cycle zone 24-38 d (green) -->
+      <rect x="198" y="43" width="222" height="14" fill="#27783a" rx="3" opacity="0.2"></rect>
+
+      <!-- Day labels on axis -->
+      <text x="40" y="75" font-size="11" fill="#aaa" text-anchor="middle">0</text>
+      <text x="198" y="75" font-size="11" fill="#27783a" text-anchor="middle" font-weight="bold">24</text>
+      <text x="314" y="75" font-size="11" fill="#27783a" text-anchor="middle" font-weight="bold">31</text>
+      <text x="420" y="75" font-size="11" fill="#27783a" text-anchor="middle" font-weight="bold">38</text>
+      <text x="660" y="75" font-size="11" fill="#aaa" text-anchor="middle">60+</text>
+
+      <!-- Green zone label -->
+      <text x="309" y="90" font-size="10" fill="#27783a" text-anchor="middle" font-weight="bold">Zone normale (24–38 j)</text>
+
+      <!-- Markers -->
+      <!-- Polyménorrhée < 24 -->
+      <g style="cursor:pointer;" onclick="showFrise(&#39;f-poly&#39;)">
+        <circle cx="110" cy="50" r="9" fill="#b7950b" stroke="#fff" stroke-width="2"></circle>
+        <text x="110" y="38" font-size="10" fill="#b7950b" text-anchor="middle" font-weight="bold">Poly-</text>
+        <text x="110" y="27" font-size="10" fill="#b7950b" text-anchor="middle" font-weight="bold">ménorrhée</text>
+        <text x="110" y="105" font-size="9" fill="#b7950b" text-anchor="middle">&lt; 24 j</text>
+      </g>
+
+      <!-- Cycle normal -->
+      <g style="cursor:pointer;" onclick="showFrise(&#39;f-normal&#39;)">
+        <circle cx="314" cy="50" r="9" fill="#27783a" stroke="#fff" stroke-width="2"></circle>
+        <text x="314" y="38" font-size="10" fill="#27783a" text-anchor="middle" font-weight="bold">Normal</text>
+      </g>
+
+      <!-- Oligoménorrhée > 38 -->
+      <g style="cursor:pointer;" onclick="showFrise(&#39;f-oligo&#39;)">
+        <circle cx="530" cy="50" r="9" fill="#1e6fa8" stroke="#fff" stroke-width="2"></circle>
+        <text x="530" y="38" font-size="10" fill="#1e6fa8" text-anchor="middle" font-weight="bold">Oligo-</text>
+        <text x="530" y="27" font-size="10" fill="#1e6fa8" text-anchor="middle" font-weight="bold">ménorrhée</text>
+        <text x="530" y="105" font-size="9" fill="#1e6fa8" text-anchor="middle">&gt; 38 j</text>
+      </g>
+
+      <!-- Aménorrhée -->
+      <g style="cursor:pointer;" onclick="showFrise(&#39;f-ameno&#39;)">
+        <circle cx="635" cy="50" r="9" fill="#8e44ad" stroke="#fff" stroke-width="2"></circle>
+        <text x="635" y="38" font-size="10" fill="#8e44ad" text-anchor="middle" font-weight="bold">Aménorrhée</text>
+        <text x="635" y="27" font-size="10" fill="#8e44ad" text-anchor="middle" font-weight="bold"></text>
+        <text x="635" y="105" font-size="9" fill="#8e44ad" text-anchor="middle">≥ 6 mois</text>
+      </g>
+
+      <!-- Métrorragie (mid-cycle bleed) -->
+      <g style="cursor:pointer;" onclick="showFrise(&#39;f-metro&#39;)">
+        <line x1="250" y1="35" x2="250" y2="65" stroke="#c0392b" stroke-width="3" stroke-dasharray="4,2"></line>
+        <circle cx="250" cy="50" r="7" fill="#c0392b" stroke="#fff" stroke-width="2"></circle>
+        <text x="250" y="22" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="bold">Métrorragie</text>
+        <text x="250" y="12" font-size="9" fill="#c0392b" text-anchor="middle">(inter-menstruel)</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Info panels -->
+  <div id="f-normal" class="info-panel-f">
+    <h3 style="color:#27783a;">✅ Cycle normal</h3>
+    <p>Intervalle de <strong>24 à 38 jours</strong>, durée ≤ 8 jours, variation ≤ 7–9 jours d'un cycle à l'autre.</p>
+  </div>
+  <div id="f-poly" class="info-panel-f">
+    <h3 style="color:#b7950b;">🟡 Polyménorrhée</h3>
+    <p>Menstruations <strong>trop fréquentes</strong> — intervalles <strong>&lt; 24 jours</strong>. Peut être associée à une anovulation ou des facteurs endocriniens/systémiques.</p>
+  </div>
+  <div id="f-oligo" class="info-panel-f">
+    <h3 style="color:#1e6fa8;">🔵 Oligoménorrhée</h3>
+    <p>Menstruations <strong>peu fréquentes</strong> — intervalles <strong>&gt; 38 jours</strong>. Reflète habituellement un défaut d'ovulation lié à un trouble endocrinien ou systémique.</p>
+  </div>
+  <div id="f-ameno" class="info-panel-f">
+    <h3 style="color:#8e44ad;">🟣 Aménorrhée</h3>
+    <p><strong>Absence totale</strong> de menstruations. Primaire : absence de ménarche à 15 ans. Secondaire : arrêt ≥ 6 mois (ou ≥ 3 cycles habituels) chez une patiente qui menstruait.</p>
+  </div>
+  <div id="f-metro" class="info-panel-f">
+    <h3 style="color:#c0392b;">🔴 Métrorragie</h3>
+    <p>Saignement <strong>entre les menstruations</strong> (intermenstruel). Physiologique à l'ovulation, mais peut signaler un polype, une malignité ou un effet hormonal.</p>
+  </div>
+
+  <style>
+    .info-panel-f {
+      display: none; background: #f8f8f8; border: 1px solid #ddd;
+      border-radius: 8px; padding: 13px 16px; font-size: 14px; margin-top: 8px;
+      animation: fadeIn 0.18s ease;
+    }
+    .info-panel-f.active { display: block; }
+    .info-panel-f h3 { margin-bottom: 7px; }
+  </style>
+</div>
+
+<!-- ══════════════════════════════════
+     TERMES & DÉFINITIONS
+═════════════════════════════════════ -->
+<div id="termes" class="section">
+  <div class="section-header h-red">📚 Termes &amp; Définitions — cliquez pour développer</div>
+
+  <div class="term-grid">
+
+    <div class="term-card tc-metro" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>a.</span> Métrorragie
+        <span class="tag tag-abandon">abandonné FIGO</span>
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p>Saignement <strong>entre les menstruations</strong> (intermenstruel).</p>
+        <p><strong>Causes :</strong></p>
+        <ul>
+          <li>Léger saignement physiologique à l'ovulation</li>
+          <li>Malignité utérine</li>
+          <li>Érosions cervicales</li>
+          <li>Polypes endométriaux</li>
+          <li>Effet secondaire de l'œstrogénothérapie</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="term-card tc-meno" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>b.</span> Ménorragie
+        <span class="tag tag-abandon">abandonné FIGO</span>
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p>Augmentation (souvent invalidante) de la <strong>quantité ou de la durée</strong> du saignement menstruel.</p>
+        <p><strong>Causes habituelles :</strong></p>
+        <ul>
+          <li>Léiomyomes (fibromes)</li>
+          <li>Polypes endométriaux</li>
+          <li>Adénomyose</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="term-card tc-menomeno" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>c.</span> Ménométrorragie
+        <span class="tag tag-abandon">abandonné FIGO</span>
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p>Combinaison de <strong>ménorragie + métrorragie</strong> : saignement abondant/prolongé <strong>ET</strong> saignement irrégulier entre les règles.</p>
+        <p>Terme jugé imprécis → remplacé par la terminologie FIGO descriptive.</p>
+      </div>
+    </div>
+
+    <div class="term-card tc-ameno" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>d.</span> Aménorrhée
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p><strong>Absence de menstruation.</strong></p>
+        <ul>
+          <li><strong>Primaire</strong> : absence de ménarche à 15 ans.</li>
+          <li><strong>Secondaire</strong> : arrêt des règles ≥ 6 mois (ou ≥ 3 cycles habituels) chez une patiente qui menstruait.</li>
+        </ul>
+        <p style="margin-top:6px;">Causes : perturbations hormonales, stress, néoplasmes ovariens / surrénaliens / hypophysaires.</p>
+      </div>
+    </div>
+
+    <div class="term-card tc-oligo" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>e.</span> Oligoménorrhée
+        <span class="tag tag-abandon">abandonné FIGO</span>
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p>Menstruations <strong>peu fréquentes</strong> — intervalles <strong>&gt; 38 jours</strong>.</p>
+        <p>Reflète habituellement un <strong>défaut d'ovulation</strong> lié à un trouble endocrinien ou systémique.</p>
+      </div>
+    </div>
+
+    <div class="term-card tc-poly" onclick="toggleTerm(this)">
+      <div class="term-header">
+        <span>f.</span> Polyménorrhée
+        <span class="tag tag-abandon">abandonné FIGO</span>
+        <span class="term-arrow">▶</span>
+      </div>
+      <div class="term-body">
+        <p><strong>Fréquence accrue</strong> des menstruations — intervalles <strong>&lt; 24 jours</strong>.</p>
+        <p>Peut être associée à l'ovulation; causée par des facteurs endocriniens ou systémiques.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="callout callout-blue" style="font-size:14px;">
+    <p><strong>Termes connexes :</strong></p>
+    <ul>
+      <li><strong>Hypoménorrhée</strong> : flux menstruel insuffisant</li>
+      <li><strong>Saignement utérin dysfonctionnel (SUD)</strong> : saignement endométrial anormal non associé à tumeur / inflammation / grossesse / trauma / effet hormonal — <span class="tag tag-abandon">terme abandonné FIGO</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARAMÈTRES FIGO
+═════════════════════════════════════ -->
+<div id="parametres" class="section">
+  <div class="section-header h-green">📊 Paramètres FIGO du saignement normal</div>
+
+  <p style="margin-bottom:14px;">La FIGO propose une terminologie <strong>descriptive</strong> en 4 dimensions pour remplacer les termes classiques.</p>
+
+  <div class="param-grid">
+    <div class="param-card">
+      <div class="param-title">🔁 Fréquence (intervalle entre cycles)</div>
+      <div class="param-val">24 – 38 jours</div>
+      <div class="param-sub">Fréquent : &lt; 24 j &nbsp;|&nbsp; Peu fréquent : &gt; 38 j &nbsp;|&nbsp; Absent : aménorrhée</div>
+    </div>
+    <div class="param-card">
+      <div class="param-title">⏱️ Durée</div>
+      <div class="param-val">≤ 8 jours</div>
+      <div class="param-sub">SOGC : 3–8 j &nbsp;|&nbsp; Prolongé : &gt; 8 j</div>
+    </div>
+    <div class="param-card">
+      <div class="param-title">📏 Régularité</div>
+      <div class="param-val">Variation ≤ 7–9 jours</div>
+      <div class="param-sub">Entre le cycle le plus court et le plus long</div>
+    </div>
+    <div class="param-card">
+      <div class="param-title">🩸 Volume</div>
+      <div class="param-val">Normal / Léger / Abondant</div>
+      <div class="param-sub">Évaluation subjective ou objective (pictogramme)</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Terminologie FIGO descriptive — correspondances</h2>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr style="background:#27783a;color:#fff;">
+          <th style="padding:9px 14px;text-align:left;">Paramètre</th>
+          <th style="padding:9px 14px;text-align:left;">Terme FIGO</th>
+          <th style="padding:9px 14px;text-align:left;">Terme classique équivalent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;">
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;">Fréquence &lt; 24 j</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;font-weight:600;">Fréquent</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;"><span class="tag tag-abandon">Polyménorrhée</span></td>
+        </tr>
+        <tr style="background:#f5f5f5;">
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;">Fréquence &gt; 38 j</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;font-weight:600;">Peu fréquent</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;"><span class="tag tag-abandon">Oligoménorrhée</span></td>
+        </tr>
+        <tr style="background:#fff;">
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;">Volume abondant / durée &gt; 8 j</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;font-weight:600;">Abondant / Prolongé</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;"><span class="tag tag-abandon">Ménorragie</span></td>
+        </tr>
+        <tr style="background:#f5f5f5;">
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;">Saignement intermenstruel</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;font-weight:600;">Intermenstruel</td>
+          <td style="padding:9px 14px;border-bottom:1px solid #eee;"><span class="tag tag-abandon">Métrorragie</span></td>
+        </tr>
+        <tr style="background:#fff;">
+          <td style="padding:9px 14px;">Absence totale</td>
+          <td style="padding:9px 14px;font-weight:600;">Absent</td>
+          <td style="padding:9px 14px;"><span class="tag tag-ok">Aménorrhée</span> (conservé)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     QUIZ
+═════════════════════════════════════ -->
+<div id="figo" class="section">
+  <div class="section-header h-purple">🧠 Quiz rapide — Mémoriser les définitions</div>
+
+  <div id="quiz-container"></div>
+
+  <button class="quiz-next" id="quiz-next-btn" onclick="nextQ()">Question suivante →</button>
+  <div class="quiz-score" id="quiz-score"></div>
+</div>
+
+<script>
+  // ── Navigation ──
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── Frise ──
+  function showFrise(id) {
+    document.querySelectorAll('.info-panel-f').forEach(p => p.classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) el.classList.add('active');
+  }
+
+  // ── Term cards ──
+  function toggleTerm(card) {
+    const body = card.querySelector('.term-body');
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open', !isOpen);
+    body.style.display = isOpen ? 'none' : 'block';
+  }
+
+  // ── Quiz ──
+  const questions = [
+    {
+      q: "Quel terme classique désigne un saignement entre les menstruations ?",
+      opts: ["Ménorragie","Métrorragie","Oligoménorrhée","Polyménorrhée"],
+      ans: 1,
+      exp: "La métrorragie = saignement intermenstruel. Terme FIGO : « saignement intermenstruel »."
+    },
+    {
+      q: "L'oligoménorrhée correspond à des cycles de quelle durée ?",
+      opts: ["< 24 jours","24–38 jours","> 38 jours","Absence totale"],
+      ans: 2,
+      exp: "Oligoménorrhée = intervalles > 38 j (peu fréquent selon la FIGO)."
+    },
+    {
+      q: "Quelle est la durée normale d'un cycle selon la FIGO ?",
+      opts: ["21–35 jours","28 jours exactement","24–38 jours","20–40 jours"],
+      ans: 2,
+      exp: "FIGO : 24 à 38 jours (SOGC : idem). L'ancien « 28 jours » est une moyenne, non une norme."
+    },
+    {
+      q: "La ménorragie (terme classique) correspond à quelle terminologie FIGO ?",
+      opts: ["Fréquent","Peu fréquent","Abondant / Prolongé","Intermenstruel"],
+      ans: 2,
+      exp: "Ménorragie = saignement abondant/prolongé → FIGO : « abondant » et/ou « prolongé » (durée > 8 j)."
+    },
+    {
+      q: "L'aménorrhée secondaire est définie par un arrêt des règles pendant :",
+      opts: ["≥ 3 mois","≥ 6 mois ou ≥ 3 cycles habituels","≥ 1 an","≥ 2 cycles habituels"],
+      ans: 1,
+      exp: "Aménorrhée secondaire : ≥ 6 mois ou ≥ 3 cycles habituels chez une patiente qui menstruait."
+    },
+    {
+      q: "Quelle est la durée maximale normale des menstruations selon la FIGO ?",
+      opts: ["5 jours","6 jours","7 jours","8 jours"],
+      ans: 3,
+      exp: "FIGO : durée normale ≤ 8 jours. Prolongé = > 8 jours."
+    }
+  ];
+
+  let qIndex = 0, score = 0, answered = false;
+
+  function renderQ() {
+    const q = questions[qIndex];
+    const container = document.getElementById('quiz-container');
+    answered = false;
+    document.getElementById('quiz-next-btn').style.display = 'none';
+    document.getElementById('quiz-score').style.display = 'none';
+
+    container.innerHTML = `
+      <div class="quiz-wrap">
+        <div style="font-size:12px;color:#888;margin-bottom:6px;">Question ${qIndex+1} / ${questions.length}</div>
+        <div class="quiz-q">${q.q}</div>
+        <div class="quiz-opts" id="quiz-opts">
+          ${q.opts.map((o,i) => `<button class="quiz-opt" onclick="checkAns(${i})">${o}</button>`).join('')}
+        </div>
+        <div class="quiz-feedback" id="quiz-fb"></div>
+      </div>`;
+  }
+
+  function checkAns(i) {
+    if (answered) return;
+    answered = true;
+    const q = questions[qIndex];
+    const opts = document.querySelectorAll('.quiz-opt');
+    const fb = document.getElementById('quiz-fb');
+
+    opts.forEach((b, idx) => {
+      b.disabled = true;
+      if (idx === q.ans) b.classList.add('correct');
+      else if (idx === i && i !== q.ans) b.classList.add('wrong');
+    });
+
+    if (i === q.ans) {
+      score++;
+      fb.className = 'quiz-feedback show ok';
+      fb.innerHTML = `✅ <strong>Correct !</strong> ${q.exp}`;
+    } else {
+      fb.className = 'quiz-feedback show ko';
+      fb.innerHTML = `❌ <strong>Incorrect.</strong> ${q.exp}`;
+    }
+
+    const nextBtn = document.getElementById('quiz-next-btn');
+    if (qIndex < questions.length - 1) {
+      nextBtn.style.display = 'inline-block';
+      nextBtn.textContent = 'Question suivante →';
+    } else {
+      nextBtn.style.display = 'inline-block';
+      nextBtn.textContent = 'Voir le résultat';
+    }
+  }
+
+  function nextQ() {
+    qIndex++;
+    if (qIndex < questions.length) {
+      renderQ();
+    } else {
+      const pct = Math.round(score / questions.length * 100);
+      const color = pct >= 80 ? '#27783a' : pct >= 50 ? '#d35400' : '#c0392b';
+      document.getElementById('quiz-container').innerHTML = '';
+      document.getElementById('quiz-next-btn').style.display = 'none';
+      const scoreEl = document.getElementById('quiz-score');
+      scoreEl.style.display = 'block';
+      scoreEl.innerHTML = `<span style="color:${color};">Score : ${score} / ${questions.length} (${pct} %)</span>
+        <br><button onclick="restartQuiz()" style="margin-top:10px;padding:7px 18px;border-radius:16px;border:2px solid #1e6fa8;background:#fff;font-size:13px;font-weight:600;color:#1e6fa8;cursor:pointer;">🔄 Recommencer</button>`;
+    }
+  }
+
+  function restartQuiz() {
+    qIndex = 0; score = 0;
+    renderQ();
+  }
+
+  // Init quiz when section is shown (delayed to avoid blank state)
+  document.querySelector('[data-s="figo"]').addEventListener('click', () => {
+    if (qIndex === 0 && !answered) renderQ();
+  });
+</script>
+
+
+</body></html>
