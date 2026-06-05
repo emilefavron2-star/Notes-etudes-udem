@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0228)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/hormonotherapie.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indications &amp; Contre-indications de l'Hormonothérapie</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; padding-bottom: 5px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 8px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  ol { margin: 8px 0 10px 20px; }
+  ol li { margin-bottom: 5px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .nav-btn[data-s="indications"].active  { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="indications"]:hover   { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="ci"].active           { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="ci"]:hover            { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="risques"].active      { background: #d35400; border-color: #d35400; color: #fff; }
+  .nav-btn[data-s="risques"]:hover       { border-color: #d35400; color: #d35400; }
+  .nav-btn[data-s="fenetr"].active       { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="fenetr"]:hover        { border-color: #8e44ad; color: #8e44ad; }
+  .nav-btn[data-s="algo"].active         { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="algo"]:hover          { border-color: #1e6fa8; color: #1e6fa8; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-green  { background: #27783a; }
+  .h-red    { background: #c0392b; }
+  .h-orange { background: #d35400; }
+  .h-purple { background: #8e44ad; }
+  .h-blue   { background: #1e6fa8; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 13px 17px; margin: 14px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-purple { background: #f5f0ff; border-left: 4px solid #8e44ad; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ol, .callout ul { margin-left: 18px; margin-top: 6px; }
+  .callout ol li, .callout ul li { margin-bottom: 4px; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #1e6fa8; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f4f8fc; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+  .footnote { font-size: 13px; color: #555; margin-top: 8px; font-style: italic; }
+
+  /* ── RISK CARDS ── */
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+  .risk-card { border-radius: 8px; padding: 14px; font-size: 14px; }
+  .risk-sein  { background: #fdecea; border: 1.5px solid #c0392b; }
+  .risk-cardio{ background: #fff8e1; border: 1.5px solid #f5a623; }
+  .risk-tev   { background: #f0f7ff; border: 1.5px solid #2b8acc; }
+  .risk-card .risk-title { font-weight: 700; margin-bottom: 6px; font-size: 13.5px; }
+
+  /* ── TIMING VISUAL ── */
+  .timing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .timing-card { border-radius: 8px; padding: 15px; font-size: 14px; }
+  .timing-before { background: #f0faf2; border: 1.5px solid #27783a; }
+  .timing-after  { background: #fdecea; border: 1.5px solid #c0392b; }
+  .timing-card .timing-title { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+  .timing-before .timing-title { color: #27783a; }
+  .timing-after  .timing-title { color: #c0392b; }
+
+  /* ── DETAILS (accordéons science) ── */
+  details { margin: 10px 0; }
+  details summary {
+    cursor: pointer; font-weight: 700; color: #1e6fa8;
+    padding: 10px 14px; background: #f0f7ff; border-radius: 6px;
+    list-style: none; display: flex; align-items: center; gap: 8px;
+    user-select: none; font-size: 14px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▶"; font-size: 11px; transition: transform 0.2s; display: inline-block; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .details-body { padding: 13px 16px; border: 1px solid #cde3f7; border-top: none; border-radius: 0 0 6px 6px; font-size: 14px; }
+  details .details-body p { margin-bottom: 8px; }
+  details .details-body p:last-child { margin-bottom: 0; }
+
+  /* ── FLOWCHART ── */
+  .algo-sub { font-size: 0.82rem; font-weight: 600; color: #2b8acc; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .flowchart { border: 1px solid #cde3f7; border-radius: 8px; padding: 24px 20px; background: #fff; margin-bottom: 24px; }
+  .flow-node { display: flex; justify-content: center; margin: 0 auto; }
+  .arrow-down { display: flex; justify-content: center; margin: 6px 0; color: #2b8acc; font-size: 20px; }
+  .node-start { background: #2b8acc; color: #fff; border-radius: 8px; padding: 12px 20px; text-align: center; font-weight: 600; font-size: 14px; max-width: 580px; width: 100%; }
+  .branch-row { display: flex; align-items: flex-start; justify-content: center; gap: 24px; margin: 4px 0; }
+  .branch { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 280px; }
+  .branch-label { font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 12px; margin-bottom: 6px; }
+  .label-oui { background: #2b8acc; color: #fff; }
+  .label-non { background: #8ab4c8; color: #fff; }
+  .node-action { background: #e8f4fd; border: 2px solid #2b8acc; border-radius: 8px; padding: 10px 14px; text-align: center; font-size: 13.5px; width: 100%; }
+  .node-chat { background: #e8f4fd; border: 2px solid #2b8acc; border-radius: 8px; padding: 12px 16px; font-size: 13px; width: 100%; margin: 0 auto; }
+  .node-chat::before { content: "💬 "; }
+  .node-dashed { border: 2px dashed #aaa; border-radius: 8px; padding: 8px 14px; text-align: center; font-size: 13px; color: #666; max-width: 180px; margin-top: 8px; }
+
+  .divider { border: none; border-top: 1px solid #e8e8e8; margin: 20px 0; }
+
+  @media (max-width: 600px) {
+    .risk-grid { grid-template-columns: 1fr; }
+    .timing-grid { grid-template-columns: 1fr; }
+    .branch-row { flex-direction: column; align-items: center; }
+    .branch { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Indications &amp; Contre-indications de l'Hormonothérapie</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="indications" onclick="show(&#39;indications&#39;,this)">✅ Indications &amp; Bénéfices</button>
+  <button class="nav-btn" data-s="ci" onclick="show(&#39;ci&#39;,this)">🚫 Contre-indications</button>
+  <button class="nav-btn" data-s="risques" onclick="show(&#39;risques&#39;,this)">⚠️ Risques principaux</button>
+  <button class="nav-btn" data-s="fenetr" onclick="show(&#39;fenetr&#39;,this)">⏱️ Fenêtre d'opportunité</button>
+  <button class="nav-btn" data-s="algo" onclick="show(&#39;algo&#39;,this)">📊 Algorithmes INESSS</button>
+</div>
+
+<!-- ══════════════════════════════════
+     INDICATIONS / BÉNÉFICES
+═════════════════════════════════════ -->
+<div id="indications" class="section active">
+  <div class="section-header h-green">✅ Indications / Bénéfices</div>
+
+  <p>L'hormonothérapie de remplacement (HTR) demeure le <strong>traitement le plus efficace</strong> des symptômes vasomoteurs <strong>modérés à graves</strong> (jusqu'à 70 % des femmes ménopausées en éprouvent).</p>
+
+  <h2>Bénéfices</h2>
+  <ul>
+    <li>↓ fréquence des bouffées vasomotrices de <strong>~75 %</strong> et ↓ intensité d'<strong>~85 %</strong>.</li>
+    <li>Amélioration du <strong>sommeil, de l'humeur, de l'anxiété, des douleurs</strong> et de l'<strong>atrophie vulvo-vaginale</strong>.</li>
+    <li><strong>Prévention et traitement de l'ostéoporose</strong> (↓ fractures de fragilisation).</li>
+  </ul>
+
+  <div class="callout callout-blue">
+    <p><strong>💡 Principes de traitement (INESSS)</strong></p>
+    <p style="margin-top:6px;">La périménopause et la postménopause sont des <strong>conditions physiologiques</strong> qui ne nécessitent pas systématiquement de traitement. La décision d'amorcer l'HTR tient compte de :</p>
+    <ol>
+      <li>la <strong>sévérité des symptômes</strong> et leur impact sur la qualité de vie,</li>
+      <li>les <strong>antécédents et facteurs de risque</strong>,</li>
+      <li>les <strong>valeurs et préférences</strong> de la patiente.</li>
+    </ol>
+    <p style="margin-top:8px;">→ <strong>Approche individualisée</strong> et information équilibrée bénéfices/risques.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CONTRE-INDICATIONS
+═════════════════════════════════════ -->
+<div id="ci" class="section">
+  <div class="section-header h-red">🚫 Contre-indications ABSOLUES <span style="font-weight:400;font-size:0.85em;opacity:0.9;">(Le Médecin du Québec, Tableau I)</span></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Catégorie</th><th>Contre-indications</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cancers œstrogéno-dépendants</strong></td>
+          <td>Cancer du <strong>sein</strong>, cancer de l'<strong>endomètre</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Maladies cardiovasculaires</strong></td>
+          <td>Cardiopathie ischémique, AVC récent, ischémie cérébrale transitoire récente</td>
+        </tr>
+        <tr>
+          <td><strong>Maladies thrombo-emboliques</strong></td>
+          <td>Thrombose veineuse profonde active*, embolie pulmonaire</td>
+        </tr>
+        <tr>
+          <td><strong>Autres</strong></td>
+          <td>Maladie hépatique active, <strong>saignement vaginal non diagnostiqué</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="footnote">* Les œstrogènes <strong>transdermiques</strong> pourraient être utilisés chez les patientes à risque élevé cardiovasculaire/thrombotique ou avec plusieurs FdR (diabète, HTA, obésité, tabagisme).</p>
+</div>
+
+<!-- ══════════════════════════════════
+     RISQUES PRINCIPAUX
+═════════════════════════════════════ -->
+<div id="risques" class="section">
+  <div class="section-header h-orange">⚠️ Risques principaux</div>
+
+  <div class="risk-grid">
+    <div class="risk-card risk-sein">
+      <div class="risk-title" style="color:#c0392b;">🎗️ Cancer du sein</div>
+      <p>↑ du risque absolu de <strong>8 cas / 10 000 femmes / an</strong> (étude WHI).</p>
+      <p>Risque ↑ après <strong>4–5 ans</strong> d'utilisation et avec la durée.</p>
+    </div>
+    <div class="risk-card risk-cardio">
+      <div class="risk-title" style="color:#c05b00;">❤️ Risque cardiovasculaire</div>
+      <p>L'étude WHI (2002) avait montré une ↑ d'<strong>~30 %</strong>.</p>
+      <p>Surtout si amorce tardive (endothélium athéroscléreux).</p>
+    </div>
+    <div class="risk-card risk-tev">
+      <div class="risk-title" style="color:#1e6fa8;">🩸 Thromboembolie veineuse</div>
+      <p>Voie <strong>orale</strong> : ↑ risque de <strong>~70 %</strong> vs absence d'HTR.</p>
+      <p>Voie <strong>transdermique</strong> : plus sécuritaire (contourne le foie).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     FENÊTRE D'OPPORTUNITÉ
+═════════════════════════════════════ -->
+<div id="fenetr" class="section">
+  <div class="section-header h-purple">⏱️ Fenêtre d'opportunité — âge d'amorce (INESSS)</div>
+
+  <div class="timing-grid">
+    <div class="timing-card timing-before">
+      <div class="timing-title">✅ Amorce avant 60 ans</div>
+      <ul style="margin-left:16px;">
+        <li>N'augmenterait <strong>pas</strong> le risque d'AVC ni de maladie d'Alzheimer.</li>
+        <li><strong>Diminuerait</strong> le risque de cancer du sein/ovaire.</li>
+      </ul>
+    </div>
+    <div class="timing-card timing-after">
+      <div class="timing-title">❌ Amorce à 60 ans ou plus</div>
+      <ul style="margin-left:16px;">
+        <li><strong>Augmenterait</strong> le risque de cancer du sein et de l'ovaire.</li>
+        <li><strong>Augmenterait</strong> le risque d'AVC et de maladie d'Alzheimer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <details>
+    <summary>🔬 Pourquoi l'âge d'amorce change tout (hypothèse du timing)</summary>
+    <div class="details-body">
+      <p>Sur un <strong>endothélium encore sain</strong> (&lt; 60 ans / &lt; 10 ans post-FMP), l'œstrogène exerce ses effets <strong>bénéfiques</strong> (vasodilatation, profil lipidique favorable, anti-athérogène).</p>
+      <p>Sur un <strong>endothélium déjà athéroscléreux</strong> (amorce tardive), il peut <strong>déstabiliser des plaques</strong> existantes → sur-risque cardiovasculaire/AVC.</p>
+      <p>C'est la clé qui réconcilie les anciens résultats alarmants (population âgée dans WHI) avec la pratique actuelle.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>🔬 Pourquoi la voie transdermique est plus sécuritaire (TEV)</summary>
+    <div class="details-body">
+      <p>L'œstrogène <strong>oral</strong> subit un <strong>premier passage hépatique</strong> → stimule la synthèse des <strong>facteurs de coagulation</strong> → ↑ risque thrombo-embolique.</p>
+      <p>La voie <strong>transdermique</strong> contourne le foie → effet pro-coagulant moindre → préférée si comorbidités (HTA, diabète, obésité, risque thrombotique).</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>🔬 Pourquoi un progestatif est obligatoire si utérus intact</summary>
+    <div class="details-body">
+      <p>L'œstrogène seul = <strong>œstrogène non opposé</strong> → hyperplasie / cancer de l'endomètre.</p>
+      <p>Le progestatif <strong>oppose</strong> cette prolifération. Après <strong>hystérectomie</strong>, plus d'endomètre → œstrogène seul suffisant, sans progestatif.</p>
+    </div>
+  </details>
+
+  <div class="callout callout-blue" style="margin-top:16px;">
+    <p><strong>💡 Algorithme d'amorce (INESSS)</strong></p>
+    <ul>
+      <li>D'abord distinguer manifestations <strong>génito-urinaires isolées</strong> (→ hormonothérapie <strong>à action locale</strong>, sans progestagène) vs <strong>systémiques</strong>.</li>
+      <li>Écarter saignements anormaux.</li>
+      <li>Vérifier ATCD (cancers, AVC/IM/MCV, TEV). Choisir la voie <strong>transdermique</strong> si comorbidités.</li>
+      <li><strong>Combiner à un progestagène (progestérone micronisée) si utérus intact.</strong></li>
+      <li>Schéma <strong>cyclique</strong> si intervalle entre cycles &lt; 3 mois, <strong>continu</strong> si ≥ 3 mois.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     ALGORITHMES DÉCISIONNELS
+═════════════════════════════════════ -->
+<div id="algo" class="section">
+  <div class="section-header h-blue">📊 Algorithmes décisionnels (INESSS)</div>
+
+  <!-- ALGO 1 -->
+  <div class="algo-sub">Suivi – Hormonothérapie systémique</div>
+  <div class="flowchart">
+    <div class="flow-node">
+      <div class="node-start">
+        Réponse à l'hormonothérapie systémique non satisfaisante malgré un traitement<br>
+        pris de façon appropriée depuis un minimum de <strong>6 à 8 semaines</strong>
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-node">
+      <div style="border:2px solid #2b8acc;border-radius:6px;padding:10px 20px;text-align:center;font-size:14px;max-width:400px;width:100%;background:#fff;">
+        Les manifestations cliniques mal contrôlées<br>sont-elles uniquement génito-urinaires ?
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="branch-row">
+      <div class="branch">
+        <span class="branch-label label-oui">OUI</span>
+        <div class="node-action">Envisager l'ajout<br>d'estrogènes locaux</div>
+      </div>
+      <div class="branch">
+        <span class="branch-label label-non">NON</span>
+        <div class="node-action">Envisager l'augmentation<br>du 17β-estradiol à dose standard</div>
+        <div class="arrow-down">↓</div>
+        <div class="node-action" style="font-size:13px;text-align:left;padding:10px 14px;">
+          Si soulagement insatisfaisant après 6 à 8 semaines à dose standard, envisager un changement vers la voie transdermique (si amorcé avec voie orale)
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="node-chat" style="font-size:13px;text-align:left;padding:12px 16px;">
+          Si soulagement toujours insatisfaisant après 6 à 8 semaines de 17β-estradiol transdermique à dose standard, la mesure du niveau sérique d'estradiol ou une consultation avec un médecin spécialiste pourraient être envisagés avant d'augmenter à une dose élevée
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALGO 2 -->
+  <div class="algo-sub" style="margin-top:8px;">Suivi – Hormonothérapie à action locale</div>
+  <div class="flowchart">
+    <div class="flow-node">
+      <div class="node-start">
+        Réponse au traitement non satisfaisante malgré un traitement<br>
+        pris de façon appropriée depuis un minimum de <strong>3 mois</strong>
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-node">
+      <div style="border:2px solid #2b8acc;border-radius:6px;padding:10px 20px;text-align:center;font-size:14px;max-width:360px;width:100%;background:#fff;">
+        Autres causes possibles pour le SGUM ?
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="branch-row">
+      <div class="branch">
+        <span class="branch-label label-oui">OUI</span>
+        <div class="node-action">Traiter selon la cause</div>
+      </div>
+      <div class="branch">
+        <span class="branch-label label-non">NON</span>
+        <div style="display:flex;flex-direction:column;align-items:center;width:100%;gap:8px;">
+          <div style="display:flex;flex-direction:row;align-items:flex-start;gap:10px;width:100%;">
+            <div class="node-action" style="flex:1;font-size:13px;text-align:left;padding:10px 14px;">
+              Envisager le remplacement des estrogènes à action locale par la <strong>prastérone vaginale</strong> ou l'<strong>ospémifère orale</strong>
+            </div>
+            <div class="node-dashed" style="font-size:12px;">
+              Non remboursés<br>dans le cadre<br>du RPAM
+            </div>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="node-chat" style="font-size:13px;text-align:left;padding:12px 16px;width:100%;">
+            Si soulagement toujours insatisfaisant après un essai de 3 mois, envisager une consultation avec un médecin spécialiste (p. ex. gynécologue) ou un collègue expérimenté
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
