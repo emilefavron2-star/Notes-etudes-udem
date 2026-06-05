@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- saved from url=(0238)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/facteurs_risque_endometre.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif 10 — Facteurs de risque du cancer de l'endomètre</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; padding-bottom: 5px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 6px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .nav-btn[data-s="mecanisme"].active  { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="mecanisme"]:hover   { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="risques"].active    { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="risques"]:hover     { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="protecteurs"].active{ background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="protecteurs"]:hover { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="genetique"].active  { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="genetique"]:hover   { border-color: #8e44ad; color: #8e44ad; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-red    { background: #c0392b; }
+  .h-green  { background: #27783a; }
+  .h-purple { background: #8e44ad; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 13px 17px; margin: 14px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-red    { background: #fdecea; border-left: 4px solid #c0392b; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-left: 18px; margin-top: 6px; }
+  .callout ul li { margin-bottom: 5px; }
+
+  /* ── MECHANISM CARDS ── */
+  .mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+
+  .mech-card {
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .mech-card .mech-title { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+
+  .mech-endo  { background: #fdecea; border: 1.5px solid #c0392b; }
+  .mech-endo  .mech-title { color: #c0392b; }
+  .mech-exo   { background: #fff8e1; border: 1.5px solid #f5a623; }
+  .mech-exo   .mech-title { color: #c05b00; }
+  .mech-meta  { background: #fff3e0; border: 1.5px solid #d35400; }
+  .mech-meta  .mech-title { color: #d35400; }
+  .mech-gen   { background: #f5f0ff; border: 1.5px solid #8e44ad; }
+  .mech-gen   .mech-title { color: #8e44ad; }
+
+  .mech-card ul { margin-left: 16px; }
+  .mech-card ul li { margin-bottom: 4px; }
+
+  /* ── FLOW ARROW ── */
+  .flow-arrow {
+    text-align: center;
+    font-size: 13px;
+    color: #c0392b;
+    font-weight: 700;
+    margin: 10px 0 6px;
+    padding: 8px;
+    background: #fdecea;
+    border-radius: 6px;
+  }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #2b3a4a; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f5f5f5; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+
+  /* RR badge */
+  .rr {
+    display: inline-block;
+    background: #fdecea;
+    color: #c0392b;
+    border-radius: 12px;
+    padding: 1px 9px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .rr-high { background: #c0392b; color: #fff; }
+  .rr-mod  { background: #fdecea; color: #c0392b; }
+  .rr-low  { background: #fff8e1; color: #c05b00; }
+
+  /* ── PROTECTEURS CARDS ── */
+  .protect-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+
+  .protect-card {
+    border-radius: 8px;
+    padding: 13px;
+    background: #f0faf2;
+    border: 1.5px solid #27783a;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .protect-card .protect-icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .protect-card .protect-label { font-weight: 700; color: #27783a; font-size: 13px; margin-bottom: 4px; }
+
+  /* ── GENETICS ── */
+  .gene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+
+  .gene-card { border-radius: 8px; padding: 16px; font-size: 14px; }
+  .gene-lynch  { background: #f5f0ff; border: 1.5px solid #8e44ad; }
+  .gene-cowden { background: #fff8e1; border: 1.5px solid #f5a623; }
+  .gene-brca   { background: #f0faf2; border: 1.5px solid #27783a; grid-column: 1 / -1; }
+
+  .gene-card .gene-title { font-weight: 700; margin-bottom: 8px; font-size: 14.5px; }
+  .gene-lynch .gene-title  { color: #8e44ad; }
+  .gene-cowden .gene-title { color: #c05b00; }
+  .gene-brca .gene-title   { color: #27783a; }
+
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0;
+  }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-green  { background: #e8f5e9; color: #27783a; }
+  .tag-purple { background: #f3e8fd; color: #6d28d9; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 18px 0; }
+
+  @media (max-width: 600px) {
+    .mech-grid { grid-template-columns: 1fr; }
+    .protect-grid { grid-template-columns: 1fr 1fr; }
+    .gene-grid { grid-template-columns: 1fr; }
+    .gene-brca { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎯 Objectif 10 — Facteurs de risque du cancer de l'endomètre</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="mecanisme" onclick="show(&#39;mecanisme&#39;,this)">🧠 Mécanisme unificateur</button>
+  <button class="nav-btn" data-s="risques" onclick="show(&#39;risques&#39;,this)">⚠️ Facteurs de risque</button>
+  <button class="nav-btn" data-s="protecteurs" onclick="show(&#39;protecteurs&#39;,this)">🛡️ Facteurs protecteurs</button>
+  <button class="nav-btn" data-s="genetique" onclick="show(&#39;genetique&#39;,this)">🧬 Génétique &amp; Syndromes</button>
+</div>
+
+<!-- ══════════════════════════════════
+     MÉCANISME UNIFICATEUR
+═════════════════════════════════════ -->
+<div id="mecanisme" class="section active">
+  <div class="section-header h-blue">🧠 Mécanisme unificateur</div>
+
+  <p>Le facteur central est l'<strong>exposition aux œstrogènes non opposés</strong> par la progestérone.</p>
+
+  <div class="flow-arrow">
+    Œstrogène (promitotique) sans progestérone (frein) → prolifération soutenue de l'endomètre → hyperplasie → (si atypies) → Carcinome de Type 1
+  </div>
+
+  <div class="mech-grid">
+    <div class="mech-card mech-endo">
+      <div class="mech-title">↑ Œstrogènes endogènes non opposés</div>
+      <ul>
+        <li><strong>Anovulation chronique / SOPK</strong> — pas de corps jaune → pas de progestérone</li>
+        <li><strong>Ménarche précoce / ménopause tardive</strong> — plus d'années d'exposition</li>
+        <li><strong>Obésité</strong> — aromatase du tissu adipeux convertit les androgènes en œstrogènes</li>
+        <li><strong>Tumeur sécrétant des œstrogènes</strong></li>
+      </ul>
+    </div>
+    <div class="mech-card mech-exo">
+      <div class="mech-title">↑ Œstrogènes exogènes non opposés</div>
+      <ul>
+        <li><strong>Œstrogénothérapie sans progestatif</strong></li>
+        <li><strong>Tamoxifène</strong> — agoniste œstrogénique <em>sur l'endomètre</em> (antagoniste sur le sein)</li>
+      </ul>
+    </div>
+    <div class="mech-card mech-meta">
+      <div class="mech-title">Co-facteurs métaboliques</div>
+      <p><strong>Obésité + diabète + HTA</strong> — le « trio » métabolique. L'insulinorésistance est pro-proliférative.</p>
+    </div>
+    <div class="mech-card mech-gen">
+      <div class="mech-title">Défaut de réparation de l'ADN</div>
+      <p><strong>Lynch</strong> (gènes MMR), <strong>Cowden</strong> (PTEN) — mécanisme <em>non hormonal</em> : <strong>instabilité génomique</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     FACTEURS DE RISQUE
+═════════════════════════════════════ -->
+<div id="risques" class="section">
+  <div class="section-header h-red">⚠️ Facteurs de risque <span style="font-weight:400;font-size:0.85em;opacity:0.9;">(Cecil Table 189-5 + UpToDate Table 5)</span></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Facteur de risque</th><th>RR / commentaire</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hyperplasie atypique complexe</strong></td>
+          <td><span class="rr rr-high">RR ~30×</span> Risque de cancer subséquent</td>
+        </tr>
+        <tr>
+          <td><strong>Œstrogènes non opposés</strong> (endogènes ou exogènes)</td>
+          <td><span class="rr rr-high">RR 2–10</span></td>
+        </tr>
+        <tr>
+          <td><strong>Obésité</strong></td>
+          <td><span class="rr rr-mod">OR 2,5 à 7,1</span> selon la classe. Aromatase du tissu adipeux → ↑ œstrogènes</td>
+        </tr>
+        <tr>
+          <td><strong>SOPK (anovulation chronique)</strong></td>
+          <td><span class="rr rr-mod">RR 3</span></td>
+        </tr>
+        <tr>
+          <td><strong>Syndrome de Lynch (HNPCC)</strong></td>
+          <td><span class="rr rr-high">Risque à vie jusqu'à 60 %</span> (mutations MMR : MLH1, MSH2, MSH6, PMS2, EPCAM)</td>
+        </tr>
+        <tr>
+          <td><strong>Nulliparité</strong></td>
+          <td><span class="rr rr-low">RR 2</span></td>
+        </tr>
+        <tr>
+          <td><strong>Diabète</strong></td>
+          <td><span class="rr rr-low">RR 2</span></td>
+        </tr>
+        <tr>
+          <td><strong>Ménarche précoce (&lt; 10 ans) / ménopause tardive (&gt; 55 ans)</strong></td>
+          <td><span class="rr rr-low">RR 2</span> (ménopause tardive)</td>
+        </tr>
+        <tr>
+          <td><strong>Tamoxifène</strong></td>
+          <td><span class="rr rr-low">RR 2</span> — effet œstrogénique agoniste sur l'endomètre</td>
+        </tr>
+        <tr>
+          <td><strong>Âge avancé</strong></td>
+          <td>Incidence cumulative 1–2 % chez les 50–70 ans</td>
+        </tr>
+        <tr>
+          <td><strong>ATCD familiaux</strong> (endomètre, ovaire, sein, côlon)</td>
+          <td><span class="rr rr-low">RR 1,5–2</span></td>
+        </tr>
+        <tr>
+          <td><strong>Syndrome de Cowden</strong></td>
+          <td><span class="rr rr-mod">Risque à vie 13–28 %</span> (mutation PTEN)</td>
+        </tr>
+        <tr>
+          <td><strong>Tumeur sécrétant des œstrogènes</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:14px;">
+    <p>⚠️ <strong>À ne PAS confondre :</strong> une mutation <strong>BRCA</strong> augmente le risque de cancer du sein / ovaire / prostate / pancréas, <strong>mais PAS</strong> celui de l'endomètre.</p>
+    <p style="margin-top:6px;">🔑 <strong>3–5 %</strong> des cancers de l'endomètre sont héréditaires; le <strong>syndrome de Lynch</strong> est le syndrome génétique le plus fréquemment associé.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     FACTEURS PROTECTEURS
+═════════════════════════════════════ -->
+<div id="protecteurs" class="section">
+  <div class="section-header h-green">🛡️ Facteurs protecteurs</div>
+
+  <p style="margin-bottom:14px;">Logique inverse du mécanisme unificateur : tout ce qui <strong>oppose l'œstrogène</strong> ou <strong>supprime l'ovulation</strong> ↓ le risque.</p>
+
+  <div class="protect-grid">
+    <div class="protect-card">
+      <div class="protect-icon">💊</div>
+      <div class="protect-label">Contraceptifs oraux combinés</div>
+      <p style="font-size:13px;">Effet progestatif — oppose l'œstrogène</p>
+    </div>
+    <div class="protect-card">
+      <div class="protect-icon">🤱</div>
+      <div class="protect-label">Allaitement maternel</div>
+      <p style="font-size:13px;">Suppression de l'ovulation</p>
+    </div>
+    <div class="protect-card">
+      <div class="protect-icon">👶</div>
+      <div class="protect-label">Grossesses multiples</div>
+      <p style="font-size:13px;">Effet progestatif prolongé</p>
+    </div>
+    <div class="protect-card">
+      <div class="protect-icon">📅</div>
+      <div class="protect-label">Ménopause précoce</div>
+      <p style="font-size:13px;">Moins d'années d'exposition</p>
+    </div>
+    <div class="protect-card">
+      <div class="protect-icon">🏃</div>
+      <div class="protect-label">Activité physique régulière</div>
+      <p style="font-size:13px;">↓ hyperinsulinisme et œstrogènes</p>
+    </div>
+    <div class="protect-card">
+      <div class="protect-icon">⚖️</div>
+      <div class="protect-label">Poids santé (IMC normal)</div>
+      <p style="font-size:13px;">Fortement protecteur</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:6px;">
+    <p>💡 Les <strong>progestatifs (dont le DIU-LNG)</strong> et les <strong>contraceptifs combinés</strong> sont les facteurs protecteurs les plus directs : ils s'opposent à la stimulation œstrogénique de l'endomètre.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     GÉNÉTIQUE & SYNDROMES
+═════════════════════════════════════ -->
+<div id="genetique" class="section">
+  <div class="section-header h-purple">🧬 Génétique &amp; Syndromes héréditaires</div>
+
+  <p style="margin-bottom:14px;"><strong>3–5 %</strong> des cancers de l'endomètre sont héréditaires. Mécanisme : <strong>instabilité génomique</strong> (non hormonal).</p>
+
+  <div class="gene-grid">
+    <div class="gene-card gene-lynch">
+      <div class="gene-title">🔴 Syndrome de Lynch (HNPCC)</div>
+      <p><strong>Risque à vie jusqu'à 60 %</strong> de cancer de l'endomètre.</p>
+      <p style="margin-top:8px;"><strong>Gènes MMR mutés :</strong></p>
+      <ul style="margin-left:16px;margin-top:4px;">
+        <li>MLH1, MSH2, MSH6, PMS2, EPCAM</li>
+      </ul>
+      <p style="margin-top:8px;font-size:13px;">Déficit de <strong>réparation des mésappariements (MMR)</strong> → instabilité microsatellitaire (MSI-H). Dépistage MMR recommandé chez <strong>toutes</strong> les patientes avec cancer de l'endomètre.</p>
+    </div>
+    <div class="gene-card gene-cowden">
+      <div class="gene-title">🟡 Syndrome de Cowden</div>
+      <p><strong>Risque à vie 13–28 %</strong> de cancer de l'endomètre.</p>
+      <p style="margin-top:8px;"><strong>Gène :</strong> mutation <strong>PTEN</strong> (suppresseur de tumeur).</p>
+      <p style="margin-top:8px;font-size:13px;">Associé aussi à des cancers du sein, de la thyroïde, et à des hamartomes multiples.</p>
+    </div>
+    <div class="gene-card gene-brca">
+      <div class="gene-title">✅ BRCA1 / BRCA2 — À ne PAS confondre</div>
+      <p>Les mutations <strong>BRCA</strong> augmentent le risque de :</p>
+      <ul style="margin-left:16px;margin-top:6px;">
+        <li>Cancer du <strong>sein</strong></li>
+        <li>Cancer de l'<strong>ovaire</strong></li>
+        <li>Cancer de la <strong>prostate</strong></li>
+        <li>Cancer du <strong>pancréas</strong></li>
+      </ul>
+      <p style="margin-top:8px;"><strong>BRCA ne confère PAS de risque accru de cancer de l'endomètre.</strong></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
