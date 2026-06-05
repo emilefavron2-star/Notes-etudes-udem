@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ménopause & Périménopause : Physiologie et Changements Hormonaux</title>
+    <style>
+        :root {
+            --primary: #6b21a8;
+            --primary-light: #f3e8ff;
+            --secondary: #db2777;
+            --secondary-light: #fce7f3;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+            --border: #e2e8f0;
+            --text: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Onglets Interactifs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tableaux */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        td ul {
+            padding-left: 1.2rem;
+        }
+
+        td ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Section Aside / Alertes */
+        .alert-box {
+            background-color: var(--warning-bg);
+            border-left: 5px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #78350f;
+        }
+
+        .alert-box h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Blocs focus / Mécanismes */
+        .mechanism-block {
+            background-color: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .mechanism-block h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mechanism-step {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .mechanism-step::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        .highlight-box {
+            background-color: var(--secondary-light);
+            border-left: 5px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #831843;
+        }
+
+        .info-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Mode Responsive */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            th, td {
+                padding: 0.75rem;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="subtitle">Physiologie & Changements Hormonaux</span>
+        <h1>Ménopause & Périménopause</h1>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'definitions')">Définitions & Seuils</button>
+        <button class="tab-btn" onclick="openTab(event, 'physiologie')">Physiologie & Hormones</button>
+        <button class="tab-btn" onclick="openTab(event, 'stades')">Profils par Stade (STRAW)</button>
+    </div>
+
+    <div id="definitions" class="tab-content active">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Terme</th>
+                    <th style="width: 70%;">Définition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ménopause</strong></td>
+                    <td>
+                        <ul>
+                            <li>Arrêt permanent des menstruations, confirmé rétrospectivement après <strong>12 mois d'aménorrhée</strong> sans autre cause évidente.</li>
+                            <li>Survient naturellement généralement entre 45 et 55 ans (âge moyen 52 ans; ~51 ans selon UpToDate).</li>
+                            <li>Peut être induite (salpingo-ovariectomie bilatérale, traitement gonadotoxique).</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Périménopause /<br>transition ménopausique</strong></td>
+                    <td>
+                        <ul>
+                            <li>Période de changements physiologiques avant la ménopause.</li>
+                            <li>Débute en moyenne <strong>4 ans avant</strong> la dernière menstruation (FMP).</li>
+                            <li>Caractérisée par des cycles irréguliers et de grandes fluctuations hormonales.</li>
+                            <li>Inclut la transition + la 1<sup>re</sup> année suivant la FMP.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Postménopause</strong></td>
+                    <td>Période suivant la ménopause; état de déficit œstrogénique persistant.</td>
+                </tr>
+                <tr>
+                    <td><strong>FMP</strong><br><small>(Final Menstrual Period)</small></td>
+                    <td>Date de la dernière menstruation (= « stade 0 » du système STRAW).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert-box">
+            <h4>⚠️ Âges seuils importants (INESSS) :</h4>
+            <p><strong>Ménopause avant 45 ans :</strong> Constitue un facteur de risque significatif de fracture de fragilisation et de maladie cardiovasculaire (nécessite d'inclure la prévention).</p>
+            <p style="margin-top: 0.5rem;"><strong>Ménopause avant 40 ans :</strong> Envisager l'orientation en spécialité (Insuffisance Ovarienne Prématurée - IOP).</p>
+        </div>
+    </div>
+
+    <div id="physiologie" class="tab-content">
+        <p>La transition résulte de l'<strong>épuisement progressif de la réserve folliculaire ovarienne</strong>. À mesure que la réserve diminue :</p>
+        
+        <div style="margin: 1rem 0;">
+            <div class="mechanism-step">Les follicules restants exigent de plus en plus de stimulation pour produire un follicule pré-ovulatoire → <strong>la FSH augmente sporadiquement</strong>.</div>
+            <div class="mechanism-step">Éventuellement, la FSH ne peut plus soutenir la folliculogenèse → les menstruations commencent à sauter (<strong>cycles anovulatoires</strong>).</div>
+            <div class="mechanism-step">La réserve fluctue → cycles ovulatoires et anovulatoires alternent aléatoirement → <strong>fluctuations hormonales débilitantes</strong>.</div>
+            <div class="mechanism-step">Baisse progressive de l'<strong>inhibine B</strong> et de l'<strong>AMH</strong> (hormone anti-müllérienne, marqueur de la réserve ovarienne, produit par les cellules de la granulosa).</div>
+        </div>
+
+        <div class="mechanism-block">
+            <h3>🔬 Pourquoi la FSH monte AVANT que l'œstradiol ne chute ? (Mécanisme clé)</h3>
+            <p>Les cellules de la granulosa produisent l'<strong>inhibine B</strong>, qui exerce une rétroaction négative sélective sur la FSH.</p>
+            <p style="margin-top: 0.75rem;">Quand le pool folliculaire s'épuise, <strong>l'inhibine B chute en premier</strong> → levée du frein → <strong>↑ FSH</strong> alors que l'œstradiol est encore normal (voire transitoirement élevé par la cohorte folliculaire sur-stimulée).</p>
+            <p style="margin-top: 0.75rem;">C'est pourquoi une FSH élevée isolée marque le début de la transition, mais reste <strong>non fiable pour dater la ménopause</strong> (elle fluctue d'un cycle à l'autre).</p>
+            <p style="margin-top: 0.75rem;">L'<strong>AMH</strong> (aussi sécrétée par la granulosa) décline plus régulièrement, offrant un meilleur reflet de la réserve.</p>
+        </div>
+
+        <div class="highlight-box">
+            <strong>⚠️ Implication clinique :</strong> Ne pas « diagnostiquer » la ménopause sur une seule mesure de FSH chez une femme âgée de 45 ans et plus. Le diagnostic demeure strictement <strong>clinique</strong>.
+        </div>
+    </div>
+
+    <div id="stades" class="tab-content">
+        <span class="info-badge">Système STRAW / INESSS Annexe I</span>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Stade</th>
+                    <th>Cycles menstruels</th>
+                    <th>FSH / Œstradiol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Périménopause précoce</strong></td>
+                    <td>Changements subtils (cycles légèrement plus rapprochés, abondants, prolongés).</td>
+                    <td>Très variables</td>
+                </tr>
+                <tr>
+                    <td><strong>Périménopause tardive</strong></td>
+                    <td>Cycles allongés, intervalles &gt; 60 jours, cycles sautés, épisodes d'aménorrhée.</td>
+                    <td>Variables (surtout si intervalles &gt; 3 mois)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ménopause / Postménopause</strong></td>
+                    <td>Aménorrhée ≥ 12 mois</td>
+                    <td><strong>FSH élevée</strong> (&gt; 25 UI/L) + <strong>œstradiol faible</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="mechanism-block" style="border-top: 4px solid var(--primary);">
+            <h3>💡 Approche Diagnostique</h3>
+            <p>Chez les femmes de <strong>45 ans et plus</strong>, le diagnostic est <strong>clinique</strong> (fondé sur le changement de l'intervalle intermenstruel accompagné ou non de symptômes vasomoteurs) ; les analyses biochimiques ne sont généralement pas requises.</p>
+            <p style="margin-top: 0.75rem;">Une FSH élevée n'est <strong>PAS</strong> nécessaire au diagnostic et n'est pas fiable vu sa grande variabilité (contrairement à l'AMH).</p>
+            <p style="margin-top: 0.75rem;"><em>Le dosage FSH/œstradiol peut toutefois être envisagé si la patiente a moins de 45 ans ou présente une aménorrhée supérieure à 3 mois.</em></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        // Cacher tous les contenus d'onglets
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+        // Retirer la classe 'active' de tous les boutons
+        const tabBtns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tabBtns.length; i++) {
+            tabBtns[i].classList.remove("active");
+        }
+
+        // Afficher l'onglet actuel et ajouter la classe 'active' au bouton cliqué
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>

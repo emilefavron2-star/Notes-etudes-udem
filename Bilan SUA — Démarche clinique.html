@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!-- saved from url=(0233)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_d2ea986a-efb6-4d05-a5bb-421bc1eef2de/outputs/bilan_SUA_interactif.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan SUA — Démarche clinique</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #f0f2f5; padding: 16px; }
+.page { max-width: 860px; margin: 0 auto; }
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #1a2e4a 0%, #243d5c 100%);
+  color: white; text-align: center;
+  padding: 14px 16px; border-radius: 12px 12px 0 0;
+}
+.header h1 { font-size: 17px; margin-bottom: 3px; }
+.header p  { font-size: 11px; opacity: .72; }
+
+/* TABS */
+.tabs { display: flex; background: #e4e9ee; border-bottom: 2px solid #c8d0d8; }
+.tab {
+  flex: 1; padding: 9px 4px; text-align: center;
+  font-size: 10px; font-weight: 600; cursor: pointer;
+  color: #555; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; transition: background .15s, color .15s;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  user-select: none;
+}
+.tab:hover { background: #d6dde4; }
+.tab.active { color: white; }
+.tab .icon { font-size: 16px; }
+.step-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700;
+}
+
+/* CONTENT */
+.content { background: white; border-radius: 0 0 12px 12px; border: 1px solid #e0e0e0; border-top: none; }
+.section { display: none; padding: 16px; animation: fadeIn .2s ease; }
+.section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+.sec-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid; }
+
+/* SUBSECTIONS */
+.sub { margin-bottom: 12px; padding: 10px 12px; border-radius: 8px; background: #fafafa; border-left: 3px solid; }
+.sub-hdr { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.sub-badge {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9.5px; font-weight: 700; color: white; flex-shrink: 0;
+}
+.sub-title { font-size: 11.5px; font-weight: 700; color: #1a1a2e; }
+
+/* BULLET LIST */
+.blist { list-style: none; }
+.blist li {
+  font-size: 10.5px; line-height: 1.55; color: #333;
+  padding: 3px 0 3px 13px; border-bottom: 1px solid #f0f0f0; position: relative;
+}
+.blist li:last-child { border-bottom: none; }
+.blist li::before { content: "▸"; position: absolute; left: 0; top: 4px; font-size: 8px; color: #bbb; }
+.blist li strong { font-weight: 600; }
+
+/* SYMPTOM → CAUSE CARDS */
+.sx-grid { display: flex; flex-direction: column; gap: 5px; }
+.sx-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border-radius: 8px;
+  background: white; border: 1px solid #eee;
+  transition: box-shadow .15s;
+}
+.sx-row:hover { box-shadow: 0 2px 10px rgba(0,0,0,.1); }
+.sx-text { flex: 1; font-size: 10.5px; line-height: 1.4; color: #333; }
+.sx-text strong { font-weight: 600; }
+.sx-arr { color: #bbb; font-size: 18px; flex-shrink: 0; }
+.dx-tag { font-size: 10px; font-weight: 700; color: white; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
+
+/* KEY BOXES */
+.key-box { border-radius: 8px; padding: 11px 13px; margin: 11px 0; border-left: 4px solid; }
+.key-box.gold   { background: #fffde7; border-color: #f9a825; }
+.key-box.red    { background: #ffebee; border-color: #c62828; }
+.key-box.info   { background: #e3f2fd; border-color: #1565c0; }
+.key-box.purple { background: #f3e5f5; border-color: #7c5cbf; }
+.key-box .key-title { font-size: 11px; font-weight: 700; margin-bottom: 6px; }
+.key-box .key-body { font-size: 10.5px; line-height: 1.6; color: #444; }
+.key-box .key-body strong { font-weight: 600; }
+.key-box .key-body ul { list-style: none; padding-left: 4px; }
+.key-box .key-body ul li { padding: 2.5px 0 2.5px 10px; position: relative; }
+.key-box .key-body ul li::before { content: "•"; position: absolute; left: 0; }
+
+/* TABLES */
+.tbl { width: 100%; border-collapse: collapse; font-size: 10.5px; margin: 8px 0; }
+.tbl th { padding: 8px 10px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: white; }
+.tbl td { padding: 7px 10px; vertical-align: top; line-height: 1.55; color: #333; border-bottom: 1px solid #f0f0f0; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:hover td { background: #fafafa; }
+.tbl td:first-child { font-weight: 600; min-width: 120px; }
+.tbl td strong { font-weight: 600; }
+
+/* FINDINGS GRID */
+.findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+.finding-card { border-radius: 8px; padding: 10px 12px; border: 1.5px solid; font-size: 10.5px; line-height: 1.5; }
+.finding-card strong { font-weight: 700; display: block; margin-bottom: 3px; font-size: 11px; }
+
+/* IMAGING CARDS */
+.img-grid { display: flex; flex-direction: column; gap: 10px; }
+.img-card { border-radius: 8px; padding: 12px 14px; border: 2px solid; }
+.img-badge { display: inline-block; font-size: 9px; font-weight: 700; color: white; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+.img-title { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.img-body { font-size: 10.5px; color: #444; line-height: 1.55; }
+.img-body strong { font-weight: 600; }
+.img-body ul { list-style: none; padding: 0; margin-top: 4px; }
+.img-body ul li { padding: 2.5px 0 2.5px 14px; position: relative; }
+.img-body ul li::before { content: "▸"; position: absolute; left: 0; top: 4px; font-size: 8px; color: #bbb; }
+
+/* NAV BUTTONS */
+.nav-btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid #eee; }
+.nav-btn {
+  font-size: 10.5px; font-weight: 600; padding: 6px 14px;
+  border-radius: 7px; border: none; cursor: pointer;
+  transition: opacity .15s; color: white;
+}
+.nav-btn:hover { opacity: .85; }
+.nav-btn.prev { background: #78909c; }
+
+@media (max-width: 560px) {
+  .tabs .tab span:not(.icon):not(.step-num) { display: none; }
+  .findings-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🔍 Bilan SUA — Démarche clinique structurée</h1>
+  <p>Saignements Utérins Anormaux · Cliquez sur chaque étape pour explorer</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="showTab(1)" style="background: rgb(21, 101, 192); border-bottom-color: rgb(21, 101, 192);"><span class="icon">🩺</span><span class="step-num">1</span><span>Anamnèse</span></div>
+  <div class="tab" onclick="showTab(2)"><span class="icon">🔎</span><span class="step-num">2</span><span>Examen</span></div>
+  <div class="tab" onclick="showTab(3)"><span class="icon">🧪</span><span class="step-num">3</span><span>Labos</span></div>
+  <div class="tab" onclick="showTab(4)"><span class="icon">🔬</span><span class="step-num">4</span><span>Biopsie</span></div>
+  <div class="tab" onclick="showTab(5)"><span class="icon">📡</span><span class="step-num">5</span><span>Imagerie</span></div>
+</div>
+
+<div class="content">
+
+<!-- ══════════════════════════════════════
+     1. ANAMNÈSE
+════════════════════════════════════════ -->
+<div class="section active" id="section-1">
+  <div class="sec-title" style="color:#1565c0; border-color:#1565c0">1️⃣ Anamnèse — caractériser le saignement pour générer des hypothèses</div>
+
+  <!-- a) Origine utérine -->
+  <div class="sub" style="border-color:#1565c0; background:#f0f7ff">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#1565c0">a</div>
+      <div class="sub-title">Confirmer l'origine utérine</div>
+    </div>
+    <ul class="blist">
+      <li>Sang uniquement à la miction ou défécation → réorienter vers source <strong>urinaire ou GI</strong></li>
+      <li>Seulement à l'essuyage? Emplacement sur la serviette / tampon?</li>
+      <li>Déclenché par le <strong>coït ou un traumatisme</strong> → source <strong>cervicale ou vaginale</strong> (dysplasie, cervicite, polype, atrophie vaginale)</li>
+    </ul>
+  </div>
+
+  <!-- b) Calendrier -->
+  <div class="sub" style="border-color:#1565c0; background:#f0f7ff">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#1565c0">b</div>
+      <div class="sub-title">Reconstituer le calendrier menstruel</div>
+    </div>
+    <ul class="blist">
+      <li>1er jour des <strong>dernières règles</strong> et des précédentes</li>
+      <li>Durée du saignement : jours de flux franc vs spotting brunâtre</li>
+      <li><strong>Saignement entre les règles?</strong></li>
+      <li>Si irrégulier : nombre d'épisodes en 6–12 mois, intervalle moyen</li>
+    </ul>
+  </div>
+
+  <!-- c) Volume -->
+  <div class="sub" style="border-color:#1565c0; background:#f0f7ff">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#1565c0">c</div>
+      <div class="sub-title">Quantifier le volume</div>
+    </div>
+    <ul class="blist">
+      <li>Présence de <strong>caillots</strong>, protections trempées</li>
+      <li>Fréquence de changement des protections</li>
+      <li>Retentissement : fatigue, étourdissements → <strong>anémie</strong></li>
+    </ul>
+  </div>
+
+  <!-- d) Symptômes associés -->
+  <div class="sub" style="border-color:#1565c0; background:#f0f7ff">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#1565c0">d</div>
+      <div class="sub-title">Symptômes associés — orientation étiologique</div>
+    </div>
+    <div class="sx-grid">
+      <div class="sx-row">
+        <div class="sx-text"><strong>Douleur · dysménorrhée · dyspareunie profonde</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#c2185b">Adénomyose / Endométriose</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Diathèse hémorragique</strong> — ecchymoses faciles, épistaxis, saignements post-partum ou post-chirurgie, ATCD familial<br><em style="font-size:9.5px;color:#888">🚩 Saignement abondant depuis la ménarche = drapeau le plus évocateur</em></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#6a1b9a">AUB-C</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Hirsutisme · acné · obésité · cycles espacés</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#00695c">SOPK / Anovulation</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Galactorrhée</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#4527a0">Hyperprolactinémie</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text">Signes de <strong>dysthyroïdie</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#00695c">AUB-O (thyroïde)</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Effet de masse</strong> — symptômes urinaires / intestinaux, pesanteur pelvienne</div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#37474f">Fibrome / Néoplasie</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- e) Revue ciblée -->
+  <div class="sub" style="border-color:#1565c0; background:#f0f7ff">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#1565c0">e</div>
+      <div class="sub-title">Revue ciblée</div>
+    </div>
+    <ul class="blist">
+      <li><strong>Médicaments et produits naturels</strong> (AUB-I) : anticoagulants · hormones · DIU · ISRS/tricycliques · tamoxifène · ginseng · gattilier</li>
+      <li><strong>Maladies chroniques</strong> (Db type 1, maladie cœliaque, IRC) — réduisent la GnRH hypothalamique</li>
+    </ul>
+  </div>
+
+  <!-- Règle d'orientation -->
+  <div class="key-box gold">
+    <div class="key-title">🔑 Règle d'orientation</div>
+    <div class="key-body">
+      <ul>
+        <li><strong>Saignement abondant SANS intermenstruel</strong> → rarement associé à carcinome/hyperplasie → oriente vers <strong>léiomyome · adénomyose · coagulopathie</strong></li>
+        <li><strong>Saignement intermenstruel</strong> ou <strong>post-ménopausique</strong> → inquiétude forte pour <strong>polype et malignité</strong> → <strong>impose l'échantillonnage</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="nav-btn" style="background:#1565c0" onclick="showTab(2)">Examen physique →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     2. EXAMEN PHYSIQUE
+════════════════════════════════════════ -->
+<div class="section" id="section-2">
+  <div class="sec-title" style="color:#00695c; border-color:#00695c">2️⃣ Examen physique — chercher la signature de chaque cause</div>
+
+  <!-- Signes systémiques -->
+  <div class="sub" style="border-color:#00695c; background:#f0faf8">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#00695c">i</div>
+      <div class="sub-title">Signes systémiques</div>
+    </div>
+    <div class="sx-grid">
+      <div class="sx-row">
+        <div class="sx-text"><strong>Fièvre · écoulement cervical purulent</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#c62828">Infection / Endométrite</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Ecchymoses diffuses</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#6a1b9a">Diathèse hémorragique (AUB-C)</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Goitre</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#00695c">Dysthyroïdie (AUB-O)</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Hirsutisme · acné · clitoromégalie · alopécie androgénique</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#00695c">Hyperandrogénie / SOPK</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Acanthosis nigricans</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#00695c">SOPK / Insulinorésistance</div>
+      </div>
+      <div class="sx-row">
+        <div class="sx-text"><strong>Galactorrhée</strong></div>
+        <div class="sx-arr">→</div>
+        <div class="dx-tag" style="background:#4527a0">Hyperprolactinémie</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Examen pelvien -->
+  <div class="sub" style="border-color:#00695c; background:#f0faf8">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#00695c">ii</div>
+      <div class="sub-title">Examen pelvien — sources de saignement</div>
+    </div>
+    <ul class="blist">
+      <li>Inspecter <strong>vulve · vagin · col · urètre · anus</strong> — lésion, masse, ulcération, friabilité, polype, caroncule, hémorroïde = source <strong>non utérine</strong> possible</li>
+      <li><strong>Saignement actif</strong> : noter présence/volume à l'orifice cervical et caillots dans le cul-de-sac vaginal</li>
+    </ul>
+  </div>
+
+  <!-- Bimanuel -->
+  <div class="sub" style="border-color:#00695c; background:#f0faf8">
+    <div class="sub-hdr">
+      <div class="sub-badge" style="background:#00695c">iii</div>
+      <div class="sub-title">Taille et contour de l'utérus (bimanuel)</div>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-card" style="border-color:#1565c0; background:#f0f7ff">
+        <strong style="color:#1565c0">Élargi + lobulé / asymétrique</strong>
+        Léiomyomes (fibromes)
+      </div>
+      <div class="finding-card" style="border-color:#e65100; background:#fff8f0">
+        <strong style="color:#e65100">Élargi + globuleux + «&nbsp;boggy&nbsp;» + sensible</strong>
+        Adénomyose
+      </div>
+      <div class="finding-card" style="border-color:#c62828; background:#fff5f5">
+        <strong style="color:#c62828">Mobilité réduite</strong>
+        Adhérences (infection / chirurgie / endométriose) ou masse pelvienne
+      </div>
+      <div class="finding-card" style="border-color:#2e7d32; background:#f0fff4">
+        <strong style="color:#2e7d32">Masse ou sensibilité annexielle</strong>
+        Abcès tubo-ovarien (+ endométrite) ou tumeur sécrétant des œstrogènes
+      </div>
+    </div>
+
+    <div class="key-box red">
+      <div class="key-title">⚠️ Patiente obèse — examen bimanuel peu fiable</div>
+      <div class="key-body">L'utérus peut paraître normal malgré une pathologie. <strong>L'imagerie devient indispensable</strong> dans ce contexte.</div>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="nav-btn prev" onclick="showTab(1)">← Anamnèse</button>
+    <button class="nav-btn" style="background:#00695c" onclick="showTab(3)">Labos →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     3. LABOS
+════════════════════════════════════════ -->
+<div class="section" id="section-3">
+  <div class="sec-title" style="color:#6a1b9a; border-color:#6a1b9a">3️⃣ Analyses de laboratoire — ciblées selon les hypothèses</div>
+  <p style="font-size:10.5px; color:#888; font-style:italic; margin-bottom:12px">⚠️ Pas systématiques — basées sur le tableau clinique</p>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="background:#4a148c; width:150px">Analyse</th>
+        <th style="background:#4a148c">Indication / But</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>β-hCG</td>
+        <td>Exclure une <strong>grossesse</strong> chez toutes les patientes en âge de procréer (y compris grossesse ectopique et môle). <em>Inutile chez la femme clairement ménopausée.</em></td>
+      </tr>
+      <tr>
+        <td>Hémogramme (FSC)</td>
+        <td>Évaluer <strong>anémie</strong> (Hb) et <strong>thrombocytopénie</strong></td>
+      </tr>
+      <tr>
+        <td>Ferritine</td>
+        <td>En 2e temps si anémie — marqueur le plus précoce de la carence martiale</td>
+      </tr>
+      <tr>
+        <td>TSH</td>
+        <td>Si symptômes évoquant une <strong>dysthyroïdie</strong></td>
+      </tr>
+      <tr>
+        <td>Coagulogramme</td>
+        <td>Si saignements depuis la <strong>ménarche</strong> · ATCD hémorragies post-natales · autres sources de saignement · <strong>ATCD familiaux</strong> de trouble de coagulation</td>
+      </tr>
+      <tr>
+        <td>Dépistage ITSS</td>
+        <td>Si facteurs de risque</td>
+      </tr>
+      <tr>
+        <td>Prolactine · Androgènes · FSH-E2</td>
+        <td>Si tableau évoquant galactorrhée, hyperandrogénie, ou insuffisance ovarienne prématurée</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="key-box purple" style="margin-top:14px">
+    <div class="key-title">🔬 Comment interpréter les résultats</div>
+    <div class="key-body">
+      <ul>
+        <li><strong>FSC</strong> — Hb chiffre le retentissement; <strong>VGM bas + plaquettes normales</strong> → perte de fer chronique (pas AUB-C). <em>Thrombocytopénie</em> = cause possible du saignement (AUB-C)</li>
+        <li><strong>Ferritine</strong> — s'effondre avant l'Hb. Ferritine basse + microcytose = <strong>anémie ferriprive par spoliation menstruelle</strong></li>
+        <li><strong>β-hCG</strong> — même si la patiente nie toute activité sexuelle ou utilise une contraception. Ne pas omettre</li>
+        <li><strong>TSH</strong> — hypothyroïdie → anovulation (AUB-O) + altération de l'hémostase. À doser seulement si signes évocateurs</li>
+        <li><strong>Coagulogramme</strong> — inclut dépistage de la <strong>maladie de von Willebrand</strong> (coagulopathie héréditaire la plus fréquente chez la femme avec ménorragie)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="nav-btn prev" onclick="showTab(2)">← Examen</button>
+    <button class="nav-btn" style="background:#6a1b9a" onclick="showTab(4)">Biopsie →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     4. BIOPSIE
+════════════════════════════════════════ -->
+<div class="section" id="section-4">
+  <div class="sec-title" style="color:#e65100; border-color:#e65100">4️⃣ Échantillonnage de l'endomètre — faut-il exclure une néoplasie?</div>
+
+  <p style="font-size:10.5px; line-height:1.6; color:#444; margin-bottom:12px">
+    La biopsie sert à dépister <strong>hyperplasie / carcinome de l'endomètre</strong>. La décision repose sur l'<strong>âge</strong> et les <strong>facteurs de risque d'œstrogènes non opposés</strong> — pas seulement sur l'abondance du saignement.
+  </p>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="background:#bf360c; width:170px">Population</th>
+        <th style="background:#bf360c">Indication d'échantillonnage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fff5f5">
+        <td style="color:#c62828">🔴 Post-ménopausée</td>
+        <td><strong>Tout saignement</strong> → directement, ou si endomètre &gt; 4 mm / hétérogène à l'écho</td>
+      </tr>
+      <tr style="background:#fff9f0">
+        <td style="color:#e65100">🟠 45 ans → ménopause</td>
+        <td>Saignement <strong>fréquent</strong> (intervalle &lt; 21 j) · <strong>abondant</strong> · <strong>prolongé (&gt; 8 j)</strong> · ou <strong>intermenstruel</strong></td>
+      </tr>
+      <tr style="background:#f0f7ff">
+        <td style="color:#1565c0">🔵 &lt; 45 ans</td>
+        <td>Saignement <strong>persistant ≥ 6 mois</strong> avec œstrogènes non opposés (obésité, anovulation/SOPK) · <strong>échec traitement médical</strong> · ou <strong>haut risque</strong> (Lynch, Cowden, tamoxifène)</td>
+      </tr>
+      <tr style="background:#ffebee">
+        <td style="color:#c62828">⚠️ IMC ≥ 30</td>
+        <td>Tout SUA → échantillonnage <strong>quel que soit l'âge</strong> — l'IMC prime sur l'âge</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="key-box gold" style="margin-top:14px">
+    <div class="key-title">💡 Pourquoi l'obésité abaisse le seuil</div>
+    <div class="key-body">
+      Tissu adipeux → <strong>aromatase</strong> → convertit androgènes surrénaliens/ovariens en œstrogènes.<br>
+      Sans ovulation (pas de progestérone) → œstrogènes <strong>non opposés</strong> → stimulation proliférative continue<br>
+      → <strong>Hyperplasie → Carcinome de l'endomètre</strong><br>
+      <em>= même chaîne causale que la physiopathologie AUB-M</em>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="nav-btn prev" onclick="showTab(3)">← Labos</button>
+    <button class="nav-btn" style="background:#e65100" onclick="showTab(5)">Imagerie →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     5. IMAGERIE
+════════════════════════════════════════ -->
+<div class="section" id="section-5">
+  <div class="sec-title" style="color:#283593; border-color:#283593">5️⃣ Imagerie — quand et laquelle</div>
+
+  <div class="img-grid">
+
+    <div class="img-card" style="border-color:#1565c0; background:#f0f7ff">
+      <div class="img-badge" style="background:#1565c0">1re intention — toujours</div>
+      <div class="img-title" style="color:#0d3c6e">🔵 Échographie pelvienne (transvaginale ± transabdominale)</div>
+      <div class="img-body">
+        <ul>
+          <li><strong>Transvaginale (TV)</strong> : structures à ~5 cm · idéale pour utérus de taille normale · évaluation fine de l'endomètre · Doppler couleur</li>
+          <li><strong>Transabdominale (TA)</strong> : champ 8–10 cm · si utérus volumineux (fibrome) ou voie vaginale refusée/impossible</li>
+        </ul>
+        <div style="margin-top:7px; padding:7px 9px; background:white; border-radius:6px; border:1px solid #90caf9; font-size:10px;">
+          <strong style="color:#1565c0">Indications :</strong> examen physique anormal · suspicion de cause structurelle (fibrome, polype, adénomyose) · symptômes persistants malgré le traitement
+        </div>
+      </div>
+    </div>
+
+    <div class="img-card" style="border-color:#00695c; background:#f0faf8">
+      <div class="img-badge" style="background:#00695c">2e intention</div>
+      <div class="img-title" style="color:#004d40">🟢 Hystérosonographie (SIS) ou Hystéroscopie</div>
+      <div class="img-body">
+        <ul>
+          <li>Si <strong>pathologie intracavitaire</strong> suspectée (polype, fibrome sous-muqueux) mal définie à l'écho seule</li>
+          <li>Le salin <strong>distend la cavité</strong> → révèle les lésions endocavitaires</li>
+          <li>Hystéroscopie : permet geste <strong>diagnostique + thérapeutique</strong> simultané</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-card" style="border-color:#9e9e9e; background:#fafafa">
+      <div class="img-badge" style="background:#757575">Non recommandée de routine</div>
+      <div class="img-title" style="color:#424242">⚪ IRM</div>
+      <div class="img-body">
+        <ul>
+          <li>Non recommandée de routine pour les SUA</li>
+          <li>Réservée aux situations particulières : <strong>cartographie des fibromes</strong> (avant myomectomie/embolisation) ou adénomyose complexe</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="key-box info" style="margin-top:14px">
+    <div class="key-title">📋 Algorithme de choix</div>
+    <div class="key-body">
+      <strong>SUA</strong> → <strong>Écho TV/TA</strong> (1re ligne systématique)<br>
+      &nbsp;&nbsp;↳ Lésion intracavitaire suspecte → <strong>SIS ou hystéroscopie</strong><br>
+      &nbsp;&nbsp;↳ Cartographie fibromes complexes / adénomyose → <strong>IRM</strong>
+    </div>
+  </div>
+
+  <div class="nav-btns">
+    <button class="nav-btn prev" onclick="showTab(4)">← Biopsie</button>
+  </div>
+</div>
+
+</div><!-- .content -->
+</div><!-- .page -->
+
+<script>
+const COLORS = ['#1565c0','#00695c','#6a1b9a','#e65100','#283593'];
+
+function showTab(n) {
+  document.querySelectorAll('.tab').forEach((t, i) => {
+    const on = i === n - 1;
+    t.classList.toggle('active', on);
+    t.style.background       = on ? COLORS[i] : '';
+    t.style.borderBottomColor = on ? COLORS[i] : 'transparent';
+    t.style.color            = on ? 'white'    : '';
+  });
+  document.querySelectorAll('.section').forEach((s, i) => {
+    s.classList.toggle('active', i === n - 1);
+  });
+  document.querySelector('.content').scrollTop = 0;
+}
+
+// Init first tab
+const firstTab = document.querySelector('.tab');
+firstTab.style.background = COLORS[0];
+firstTab.style.borderBottomColor = COLORS[0];
+</script>
+
+
+</body></html>

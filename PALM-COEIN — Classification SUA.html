@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- saved from url=(0234)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_d2ea986a-efb6-4d05-a5bb-421bc1eef2de/outputs/palm_coein_interactif.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PALM-COEIN — Classification SUA</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f0f2f5;
+  padding: 16px;
+}
+.page { max-width: 860px; margin: 0 auto; }
+
+/* ── TITLE ── */
+.title-box {
+  background: linear-gradient(135deg, #1a2e4a 0%, #243d5c 100%);
+  color: white;
+  text-align: center;
+  padding: 16px 16px 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+.title-box h1 { font-size: 17px; margin-bottom: 3px; }
+.title-box p  { font-size: 11px; opacity: 0.72; margin-bottom: 12px; }
+
+/* Acronym letter strip */
+.acr-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.acr-letter {
+  width: 34px; height: 34px;
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 900;
+  color: white;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  user-select: none;
+}
+.acr-letter:hover { transform: scale(1.18); box-shadow: 0 4px 12px rgba(0,0,0,.35); }
+.acr-sep { color: rgba(255,255,255,.25); font-size: 22px; margin: 0 2px; line-height: 1; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 14px; }
+.section-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; padding: 0 2px;
+}
+.section-badge {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 11px; border-radius: 20px; color: white;
+}
+.section-desc { font-size: 11px; color: #666; }
+
+/* ── CARD GRID ── */
+.cards-row { display: grid; gap: 8px; }
+.palm-row  { grid-template-columns: repeat(4, 1fr); }
+.coein-row { grid-template-columns: repeat(5, 1fr); }
+
+/* ── CARD ── */
+.card {
+  background: white;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+.card.open  { box-shadow: 0 4px 20px rgba(0,0,0,.14); }
+
+/* Card header */
+.card-head {
+  padding: 12px 10px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  color: white; position: relative;
+}
+.card-letter {
+  font-size: 30px; font-weight: 900; line-height: 1;
+  text-shadow: 0 1px 5px rgba(0,0,0,.2);
+}
+.card-abbr {
+  font-size: 8.5px; font-weight: 700;
+  background: rgba(255,255,255,.22);
+  padding: 1px 6px; border-radius: 6px;
+}
+.card-name {
+  font-size: 10px; font-weight: 700;
+  text-align: center; line-height: 1.3;
+}
+.toggle-icon {
+  position: absolute; top: 7px; right: 8px;
+  font-size: 13px; opacity: .7;
+  transition: transform .25s;
+}
+.card.open .toggle-icon { transform: rotate(180deg); }
+
+/* Teaser (collapsed summary) */
+.card-teaser {
+  font-size: 9px; line-height: 1.35;
+  padding: 5px 8px 7px;
+  text-align: center;
+}
+.card.open .card-teaser { display: none; }
+
+/* Card body (expandable) */
+.card-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease;
+}
+.card.open .card-body { max-height: 600px; }
+
+.card-body-inner {
+  padding: 9px 10px 11px;
+  border-top: 1px solid #f0f0f0;
+}
+.card-body-inner ul { list-style: none; }
+.card-body-inner ul li {
+  font-size: 10px; color: #333;
+  padding: 3.5px 0 3.5px 13px;
+  border-bottom: 1px solid #f5f5f5;
+  line-height: 1.5; position: relative;
+}
+.card-body-inner ul li:last-child { border-bottom: none; }
+.card-body-inner ul li::before {
+  content: "▸"; position: absolute;
+  left: 0; top: 5px; font-size: 8px; color: #bbb;
+}
+.card-body-inner ul li strong { font-weight: 600; }
+.alert-badge {
+  font-size: 9px; font-weight: 700; color: white;
+  background: #c62828; padding: 1px 5px; border-radius: 4px;
+}
+
+/* ── LEGEND ── */
+.legend {
+  display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+  font-size: 10px; color: #666; margin-top: 12px;
+}
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 11px; height: 11px; border-radius: 3px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 580px) {
+  .palm-row  { grid-template-columns: repeat(2, 1fr); }
+  .coein-row { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- TITLE -->
+<div class="title-box">
+  <h1>🩸 Classification PALM-COEIN des SUA</h1>
+  <p>Saignements Utérins Anormaux — cliquez sur chaque lettre ou carte</p>
+  <div class="acr-row">
+    <div class="acr-letter" style="background:#1565c0" onclick="openCard(&#39;P&#39;)" title="Polypes">P</div>
+    <div class="acr-letter" style="background:#1976d2" onclick="openCard(&#39;A&#39;)" title="Adénomyose">A</div>
+    <div class="acr-letter" style="background:#0277bd" onclick="openCard(&#39;L&#39;)" title="Léiomyomes">L</div>
+    <div class="acr-letter" style="background:#b71c1c" onclick="openCard(&#39;M&#39;)" title="Malignité">M</div>
+    <span class="acr-sep">—</span>
+    <div class="acr-letter" style="background:#6a1b9a" onclick="openCard(&#39;C&#39;)" title="Coagulopathie">C</div>
+    <div class="acr-letter" style="background:#00695c" onclick="openCard(&#39;O&#39;)" title="Ovulatoire">O</div>
+    <div class="acr-letter" style="background:#e65100" onclick="openCard(&#39;E&#39;)" title="Endométriale">E</div>
+    <div class="acr-letter" style="background:#2e7d32" onclick="openCard(&#39;I&#39;)" title="Iatrogénique">I</div>
+    <div class="acr-letter" style="background:#546e7a" onclick="openCard(&#39;N&#39;)" title="Non classé">N</div>
+  </div>
+</div>
+
+<!-- PALM -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge" style="background:#1565c0">🟦 PALM</span>
+    <span class="section-desc">Causes <strong>structurelles</strong> — détectables par imagerie ou histologie</span>
+  </div>
+  <div class="cards-row palm-row">
+
+    <!-- P -->
+    <div class="card" id="card-P" onclick="toggleCard(&#39;P&#39;)" data-color="#1565c0">
+      <div class="card-head" style="background:linear-gradient(140deg,#1255a5,#1e88e5)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">P</div>
+        <div class="card-abbr">AUB-P</div>
+        <div class="card-name">Polypes</div>
+      </div>
+      <div class="card-teaser" style="background:#e3f2fd; color:#1255a5">
+        Saignement intermenstruel
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>Cause fréquente</strong> de SUA (peuvent être asymptomatiques)</li>
+            <li>Symptôme le plus fréquent : <strong>saignement intermenstruel</strong></li>
+            <li>Prévalence ↑ avec l'âge — majorité <strong>bénins</strong></li>
+            <li>Diagnostic : échographie · hystérosonographie · hystéroscopie</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- A -->
+    <div class="card" id="card-A" onclick="toggleCard(&#39;A&#39;)" data-color="#1976d2">
+      <div class="card-head" style="background:linear-gradient(140deg,#1565c0,#42a5f5)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">A</div>
+        <div class="card-abbr">AUB-A</div>
+        <div class="card-name">Adénomyose</div>
+      </div>
+      <div class="card-teaser" style="background:#e3f2fd; color:#1565c0">
+        Utérus élargi et «&nbsp;boggy&nbsp;»
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li>Glandes + stroma endométriaux <strong>dans le myomètre</strong></li>
+            <li>Utérus diffusément augmenté de volume</li>
+            <li>Associée aux léiomyomes / endométriose</li>
+            <li>Examen : utérus <strong>élargi et «&nbsp;boggy&nbsp;»</strong></li>
+            <li>Diagnostic : <strong>écho endovaginale</strong> ou IRM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- L -->
+    <div class="card" id="card-L" onclick="toggleCard(&#39;L&#39;)" data-color="#0277bd">
+      <div class="card-head" style="background:linear-gradient(140deg,#01579b,#0288d1)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">L</div>
+        <div class="card-abbr">AUB-L</div>
+        <div class="card-name">Léiomyomes</div>
+      </div>
+      <div class="card-teaser" style="background:#e1f5fe; color:#01579b">
+        Tumeurs pelviennes les + fréquentes
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>Tumeurs pelviennes les + fréquentes</strong> chez la femme</li>
+            <li>La plupart petits et asymptomatiques</li>
+            <li>Utérus <strong>élargi, lobulé/asymétrique</strong> au bimanuel</li>
+            <li>Classification FIGO : <strong>SM 0-2</strong> (sous-muqueux) vs autres (O)</li>
+            <li>Les <strong>sous-muqueux</strong> ont le plus d'impact sur le saignement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M -->
+    <div class="card" id="card-M" onclick="toggleCard(&#39;M&#39;)" data-color="#b71c1c">
+      <div class="card-head" style="background:linear-gradient(140deg,#7f0000,#e53935)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">M</div>
+        <div class="card-abbr">AUB-M</div>
+        <div class="card-name">Malignité &amp; hyperplasie</div>
+      </div>
+      <div class="card-teaser" style="background:#ffebee; color:#b71c1c">
+        ⚠️ À éliminer en priorité
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>Hyperplasie endométriale</strong> ou cancer utérin</li>
+            <li>Risque ↑ avec <strong>l'âge</strong></li>
+            <li>↑ œstrogènes <strong>non opposés</strong> par la progestérone</li>
+            <li>Facteurs : obésité · anovulation · tamoxifène</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COEIN -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-badge" style="background:#424242">⬜ COEIN</span>
+    <span class="section-desc">Causes <strong>non structurelles</strong> — non visibles à l'imagerie</span>
+  </div>
+  <div class="cards-row coein-row">
+
+    <!-- C -->
+    <div class="card" id="card-C" onclick="toggleCard(&#39;C&#39;)" data-color="#6a1b9a">
+      <div class="card-head" style="background:linear-gradient(140deg,#4a148c,#8e24aa)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">C</div>
+        <div class="card-abbr">AUB-C</div>
+        <div class="card-name">Coagulopathie</div>
+      </div>
+      <div class="card-teaser" style="background:#f3e5f5; color:#6a1b9a">
+        Jusqu'à <strong>20 %</strong> des SUA abondants
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>Trouble systémique</strong> de l'hémostase</li>
+            <li><span class="alert-badge">20 %</span> des patientes avec SUA abondants (tout âge)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- O -->
+    <div class="card" id="card-O" onclick="toggleCard(&#39;O&#39;)" data-color="#00695c">
+      <div class="card-head" style="background:linear-gradient(140deg,#004d40,#00897b)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">O</div>
+        <div class="card-abbr">AUB-O</div>
+        <div class="card-name">Dysfonction ovulatoire</div>
+      </div>
+      <div class="card-teaser" style="background:#e0f2f1; color:#00695c">
+        SOPK, hypothyroïdie, hyperprolactinémie…
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>SOPK</strong>, troubles alimentaires, dysthyroïdie</li>
+            <li>Maladie surrénalienne ou hypophysaire</li>
+            <li>Dysfonctionnement <strong>hypothalamique</strong></li>
+            <li><strong>Hyperprolactinémie</strong></li>
+            <li>Défaillance ovarienne prématurée</li>
+            <li>Axe HPO immature (<strong>adolescente</strong>)</li>
+            <li>Tumeurs sécrétant des androgènes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="card" id="card-E" onclick="toggleCard(&#39;E&#39;)" data-color="#e65100">
+      <div class="card-head" style="background:linear-gradient(140deg,#bf360c,#f4511e)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">E</div>
+        <div class="card-abbr">AUB-E</div>
+        <div class="card-name">Endométriale</div>
+      </div>
+      <div class="card-teaser" style="background:#fbe9e7; color:#bf360c">
+        Infection / inflammation locale
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>Trouble primaire de l'endomètre</strong></li>
+            <li>Infection · inflammation</li>
+            <li>Trouble local de <strong>l'hémostase endométriale</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- I -->
+    <div class="card" id="card-I" onclick="toggleCard(&#39;I&#39;)" data-color="#2e7d32">
+      <div class="card-head" style="background:linear-gradient(140deg,#1b5e20,#43a047)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">I</div>
+        <div class="card-abbr">AUB-I</div>
+        <div class="card-name">Iatrogénique</div>
+      </div>
+      <div class="card-teaser" style="background:#e8f5e9; color:#2e7d32">
+        Médicaments &amp; contraceptifs
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li><strong>COC</strong> · stérilets · anticoagulants · AINS</li>
+            <li>Antidépresseurs <strong>ISRS</strong> / tricycliques · tamoxifène</li>
+            <li>Antipsychotiques · corticostéroïdes</li>
+            <li>Plantes : ginseng · gattilier · sauge rouge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- N -->
+    <div class="card" id="card-N" onclick="toggleCard(&#39;N&#39;)" data-color="#546e7a">
+      <div class="card-head" style="background:linear-gradient(140deg,#37474f,#607d8b)">
+        <span class="toggle-icon">▾</span>
+        <div class="card-letter">N</div>
+        <div class="card-abbr">AUB-N</div>
+        <div class="card-name">Non classé</div>
+      </div>
+      <div class="card-teaser" style="background:#eceff1; color:#546e7a">
+        Aucune autre catégorie
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <ul>
+            <li>Entités n'entrant dans <strong>aucune autre catégorie</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#1565c0"></div>
+    PALM — structural (imagerie)
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#546e7a"></div>
+    COEIN — non structural (labo / clinique)
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#b71c1c"></div>
+    ⚠️ Toujours éliminer AUB-M (malignité)
+  </div>
+</div>
+
+</div>
+<script>
+const COLORS = { P:'#1565c0', A:'#1976d2', L:'#0277bd', M:'#b71c1c', C:'#6a1b9a', O:'#00695c', E:'#e65100', I:'#2e7d32', N:'#546e7a' };
+
+function toggleCard(id) {
+  const card = document.getElementById('card-' + id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.card').forEach(c => {
+    c.classList.remove('open');
+    c.style.borderColor = 'transparent';
+  });
+  if (!isOpen) {
+    card.classList.add('open');
+    card.style.borderColor = COLORS[id] || '#333';
+  }
+}
+
+function openCard(id) {
+  const card = document.getElementById('card-' + id);
+  document.querySelectorAll('.card').forEach(c => {
+    c.classList.remove('open');
+    c.style.borderColor = 'transparent';
+  });
+  card.classList.add('open');
+  card.style.borderColor = COLORS[id] || '#333';
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+}
+</script>
+
+
+</body></html>

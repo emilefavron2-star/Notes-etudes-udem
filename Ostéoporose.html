@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ostéoporose, Physiopathologie & Prise en Charge</title>
+    <style>
+        :root {
+            --primary: #c2410c;
+            --primary-light: #ffedd5;
+            --secondary: #0f766e;
+            --secondary-light: #ccfbf1;
+            --dark: #451a03;
+            --light: #f8fafc;
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+            --border: #e2e8f0;
+            --text: #334155;
+            --danger: #991b1b;
+            --danger-bg: #fee2e2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Onglets */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 0.5rem;
+        }
+
+        .card {
+            background-color: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        .definition-box {
+            background-color: var(--warning-bg);
+            border-left: 5px solid var(--warning);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            color: #78350f;
+        }
+
+        .physio-box {
+            background-color: var(--secondary-light);
+            border-left: 5px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            color: #115e59;
+        }
+
+        .alert-box {
+            background-color: var(--danger-bg);
+            border-left: 5px solid var(--danger);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.25rem 0;
+            color: var(--danger);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tableau Clinique */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Calculateur de score T */
+        .widget-box {
+            background: #fff;
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .widget-title {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .result-display {
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .badge-janc { background-color: #e0f2fe; color: #0369a1; }
+        .badge-inesss { background-color: #f3e8ff; color: #6b21a8; }
+
+        @media (max-width: 768px) {
+            .tabs { flex-direction: column; }
+            .tab-btn { width: 100%; text-align: left; }
+            table, thead, tbody, th, td, tr { display: block; }
+            th { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid var(--border); margin-bottom: 1rem; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
+            td:before { position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; }
+            td:nth-of-type(1):before { content: "Classe"; }
+            td:nth-of-type(2):before { content: "Agents"; }
+            td:nth-of-type(3):before { content: "Notes Cliniques"; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="subtitle">Objectifs 16 à 18 — Guide d'étude pratique</span>
+        <h1>L'Ostéoporose Postménopausique</h1>
+    </header>
+
+    <!-- Onglets de Navigation -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'def')">📋 Définitions & Risques</button>
+        <button class="tab-btn" onclick="openTab(event, 'physio')">🔬 Physiopathologie</button>
+        <button class="tab-btn" onclick="openTab(event, 'clinique')">⚠️ Signes & Évaluation</button>
+        <button class="tab-btn" onclick="openTab(event, 'rx')">💊 Prise en Charge & Rx</button>
+    </div>
+
+    <!-- ONGLET 1: DEFINITIONS & OUTILS DE CALCUL -->
+    <div id="def" class="tab-content active">
+        <h2>Définitions & Seuils Densitométriques</h2>
+        
+        <div class="definition-box">
+            <strong>💡 Définition Densitométrique (OMS) :</strong><br>
+            L'ostéoporose est un trouble squelettique systémique caractérisé par une résistance osseuse compromise, prédisposant à un risque élevé de fracture. 
+            <br><strong>Critère :</strong> DMO mesurée ≤ –2,5 écarts-types sous le pic de masse osseuse chez le jeune adulte (<strong>Score T ≤ –2,5</strong>).
+        </div>
+
+        <div class="card">
+            <h3>Classification des scores T</h3>
+            <ul>
+                <li><strong>Normal :</strong> Score T &gt; –1,0</li>
+                <li><strong>Ostéopénie :</strong> Score T compris entre –1,0 et –2,5</li>
+                <li><strong>Ostéoporose :</strong> Score T ≤ –2,5</li>
+            </ul>
+        </div>
+
+        <!-- Simulateur/Calculateur Intégré -->
+        <div class="widget-box">
+            <div class="widget-title">🧮 Outil d'Évaluation Rapide du Score T</div>
+            <div class="input-group">
+                <label for="tscoreInput">Entrez le Score T obtenu à la DXA :</label>
+                <input type="number" id="tscoreInput" step="0.1" value="-2.6" oninput="calculateRisk()">
+            </div>
+            <div id="widgetResult" class="result-display" style="background-color: var(--danger-bg); color: var(--danger);">
+                Statut : Ostéoporose d'après les critères de l'OMS.
+            </div>
+        </div>
+
+        <div class="definition-box" style="background-color: #f0fdf4; border-left-color: #16a34a; color: #14532d;">
+            <strong>💡 Diagnostic Clinique Indépendant :</strong><br>
+            Chez une personne de <strong>50 ans ou plus</strong>, le diagnostic d'ostéoporose peut être posé cliniquement d'emblée si :
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                <li>Présence d'une <strong>fracture de fragilisation</strong> survenue après l'âge de 40 ans (hanche, colonne, humérus, bassin) consécutive à un traumatisme léger.</li>
+                <li>OU une évaluation du <strong>risque absolu de fracture sur 10 ans ≥ 20 %</strong> via les outils validés.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ONGLET 2: PHYSIOPATHOLOGIE -->
+    <div id="physio" class="tab-content">
+        <h2>🔬 Physiopathologie : Le mécanisme moléculaire de la perte osseuse</h2>
+        
+        <div class="card">
+            <p>Le tissu osseux subit un remodelage constant régulé par l'équilibre homéostasique entre la <strong>résorption osseuse</strong> (ostéoclastes) et la <strong>formation osseuse</strong> (ostéoblastes). Après l'âge de 30 ans, une perte physiologique lente de 0,3 à 0,5 % par année s'installe.</p>
+        </div>
+
+        <div class="physio-box">
+            <h3>Le découplage induit par la carence œstrogénique</h3>
+            <p>Lors de la transition ménopausique, la chute des œstrogènes rompt cet équilibre selon une cascade précise :</p>
+            <ol style="margin-top: 0.75rem; padding-left: 1.5rem;">
+                <li><strong>Surrégulation de RANKL (RANK ligand) :</strong> La baisse d'œstrogènes lève l'inhibition des cytokines inflammatoires. L'augmentation de RANKL stimule fortement le recrutement, la différenciation, l'activité et la durée de vie des <strong>ostéoclastes</strong> (en bloquant leur apoptose).</li>
+                <li><strong>Sous-régulation de l'OPG (Ostéoprotégérine) :</strong> La production d'OPG — le « récepteur leurre » qui neutralise normalement l'excès de RANKL — s'effondre.</li>
+                <li><strong>Résultat net :</strong> La résorption dépasse largement la formation (découplage complet). On observe une phase de perte osseuse accélérée de <strong>1 % à 5 % par année</strong>, durant généralement de 5 à 7 ans.</li>
+            </ol>
+            <p style="margin-top: 0.75rem; font-weight: bold; border-top: 1px dashed #99f6e4; padding-top: 0.5rem;">
+                ⚖️ L'équilibre RANKL / OPG (Yin/Yang) dicte le taux de destruction. L'œstrogénothérapie substitutive permet directement de restaurer les taux d'OPG et de réprimer RANKL.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Nuance clinique (Tissu adipeux)</h3>
+            <p>La perte osseuse est généralement moins abrupte et moins sévère chez les femmes en situation d'obésité. Cela s'explique par la persistance d'une production endogène d'œstrogènes par le biais de l'<strong>aromatisation périphérique</strong> des androgènes survenant dans le tissu adipeux.</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 3: EVALUATION CLINIQUE -->
+    <div id="clinique" class="tab-content">
+        <h2>⚠️ Signes Cliniques & Évaluation du Risque</h2>
+        
+        <div class="alert-box">
+            <strong>Point clé d'évaluation :</strong> L'ostéoporose est une maladie strictement <strong>« silencieuse »</strong>. Elle n'entraîne AUCUNE manifestation clinique, douleur ou symptôme avant la survenue de la première fracture.
+        </div>
+
+        <div class="card">
+            <h3>Manifestations fracturaires typiques</h3>
+            <ul>
+                <li><strong>Fracture vertébrale :</strong> C'est la complication la plus fréquente. Environ <strong>2/3 des fractures vertébrales sont asymptomatiques</strong> et de découverte purement fortuite lors d'une radiographie.</li>
+                <li><strong>Fracture de la hanche :</strong> Touche jusqu'à 15 % des femmes à l'âge de 80 ans. Le risque augmente de façon exponentielle avec le vieillissement. C'est la complication la plus redoutable (morbidité majeure, surmortalité à un an et perte définitive d'autonomie).</li>
+                <li><strong>Fracture du radius distal (Fracture de Colles) :</strong> Complication typique et précoce, survenant souvent peu de temps après la ménopause.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>🔎 Signes physiques d'alerte d'une fracture vertébrale occulte <span class="badge badge-janc">JAMC</span></h3>
+            <ul>
+                <li><strong>Perte de taille significative :</strong> &gt; 2 cm documentée de façon prospective, ou &gt; 6 cm de façon historique (rapportée par la patiente).</li>
+                <li><strong>Distance côte-bassin :</strong> ≤ 2 travers de doigt entre le rebord costal inférieur et la crête iliaque.</li>
+                <li><strong>Distance occiput-mur :</strong> &gt; 5 cm lorsque la patiente se tient droite, talons et dos appuyés au mur.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Évaluation du risque absolu sur 10 ans</h3>
+            <p>La décision thérapeutique ne repose plus uniquement sur la DMO, mais sur l'évaluation globale du risque de fracture sur 10 ans via les modèles <strong>FRAX</strong> (outil préférentiel intégrant la DMO et les facteurs cliniques) ou <strong>CAROC</strong> (basé sur l'âge, le sexe, le score T et la présence de fractures de fragilisation).</p>
+            <p style="margin-top: 0.5rem; font-weight: 600;">Principaux facteurs de risque cliniques à rechercher :</p>
+            <p style="color: #475569; font-size: 0.95rem;">Antécédent de fracture après 40 ans, corticothérapie systémique prolongée (&gt; 3 mois), ≥ 2 chutes au cours de la dernière année, ATCD parental de fracture de la hanche, IMC &lt; 20 kg/m², causes d'ostéoporose secondaire, tabagisme actif, consommation d'alcool ≥ 3 verres/jour.</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 4: PRISE EN CHARGE ET PHARMACOTHERAPIE -->
+    <div id="rx" class="tab-content">
+        <h2>Prise en Charge Intégrée <span class="badge badge-inesss">INESSS</span> <span class="badge badge-janc">JAMC</span></h2>
+
+        <div class="card">
+            <h3>1. Interventions Non Pharmacologiques (Systématiques)</h3>
+            <ul>
+                <li><strong>Activité physique :</strong> Minimum de <strong>≥ 2 séances par semaine</strong> d'exercices ciblant l'équilibre, la posture et le renforcement musculaire contre résistance.</li>
+                <li><strong>Alimentation :</strong> Apport nutritionnel riche en calcium et en protéines. Constitue la <strong>première ligne thérapeutique</strong> pour toutes les femmes ménopausées.</li>
+                <li><strong>Vitamine D :</strong> Supplémentation systématique de <strong>≥ 400 UI par jour</strong>.
+                    <br><em style="font-size: 0.85rem; color: #64748b;">Note clinique : Chez les patientes bien nourries, sans carence documentée et ne prenant pas de traitement spécifique pour l'ostéoporose, l'ajout combiné de suppléments calcium/vitamine D offre un bénéfice marginal sur la réduction des fractures.</em>
+                </li>
+                <li><strong>Modifications des habitudes de vie :</strong> Cessation tabagique complète, réduction ou abandon de la consommation d'alcool, réduction de la caféine et maintien d'un poids de santé.</li>
+            </ul>
+        </div>
+
+        <h3>2. Pharmacothérapie (Selon le niveau de risque)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Classe</th>
+                    <th>Agents</th>
+                    <th>Notes Cliniques & Pertinence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bisphosphonates</strong><br><small style="color: green;">(1re intention)</small></td>
+                    <td>Alendronate, Risédronate, Acide Zolédronique</td>
+                    <td>Recommandés en première ligne. Réduisent d'environ 20-30 fractures vertébrales, 10 non vertébrales et 3 fractures de la hanche pour 1000 femmes sur 3 ans. 
+                    <br>⚠️ <em>Effets indésirables :</em> Formes orales → intolérance digestive (œsophagite) ; forme IV (zolédronique) → syndrome pseudogrippal aigu.</td>
+                </tr>
+                <tr>
+                    <td><strong>Hormonothérapie substitutive (HTS)</strong></td>
+                    <td>Œstrogènes (&plusmn; progestatif si utérus intact)</td>
+                    <td><strong>À privilégier face aux bisphosphonates</strong> chez les femmes ménopausées depuis ≤ 10 ans ou âgées de &lt; 60 ans, dont la priorité clinique conjointe est le soulagement de symptômes vasomoteurs importants <span class="badge badge-inesss">Plourde/Tan 2020</span>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Dénosumab</strong><br><small style="color: #b45309;">(Ac anti-RANKL)</small></td>
+                    <td>Prolia (Injection SC 2×/an)</td>
+                    <td>Indiqué en cas de contre-indication ou d'intolérance majeure aux bisphosphonates. 
+                    <br>⚠️ <strong>Alerte critique :</strong> L'arrêt du traitement provoque un rebond de la résorption osseuse rapide et un risque élevé de fractures vertébrales multiples. Une <strong>thérapie de transition obligatoire</strong> (par un bisphosphonate) doit être planifiée immédiatement à l'arrêt.</td>
+                </tr>
+                <tr>
+                    <td><strong>SERM</strong></td>
+                    <td>Raloxifène</td>
+                    <td>Option alternative. À éviter impérativement chez les patientes présentant un risque accru de thromboembolie veineuse (TEV).</td>
+                </tr>
+                <tr>
+                    <td><strong>Anabolisants</strong><br><small style="color: #991b1b;">(2e intention)</small></td>
+                    <td>Tériparatide, Romosozumab</td>
+                    <td>Réservés aux cas sévères après avis spécialisé (fracture vertébrale sévère récente, ou &gt; 1 fracture avec score T ≤ –2,5). Doit obligatoirement être suivi par un agent antirésorptif pour consolider les gains de masse osseuse.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="physio-box" style="background-color: #faf5f7; border-left-color: #9d174d; color: #701a75;">
+            <h4>💡 Seuils Thérapeutiques d'Initiation des Traitements <span class="badge badge-janc">JAMC</span></h4>
+            <ul>
+                <li><strong>Recommander fortement la pharmacothérapie :</strong> Si le risque absolu de fracture sur 10 ans est <strong>≥ 20 %</strong> OU si le <strong>score T est ≤ –2,5 chez une patiente âgée de ≥ 70 ans</strong>.</li>
+                <li><strong>Suggérer la pharmacothérapie :</strong> Si le risque se situe entre 15 % et 19,9 % OU si le <strong>score T est ≤ –2,5 chez une patiente de &lt; 70 ans</strong>.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+        const tabBtns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tabBtns.length; i++) {
+            tabBtns[i].classList.remove("active");
+        }
+
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+
+    function calculateRisk() {
+        const score = parseFloat(document.getElementById("tscoreInput").value);
+        const display = document.getElementById("widgetResult");
+        
+        if (isNaN(score)) {
+            display.textContent = "Veuillez entrer un score valide.";
+            display.style.backgroundColor = "#f1f5f9";
+            display.style.color = "#334155";
+            return;
+        }
+
+        if (score <= -2.5) {
+            display.textContent = "Statut : Ostéoporose d'après les critères de l'OMS. (Seuil de traitement à discuter selon l'âge et les facteurs cliniques).";
+            display.style.backgroundColor = "var(--danger-bg)";
+            display.style.color = "var(--danger)";
+        } else if (score > -2.5 && score <= -1.0) {
+            display.textContent = "Statut : Ostéopénie. Évaluation des facteurs de risque cliniques globaux requise (FRAX / CAROC).";
+            display.style.backgroundColor = "var(--warning-bg)";
+            display.style.color = "var(--warning)";
+        } else {
+            display.textContent = "Statut : Densité minérale osseuse normale.";
+            display.style.backgroundColor = "#dcfce7";
+            display.style.color = "#15803d";
+        }
+    }
+</script>
+
+</body>
+</html>

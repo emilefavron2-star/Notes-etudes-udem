@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifestations de la Périménopause & Postménopause</title>
+    <style>
+        :root {
+            --primary: #9d174d;
+            --primary-light: #fce7f3;
+            --secondary: #0369a1;
+            --secondary-light: #e0f2fe;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+            --border: #e2e8f0;
+            --text: #334155;
+            --danger: #991b1b;
+            --danger-bg: #fee2e2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .intro-lead {
+            font-size: 1.1rem;
+            color: var(--text);
+            text-align: center;
+            background: #faf5f7;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        /* Onglets Interactifs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Blocs cliniques */
+        .card {
+            background-color: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        .physio-box {
+            background-color: var(--secondary-light);
+            border-left: 5px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            color: #0369a1;
+        }
+
+        .physio-box h4 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .alert-box {
+            background-color: var(--danger-bg);
+            border-left: 5px solid var(--danger);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.25rem 0;
+            color: var(--danger);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Liste d'effets long terme */
+        .long-term-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .long-term-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .lt-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--dark);
+            border-radius: 8px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .lt-card strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="subtitle">Physiopathology & Clinical Manifestations</span>
+        <h1>Manifestations Cliniques & Changements Hormonaux</h1>
+    </header>
+
+    <div class="intro-lead">
+        <strong>Axe clinique majeur :</strong> Les manifestations de la <strong>périménopause</strong> sont principalement liées aux grandes <em>fluctuations hormonales</em>, tandis que celles de la <strong>postménopause</strong> découlent directement du <em>déficit œstrogénique persistant</em>.
+    </div>
+
+    <!-- Navigation par onglets -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'vasomoteurs')">🔥 Symptômes Vasomoteurs</button>
+        <button class="tab-btn" onclick="openTab(event, 'neuro')">😴 Sommeil, Humeur & Cognition</button>
+        <button class="tab-btn" onclick="openTab(event, 'sgum')">🚺 Syndrome Génito-Urinaire</button>
+        <button class="tab-btn" onclick="openTab(event, 'longterme')">🦴 Effets à Long Terme</button>
+    </div>
+
+    <!-- ONGLET 1: SYMPTÔMES VASOMOTEURS -->
+    <div id="vasomoteurs" class="tab-content active">
+        <h2>🔥 Symptômes Vasomoteurs (Symptôme Cardinal)</h2>
+        
+        <div class="card">
+            <h3>Présentation Clinique & Prévalence</h3>
+            <ul>
+                <li><strong>Fréquence :</strong> Le symptôme le plus prévalent, touchant jusqu'à <strong>80 % des femmes</strong> (bien que seulement 20 à 30 % consultent). Pic d'incidence lors de la transition tardive et de la postménopause précoce.</li>
+                <li><strong>Présentation typique :</strong> Sensation subite de chaleur centrée initialement sur le haut du thorax et le visage, puis se généralisant. Durée moyenne de <strong>2 à 4 minutes</strong>. Souvent associée à une diaphorèse profuse, des palpitations, des frisons compensatoires et de l'anxiété aiguë.</li>
+                <li><strong>Variabilité :</strong> Fréquence très hétérogène (de &lt; 1 par jour à 1 par heure, jour et nuit). Les épisodes nocturnes constituent les <strong>sueurs nocturnes</strong>.</li>
+                <li><strong>Durée chronologique :</strong> Persistent généralement de 3 à 5 ans, mais peuvent s'étendre jusqu'à 20 ans après la FMP (Final Menstrual Period) chez certaines patientes.</li>
+            </ul>
+        </div>
+
+        <div class="alert-box">
+            <strong>⚠️ Vigilance clinique (Diagnostics différentiels) :</strong><br>
+            Des bouffées de chaleur présentées de façon <strong>atypique</strong> imposent d'écarter d'autres étiologies : syndrome carcinoïde, phéochromocytome, hyperthyroïdie, infection sous-jacente, malignité occulte ou effets indésirables médicamenteux.
+        </div>
+
+        <div class="physio-box">
+            <h4>🔬 Physiopathologie : Dysfonction thermorégulatrice</h4>
+            <p>La bouffée de chaleur n'est <strong>PAS</strong> induite par un taux d'œstrogène abaissé en soi (les fillettes prépubères hypo-œstrogéniques en sont exemptes), mais plutôt par le <strong>phénomène de sevrage (retrait) d'œstrogènes</strong> après y avoir été exposée.</p>
+            <p style="margin-top: 0.5rem;">Ce retrait provoque un <strong>rétrécissement de la zone thermoneutre hypothalamique</strong> (l'intervalle de température corporelle toléré sans déclenchement de mécanismes compensatoires). À la moindre élévation minime de la température centrale, l'hypothalamus s'active à tort :</p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #0c4a6e;">
+                <li>Vasodilatation cutanée immédiate (sensation de chaleur intense, flush).</li>
+                <li>Sudation profuse (visant la perte thermique → induisant une chute de la température centrale sous la normale).</li>
+                <li>Frisons secondaires (visant à corriger cette baisse).</li>
+            </ul>
+        </div>
+
+        <div class="physio-box">
+            <h4>🔑 Médiation centrale — Neurones KNDy</h4>
+            <p>Le déficit en œstrogènes dérégule les neurones hypothalamiques <strong>KNDy</strong> (<em>kisspeptine, neurokinine B, dynorphine</em>), situés à proximité immédiate de l'aire préoptique thermorégulatrice. L'hyperactivité de la <strong>neurokinine B</strong> (via son récepteur NK3R) est le déclencheur direct de la bouffée (mécanisme validé par l'efficacité des antagonistes NK3R).</p>
+            <p style="margin-top: 0.5rem;"><em>Note : Les bouffées surviennent de façon synchrone avec les pulses de LH en raison de la proximité anatomique avec les neurones à GnRH, mais la LH n'en est pas la cause directe.</em></p>
+            <p style="margin-top: 0.5rem; font-weight: bold; color: #0c4a6e;">💡 L'œstrogénothérapie restaure la largeur de la zone thermoneutre, ce qui explique pourquoi l'hormonothérapie demeure le traitement le plus efficace (Obj 16).</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 2: SOMMEIL, HUMEUR & COGNITION -->
+    <div id="neuro" class="tab-content">
+        <h2>Neurobiologie & Troubles Associés</h2>
+        
+        <div class="card">
+            <h3>😴 Troubles du Sommeil</h3>
+            <p>Les sueurs nocturnes provoquent des micro-réveils et des éveils complets répétés (environ <strong>69 % des bouffées nocturnes</strong> sont associées à un réveil direct). La prévalence de l'insomnie durant cette transition oscille entre 32 % et 46 %.</p>
+            <p style="margin-top: 0.5rem; font-style: italic; color: #6b7280;">Diagnostics d'exclusion : Toujours écarter ou évaluer la concomitance d'un syndrome d'apnées obstructives du sommeil (SAOS), d'un syndrome des jambes sans repos (SJSR), d'un trouble anxieux ou d'un trouble dépressif majeur. Traiter les manifestations vasomoteurs améliore considérablement le sommeil sans pour autant résoudre l'ensemble des troubles s'ils sont multifactoriels.</p>
+        </div>
+
+        <div class="card">
+            <h3>😔 Symptômes de l'Humeur</h3>
+            <p>On observe une incidence significativement plus élevée de symptômes anxio-dépressifs en périménopause qu'en phases pré- ou postménopausique stable. Le risque est majoré chez les patientes présentant des <strong>antécédents (ATCD) de troubles de l'humeur</strong>.</p>
+            <p style="margin-top: 0.5rem; font-style: italic; color: #6b7280;">Lien structurel : Le système nerveux central, notamment les structures limbiques, est extrêmement riche en récepteurs œstrogéniques.</p>
+        </div>
+
+        <div class="card">
+            <h3>🧠 Changements Cognitifs</h3>
+            <p>Plaintes fréquentes de <strong>« brouillard mental » (brain fog)</strong>, d'oublis bénins et de difficultés transitoires de récupération des mots. Ces manifestations ont généralement un caractère <strong>transitoire</strong> et ne préjugent pas d'un déclin cognitif fixe.</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 3: SGUM -->
+    <div id="sgum" class="tab-content">
+        <h2>🚺 Syndrome Génito-Urinaire de la Ménopause (SGUM)</h2>
+        
+        <div class="card">
+            <p>Anciennement désigné sous le terme d'« atrophie vulvo-vaginale », le SGUM affecte environ <strong>50 % des femmes ménopausées</strong>. Ses manifestations cardinales incluent la <strong>sécheresse vaginale</strong>, la <strong>dyspareunie</strong> (douleur lors des rapports sexuels) et des dysfonctions sexuelles secondaires. Son incidence s'accentue en transition tardive et postménopause.</p>
+        </div>
+
+        <div class="physio-box" style="background-color: #fff1f2; border-left-color: #db2777; color: #9d174d;">
+            <h4 style="color: #831843;">🔬 Physiopathologie locale & Évolution</h4>
+            <p>L'épithélium de la vulve, du vagin, ainsi que le trigone vésical partagent une origine embryologique commune et possèdent une <strong>densité très élevée en récepteurs œstrogéniques</strong>.</p>
+            <p style="margin-top: 0.5rem;">La privation œstrogénique durable entraîne une cascade de remaniements tissulaires :</p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: #831843;">
+                <li><strong>Amincissement marqué de l'épithélium</strong> (perte des couches superficielles).</li>
+                <li><strong>Perte de glycogène cellulaire :</strong> Entraîne une chute drastique des lactobacilles colonisateurs → hausse corrélative du pH vaginal → augmentation marquée de la vulnérabilité aux infections locales et urinaires.</li>
+                <li><strong>Diminution du collagène et de la vascularisation :</strong> Cause une perte d'élasticité et une réduction des sécrétions (lubrification).</li>
+            </ul>
+            <p style="margin-top: 0.75rem; font-weight: bold; border-top: 1px dashed #fbcfe8; padding-top: 0.5rem; color: #831843;">🔑 Différence évolutive majeure : Contrairement aux bouffées de chaleur qui tendent à s'atténuer avec les années, le SGUM est une affection chronique, progressive et cumulative en l'absence de prise en charge. Cela justifie pleinement le recours précoce à une œstrogénothérapie vaginale locale (sans nécessité d'adjoindre un progestatif de protection endométriale — Obj 16).</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 4: EFFETS À LONG TERME -->
+    <div id="longterme" class="tab-content">
+        <h2>🦴 Effets Systémiques à Long Terme du Déficit Œstrogénique</h2>
+        <p style="margin-bottom: 1rem;">La carence hormonale prolongée en postménopause induit des remaniements métaboliques et structurels profonds :</p>
+
+        <div class="long-term-grid">
+            <div class="lt-card">
+                <strong>Perte de la densité minérale osseuse</strong>
+                <p>Accélération de la résorption osseuse menant au risque d'ostéoporose et de fractures de fragilisation (voir Objectif 15).</p>
+            </div>
+            
+            <div class="lt-card">
+                <strong>Risque cardiovasculaire accru</strong>
+                <p>Augmentation nette du risque après la ménopause, potentialisée par des modifications athérogènes du profil lipidique, incluant notamment une hausse du <strong>cholestérol LDL</strong>.</p>
+            </div>
+
+            <div class="lt-card">
+                <strong>Modification de la composition corporelle</strong>
+                <p>Redistribution adipeuse caractérisée par une augmentation sélective de la masse grasse (viscérale) et une diminution de la masse maigre (sarcopénie relative).</p>
+            </div>
+
+            <div class="lt-card">
+                <strong>Remaniement cutané</strong>
+                <p>Diminution rapide du taux de collagène cutané, contribuant au vieillissement cutané accéléré et à l'apparition de rides.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+        const tabBtns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tabBtns.length; i++) {
+            tabBtns[i].classList.remove("active");
+        }
+
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>

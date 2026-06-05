@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!-- saved from url=(0233)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_66b4e1f6-b121-4b16-a4e0-3d50ad3edce3/outputs/HTR-guide-interactif.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Hormonothérapie de Remplacement (HTR)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accordion {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background: #f5f5f5;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #efefef;
+        }
+
+        .accordion-header.active {
+            background: #e8e5f5;
+            color: #667eea;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 15px;
+            max-height: 2000px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .benefit-card {
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .benefit-card strong {
+            color: #667eea;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .info-box {
+            background: #fffbf0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info-box.alert {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .info-box.success {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .risk-item {
+            background: #fff3e0;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .timing-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .hypothesis {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .hypothesis strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #6a1b9a;
+        }
+
+        .hypothesis ul {
+            margin-left: 20px;
+        }
+
+        .hypothesis li {
+            margin: 8px 0;
+        }
+
+        .emoji {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💊 Guide Hormonothérapie de Remplacement</h1>
+            <p>Indications, contre-indications et principes de traitement</p>
+        </div>
+
+        <div class="content">
+            <!-- SECTION 1: INDICATIONS & BÉNÉFICES -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">✅</span> Indications et Bénéfices</h2>
+
+                <div class="info-box success">
+                    <strong>💡 L'HTR demeure le traitement le plus efficace</strong>
+                    des symptômes vasomoteurs modérés à graves (jusqu'à 70 % des femmes ménopausées en éprouvent).
+                </div>
+
+                <h3 style="margin: 20px 0 15px 0; color: #555;">Bénéfices principaux :</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <strong>↓ Bouffées vasomotrices</strong><br>
+                        Fréquence ~75 % et intensité ~85 %
+                    </div>
+                    <div class="benefit-card">
+                        <strong>Amélioration du sommeil</strong><br>
+                        Qualité de vie générale augmentée
+                    </div>
+                    <div class="benefit-card">
+                        <strong>↓ Symptômes neurologiques</strong><br>
+                        Humeur, anxiété et bien-être améliorés
+                    </div>
+                    <div class="benefit-card">
+                        <strong>↓ Atrophie vulvo-vaginale</strong><br>
+                        Symptômes génito-urinaires diminués
+                    </div>
+                    <div class="benefit-card" style="grid-column: 1 / -1;">
+                        <strong>🦴 Prévention de l'ostéoporose</strong><br>
+                        Traitement et prévention des fractures de fragilisation
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: PRINCIPES DE TRAITEMENT -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🎯</span> Principes de Traitement (INESSS)</h2>
+
+                <div class="info-box">
+                    <strong>Points clés :</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>La périménopause et postménopause sont des <strong>conditions physiologiques</strong></li>
+                        <li>Ne nécessitent <strong>pas systématiquement</strong> de traitement</li>
+                        <li>L'HTR doit être <strong>individualisée</strong> et basée sur une information équilibrée</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin: 20px 0 15px 0; color: #555;">La décision d'amorcer l'HTR tient compte de :</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>1️⃣ Sévérité des symptômes</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            Impact sur la qualité de vie de la patiente. L'HTR est particulièrement indiquée si les symptômes vasomoteurs, génito-urinaires ou du sommeil impactent significativement le quotidien.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>2️⃣ Antécédents et facteurs de risque</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            Historique personnel et familial, comorbidités (HTA, diabète, obésité, tabagisme), risque thrombotique, antécédents de cancer.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>3️⃣ Valeurs et préférences de la patiente</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            Discussion équilibrée des bénéfices et risques, acceptabilité du traitement, présence d'inquiétudes spécifiques.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: CONTRE-INDICATIONS ABSOLUES -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">⛔</span> Contre-indications Absolues</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Contre-indications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cancers œstrogéno-dépendants</strong></td>
+                            <td>Cancer du sein, cancer de l'endomètre</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maladies cardiovasculaires</strong></td>
+                            <td>Cardiopathie ischémique, AVC récent, ischémie cérébrale transitoire récente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maladies thrombo-emboliques</strong></td>
+                            <td>Thrombose veineuse profonde active, embolie pulmonaire</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autres</strong></td>
+                            <td>Maladie hépatique active, saignement vaginal non diagnostiqué</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box alert">
+                    <strong>💡 Exception importante :</strong>
+                    Les œstrogènes <strong>transdermiques</strong> pourraient être utilisés chez les patientes à risque élevé cardiovasculaire/thrombotique ou avec plusieurs facteurs de risque (diabète, HTA, obésité, tabagisme).
+                </div>
+            </div>
+
+            <!-- SECTION 4: RISQUES PRINCIPAUX -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">⚠️</span> Risques Principaux</h2>
+
+                <div class="risk-item">
+                    <strong>🎀 Cancer du sein</strong><br>
+                    ↑ du risque absolu de <strong>8 cas/10 000 femmes/an</strong> (étude WHI)<br>
+                    • Risque ↑ après 4-5 ans d'utilisation<br>
+                    • Risque dépendant de la durée d'exposition
+                </div>
+
+                <div class="risk-item">
+                    <strong>❤️ Risque cardiovasculaire</strong><br>
+                    L'étude WHI (2002) avait montré une ↑ d'~30 %<br>
+                    → <em>Nuancé par la notion de fenêtre d'opportunité (voir ci-dessous)</em>
+                </div>
+
+                <div class="risk-item">
+                    <strong>🩸 Thromboembolie veineuse</strong><br>
+                    • Voie <strong>orale</strong> : ↑ le risque de ~70 %<br>
+                    • Voie <strong>transdermique</strong> : plus sécuritaire (contourne premier passage hépatique)
+                </div>
+            </div>
+
+            <!-- SECTION 5: FENÊTRE D'OPPORTUNITÉ -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">⏰</span> Notion Clé : La Fenêtre d'Opportunité</h2>
+
+                <h3 style="margin: 15px 0 10px 0; color: #2196f3;">Age d'amorce (INESSS) :</h3>
+
+                <div class="timing-box">
+                    <strong>✅ Amorce avant 60 ans :</strong><br>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li>N'augmente <strong>pas</strong> le risque d'AVC</li>
+                        <li>N'augmente <strong>pas</strong> le risque de maladie d'Alzheimer</li>
+                        <li><strong>Diminue</strong> le risque de cancer du sein/ovaire</li>
+                    </ul>
+                </div>
+
+                <div class="timing-box" style="background: #ffebee; border-left-color: #f44336;">
+                    <strong>⚠️ Amorce à 60 ans ou plus :</strong><br>
+                    <ul style="margin-left: 20px; margin-top: 8px;">
+                        <li><strong>Augmente</strong> le risque de cancer du sein/ovaire</li>
+                        <li><strong>Augmente</strong> le risque d'AVC</li>
+                        <li><strong>Augmente</strong> le risque de maladie d'Alzheimer</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0; color: #6a1b9a;">🔬 Explications scientifiques :</h3>
+
+                <div class="hypothesis">
+                    <strong>Pourquoi l'âge d'amorce change tout (Hypothèse du timing) :</strong>
+                    <ul>
+                        <li><strong>Endothélium sain</strong> (&lt; 60 ans / &lt; 10 ans post-FMP) : l'œstrogène exerce ses effets <strong>bénéfiques</strong> (vasodilatation, profil lipidique favorable, anti-athérogène)</li>
+                        <li><strong>Endothélium athéroscléreux</strong> (amorce tardive) : l'œstrogène peut <strong>déstabiliser les plaques</strong> existantes et favoriser les événements thrombotiques → sur-risque cardiovasculaire/AVC</li>
+                    </ul>
+                    <em style="display: block; margin-top: 10px; color: #555;">➜ Réconcilie les anciens résultats alarmants (population âgée) avec la pratique actuelle</em>
+                </div>
+
+                <div class="hypothesis">
+                    <strong>Pourquoi la voie transdermique est plus sécuritaire (TEV) :</strong>
+                    <ul>
+                        <li><strong>Œstrogène oral :</strong> subit le premier passage hépatique → stimule la synthèse des facteurs de coagulation → ↑ risque thrombo-embolique</li>
+                        <li><strong>Voie transdermique :</strong> contourne le foie → effet pro-coagulant moindre → <strong>préférée si comorbidités</strong> (HTA, diabète, obésité, risque thrombotique)</li>
+                    </ul>
+                </div>
+
+                <div class="hypothesis">
+                    <strong>Pourquoi un progestatif est obligatoire si utérus intact :</strong>
+                    <ul>
+                        <li><strong>Œstrogène seul :</strong> = <strong>œstrogène non opposé</strong> → hyperplasie/cancer de l'endomètre</li>
+                        <li><strong>Progestatif :</strong> oppose cette prolifération endométriale</li>
+                        <li><strong>Après hystérectomie :</strong> plus d'endomètre → œstrogène seul acceptable, sans progestatif</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 6: ALGORITHME D'AMORCE -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji">🔧</span> Algorithme d'Amorce (INESSS)</h2>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #ddd;">
+                        <strong style="display: block; color: #667eea; margin-bottom: 8px;">1. Distinguer les manifestations</strong>
+                        <div style="margin-left: 20px;">
+                            <span style="background: #e8e5f5; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-right: 10px;">Génito-urinaires isolées</span>
+                            → Hormonothérapie à action <strong>locale</strong>, sans progestagène
+                            <br><br>
+                            <span style="background: #e8e5f5; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-right: 10px;">Symptômes systémiques</span>
+                            → Hormonothérapie <strong>générale</strong>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #ddd;">
+                        <strong style="display: block; color: #667eea; margin-bottom: 8px;">2. Écarter les contre-indications</strong>
+                        <div style="margin-left: 20px;">
+                            Éliminer les saignements anormaux non expliqués
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #ddd;">
+                        <strong style="display: block; color: #667eea; margin-bottom: 8px;">3. Évaluer les antécédents et comorbidités</strong>
+                        <div style="margin-left: 20px;">
+                            Vérifier : cancers, AVC/IM/MCV, TEV, mutations à haut risque thrombotique<br>
+                            → <strong>Privilégier voie transdermique</strong> si facteurs de risque (HTA, diabète, obésité)
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #ddd;">
+                        <strong style="display: block; color: #667eea; margin-bottom: 8px;">4. Associer un progestatif si utérus intact</strong>
+                        <div style="margin-left: 20px;">
+                            <strong>Progestérone micronisée</strong> pour contrer l'hyperplasie endométriale
+                        </div>
+                    </div>
+
+                    <div>
+                        <strong style="display: block; color: #667eea; margin-bottom: 8px;">5. Choisir le schéma posologique</strong>
+                        <div style="margin-left: 20px;">
+                            <span style="background: #fff3e0; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-right: 10px;">Schéma cyclique</span>
+                            si intervalle entre cycles &lt; 3 mois
+                            <br><br>
+                            <span style="background: #fff3e0; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-right: 10px;">Schéma continu</span>
+                            si intervalle ≥ 3 mois
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            // Fermer les autres accordéons
+            const parent = header.closest('.accordion');
+            const allHeaders = parent.querySelectorAll('.accordion-header');
+            const allContents = parent.querySelectorAll('.accordion-content');
+
+            allHeaders.forEach(h => {
+                if (h !== header) {
+                    h.classList.remove('active');
+                    h.querySelector('.toggle-icon').classList.remove('active');
+                }
+            });
+
+            allContents.forEach(c => {
+                if (c !== header.nextElementSibling) {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Basculer l'accordéon actuel
+            header.classList.toggle('active');
+            header.querySelector('.toggle-icon').classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+
+</body></html>

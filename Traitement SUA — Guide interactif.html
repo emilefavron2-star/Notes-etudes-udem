@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<!-- saved from url=(0238)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_d2ea986a-efb6-4d05-a5bb-421bc1eef2de/outputs/traitement_SUA_interactif.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traitement SUA — Guide interactif</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #f0f2f5; padding: 16px; }
+.page { max-width: 860px; margin: 0 auto; }
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #1a2e4a, #243d5c);
+  color: white; text-align: center;
+  padding: 14px 16px; border-radius: 12px;
+  margin-bottom: 14px;
+}
+.header h1 { font-size: 17px; margin-bottom: 3px; }
+.header p  { font-size: 11px; opacity: .72; }
+
+/* ── LOGIC BOX ── */
+.logic-box {
+  background: #e3f2fd; border: 1.5px solid #1565c0;
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 14px;
+}
+.logic-title { font-size: 11.5px; font-weight: 700; color: #0d3c6e; margin-bottom: 7px; }
+.logic-row {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 10.5px; line-height: 1.5; color: #1a3a5c;
+  margin-bottom: 5px;
+}
+.logic-row:last-child { margin-bottom: 0; }
+.axis-badge {
+  font-size: 9.5px; font-weight: 700; color: white;
+  padding: 2px 7px; border-radius: 6px;
+  white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+}
+
+/* ── DECISION INTERFACE ── */
+.decision-box {
+  background: white; border-radius: 10px;
+  border: 1.5px solid #e0e0e0;
+  padding: 14px 16px; margin-bottom: 14px;
+}
+.decision-title { font-size: 12.5px; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; text-align: center; }
+.question-row { margin-bottom: 12px; }
+.question-row:last-child { margin-bottom: 0; }
+.question-label { font-size: 10.5px; font-weight: 600; color: #555; margin-bottom: 7px; }
+.toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.toggle-btn {
+  flex: 1; min-width: 130px; padding: 9px 12px;
+  border-radius: 8px; border: 2px solid #ddd;
+  background: #f5f5f5; cursor: pointer;
+  font-size: 10.5px; font-weight: 600; color: #555;
+  text-align: center; transition: all .15s;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  user-select: none;
+}
+.toggle-btn:hover { border-color: #bbb; background: #eeeeee; }
+.toggle-btn .icon { font-size: 18px; }
+.toggle-btn.active { border-color: transparent; color: white; }
+
+/* Active colors per type */
+.toggle-btn.ov.active    { background: #0277bd; border-color: #0277bd; }
+.toggle-btn.anov.active  { background: #e65100; border-color: #e65100; }
+.toggle-btn.both.active  { background: #546e7a; border-color: #546e7a; }
+.toggle-btn.yes.active   { background: #2e7d32; border-color: #2e7d32; }
+.toggle-btn.no.active    { background: #c62828; border-color: #c62828; }
+
+/* Summary banner */
+.summary-banner {
+  display: none; margin-top: 12px;
+  padding: 9px 12px; border-radius: 8px;
+  font-size: 10.5px; line-height: 1.5;
+  background: #e8f5e9; border: 1.5px solid #4caf50; color: #1b5e20;
+}
+.summary-banner.show { display: block; }
+.summary-banner strong { font-weight: 700; }
+
+/* ── TREATMENT CARDS ── */
+.section-header {
+  display: flex; align-items: center; gap: 8px;
+  margin: 16px 0 8px;
+}
+.section-badge {
+  font-size: 11px; font-weight: 700; color: white;
+  padding: 3px 11px; border-radius: 20px;
+}
+.section-desc { font-size: 10.5px; color: #666; }
+
+.cards-grid { display: flex; flex-direction: column; gap: 8px; }
+
+.t-card {
+  background: white; border-radius: 10px;
+  border: 2px solid #e8e8e8;
+  overflow: hidden; transition: all .2s;
+  position: relative;
+}
+.t-card.highlighted { border-color: transparent; box-shadow: 0 3px 14px rgba(0,0,0,.14); }
+.t-card.dimmed      { opacity: .35; filter: grayscale(.4); }
+
+/* Recommended badge */
+.rec-badge {
+  display: none;
+  position: absolute; top: 10px; right: 10px;
+  font-size: 9px; font-weight: 700; color: white;
+  padding: 2px 8px; border-radius: 5px;
+  background: #2e7d32;
+}
+.t-card.highlighted .rec-badge { display: block; }
+
+/* Warning badge */
+.warn-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 9px; font-weight: 700; color: white;
+  padding: 2px 7px; border-radius: 5px;
+  background: #e65100; margin-left: 4px;
+}
+
+.card-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 12px 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.card-icon { font-size: 22px; flex-shrink: 0; }
+.card-info { flex: 1; }
+.card-name { font-size: 12.5px; font-weight: 700; line-height: 1.2; }
+.card-fullname { font-size: 10px; color: #888; margin-top: 1px; }
+
+.card-body { padding: 10px 12px; }
+.card-row {
+  display: flex; align-items: flex-start; gap: 6px;
+  margin-bottom: 5px; font-size: 10.5px; color: #333; line-height: 1.5;
+}
+.card-row:last-child { margin-bottom: 0; }
+.row-label {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: white; padding: 2px 5px;
+  border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+  margin-top: 1px;
+}
+.card-row strong { font-weight: 600; }
+
+/* Efficacy bar */
+.efficacy-wrap { flex: 1; }
+.efficacy-label { font-size: 10.5px; font-weight: 700; margin-bottom: 3px; }
+.efficacy-bar-bg {
+  background: #f0f0f0; border-radius: 4px;
+  height: 8px; overflow: hidden; width: 100%;
+}
+.efficacy-bar-fill { height: 100%; border-radius: 4px; transition: width .5s ease; }
+
+/* CI list */
+.ci-list { font-size: 10px; color: #c62828; margin-top: 3px; }
+
+/* Observation card */
+.obs-card {
+  background: #f3e5f5; border: 1.5px dashed #9c27b0;
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 8px;
+  font-size: 10.5px; color: #4a148c; line-height: 1.5;
+}
+.obs-card strong { font-weight: 600; }
+
+/* Followup / referral box */
+.followup-box {
+  border-radius: 8px; padding: 11px 13px; margin-top: 10px;
+  border-left: 4px solid;
+}
+.followup-box.teal   { background: #e0f2f1; border-color: #00897b; color: #004d40; }
+.followup-box.orange { background: #fff3e0; border-color: #e65100; color: #bf360c; }
+.followup-box .fup-title { font-size: 11px; font-weight: 700; margin-bottom: 5px; }
+.followup-box ul { list-style: none; padding-left: 4px; }
+.followup-box ul li { font-size: 10.5px; padding: 2.5px 0 2.5px 12px; position: relative; line-height: 1.5; }
+.followup-box ul li::before { content: "•"; position: absolute; left: 0; }
+.followup-box ul li strong { font-weight: 600; }
+
+@media (max-width: 560px) {
+  .toggle-btn { min-width: 90px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>💊 Traitement des SUA — Sélection guidée</h1>
+  <p>Répondez aux deux questions pour identifier les options prioritaires</p>
+</div>
+
+<!-- LOGIC BOX -->
+<div class="logic-box">
+  <div class="logic-title">🧠 Logique clinique — deux axes décisionnels</div>
+  <div class="logic-row">
+    <span class="axis-badge" style="background:#0277bd">Axe 1</span>
+    <span><strong>Ovulatoire</strong> → endomètre normal mais hémostase locale dépassée → agents locaux sur l'endomètre (<strong>AINS, acide tranexamique</strong>)</span>
+  </div>
+  <div class="logic-row">
+    <span class="axis-badge" style="background:#e65100">Axe 1</span>
+    <span><strong>Anovulatoire</strong> → déficit de progestérone → restaurer le signal progestatif (<strong>progestatif, DIU-LNG, COC</strong>)</span>
+  </div>
+  <div class="logic-row">
+    <span class="axis-badge" style="background:#2e7d32">Axe 2</span>
+    <span><strong>Contraception désirée</strong> → choisir une option contraceptive qui traite ET contracepte (<strong>COC, DIU-LNG</strong>)</span>
+  </div>
+</div>
+
+<!-- DECISION INTERFACE -->
+<div class="decision-box">
+  <div class="decision-title">🎯 Aide à la décision — personnalisez le guide</div>
+
+  <div class="question-row">
+    <div class="question-label">1️⃣ Type de saignement</div>
+    <div class="toggle-group">
+      <div class="toggle-btn ov" onclick="setBleed(&#39;ov&#39;)">
+        <span class="icon">🔵</span>
+        <span>Ovulatoire</span>
+        <span style="font-size:9px;opacity:.7">cycles réguliers</span>
+      </div>
+      <div class="toggle-btn anov" onclick="setBleed(&#39;anov&#39;)">
+        <span class="icon">🟠</span>
+        <span>Anovulatoire</span>
+        <span style="font-size:9px;opacity:.7">cycles irréguliers</span>
+      </div>
+      <div class="toggle-btn both" onclick="setBleed(&#39;both&#39;)">
+        <span class="icon">❓</span>
+        <span>Incertain / les deux</span>
+        <span style="font-size:9px;opacity:.7">voir toutes les options</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-row">
+    <div class="question-label">2️⃣ Contraception désirée</div>
+    <div class="toggle-group">
+      <div class="toggle-btn yes" onclick="setContra(&#39;yes&#39;)">
+        <span class="icon">✅</span>
+        <span>Oui — contraception souhaitée</span>
+      </div>
+      <div class="toggle-btn no" onclick="setContra(&#39;no&#39;)">
+        <span class="icon">❌</span>
+        <span>Non — pas de contraception</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-banner" id="summaryBanner"></div>
+</div>
+
+<!-- ════════ NON-HORMONAL ════════ -->
+<div class="section-header">
+  <span class="section-badge" style="background:#0277bd">🔵 Non hormonaux</span>
+  <span class="section-desc">Pour saignements légers à modérés — ovulatoires en priorité</span>
+</div>
+
+<div class="cards-grid">
+
+  <!-- AINS -->
+  <div class="t-card" id="card-ains" style="border-left:4px solid #0277bd">
+    <div class="rec-badge">✓ Recommandé</div>
+    <div class="card-head">
+      <span class="card-icon">💊</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#0277bd">AINS
+          <span style="font-size:10px; font-weight:400; color:#888">(naproxène, ibuprofène)</span>
+        </div>
+        <div class="card-fullname">Anti-inflammatoires non stéroïdiens</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#0277bd">Dose</span>
+        <span>Naproxène <strong>500 mg 2×/j</strong> ou Ibuprofène <strong>600–800 mg q6–8h</strong> · 3–5 jours · débuter idéalement <strong>la veille des règles</strong></span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#455a64">Mécanisme</span>
+        <span>Inhibe les <strong>prostaglandines</strong> → vasoconstriction utérine + ↓ réponse inflammatoire</span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#2e7d32">Efficacité</span>
+        <div class="efficacy-wrap">
+          <div class="efficacy-label">↓ 33–55 % des pertes sanguines</div>
+          <div class="efficacy-bar-bg"><div class="efficacy-bar-fill" style="width:44%; background:#0277bd"></div></div>
+        </div>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#888">Notes</span>
+        <span>À éviter si <strong>trouble de coagulation</strong> ou problème GI. Peu coûteux. Usage cyclique.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACIDE TRANEXAMIQUE -->
+  <div class="t-card" id="card-transex" style="border-left:4px solid #0288d1">
+    <div class="rec-badge">✓ Recommandé</div>
+    <div class="card-head">
+      <span class="card-icon">🧪</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#0288d1">Acide tranexamique
+          <span style="font-size:10px; font-weight:400; color:#888">(Cyclokapron)</span>
+        </div>
+        <div class="card-fullname">Antifibrinolytique</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#0288d1">Dose</span>
+        <span><strong>1000 mg PO 3–4×/j × 3–5 jours</strong>, pendant le saignement seulement</span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#455a64">Mécanisme</span>
+        <span>Bloque la liaison <strong>lysine-plasminogène</strong> → prévient la dégradation de la fibrine (antifibrinolytique)</span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#2e7d32">Efficacité</span>
+        <div class="efficacy-wrap">
+          <div class="efficacy-label">↓ 26–60 % vs placebo · <strong>supérieur aux AINS</strong> et progestatifs lutéals</div>
+          <div class="efficacy-bar-bg"><div class="efficacy-bar-fill" style="width:43%; background:#0288d1"></div></div>
+        </div>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#888">Notes</span>
+        <span>Aussi efficace pour saignement important. Cesser si pas d'amélioration après 2 cycles. <strong>Ajuster si IRC.</strong></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════ HORMONAL + CONTRACEPTION ════════ -->
+<div class="section-header">
+  <span class="section-badge" style="background:#6a1b9a">🟣 Hormonaux — avec contraception</span>
+  <span class="section-desc">Traitent ET contraceptent</span>
+</div>
+
+<div class="cards-grid">
+
+  <!-- COC -->
+  <div class="t-card" id="card-coc" style="border-left:4px solid #6a1b9a">
+    <div class="rec-badge">✓ Recommandé</div>
+    <div class="card-head">
+      <span class="card-icon">💊</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#6a1b9a">COC — Contraceptifs oraux combinés</div>
+        <div class="card-fullname">Option la plus utilisée · facilité, efficacité, coût</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#6a1b9a">Dose</span>
+        <span>Usage standard ou <strong>continu</strong> (aménorrhée chez <strong>80–100 %</strong> après ≥ 10 mois)</span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#2e7d32">Efficacité</span>
+        <div class="efficacy-wrap">
+          <div class="efficacy-label">↓ 40–50 % des pertes vs placebo</div>
+          <div class="efficacy-bar-bg"><div class="efficacy-bar-fill" style="width:45%; background:#6a1b9a"></div></div>
+        </div>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#c62828">CI</span>
+        <span class="ci-list">&gt;35 ans + fumeuse · HTA non maîtrisée · migraine avec aura · cancer du sein · TVP · AVC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMBRE/ANNEAU -->
+  <div class="t-card" id="card-timbre" style="border-left:4px solid #7b1fa2">
+    <div class="rec-badge">✓ Recommandé</div>
+    <div class="card-head">
+      <span class="card-icon">🩹</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#7b1fa2">Timbre (Evra) / Anneau vaginal (Nuvaring)</div>
+        <div class="card-fullname">Alternative aux COC oraux</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#7b1fa2">Usage</span>
+        <span>Semblables aux COC · usage <strong>continu possible</strong></span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#2e7d32">Efficacité</span>
+        <div class="efficacy-wrap">
+          <div class="efficacy-label">Similaire aux COC (~40–50 %)</div>
+          <div class="efficacy-bar-bg"><div class="efficacy-bar-fill" style="width:45%; background:#7b1fa2"></div></div>
+        </div>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#888">Notes</span>
+        <span>Même contre-indications que les COC. Préféré si observance aux comprimés quotidiens difficile.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIU MIRENA -->
+  <div class="t-card" id="card-diu" style="border-left:4px solid #4a148c">
+    <div class="rec-badge">⭐ Option la + efficace</div>
+    <div class="card-head">
+      <span class="card-icon">🔷</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#4a148c">DIU hormonal (Mirena)
+          <span style="font-size:10px; font-weight:400; color:#888">lévonorgestrel 52 mg</span>
+        </div>
+        <div class="card-fullname">Meilleur rapport coût-bénéfices · Étude ECLIPSE</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#4a148c">Mécanisme</span>
+        <span>Progestatif local → <strong>atrophie endométriale</strong> + mucus cervical épais</span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#2e7d32">Efficacité</span>
+        <div class="efficacy-wrap">
+          <div class="efficacy-label" style="color:#4a148c; font-size:11px">↓ <strong>70–86 %</strong> à 3 mois · ↓ <strong>96 %</strong> à 1 an</div>
+          <div class="efficacy-bar-bg"><div class="efficacy-bar-fill" style="width:83%; background:#4a148c"></div></div>
+        </div>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#888">Notes</span>
+        <span>Étude ECLIPSE : <strong>meilleure persistance au traitement</strong>. Efficace 5 ans. Valide pour ovulatoire ET anovulatoire.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPO-PROVERA -->
+  <div class="t-card" id="card-depo" style="border-left:4px solid #9e9e9e">
+    <div class="rec-badge">✓ Option possible</div>
+    <div class="card-head">
+      <span class="card-icon">💉</span>
+      <div class="card-info">
+        <div class="card-name" style="color:#616161">Depo-Provera
+          <span class="warn-badge">⚠️ Pas de 1re intention</span>
+        </div>
+        <div class="card-fullname">Acétate de médroxyprogestérone IM (AMP retard)</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-row">
+        <span class="row-label" style="background:#9e9e9e">Dose</span>
+        <span>AMP <strong>150 mg IM q3 mois</strong></span>
+      </div>
+      <div class="card-row">
+        <span class="row-label" style="background:#888">Notes</span>
+        <span>Peu étudié pour les SUA. ↓ <strong>densité osseuse</strong> (réversible à l'arrêt). À éviter en 1re intention.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════ HORMONAL SANS CONTRACEPTION ════════ -->
+<div class="section-header">
+  <span class="section-badge" style="background:#e65100">🟡 Hormonaux — sans contraception</span>
+  <span class="section-desc">Progestatifs cycliques, suivi et orientation</span>
+</div>
+
+<div class="obs-card">
+  <strong>💡 Observation sans traitement</strong> — possible chez les patientes sans anémie qui ne souhaitent pas de traitement.
+  Suivi recommandé : hémogramme + ferritine 1–2 fois/an.
+</div>
+
+<div class="followup-box teal">
+  <div class="fup-title">⏱️ Suivi attendu sous traitement</div>
+  <ul>
+    <li>↓ des saignements après <strong>1–2 mois</strong> de traitement</li>
+    <li>↑ du taux d'hémoglobine dans les <strong>3 mois</strong></li>
+  </ul>
+</div>
+
+<div class="followup-box orange" style="margin-top:8px">
+  <div class="fup-title">🏥 Orienter en spécialité si</div>
+  <ul>
+    <li><strong>Absence ou insuffisance de réponse</strong> au traitement médical</li>
+    <li><strong>Intolérance</strong> aux traitements disponibles</li>
+    <li><strong>Anomalies structurelles</strong> (léiomyomes, polypes) nécessitant un geste</li>
+  </ul>
+  <div style="margin-top:7px; font-size:10.5px; font-weight:600;">Options spécialisées : embolisation des artères utérines → hystérectomie</div>
+</div>
+
+</div><!-- .page -->
+
+<script>
+let bleedType = null;
+let contraType = null;
+
+const SUMMARIES = {
+  'ov-yes':   { text: '→ Priorité : <strong>AINS / Acide tranexamique</strong> + <strong>COC ou DIU Mirena</strong> (traitement ET contraception)', color: '#e8f5e9', border: '#4caf50', fg: '#1b5e20' },
+  'ov-no':    { text: '→ Priorité : <strong>AINS</strong> et <strong>Acide tranexamique</strong> (action locale sur l\'endomètre, sans effet hormonal)', color: '#e3f2fd', border: '#1565c0', fg: '#0d3c6e' },
+  'anov-yes': { text: '→ Priorité : <strong>COC ou DIU Mirena</strong> — restaurent le signal progestatif ET contraceptent', color: '#f3e5f5', border: '#9c27b0', fg: '#4a148c' },
+  'anov-no':  { text: '→ Priorité : <strong>Progestatifs cycliques</strong> (restaurer le signal progestatif sans contraception). AINS/Tranexamique moins efficaces en anovulatoire.', color: '#fff3e0', border: '#e65100', fg: '#bf360c' },
+  'both-yes': { text: '→ Options : <strong>AINS · Acide tranexamique · COC · DIU Mirena</strong> selon la cause sous-jacente', color: '#f5f5f5', border: '#546e7a', fg: '#263238' },
+  'both-no':  { text: '→ Options : <strong>AINS · Acide tranexamique</strong> (non hormonaux) ou <strong>progestatifs cycliques</strong> si anovulatoire', color: '#f5f5f5', border: '#546e7a', fg: '#263238' },
+};
+
+// highlight rules: [cardId, highlight for (bleed, contra)]
+// true = highlighted, false = dimmed, null = neutral
+function updateCards() {
+  const key = bleedType && contraType ? `${bleedType}-${contraType}` : null;
+
+  // Define which cards are highlighted per scenario
+  const rules = {
+    'ov-yes':   { 'card-ains':true,'card-transex':true,'card-coc':true,'card-timbre':true,'card-diu':true,'card-depo':false },
+    'ov-no':    { 'card-ains':true,'card-transex':true,'card-coc':false,'card-timbre':false,'card-diu':false,'card-depo':false },
+    'anov-yes': { 'card-ains':false,'card-transex':false,'card-coc':true,'card-timbre':true,'card-diu':true,'card-depo':false },
+    'anov-no':  { 'card-ains':false,'card-transex':false,'card-coc':false,'card-timbre':false,'card-diu':false,'card-depo':false },
+    'both-yes': { 'card-ains':true,'card-transex':true,'card-coc':true,'card-timbre':true,'card-diu':true,'card-depo':false },
+    'both-no':  { 'card-ains':true,'card-transex':true,'card-coc':false,'card-timbre':false,'card-diu':false,'card-depo':false },
+  };
+
+  document.querySelectorAll('.t-card').forEach(card => {
+    card.classList.remove('highlighted','dimmed');
+    if (key && rules[key]) {
+      const state = rules[key][card.id];
+      if (state === true)  card.classList.add('highlighted');
+      if (state === false) card.classList.add('dimmed');
+    }
+  });
+
+  // Summary
+  const banner = document.getElementById('summaryBanner');
+  if (key && SUMMARIES[key]) {
+    const s = SUMMARIES[key];
+    banner.innerHTML = '🎯 ' + s.text;
+    banner.style.background = s.color;
+    banner.style.borderColor = s.border;
+    banner.style.color = s.fg;
+    banner.classList.add('show');
+  } else {
+    banner.classList.remove('show');
+  }
+}
+
+function setBleed(type) {
+  bleedType = bleedType === type ? null : type;
+  document.querySelectorAll('.toggle-btn.ov,.toggle-btn.anov,.toggle-btn.both').forEach(b => b.classList.remove('active'));
+  if (bleedType) document.querySelector(`.toggle-btn.${bleedType}`).classList.add('active');
+  updateCards();
+}
+
+function setContra(type) {
+  contraType = contraType === type ? null : type;
+  document.querySelectorAll('.toggle-btn.yes,.toggle-btn.no').forEach(b => b.classList.remove('active'));
+  if (contraType) document.querySelector(`.toggle-btn.${contraType}`).classList.add('active');
+  updateCards();
+}
+</script>
+
+
+</body></html>

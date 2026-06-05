@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- saved from url=(0239)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_d2ea986a-efb6-4d05-a5bb-421bc1eef2de/outputs/cycle_menstruel_interactif.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle Menstruel — Interactif</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f8f9fb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* ── TIMELINE BAR ── */
+  .timeline {
+    display: flex;
+    width: 100%;
+    max-width: 760px;
+    height: 52px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid #ccc;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  .phase-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.2s, transform 0.15s;
+    position: relative;
+    border-right: 1px solid #ccc;
+    user-select: none;
+  }
+  .phase-bar:last-child { border-right: none; }
+  .phase-bar:hover { filter: brightness(0.92); transform: scaleY(1.06); z-index: 2; }
+  .phase-bar.active { filter: brightness(0.88); transform: scaleY(1.08); z-index: 3; }
+
+  .phase-bar .label  { font-size: 11px; font-weight: 700; }
+  .phase-bar .days   { font-size: 9.5px; }
+
+  .bar-mens   { background: #ffcdd2; flex: 5; }
+  .bar-prolif { background: #e8f5e9; flex: 9; }
+  .bar-ovul   { background: #fff9c4; flex: 1.5; }
+  .bar-luteal { background: #fff3e0; flex: 14; }
+
+  .bar-mens   .label { color: #c62828; }
+  .bar-mens   .days  { color: #c62828; }
+  .bar-prolif .label { color: #2e7d32; }
+  .bar-prolif .days  { color: #2e7d32; }
+  .bar-ovul   .label { color: #f57f17; font-size: 14px; }
+  .bar-ovul   .days  { color: #f57f17; }
+  .bar-luteal .label { color: #e65100; }
+  .bar-luteal .days  { color: #e65100; }
+
+  /* Day ticks */
+  .day-ticks {
+    display: flex;
+    width: 100%;
+    max-width: 760px;
+    position: relative;
+    height: 18px;
+    margin-bottom: 16px;
+  }
+  .tick {
+    position: absolute;
+    font-size: 9px;
+    color: #888;
+    transform: translateX(-50%);
+  }
+
+  /* ── HORMONE CHART ── */
+  .chart-wrapper {
+    width: 100%;
+    max-width: 760px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 14px 14px 8px 14px;
+    margin-bottom: 14px;
+  }
+  .chart-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  svg.hormone-chart {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .hormone-path {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    cursor: pointer;
+    transition: stroke-width 0.2s, opacity 0.2s;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 1.6s ease forwards;
+  }
+  .hormone-path:hover { stroke-width: 4.5; }
+  .hormone-path.dimmed { opacity: 0.15; }
+
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .path-lh   { stroke: #1565c0; animation-delay: 0.1s; }
+  .path-e2   { stroke: #e91e8c; animation-delay: 0.3s; }
+  .path-p4   { stroke: #e65100; animation-delay: 0.5s; }
+  .path-fsh  { stroke: #78909c; stroke-dasharray: 6 3; animation-delay: 0.2s; }
+
+  .chart-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #444;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .legend-item:hover { background: #f0f0f0; }
+  .legend-dot {
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  /* Hormone tooltip */
+  .hormone-tooltip {
+    position: fixed;
+    background: rgba(30,30,50,0.92);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+    white-space: nowrap;
+  }
+
+  /* ── ENDOMETRIUM ── */
+  .endo-wrapper {
+    width: 100%;
+    max-width: 760px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+  .endo-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  /* ── PHASE DETAIL PANEL ── */
+  .detail-panel {
+    width: 100%;
+    max-width: 760px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 14px;
+  }
+
+  .detail-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+  }
+  .detail-tab {
+    flex: 1;
+    padding: 10px 4px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    border-right: 1px solid #eee;
+  }
+  .detail-tab:last-child { border-right: none; }
+  .detail-tab:hover { background: #f5f5f5; }
+  .detail-tab.active { border-bottom: 3px solid currentColor; }
+
+  .tab-mens   { color: #c62828; }
+  .tab-prolif { color: #2e7d32; }
+  .tab-ovul   { color: #f57f17; }
+  .tab-luteal { color: #e65100; }
+  .tab-mens.active   { background: #fff5f5; }
+  .tab-prolif.active { background: #f0fff4; }
+  .tab-ovul.active   { background: #fffef0; }
+  .tab-luteal.active { background: #fff8f0; }
+
+  .detail-content {
+    display: none;
+    padding: 14px 16px;
+    animation: fadeIn 0.25s ease;
+  }
+  .detail-content.visible { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-content h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .detail-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .detail-content ul li {
+    font-size: 11.5px;
+    color: #333;
+    padding: 4px 0 4px 14px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.5;
+  }
+  .detail-content ul li:last-child { border-bottom: none; }
+  .detail-content ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #aaa;
+  }
+
+  .sub-section {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 11px;
+  }
+  .sub-no  { background: #fce4ec; color: #880e4f; }
+  .sub-yes { background: #e8f5e9; color: #1b5e20; }
+  .sub-section strong { display: block; margin-bottom: 4px; font-size: 11.5px; }
+
+  /* ── BOTTOM NOTE ── */
+  .bottom-note {
+    width: 100%;
+    max-width: 760px;
+    background: #fffde7;
+    border: 1px solid #fbc02d;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 10.5px;
+    color: #5d4037;
+    text-align: center;
+  }
+  .bottom-note a { color: #e65100; }
+</style>
+</head>
+<body>
+
+<h1>Phases du cycle menstruel (28 jours)</h1>
+<p class="subtitle">Survolez ou cliquez sur chaque phase pour explorer les détails</p>
+
+<!-- GRANDE PHASE : Folliculaire / Lutéale -->
+<div style="display:flex; width:100%; max-width:760px; margin-bottom:6px; gap:4px;">
+  <div style="flex:15; background:#e3f2fd; border:2px solid #1e6fad; border-radius:8px; padding:6px 0; text-align:center;">
+    <span style="font-size:11.5px; font-weight:700; color:#0d3c6e;">📘 Phase folliculaire</span>
+    <span style="font-size:9.5px; color:#1e6fad; display:block;">J1 – J14 · dominée par les œstrogènes (FSH)</span>
+  </div>
+  <div style="flex:14; background:#fff3e0; border:2px solid #e65100; border-radius:8px; padding:6px 0; text-align:center;">
+    <span style="font-size:11.5px; font-weight:700; color:#bf360c;">🟠 Phase lutéale</span>
+    <span style="font-size:9.5px; color:#e65100; display:block;">J15 – J28 · dominée par la progestérone (LH)</span>
+  </div>
+</div>
+
+<!-- Accolade visuelle -->
+<div style="display:flex; width:100%; max-width:760px; margin-bottom:4px; position:relative; height:12px;">
+  <!-- Folliculaire bracket -->
+  <div style="flex:15; position:relative;">
+    <div style="position:absolute; left:0; right:2px; bottom:0; height:8px; border-left:2px solid #1e6fad; border-right:2px solid #1e6fad; border-bottom:2px solid #1e6fad; border-radius:0 0 4px 4px;"></div>
+  </div>
+  <!-- Lutéale bracket -->
+  <div style="flex:14; position:relative;">
+    <div style="position:absolute; left:2px; right:0; bottom:0; height:8px; border-left:2px solid #e65100; border-right:2px solid #e65100; border-bottom:2px solid #e65100; border-radius:0 0 4px 4px;"></div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="phase-bar bar-mens active" data-phase="mens" onclick="selectPhase(&#39;mens&#39;)">
+    <span class="label">🩸 Menstruelle</span>
+    <span class="days">J1–J5</span>
+  </div>
+  <div class="phase-bar bar-prolif" data-phase="prolif" onclick="selectPhase(&#39;prolif&#39;)">
+    <span class="label">🌱 Proliférative</span>
+    <span class="days">J6–J13</span>
+  </div>
+  <div class="phase-bar bar-ovul" data-phase="ovul" onclick="selectPhase(&#39;ovul&#39;)">
+    <span class="label">🥚</span>
+    <span class="days">J14</span>
+  </div>
+  <div class="phase-bar bar-luteal" data-phase="luteal" onclick="selectPhase(&#39;luteal&#39;)">
+    <span class="label">💛 Sécrétoire (Lutéale)</span>
+    <span class="days">J15–J28</span>
+  </div>
+</div>
+
+<!-- Day ticks -->
+<div class="day-ticks">
+  <span class="tick" style="left:0%">J1</span>
+  <span class="tick" style="left:17.8%">J6</span>
+  <span class="tick" style="left:46.4%">J14</span>
+  <span class="tick" style="left:50%">J15</span>
+  <span class="tick" style="left:100%">J28</span>
+</div>
+
+<!-- HORMONE CHART -->
+<div class="chart-wrapper">
+  <div class="chart-title">Profil hormonal — survolez une courbe</div>
+  <svg class="hormone-chart" viewBox="0 0 700 140" id="hormoneSVG">
+    <!-- Phase backgrounds -->
+    <rect x="0" y="0" width="125" height="120" fill="#ffcdd2" opacity="0.2"></rect>
+    <rect x="125" y="0" width="220" height="120" fill="#e8f5e9" opacity="0.2"></rect>
+    <rect x="345" y="0" width="25" height="120" fill="#fff9c4" opacity="0.5"></rect>
+    <rect x="370" y="0" width="330" height="120" fill="#fff3e0" opacity="0.2"></rect>
+
+    <!-- Grid lines -->
+    <line x1="125" y1="0" x2="125" y2="120" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+    <line x1="345" y1="0" x2="345" y2="120" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+    <line x1="370" y1="0" x2="370" y2="120" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+
+    <!-- Axes -->
+    <line x1="0" y1="120" x2="700" y2="120" stroke="#bbb" stroke-width="1"></line>
+
+    <!-- FSH (dashed) -->
+    <path class="hormone-path path-fsh" id="pathFSH" d="M0,90 C20,85 60,78 125,86 C160,89 200,87 260,85 C300,83 330,76 345,66 C360,56 370,80 420,88 C480,93 560,91 700,86"></path>
+
+    <!-- LH (blue) — spike at J14 -->
+    <path class="hormone-path path-lh" id="pathLH" d="M0,95 C60,94 120,93 290,91 C320,90 340,88 345,20 C350,88 360,92 420,96 C500,98 600,97 700,96"></path>
+
+    <!-- E2 (pink) -->
+    <path class="hormone-path path-e2" id="pathE2" d="M0,100 C30,99 70,98 125,97 C160,96 200,90 260,75 C300,62 330,42 345,46 C360,70 380,72 420,70 C460,68 490,64 520,67 C560,72 620,90 700,100"></path>
+
+    <!-- P4 (orange) -->
+    <path class="hormone-path path-p4" id="pathP4" d="M0,102 C60,102 200,101 345,101 C360,101 380,98 420,84 C460,70 490,63 520,65 C550,68 600,88 660,100 C680,104 700,106 700,106"></path>
+
+    <!-- Hover dots (hidden by default) -->
+    <circle id="dotLH" r="5" fill="#1565c0" stroke="white" stroke-width="1.5" display="none"></circle>
+    <circle id="dotE2" r="5" fill="#e91e8c" stroke="white" stroke-width="1.5" display="none"></circle>
+    <circle id="dotP4" r="5" fill="#e65100" stroke="white" stroke-width="1.5" display="none"></circle>
+
+    <!-- Labels on chart -->
+    <text x="358" y="16" font-size="9" font-weight="700" fill="#1565c0" font-family="system-ui">Pic LH</text>
+    <text x="315" y="40" font-size="9" font-weight="700" fill="#e91e8c" font-family="system-ui">Pic E2</text>
+    <text x="490" y="60" font-size="9" font-weight="700" fill="#e65100" font-family="system-ui">Pic P4 (~J21)</text>
+  </svg>
+
+  <div class="chart-legend">
+    <div class="legend-item" onclick="toggleHormone(&#39;LH&#39;)">
+      <div class="legend-dot" style="background:#1565c0"></div> LH
+    </div>
+    <div class="legend-item" onclick="toggleHormone(&#39;E2&#39;)">
+      <div class="legend-dot" style="background:#e91e8c"></div> Œstradiol (E2)
+    </div>
+    <div class="legend-item" onclick="toggleHormone(&#39;P4&#39;)">
+      <div class="legend-dot" style="background:#e65100"></div> Progestérone (P4)
+    </div>
+    <div class="legend-item" onclick="toggleHormone(&#39;FSH&#39;)">
+      <div class="legend-dot" style="background:#78909c; background: repeating-linear-gradient(90deg,#78909c 0,#78909c 5px,transparent 5px,transparent 8px)"></div> FSH
+    </div>
+  </div>
+</div>
+
+<!-- ENDOMETRIUM -->
+<div class="endo-wrapper">
+  <div class="endo-title">Épaisseur de l'endomètre</div>
+  <svg viewBox="0 0 700 70" style="width:100%; overflow:visible">
+    <rect x="0" y="0" width="125" height="65" fill="#ffcdd2" opacity="0.2"></rect>
+    <rect x="125" y="0" width="220" height="65" fill="#e8f5e9" opacity="0.2"></rect>
+    <rect x="345" y="0" width="25" height="65" fill="#fff9c4" opacity="0.5"></rect>
+    <rect x="370" y="0" width="330" height="65" fill="#fff3e0" opacity="0.2"></rect>
+    <line x1="125" y1="0" x2="125" y2="65" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+    <line x1="345" y1="0" x2="345" y2="65" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+    <line x1="370" y1="0" x2="370" y2="65" stroke="#ccc" stroke-width="0.7" stroke-dasharray="3,2"></line>
+
+    <!-- Endometrium filled area -->
+    <path id="endoPath" d="M0,62 C20,63 60,64 125,64 C160,58 200,48 260,36 C300,26 330,16 345,14 C360,14 380,12 420,11 C460,11 490,12 520,14 C560,22 620,44 660,58 C680,62 700,64 700,64 L700,65 L0,65 Z" fill="#f8bbd0" stroke="#c2185b" stroke-width="1.5" opacity="0.85" style="stroke-dasharray:1400;stroke-dashoffset:1400;animation:drawLine 2s 0.8s ease forwards"></path>
+
+    <text x="62" y="56" font-size="8.5" fill="#c62828" text-anchor="middle" font-family="system-ui">desquamation</text>
+    <text x="235" y="28" font-size="8.5" fill="#2e7d32" text-anchor="middle" font-family="system-ui">prolifération</text>
+    <text x="490" y="8" font-size="8.5" fill="#e65100" text-anchor="middle" font-family="system-ui">épaississement max</text>
+  </svg>
+</div>
+
+<!-- DETAIL PANEL -->
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-tabs">
+    <div class="detail-tab tab-mens active" onclick="selectPhase(&#39;mens&#39;)">🩸 Menstruelle</div>
+    <div class="detail-tab tab-prolif" onclick="selectPhase(&#39;prolif&#39;)">🌱 Proliférative</div>
+    <div class="detail-tab tab-ovul" onclick="selectPhase(&#39;ovul&#39;)">🥚 Ovulation</div>
+    <div class="detail-tab tab-luteal" onclick="selectPhase(&#39;luteal&#39;)">💛 Lutéale</div>
+  </div>
+
+  <!-- Menstruelle -->
+  <div class="detail-content visible" id="content-mens">
+    <h3 style="color:#c62828">🩸 Phase menstruelle — J1 à J5</h3>
+    <ul>
+      <li>Desquamation de la couche fonctionnelle de l'endomètre</li>
+      <li>Perte sanguine d'environ 35 mL</li>
+      <li>FSH libérée par l'hypophyse → stimule une cohorte de follicules ovariens</li>
+      <li>Prostaglandines libérées dans l'endomètre → contraction des muscles utérins → desquamation</li>
+    </ul>
+  </div>
+
+  <!-- Proliférative -->
+  <div class="detail-content" id="content-prolif">
+    <h3 style="color:#2e7d32">🌱 Phase proliférative (folliculaire) — J6 à J13</h3>
+    <ul>
+      <li>Cellules de la thèque + granulosa des follicules → sécrétion d'œstrogènes</li>
+      <li>E2 ↑ → stimule la croissance et la prolifération de l'endomètre</li>
+      <li>Au milieu du cycle : hausse d'E2 → hypophyse plus sensible à la GnRH</li>
+      <li>Un follicule dominant émerge et se prépare à l'ovulation</li>
+    </ul>
+  </div>
+
+  <!-- Ovulation -->
+  <div class="detail-content" id="content-ovul">
+    <h3 style="color:#f57f17">🥚 Ovulation — J14</h3>
+    <ul>
+      <li>Pic massif de LH (+ doublement de FSH) → gonflement rapide du follicule dominant</li>
+      <li>Expulsion de l'ovocyte secondaire à travers la paroi de l'ovaire dans la cavité péritonéale</li>
+      <li>L'extrémité fimbriée de l'oviducte (trompe) capte l'ovule presque immédiatement</li>
+      <li>Déclenchée par l'effet de rétroaction <em>positive</em> de l'E2 élevé ≥ 48h sur l'hypophyse</li>
+    </ul>
+  </div>
+
+  <!-- Lutéale -->
+  <div class="detail-content" id="content-luteal">
+    <h3 style="color:#e65100">💛 Phase sécrétoire (lutéale) — J15 à J28</h3>
+    <ul>
+      <li>Follicule rompu → corps jaune (corpus luteum) → sécrète E2 + progestérone</li>
+      <li>P4 + E2 → épaississement continu de l'endomètre (préparation à l'implantation)</li>
+      <li>Corps jaune atteint son développement maximal ~7–8 jours après l'ovulation (~J21)</li>
+    </ul>
+    <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap">
+      <div class="sub-section sub-no" style="flex:1; min-width:200px">
+        <strong>❌ Sans grossesse</strong>
+        Corps jaune dégénère → P4 + E2 chutent → constriction des artères spiralées → ischémie de l'endomètre → desquamation → J1
+      </div>
+      <div class="sub-section sub-yes" style="flex:1; min-width:200px">
+        <strong>✅ Avec grossesse</strong>
+        Embryon s'implante (~J7 post-fécondation) → placenta sécrète hCG → hCG maintient le corps jaune → P4 maintenue → pas de règles
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div class="hormone-tooltip" id="tooltip"></div>
+
+<script>
+  // ─── PHASE SELECTION ───────────────────────────────────
+  function selectPhase(phase) {
+    // Update bars
+    document.querySelectorAll('.phase-bar').forEach(b => b.classList.remove('active'));
+    const bar = document.querySelector(`[data-phase="${phase}"]`);
+    if (bar) bar.classList.add('active');
+
+    // Update tabs
+    document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+    const tab = document.querySelector(`.tab-${phase}`);
+    if (tab) tab.classList.add('active');
+
+    // Update content
+    document.querySelectorAll('.detail-content').forEach(c => c.classList.remove('visible'));
+    const content = document.getElementById(`content-${phase}`);
+    if (content) content.classList.add('visible');
+  }
+
+  // ─── HORMONE TOGGLE ────────────────────────────────────
+  const hidden = { LH: false, E2: false, P4: false, FSH: false };
+  function toggleHormone(h) {
+    hidden[h] = !hidden[h];
+    const path = document.getElementById(`path${h}`);
+    if (path) path.classList.toggle('dimmed', hidden[h]);
+  }
+
+  // ─── HORMONE HOVER ─────────────────────────────────────
+  const tooltip = document.getElementById('tooltip');
+
+  const hormoneInfo = {
+    pathLH:  { name: 'LH',            color: '#1565c0', desc: 'Basse la plupart du cycle — pic massif à J14 → déclenche l\'ovulation' },
+    pathE2:  { name: 'Œstradiol (E2)',color: '#e91e8c', desc: 'Monte progressivement → pic pré-ovulatoire, puis second pic lutéal' },
+    pathP4:  { name: 'Progestérone',  color: '#e65100', desc: 'Quasi nulle en phase folliculaire — monte fortement après l\'ovulation (~J21 max)' },
+    pathFSH: { name: 'FSH',           color: '#78909c', desc: 'Élevée en début de cycle, petit pic à J14, baisse en phase lutéale' },
+  };
+
+  Object.keys(hormoneInfo).forEach(id => {
+    const path = document.getElementById(id);
+    if (!path) return;
+    path.addEventListener('mouseenter', e => {
+      const info = hormoneInfo[id];
+      tooltip.style.opacity = '1';
+      tooltip.style.borderLeft = `4px solid ${info.color}`;
+      tooltip.innerHTML = `<strong style="color:${info.color}">${info.name}</strong><br>${info.desc}`;
+    });
+    path.addEventListener('mousemove', e => {
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top  = (e.clientY - 36) + 'px';
+    });
+    path.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = '0';
+    });
+  });
+
+  // ─── INIT ──────────────────────────────────────────────
+  selectPhase('mens');
+</script>
+
+
+
+</body></html>

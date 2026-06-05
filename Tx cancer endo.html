@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modalités de traitement du cancer de l'endomètre</title>
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-light: #ccfbf1;
+            --secondary: #0284c7;
+            --secondary-light: #e0f2fe;
+            --dark: #111827;
+            --light: #f9fafb;
+            --warning: #dc2626;
+            --warning-bg: #fee2e2;
+            --border: #e5e7eb;
+            --text: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .card {
+            background-color: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .alert-box {
+            background-color: var(--warning-bg);
+            border-left: 5px solid var(--warning);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #7f1d1d;
+        }
+
+        .context-box {
+            background-color: var(--secondary-light);
+            border-left: 5px solid var(--secondary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+            color: #0369a1;
+        }
+
+        .grid-context {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-context {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="subtitle">Guide Clinique Oncologique</span>
+        <h1>Modalités de traitement du cancer de l'endomètre</h1>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Le choix dépend du stade, du type histologique (faible vs haut risque) et de l'état de la patiente. La chirurgie reste le traitement pivot.</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'chirurgie')">1️⃣ Chirurgie</button>
+        <button class="tab-btn" onclick="openTab(event, 'radiotherapie')">2️⃣ Radiothérapie</button>
+        <button class="tab-btn" onclick="openTab(event, 'systemique')">3️⃣ Traitement Systémique</button>
+        <button class="tab-btn" onclick="openTab(event, 'contexte')">📋 Selon le Contexte (NCCN)</button>
+        <button class="tab-btn" onclick="openTab(event, 'surveillance')">🔬 Biomarqueurs & Suivi</button>
+        <button class="tab-btn" onclick="openTab(event, 'soutien')">🕊️ Soins de Soutien</button>
+    </div>
+
+    <!-- ONGLET 1 -->
+    <div id="chirurgie" class="tab-content active">
+        <h2>Chirurgie (Traitement standard)</h2>
+        <div class="card">
+            <h3>Hystérectomie totale + Salpingo-ovariectomie bilatérale (SOB)</h3>
+            <p>Traitement standard pour la maladie confinée à l'utérus. Permet la stadification chirurgicale :</p>
+            <ul style="margin-top: 0.5rem;">
+                <li>Prélèvement de tissus et de ganglions lymphatiques.</li>
+                <li>La <strong>biopsie du ganglion sentinelle</strong> est une alternative adéquate à la lymphadénectomie systématique.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Préservation ovarienne</h3>
+            <p>Possible si : patiente préménopausique, stade I, ovaires normaux à l'imagerie, et pas d'ATCD familial de cancer du sein/ovaire ou de syndrome de Lynch (mais il faut retirer les trompes).</p>
+        </div>
+
+        <div class="card">
+            <h3>Programme de préservation de la fertilité</h3>
+            <p>Pour les cancers à faible risque : retarder la chirurgie et traiter d'abord par <strong>hormonothérapie (progestatif)</strong> avec biopsies de suivi tous les 3 à 6 mois.</p>
+        </div>
+    </div>
+
+    <!-- ONGLET 2 -->
+    <div id="radiotherapie" class="tab-content">
+        <h2>Radiothérapie</h2>
+        <p>Utilisée principalement en adjuvant après la chirurgie selon le stade (ex. RTE recommandée au stade II), ou comme traitement principal si la chirurgie est impossible/refusée.</p>
+        
+        <div class="grid-context">
+            <div class="card">
+                <h3>Modalités</h3>
+                <ul>
+                    <li>Radiothérapie externe (RTE)</li>
+                    <li>Curiethérapie vaginale (radiation interne)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Chimioradiothérapie</h3>
+                <p>Chimio à base de platine combinée à la radiothérapie. La chimiothérapie facilite la destruction des cellules tumorales par la radiation (effet radiosensibilisateur).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONGLET 3 -->
+    <div id="systemique" class="tab-content">
+        <h2>Traitement Systémique</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Type</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Chimiothérapie</strong></td>
+                    <td>Le type le plus courant. Schéma privilégié : <strong>carboplatine + paclitaxel</strong>. Administrée en adjuvant (haut risque, stades avancés) ou pour maladie métastatique/récidivante.</td>
+                </tr>
+                <tr>
+                    <td><strong>Traitement ciblé</strong></td>
+                    <td>• <strong>Trastuzumab</strong> ajouté à la chimio pour tumeurs séreuses/carcinosarcomes HER2-positifs (stade III-IV).<br>• <strong>Pour récidive :</strong> lenvatinib + pembrolizumab (tumeurs pMMR); larotrectinib/entrectinib (fusion NTRK).</td>
+                </tr>
+                <tr>
+                    <td><strong>Immunothérapie</strong></td>
+                    <td>Pour tumeurs avec biomarqueurs : pembrolizumab (privilégié), nivolumab, dostarlimab, avelumab pour les tumeurs <strong>MSI-H / dMMR</strong> ou <strong>TMB-H</strong>. Surtout si récidive/progression après chimio.</td>
+                </tr>
+                <tr>
+                    <td><strong>Hormonothérapie</strong></td>
+                    <td>Pour tumeurs endométrioïdes de petite taille ou croissance lente. Progestatifs : AMP (Provera), acétate de mégestrol, DIU au lévonorgestrel (Mirena). Pour récidive : mégestrol/tamoxifène ou évérolimus + létrozole. Les inhibiteurs de l'aromatase bloquent la production d'œstrogènes.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert-box">
+            <strong>⚠️ CI à l'hormonothérapie (cadre préservation fertilité) :</strong><br>
+            AVC, infarctus du myocarde, embolie pulmonaire, TVP, tabagisme.
+        </div>
+    </div>
+
+    <!-- ONGLET 4 -->
+    <div id="contexte" class="tab-content">
+        <h2>Traitement selon le contexte (Résumé NCCN)</h2>
+        <div class="context-box"><strong>Confiné à l'utérus :</strong> Chirurgie (hystérectomie + SOB) ± RT/curiethérapie adjuvante selon le stade et le risque.</div>
+        <div class="context-box"><strong>Étendu au col :</strong> Hystérectomie totale ou radicale + SOB; chirurgie d'abord si possible.</div>
+        <div class="context-box"><strong>Étendu au-delà de l'utérus (stade III-IV) :</strong> Chirurgie si résécable + traitement systémique ± RT.</div>
+        <div class="context-box"><strong>Métastatique :</strong> Traitement systémique (carbo + paclitaxel); chirurgie/RT à visée palliative.</div>
+        <div class="context-box" style="background-color:#fff1f2; border-left-color:#f43f5e; color:#9f1239;">
+            <strong>Haut risque (séreux, cellules claires, carcinosarcome, indifférencié) :</strong> Chimio (carbo + paclitaxel) ± RT/curiethérapie après la chirurgie.
+        </div>
+    </div>
+
+    <!-- ONGLET 5 -->
+    <div id="surveillance" class="tab-content">
+        <h2>Biomarqueurs & Surveillance</h2>
+        <div class="card">
+            <h3>Tests tissulaires & Sanguins</h3>
+            <ul>
+                <li><strong>CA-125 :</strong> Un taux élevé peut signaler une propagation hors utérus. Utile pour suivre l'efficacité si élevé au départ (un taux normal n'exclut pas la maladie).</li>
+                <li><strong>Test MMR / MSI :</strong> Recommandé chez <strong>toutes</strong> les patientes (dépistage syndrome de Lynch + utilité pour l'immunothérapie).</li>
+                <li><strong>Test HER2 (ERBB2) :</strong> Recommandé pour carcinomes séreux / carcinosarcomes avancés (oriente vers le trastuzumab).</li>
+                <li><strong>Récepteurs ER/PR :</strong> Testés pour les cancers avancés ou récidivants (oriente vers l'hormonothérapie).</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Surveillance post-traitement (NCCN)</h3>
+            <p>L'examen physique en clinique est la méthode principale :</p>
+            <ul>
+                <li><strong>Ans 1 à 3 :</strong> tous les 3-6 mois.</li>
+                <li><strong>Ans 4 et 5 :</strong> tous les 6-12 mois.</li>
+                <li><strong>Après 5 ans :</strong> annuel.</li>
+            </ul>
+            <p><small><em>Imagerie si récidive suspectée. Le CA-125 n'est suivi que s'il était élevé au départ.</em></small></p>
+        </div>
+    </div>
+
+    <!-- ONGLET 6 -->
+    <div id="soutien" class="tab-content">
+        <h2>Soins de soutien / Palliatifs</h2>
+        <div class="card">
+            <p>Si le cancer progresse malgré le traitement ou si la patiente refuse les traitements lourds : les soins visent à soulager les symptômes et optimiser la qualité de vie. La chirurgie ou la radiothérapie palliatives peuvent être utilisées pour calmer des symptômes locaux (saignements, douleurs).</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) { tabContents[i].classList.remove("active"); }
+        const tabBtns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tabBtns.length; i++) { tabBtns[i].classList.remove("active"); }
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
