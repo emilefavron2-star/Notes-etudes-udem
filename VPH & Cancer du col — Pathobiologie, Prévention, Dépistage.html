@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0227)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_4b488967-4331-4369-b141-81f65eb91933/outputs/vph_col_uterin.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPH &amp; Cancer du col — Pathobiologie, Prévention, Dépistage</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.68;
+    color: #2c2c2c;
+    background: #fff;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 10px; color: #1a1a1a; padding-bottom: 5px; border-bottom: 2px solid #e8e8e8; }
+  p  { margin-bottom: 10px; }
+  ul { margin: 6px 0 12px 20px; }
+  ul li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── NAV ── */
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .nav-btn {
+    padding: 8px 16px; border-radius: 20px; border: 2px solid #ccc;
+    background: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; color: #444; transition: all 0.18s; white-space: nowrap;
+  }
+
+  .nav-btn[data-s="vph"].active       { background: #1e6fa8; border-color: #1e6fa8; color: #fff; }
+  .nav-btn[data-s="vph"]:hover        { border-color: #1e6fa8; color: #1e6fa8; }
+  .nav-btn[data-s="transmission"].active { background: #d35400; border-color: #d35400; color: #fff; }
+  .nav-btn[data-s="transmission"]:hover  { border-color: #d35400; color: #d35400; }
+  .nav-btn[data-s="mecanisme"].active { background: #c0392b; border-color: #c0392b; color: #fff; }
+  .nav-btn[data-s="mecanisme"]:hover  { border-color: #c0392b; color: #c0392b; }
+  .nav-btn[data-s="vaccin"].active    { background: #27783a; border-color: #27783a; color: #fff; }
+  .nav-btn[data-s="vaccin"]:hover     { border-color: #27783a; color: #27783a; }
+  .nav-btn[data-s="depistage"].active { background: #8e44ad; border-color: #8e44ad; color: #fff; }
+  .nav-btn[data-s="depistage"]:hover  { border-color: #8e44ad; color: #8e44ad; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 8px; margin-bottom: 18px;
+    font-size: 1rem; font-weight: 700; color: #fff;
+  }
+  .h-blue   { background: #1e6fa8; }
+  .h-orange { background: #d35400; }
+  .h-red    { background: #c0392b; }
+  .h-green  { background: #27783a; }
+  .h-purple { background: #8e44ad; }
+
+  /* ── CALLOUTS ── */
+  .callout { border-radius: 6px; padding: 13px 17px; margin: 14px 0; font-size: 14px; }
+  .callout-blue   { background: #f0f7ff; border-left: 4px solid #2b8acc; }
+  .callout-yellow { background: #fffbeb; border-left: 4px solid #f5a623; }
+  .callout-green  { background: #f0faf2; border-left: 4px solid #27783a; }
+  .callout-red    { background: #fdecea; border-left: 4px solid #c0392b; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ul { margin-left: 18px; margin-top: 6px; }
+  .callout ul li { margin-bottom: 5px; }
+
+  /* ── VPH RISK CARDS ── */
+  .risk-row { display: flex; gap: 12px; margin: 14px 0; flex-wrap: wrap; }
+  .risk-card { flex: 1; min-width: 200px; border-radius: 8px; padding: 14px; font-size: 14px; }
+  .risk-low  { background: #f0faf2; border: 1.5px solid #27783a; }
+  .risk-high { background: #fdecea; border: 1.5px solid #c0392b; }
+  .risk-card .risk-title { font-weight: 700; margin-bottom: 8px; font-size: 14.5px; }
+  .risk-low .risk-title  { color: #27783a; }
+  .risk-high .risk-title { color: #c0392b; }
+  .risk-card ul { margin-left: 16px; }
+
+  /* ── STAT BADGES ── */
+  .stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+  .stat-badge {
+    flex: 1; min-width: 140px;
+    background: #f0f7ff; border: 1.5px solid #2b8acc;
+    border-radius: 8px; padding: 12px 14px; text-align: center; font-size: 14px;
+  }
+  .stat-badge .stat-num { font-size: 1.4rem; font-weight: 700; color: #1e6fa8; display: block; }
+  .stat-badge .stat-label { font-size: 12px; color: #555; margin-top: 3px; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; margin: 18px 0; padding-left: 28px; }
+  .timeline::before { content:''; position:absolute; left:10px; top:0; bottom:0; width:2px; background:#cde3f7; border-radius:1px; }
+  .tl-item { position: relative; margin-bottom: 16px; }
+  .tl-dot { position: absolute; left: -23px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #2b8acc; border: 2px solid #fff; box-shadow: 0 0 0 2px #2b8acc; }
+  .tl-content { font-size: 14px; }
+  .tl-content strong { display: block; margin-bottom: 3px; }
+
+  /* ── ONCO MECHANISM ── */
+  .onco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .onco-card { border-radius: 8px; padding: 15px; font-size: 14px; }
+  .onco-e6 { background: #fdecea; border: 1.5px solid #c0392b; }
+  .onco-e7 { background: #fff8e1; border: 1.5px solid #f5a623; }
+  .onco-result { background: #2b3a4a; color: #fff; border-radius: 8px; padding: 14px; font-size: 14px; grid-column: 1 / -1; }
+  .onco-card .onco-title { font-weight: 700; margin-bottom: 8px; font-size: 15px; }
+  .onco-e6 .onco-title { color: #c0392b; }
+  .onco-e7 .onco-title { color: #c05b00; }
+  .onco-result .onco-title { color: #fff; }
+
+  /* ── DETAILS ── */
+  details { margin: 10px 0; }
+  details summary {
+    cursor: pointer; font-weight: 700; color: #1e6fa8;
+    padding: 10px 14px; background: #f0f7ff; border-radius: 6px;
+    list-style: none; display: flex; align-items: center; gap: 8px;
+    user-select: none; font-size: 14px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: "▶"; font-size: 11px; transition: transform 0.2s; display: inline-block; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .details-body { padding: 13px 16px; border: 1px solid #cde3f7; border-top: none; border-radius: 0 0 6px 6px; font-size: 14px; }
+  details .details-body p { margin-bottom: 8px; }
+  details .details-body p:last-child { margin-bottom: 0; }
+  details .details-body ul { margin-left: 18px; margin-top: 6px; }
+  details .details-body ul li { margin-bottom: 5px; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #27783a; color: #fff; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f5f5f5; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid #e4e4e4; vertical-align: top; }
+
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 1px 8px; font-size: 12px; font-weight: 600; margin: 2px 2px 2px 0;
+  }
+  .tag-red    { background: #fde8e8; color: #c0392b; }
+  .tag-green  { background: #e8f5e9; color: #27783a; }
+  .tag-blue   { background: #e8f4fd; color: #1e6fa8; }
+  .tag-orange { background: #fff3e0; color: #c05b00; }
+
+  /* ── SCREENING TABLE ── */
+  .screen-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 14px 0; }
+  .screen-card { border-radius: 8px; padding: 14px; font-size: 14px; border: 1.5px solid #8e44ad; background: #f5f0ff; }
+  .screen-card .screen-age { font-weight: 700; color: #8e44ad; margin-bottom: 6px; font-size: 15px; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 18px 0; }
+
+  .footnote { margin-top: 36px; padding-top: 14px; border-top: 1px solid #eee; font-size: 12.5px; color: #777; font-style: italic; }
+
+  @media (max-width: 600px) {
+    .onco-grid { grid-template-columns: 1fr; }
+    .onco-result { grid-column: 1; }
+    .screen-grid { grid-template-columns: 1fr; }
+    .risk-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🦠 VPH &amp; Cancer du col — Pathobiologie &amp; Prévention</h1>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" data-s="vph" onclick="show(&#39;vph&#39;,this)">🦠 VPH central</button>
+  <button class="nav-btn" data-s="transmission" onclick="show(&#39;transmission&#39;,this)">📅 Transmission &amp; Histoire naturelle</button>
+  <button class="nav-btn" data-s="mecanisme" onclick="show(&#39;mecanisme&#39;,this)">🔬 Mécanisme oncogène</button>
+  <button class="nav-btn" data-s="vaccin" onclick="show(&#39;vaccin&#39;,this)">💉 Vaccination</button>
+  <button class="nav-btn" data-s="depistage" onclick="show(&#39;depistage&#39;,this)">🔍 Dépistage</button>
+</div>
+
+<!-- ══════════════════════════════════
+     VPH CENTRAL
+═════════════════════════════════════ -->
+<div id="vph" class="section active">
+  <div class="section-header h-blue">🦠 Le VPH est central</div>
+
+  <div class="stat-row">
+    <div class="stat-badge">
+      <span class="stat-num">&gt; 99 %</span>
+      <span class="stat-label">des cancers du col contiennent le VPH</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">&gt; 200</span>
+      <span class="stat-label">souches connues</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">~40</span>
+      <span class="stat-label">infectent le tractus génital</span>
+    </div>
+    <div class="stat-badge">
+      <span class="stat-num">70 %</span>
+      <span class="stat-label">des cancers du col causés par VPH 16 &amp; 18</span>
+    </div>
+  </div>
+
+  <div class="risk-row" style="margin-top:6px;">
+    <div class="risk-card risk-low">
+      <div class="risk-title">✅ VPH à bas risque</div>
+      <ul>
+        <li>Verrues génitales (condylomes)</li>
+        <li>Principaux types : <strong>6, 11</strong></li>
+      </ul>
+    </div>
+    <div class="risk-card risk-high">
+      <div class="risk-title">⚠️ VPH à haut risque</div>
+      <ul>
+        <li>Cancer du col, anus, vagin, vulve, pénis</li>
+        <li>Cancers oraux / de la gorge</li>
+        <li>Principaux types : <strong>16, 18</strong> (70 % des cancers du col)</li>
+        <li>Types 31, 33, 45, 52, 58 → +20 %</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:6px;">
+    <p>💡 <strong>Cancer de l'endomètre — repère :</strong> le cancer gynécologique le plus fréquent (É.-U.), 4e cancer chez la femme. Incidence ↑ avec l'obésité. Âge moyen au diagnostic : <strong>60 ans</strong>. Symptôme le plus fréquent : <strong>saignement vaginal anormal</strong>.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     TRANSMISSION & HISTOIRE NATURELLE
+═════════════════════════════════════ -->
+<div id="transmission" class="section">
+  <div class="section-header h-orange">📅 Transmission &amp; Histoire naturelle</div>
+
+  <h2>Transmission</h2>
+  <ul>
+    <li>Voie <strong>sexuelle</strong> (contact génital-génital ou génital-oral).</li>
+    <li>↓ significativement avec le <strong>condom</strong>.</li>
+    <li>Cible : la <strong>jonction squamo-cylindrique (JSC)</strong> du col — plus susceptible chez l'adolescente/jeune femme.</li>
+  </ul>
+
+  <h2>Histoire naturelle</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <strong>Infection initiale</strong>
+        Très fréquente — la majorité des personnes sexuellement actives seront exposées au VPH.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#27783a;box-shadow:0 0 0 2px #27783a;"></div>
+      <div class="tl-content">
+        <strong>~90 % des cas → clairance spontanée (1–2 ans)</strong>
+        Réponse immunitaire efficace — pas de séquelles.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#f5a623;box-shadow:0 0 0 2px #f5a623;"></div>
+      <div class="tl-content">
+        <strong>~10 % → persistance de l'infection</strong>
+        C'est la <strong>persistance du VPH</strong> (et non l'infection seule) qui est nécessaire au développement des lésions précancéreuses.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#c0392b;box-shadow:0 0 0 2px #c0392b;"></div>
+      <div class="tl-content">
+        <strong>~10 ans → malignité</strong>
+        Les effets cancérigènes prennent environ <strong>10 ans</strong> à évoluer vers le cancer invasif — d'où l'efficacité du dépistage.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     MÉCANISME ONCOGÈNE
+═════════════════════════════════════ -->
+<div id="mecanisme" class="section">
+  <div class="section-header h-red">🔬 Mécanisme oncogène (pathobiologie)</div>
+
+  <p>Les protéines virales <strong>E6</strong> et <strong>E7</strong> des VPH à haut risque agissent comme <strong>oncoprotéines</strong>.</p>
+
+  <div class="onco-grid">
+    <div class="onco-card onco-e6">
+      <div class="onco-title">E6 → dégrade p53</div>
+      <p>Lie et dégrade le suppresseur de tumeur <strong>p53</strong> (« gardien du génome »).</p>
+      <p style="margin-top:6px;">→ Inhibe l'apoptose → <strong>immortalisation cellulaire</strong>.</p>
+    </div>
+    <div class="onco-card onco-e7">
+      <div class="onco-title">E7 → dégrade pRB</div>
+      <p>Lie et dégrade le suppresseur <strong>pRB</strong> qui retient normalement E2F.</p>
+      <p style="margin-top:6px;">→ Dérègle le cycle cellulaire (cyclines, CDK) → <strong>force l'entrée en phase S</strong>.</p>
+    </div>
+    <div class="onco-result">
+      <div class="onco-title">💥 Résultat combiné</div>
+      <p>Une cellule qui <strong>prolifère sans frein ET ne peut plus mourir</strong> malgré l'accumulation de mutations → instabilité génomique → cancer.</p>
+      <p style="margin-top:8px; font-size:13px; opacity:0.85;">E6 et E7 ont aussi des effets <strong>immunosuppresseurs</strong> (évasion immunitaire).</p>
+    </div>
+  </div>
+
+  <details style="margin-top:14px;">
+    <summary>🔬 Pourquoi p53 et pRB sont les bonnes cibles (raisonnement)</summary>
+    <div class="details-body">
+      <ul>
+        <li><strong>pRB</strong> retient normalement le facteur E2F et bloque l'entrée en phase S; en le dégradant, <strong>E7</strong> force la prolifération.</li>
+        <li><strong>p53</strong> est le « gardien du génome » qui déclenche l'arrêt du cycle ou l'apoptose en cas de lésion de l'ADN; en le dégradant, <strong>E6</strong> lève ce point de contrôle.</li>
+      </ul>
+      <p style="margin-top:10px;">💡 <strong>Parallèle avec l'endomètre :</strong> le carcinome séreux (Type 2, Obj 11) résulte aussi d'une <strong>perte de fonction de p53</strong> — mais par <strong>mutation</strong> plutôt que par dégradation virale. Deux chemins, même point de contrôle perdu.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════
+     VACCINATION
+═════════════════════════════════════ -->
+<div id="vaccin" class="section">
+  <div class="section-header h-green">💉 Prévention par la vaccination</div>
+
+  <p style="margin-bottom:12px;">Les vaccins reposent sur la protéine de capside <strong>L1</strong> assemblée en <strong>particules pseudo-virales (VLP)</strong> — non infectieuses (sans ADN viral) mais induisant de hauts titres d'anticorps neutralisants.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Vaccin</th><th>Valence</th><th>Souches couvertes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gardasil-9</strong> <span class="tag tag-green">Recommandé</span></td>
+          <td>9-valent</td>
+          <td>6, 11, 16, 18, 31, 33, 45, 52, 58</td>
+        </tr>
+        <tr>
+          <td><strong>Gardasil</strong></td>
+          <td>Tétravalent</td>
+          <td>6, 11, 16, 18</td>
+        </tr>
+        <tr>
+          <td><strong>Cervarix</strong></td>
+          <td>Bivalent</td>
+          <td>16, 18</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:14px;">
+    <p><strong>Points clés (ACIP)</strong></p>
+    <ul>
+      <li>Efficacité <strong>≥ 97 %</strong> pour prévenir les séquelles des VPH à haut risque.</li>
+      <li>Recommandée <strong>avant le début de l'activité sexuelle</strong>.</li>
+      <li>Routine à <strong>11–12 ans</strong> (dès 9 ans possible) — <strong>les deux sexes</strong>.</li>
+      <li><span class="tag tag-blue">2 doses</span> si initiée avant 15 ans. <span class="tag tag-orange">3 doses</span> sinon. Rattrapage jusqu'à 26 ans.</li>
+      <li><strong>Vaccination des garçons</strong> : essentielle pour prévenir la transmission <em>et</em> les <strong>cancers ORL associés au VPH</strong> (en hausse, surtout chez l'homme).</li>
+      <li>Vaccination après traitement d'une <strong>CIN 2-3</strong> peut ↓ le risque de récidive.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-red" style="margin-top:6px;">
+    <p>⚠️ Le statut vaccinal <strong>ne modifie pas</strong> les recommandations de dépistage — les femmes vaccinées doivent <strong>continuer le dépistage</strong>.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     DÉPISTAGE
+═════════════════════════════════════ -->
+<div id="depistage" class="section">
+  <div class="section-header h-purple">🔍 Dépistage (contexte américain — USPSTF)</div>
+
+  <div class="screen-grid">
+    <div class="screen-card">
+      <div class="screen-age">21–29 ans</div>
+      <p><strong>Pap seul</strong></p>
+      <p style="font-size:13px;margin-top:6px;">Tous les <strong>3 ans</strong></p>
+    </div>
+    <div class="screen-card" style="grid-column: span 2;">
+      <div class="screen-age">30–65 ans</div>
+      <p>Au choix :</p>
+      <ul style="margin-left:16px;margin-top:6px;font-size:13.5px;">
+        <li><strong>Pap seul</strong> — tous les 3 ans</li>
+        <li><strong>Co-test Pap + VPH</strong> — tous les 5 ans</li>
+        <li><strong>Test VPH seul</strong> — tous les 5 ans</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-yellow" style="margin-top:6px;">
+    <p>📝 Au Québec, se référer aux recommandations locales — non couvert dans les ressources du projet.</p>
+  </div>
+
+  <div class="callout callout-red" style="margin-top:6px;">
+    <p>⚠️ La <strong>vaccination ne remplace pas le dépistage</strong>. Même les femmes vaccinées doivent continuer à suivre le calendrier de dépistage.</p>
+  </div>
+</div>
+
+<p class="footnote">
+  Guide d'étude basé sur : Cecil/Goldman ch. 189, UpToDate, Berek <em>FIGO staging of endometrial cancer 2023</em>, NCCN 2023 <em>Cancer de l'utérus</em>, Banasik ch. 33. Couvre les <strong>objectifs 10 à 12</strong>.
+</p>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+
+</body></html>
