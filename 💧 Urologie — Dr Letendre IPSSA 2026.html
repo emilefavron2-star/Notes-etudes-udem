@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<!-- saved from url=(0240)file:///Users/emile/Library/Application%20Support/Claude/local-agent-mode-sessions/bbeed395-e5ed-44ba-b2a4-3e08954f5db3/ccbb233f-53f3-41a4-bc68-5aa9a2bf2902/local_6a39ad6f-0c6d-4f2c-96ba-653d66cedf55/outputs/urologie_letendre_IPSSA2026.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💧 Urologie — Dr Letendre IPSSA 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #1a1d27;
+    --bg3: #242736;
+    --border: #2e3248;
+    --text: #e8eaf0;
+    --text2: #9aa0b8;
+    --accent: #5b8dee;
+    --accent2: #7c5ce0;
+    --green: #26c27a;
+    --red: #e05c5c;
+    --orange: #f0a045;
+    --yellow: #f0d045;
+    --teal: #2ac4c4;
+    --pink: #e05c9a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+  /* HEADER */
+  header { background: linear-gradient(135deg, #1a2a4a 0%, #1a1d27 100%); border-bottom: 1px solid var(--border); padding: 18px 24px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 100; }
+  header h1 { font-size: 18px; font-weight: 700; color: var(--text); }
+  header span.sub { font-size: 12px; color: var(--text2); margin-left: 8px; }
+
+  /* NAV TABS */
+  nav { display: flex; gap: 4px; padding: 12px 16px 0; background: var(--bg); border-bottom: 1px solid var(--border); overflow-x: auto; flex-wrap: nowrap; }
+  nav button { background: none; border: none; padding: 8px 14px; border-radius: 8px 8px 0 0; color: var(--text2); cursor: pointer; white-space: nowrap; font-size: 13px; font-weight: 500; transition: all 0.15s; border-bottom: 2px solid transparent; }
+  nav button:hover { color: var(--text); background: var(--bg3); }
+  nav button.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--bg2); }
+
+  /* CONTENT */
+  .page { display: none; padding: 20px; max-width: 960px; margin: 0 auto; }
+  .page.active { display: block; }
+
+  /* SECTIONS */
+  .section { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+  .section-header { padding: 14px 18px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+  .section-header:hover { background: var(--bg3); }
+  .section-header .toggle { margin-left: auto; color: var(--text2); font-size: 12px; transition: transform 0.2s; }
+  .section-body { padding: 16px 18px; border-top: 1px solid var(--border); display: none; }
+  .section.open .section-body { display: block; }
+  .section.open .toggle { transform: rotate(180deg); }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: var(--bg3); color: var(--accent); font-weight: 600; padding: 8px 12px; text-align: left; border: 1px solid var(--border); }
+  td { padding: 7px 12px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  /* BADGES / TAGS */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin: 2px; }
+  .badge-blue { background: rgba(91,141,238,0.2); color: var(--accent); border: 1px solid rgba(91,141,238,0.3); }
+  .badge-green { background: rgba(38,194,122,0.2); color: var(--green); border: 1px solid rgba(38,194,122,0.3); }
+  .badge-red { background: rgba(224,92,92,0.2); color: var(--red); border: 1px solid rgba(224,92,92,0.3); }
+  .badge-orange { background: rgba(240,160,69,0.2); color: var(--orange); border: 1px solid rgba(240,160,69,0.3); }
+  .badge-purple { background: rgba(124,92,224,0.2); color: var(--accent2); border: 1px solid rgba(124,92,224,0.3); }
+  .badge-teal { background: rgba(42,196,196,0.2); color: var(--teal); border: 1px solid rgba(42,196,196,0.3); }
+
+  /* ALERTS */
+  .alert { padding: 10px 14px; border-radius: 7px; margin: 10px 0; font-size: 13px; }
+  .alert-danger { background: rgba(224,92,92,0.12); border-left: 3px solid var(--red); }
+  .alert-warning { background: rgba(240,160,69,0.12); border-left: 3px solid var(--orange); }
+  .alert-info { background: rgba(91,141,238,0.12); border-left: 3px solid var(--accent); }
+  .alert-success { background: rgba(38,194,122,0.12); border-left: 3px solid var(--green); }
+
+  /* KEY POINTS */
+  .keypoints { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 12px 0; }
+  .keypoint { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 13px; }
+  .keypoint .num { color: var(--accent); font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+
+  /* DRUG CARDS */
+  .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 12px 0; }
+  .drug-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .drug-card h4 { color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .drug-card .mechanism { color: var(--text2); font-size: 12px; margin-bottom: 8px; font-style: italic; }
+  .drug-card .se { font-size: 12px; }
+  .drug-card .se span { color: var(--orange); }
+
+  ul { padding-left: 18px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  strong { color: var(--yellow); }
+  em { color: var(--text2); font-style: italic; }
+  h3 { font-size: 14px; color: var(--teal); margin: 14px 0 8px; font-weight: 600; }
+  h4 { font-size: 13px; color: var(--accent); margin: 10px 0 6px; font-weight: 600; }
+  p { margin: 6px 0; font-size: 13px; }
+
+  /* FLASHCARDS */
+  .flashcard-container { perspective: 1000px; }
+  .fc-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .fc-nav button { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 7px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.15s; }
+  .fc-nav button:hover { border-color: var(--accent); color: var(--accent); }
+  .fc-nav button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .fc-progress { color: var(--text2); font-size: 13px; margin-left: auto; }
+  .flashcard { width: 100%; min-height: 200px; cursor: pointer; position: relative; transform-style: preserve-3d; transition: transform 0.5s; border-radius: 10px; margin-bottom: 16px; }
+  .flashcard.flipped { transform: rotateY(180deg); }
+  .fc-face { position: absolute; width: 100%; min-height: 200px; backface-visibility: hidden; border-radius: 10px; padding: 28px 24px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .fc-front { background: linear-gradient(135deg, #1e2640 0%, #1a2a3a 100%); border: 1px solid var(--accent); }
+  .fc-back { background: linear-gradient(135deg, #1e3028 0%, #1a271e 100%); border: 1px solid var(--green); transform: rotateY(180deg); }
+  .fc-front p { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.5; }
+  .fc-back p { font-size: 15px; color: var(--text); line-height: 1.6; }
+  .fc-hint { font-size: 11px; color: var(--text2); text-align: center; margin-bottom: 12px; }
+  .fc-result { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+  .fc-result button { padding: 8px 24px; border-radius: 6px; border: none; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn-knew { background: var(--green); color: #000; }
+  .btn-again { background: var(--red); color: #fff; }
+  .fc-category { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .fc-category button { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  .fc-category button.active { border-color: var(--accent); color: var(--accent); background: rgba(91,141,238,0.1); }
+  .fc-stats { display: flex; gap: 16px; margin-bottom: 16px; }
+  .fc-stat { text-align: center; }
+  .fc-stat .val { font-size: 22px; font-weight: 700; }
+  .fc-stat .lbl { font-size: 11px; color: var(--text2); }
+
+  /* QUIZ */
+  .quiz-q { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin-bottom: 14px; }
+  .quiz-q .question { font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; cursor: pointer; font-size: 13px; transition: all 0.15s; text-align: left; color: var(--text); }
+  .quiz-opt:hover:not(.disabled) { border-color: var(--accent); }
+  .quiz-opt.correct { border-color: var(--green); background: rgba(38,194,122,0.12); color: var(--green); }
+  .quiz-opt.wrong { border-color: var(--red); background: rgba(224,92,92,0.12); color: var(--red); }
+  .quiz-opt.disabled { cursor: default; }
+  .quiz-explanation { margin-top: 12px; padding: 10px 14px; background: rgba(91,141,238,0.1); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: 13px; display: none; }
+  .quiz-score { font-size: 28px; font-weight: 700; text-align: center; color: var(--accent); margin: 20px 0 8px; }
+  .quiz-score-msg { text-align: center; color: var(--text2); margin-bottom: 16px; }
+
+  /* CYCLE DIAGRAM */
+  .diagram { display: flex; gap: 0; margin: 12px 0; border-radius: 8px; overflow: hidden; }
+  .diag-step { flex: 1; padding: 12px 10px; text-align: center; font-size: 12px; }
+  .diag-step .icon { font-size: 20px; margin-bottom: 4px; }
+  .diag-step .label { font-weight: 600; font-size: 12px; margin-bottom: 4px; }
+  .diag-step .detail { font-size: 11px; color: var(--text2); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item { position: relative; padding: 8px 0 8px 16px; }
+  .tl-item::before { content: ''; position: absolute; left: -20px; top: 13px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg2); }
+  .tl-item .tl-num { color: var(--accent); font-weight: 700; }
+
+  /* COMPARISON STRIP */
+  .compare-strip { display: flex; gap: 1px; border-radius: 8px; overflow: hidden; margin: 10px 0; }
+  .compare-col { flex: 1; padding: 10px 12px; font-size: 12px; }
+  .compare-col .label { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+
+  /* SEARCH */
+  .search-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+  .search-bar input { flex: 1; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 9px 14px; color: var(--text); font-size: 13px; outline: none; }
+  .search-bar input:focus { border-color: var(--accent); }
+  .search-bar input::placeholder { color: var(--text2); }
+  .search-result { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; font-size: 13px; cursor: pointer; }
+  .search-result:hover { border-color: var(--accent); }
+  .search-result .sr-title { color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+  .search-result .sr-snippet { color: var(--text2); font-size: 12px; }
+  mark { background: rgba(240,208,69,0.3); color: var(--yellow); border-radius: 2px; padding: 0 2px; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  .spacer { height: 8px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <span style="font-size:24px">💧</span>
+  <div>
+    <h1>Urologie — Dr Letendre</h1>
+    <span class="sub">IPSSA 2026 · 11 mai 2026</span>
+  </div>
+  <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+    <span style="font-size:12px;color:var(--text2)" id="clock">09 h 57</span>
+  </div>
+</header>
+
+<nav id="main-nav">
+  <button class="active" onclick="showPage(&#39;physio&#39;)">🫀 Physiologie</button>
+  <button onclick="showPage(&#39;sbau&#39;)">🔍 SBAU</button>
+  <button onclick="showPage(&#39;hbp&#39;)">🧬 HBP</button>
+  <button onclick="showPage(&#39;vha&#39;)">💊 VHA</button>
+  <button onclick="showPage(&#39;inco&#39;)">🚿 Incontinence</button>
+  <button onclick="showPage(&#39;nyc&#39;)">🌙 Nycturie</button>
+  <button onclick="showPage(&#39;infec&#39;)">🦠 Infections</button>
+  <button onclick="showPage(&#39;cap&#39;)">🔬 Cancer prostate</button>
+  <button onclick="showPage(&#39;de&#39;)">🩺 Dysfonction érectile</button>
+  <button onclick="showPage(&#39;flash&#39;)">🃏 Flashcards</button>
+  <button onclick="showPage(&#39;quiz&#39;)">📝 Quiz</button>
+</nav>
+
+<!-- ===== PAGE: PHYSIOLOGIE ===== -->
+<div class="page active" id="page-physio">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">📌 Physiologie de la Miction</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      🏗️ Anatomie du bas appareil urinaire
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Structures (de l'intérieur vers l'extérieur)</h4>
+          <ul>
+            <li>Urothélium</li>
+            <li>Interstice</li>
+            <li><strong>Détrusor</strong> : 3 couches musculaires</li>
+            <li>Graisse / péritoine</li>
+          </ul>
+          <ul style="margin-top:8px">
+            <li>Orifices urétéraux, trigone</li>
+            <li>Col vésical / sphincter interne</li>
+            <li>Sphincter externe (strié / <strong>volontaire</strong>)</li>
+            <li>Urètre (féminin court vs masculin long)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="alert alert-info">
+            <strong>Capacité vésicale normale :</strong> 300–700 cc<br>
+            <strong>Production urinaire normale :</strong> ~1,5 L/j
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      🔄 Cycle mictionnel normal
+      <span class="toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="diagram">
+        <div class="diag-step" style="background:rgba(91,141,238,0.15)">
+          <div class="icon">📥</div>
+          <div class="label" style="color:var(--accent)">REMPLISSAGE</div>
+          <div class="detail">Cerveau inhibe parasympathique<br>β-relaxation détrusor (symp.)<br>α-contraction sphincter int. (symp.)<br>Sphincter ext. = volontaire</div>
+        </div>
+        <div style="display:flex;align-items:center;padding:0 4px;font-size:20px;color:var(--text2)">→</div>
+        <div class="diag-step" style="background:rgba(38,194,122,0.15)">
+          <div class="icon">📤</div>
+          <div class="label" style="color:var(--green)">VIDANGE</div>
+          <div class="detail">Parasympathique (ACh)<br>→ Contraction détrusor<br>→ Relâchement sphincters<br>interne et externe</div>
+        </div>
+      </div>
+      <table style="margin-top:12px">
+        <tbody><tr>
+          <th>Phase</th>
+          <th>Système nerveux</th>
+          <th>Critères normaux</th>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent)">Remplissage</strong></td>
+          <td>Sympathique (β + α), inhibition parasympathique</td>
+          <td>Fréquence &lt; 8x/j, pas de nycturie, peut se retenir</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green)">Vidange</strong></td>
+          <td>Parasympathique (ACh → détrusor)</td>
+          <td>Bon jet, miction rapide, vidange complète</td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: SBAU ===== -->
+<div class="page" id="page-sbau">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🔍 Symptômes du Bas Appareil Urinaire (SBAU)</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">📋 Classification des SBAU <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <table>
+        <tbody><tr>
+          <th>Catégorie</th>
+          <th>Symptômes</th>
+          <th>Type</th>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--orange)">Remplissage</strong> (irritatifs)</td>
+          <td>Pollakiurie (&gt; 8x/j), urgenturie, incontinence, nycturie</td>
+          <td><span class="badge badge-orange">Irritatifs</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--red)">Mictionnels</strong> (obstructifs)</td>
+          <td>Difficulté à initier, jet ralenti, jet intermittent, goutte-à-goutte terminale, miction en 2 temps</td>
+          <td><span class="badge badge-red">Obstructifs</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--text2)">Post-mictionnels</strong></td>
+          <td>Sensation de vidange incomplète</td>
+          <td><span class="badge badge-purple">Post</span></td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🩺 Évaluation des SBAU <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Obligatoires</h4>
+          <ul>
+            <li>Anamnèse complète (type Sx, sévérité, évolution, hématurie, douleur, incontinence, nycturie, IU à répétition, impact QoL, ATCD médicaux/chirurgicaux, revue médicaments, ATCD sexuel)</li>
+            <li>Examen physique (abdomen, génital, toucher rectal, neurologique si indiqué)</li>
+            <li><strong>Analyse d'urine :</strong> bâtonnet + microscopie (GR, GB, nitrites, bactéries)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recommandées</h4>
+          <ul>
+            <li>APS → antigène prostatique spécifique (si Sx et influencer PEC)</li>
+            <li>Questionnaire <strong>IPSS</strong> (IPSS + QoL)</li>
+          </ul>
+          <h4>Facultatives</h4>
+          <ul>
+            <li>Culture des urines, créatinine, calendrier mictionnel, résidu vésical post-mictionnel</li>
+          </ul>
+          <h4>Avant référence/chirurgie</h4>
+          <ul>
+            <li>Débimétrie + résidu vésical</li>
+            <li>Cystoscopie (valeur diagnostique, pas thérapeutique)</li>
+            <li>Bilan urodynamique (éval. phase remplissage vs vidange)</li>
+            <li>Écho abdominale/prostate, cytologie urinaire</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🚨 Signaux d'alarme — Investigation obligatoire <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-danger">
+        <strong>HBP et VHA = diagnostics d'EXCLUSION</strong>
+      </div>
+      <div class="keypoints">
+        <div class="keypoint" style="border-color:var(--red)">🩸 Douleur ou hématurie (micro ou macro)</div>
+        <div class="keypoint" style="border-color:var(--red)">🦠 Infections urinaires récidivantes</div>
+        <div class="keypoint" style="border-color:var(--red)">🔪 ATCD chirurgie pelvienne / radiothérapie</div>
+        <div class="keypoint" style="border-color:var(--red)">🫀 Masse pelvienne</div>
+        <div class="keypoint" style="border-color:var(--red)">🚬 Tabagisme +</div>
+        <div class="keypoint" style="border-color:var(--red)">🧠 Symptômes neurologiques (MI, anesthésie en selle)</div>
+        <div class="keypoint" style="border-color:var(--red)">⚡ Apparition rapide des symptômes</div>
+      </div>
+      <hr>
+      <h4>Résidu vésical post-mictionnel</h4>
+      <ul>
+        <li>Normal : <strong>0 cc</strong> après miction</li>
+        <li>Règle du <strong>50:50</strong> : volume uriné vs volume résiduel</li>
+        <li>Complications si résidu augmenté : pollakiurie, incontinence par trop plein, infections à répétition, calculs vésicaux, atteinte rénale</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: HBP ===== -->
+<div class="page" id="page-hbp">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🧬 HBP — Hyperplasie Bénigne de la Prostate</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">⚙️ Physiopathologie <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <ul>
+        <li>Augmentation graduelle du volume prostatique avec l'âge</li>
+        <li><strong>Cause : DHT</strong> (dihydrotestostérone) — conversion testostérone par la <strong>5α-réductase</strong></li>
+        <li>Héréditaire — pas de facteurs environnementaux</li>
+        <li>Prévalence : <strong>15% à 50 ans → 90% à 80 ans</strong></li>
+      </ul>
+      <div class="alert alert-warning" style="margin-top:10px">
+        <strong>Volume prostatique seul ≠ indication de traitement</strong><br>
+        Pas de lien entre HBP et cancer de la prostate.
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Alpha-Bloqueurs <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Mécanisme :</strong> Inhibiteur récepteur α1a → relâchement sphincter interne / col vésical<br>
+        <strong>Objectif :</strong> Améliorer les Sx obstructifs — ne change <strong>pas</strong> l'évolution naturelle<br>
+        <strong>Délai d'action :</strong> <strong style="color:var(--green)">3 jours</strong> pour les Sx obstructifs
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Molécule</th>
+          <th>Nom commercial</th>
+          <th>Sélectivité α1a</th>
+          <th>Hypotension orthostatique</th>
+          <th>Anéjaculation</th>
+        </tr>
+        <tr>
+          <td>Alfuzosine</td>
+          <td>Xatral</td>
+          <td><span class="badge badge-orange">+</span></td>
+          <td><span class="badge badge-red">+++</span></td>
+          <td><span class="badge badge-orange">+</span></td>
+        </tr>
+        <tr>
+          <td>Tamsulosine</td>
+          <td>Flomax</td>
+          <td><span class="badge badge-orange">++</span></td>
+          <td><span class="badge badge-orange">++</span></td>
+          <td><span class="badge badge-orange">++</span></td>
+        </tr>
+        <tr>
+          <td>Silodosine</td>
+          <td>Rapaflo</td>
+          <td><span class="badge badge-green">+++</span></td>
+          <td><span class="badge badge-green">+</span></td>
+          <td><span class="badge badge-red">+++</span></td>
+        </tr>
+      </tbody></table>
+      <div class="alert alert-warning" style="margin-top:10px">
+        <strong>Mnémo sélectivité α1a (croissante) :</strong> Alfuzosine &lt; Tamsulosine &lt; Silodosine<br>
+        <strong>HTO (croissante) :</strong> Silodosine &lt; Tamsulosine &lt; Alfuzosine (inversé!)
+      </div>
+      <h4>Autres utilisations (certaines hors indication)</h4>
+      <ul>
+        <li>Rétention urinaire aiguë : augmente les chances de sevrage de sonde (3-7 jours)</li>
+        <li>Femme : col serré (rare)</li>
+        <li><em>Colique néphrétique* : calculs 5-10 mm distaux (controversé)</em></li>
+        <li><em>Augmenter l'expulsion des calculs post-LOCEC*</em></li>
+        <li><em>Inconfort associé à une sonde double-J*</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Inhibiteurs de la 5α-Réductase <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Mécanisme :</strong> Inhibe 5αR → bloque conversion testostérone → DHT → <strong>diminue taille prostate de 25%</strong><br>
+        <strong>Délai d'action :</strong> <strong style="color:var(--orange)">6–9 mois</strong>
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Molécule</th>
+          <th>Nom commercial</th>
+          <th>Inhibition</th>
+        </tr>
+        <tr>
+          <td>Finastéride</td>
+          <td>Proscar</td>
+          <td>5αR type I</td>
+        </tr>
+        <tr>
+          <td>Dutastéride</td>
+          <td>Avodart</td>
+          <td>5αR type I <strong>et</strong> type II</td>
+        </tr>
+      </tbody></table>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <h4>Effets secondaires</h4>
+          <ul>
+            <li>Diminution du volume éjaculatoire</li>
+            <li>Diminution de la libido</li>
+            <li>Dysfonction érectile</li>
+            <li>Gynécomastie ~1% (dutastéride &gt; finastéride)</li>
+            <li>Trouble de l'humeur (dépression, idées suicidaires)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Impact sur l'APS</h4>
+          <ul>
+            <li>Augmente la sensibilité de l'APS</li>
+            <li>Si pas de réduction de <strong>50% de l'APS</strong> → suspecter cancer</li>
+            <li>Si augmentation sous inh 5αR → investigation</li>
+          </ul>
+          <h4>Autres utilisations</h4>
+          <ul>
+            <li>Surveillance active CaP faible risque</li>
+            <li><em>Hématuries prostatiques* (hors indication)</em></li>
+            <li>Alopécie</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🚨 Rétention Urinaire Aiguë — PEC <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-num">1.</span> Sonder le patient</div>
+        <div class="tl-item"><span class="tl-num">2.</span> Débuter <strong>alpha-bloqueur</strong> immédiatement</div>
+        <div class="tl-item"><span class="tl-num">3.</span> Attendre minimum 3 jours et/ou meilleure mobilisation</div>
+        <div class="tl-item"><span class="tl-num">4.</span> Tenter sevrage de la sonde</div>
+        <div class="tl-item"><span class="tl-num">5.</span> Si échec → cathétérisme intermittent</div>
+        <div class="tl-item"><span class="tl-num">6.</span> Long terme → inh 5αR</div>
+        <div class="tl-item"><span class="tl-num">7.</span> Retenter sevrage 3-6-9 mois plus tard</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔪 Chirurgie HBP <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Indications absolues</h4>
+          <ul>
+            <li>RUA avec IRA post-rénale</li>
+            <li>Rétention réfractaire</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Indications relatives</h4>
+          <ul>
+            <li>SBAU réfractaire, hématuries, infections à répétition</li>
+            <li>Calculs vésicaux, diverticules, préférence du patient</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Techniques</h4>
+      <p>Minimale (Rezum) · Résection (RTUP) · Énucléation (HolEP/ThulEP) · Vaporisation (Greenlight) · Chirurgie ouverte · Embolisation</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: VHA ===== -->
+<div class="page" id="page-vha">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">💊 Médicaments — Vessie Hyperactive (VHA)</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">⚙️ Physiopathologie VHA <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-warning">
+        <strong>VHA = Diagnostic d'exclusion</strong> — contraction soudaine et involontaire du détrusor durant la phase de remplissage
+      </div>
+      <ul>
+        <li>Prévalence : ~10% (autant hommes que femmes)</li>
+        <li>Sx : pollakiurie, nycturie, urgenturie, incontinence urinaire d'urgence</li>
+      </ul>
+      <h4>Causes</h4>
+      <ul>
+        <li>Contractions involontaires : HBP, inflammatoire/infectieux, neurologique (SEP, AVC, Parkinson)</li>
+        <li>Perte de compliance : neurologique, iatrogène</li>
+      </ul>
+      <h4>Prise en charge initiale — Modifications habitudes de vie</h4>
+      <ul>
+        <li>Restreindre les liquides (surtout au coucher)</li>
+        <li>Éviter les irritants vésicaux : café, thé, alcool, boissons gazeuses/énergisantes</li>
+        <li>Éviter/surveiller certains médicaments (ex. diurétiques)</li>
+        <li>Traiter la constipation</li>
+        <li>Programmer les mictions (calendrier mictionnel)</li>
+        <li>Rééducation périnéale et pelvienne (physiothérapie)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Antimuscariniques (récepteur M3) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <table>
+        <tbody><tr>
+          <th>Molécule</th>
+          <th>Nom commercial</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td>Oxybutynine IR/LP</td>
+          <td>Ditropan / Ditropan XL</td>
+          <td>Moins spécifique M3 → <strong style="color:var(--red)">plus d'effets secondaires</strong></td>
+        </tr>
+        <tr>
+          <td>Solifénacine</td>
+          <td>Vesicare</td>
+          <td><span class="badge badge-green">RAMQ 1re intention</span></td>
+        </tr>
+        <tr>
+          <td>Toltérodine IR/LP</td>
+          <td>Detrol</td>
+          <td><span class="badge badge-green">RAMQ 1re intention</span></td>
+        </tr>
+        <tr>
+          <td>Fésotérodine</td>
+          <td>Toviaz</td>
+          <td>RAMQ GU178 si antimuscarinique mal toléré, CI ou inefficace</td>
+        </tr>
+        <tr>
+          <td>Chlorure de trospium</td>
+          <td>Trosec</td>
+          <td><span class="badge badge-blue">Faible pénétration SNC</span> — moins de déficit cognitif</td>
+        </tr>
+        <tr>
+          <td>Darifénacine</td>
+          <td>Enablex</td>
+          <td><span class="badge badge-blue">Faible pénétration SNC</span></td>
+        </tr>
+      </tbody></table>
+      <div class="alert alert-warning" style="margin-top:12px">
+        <strong>Pénétration SNC (du moins au plus) :</strong><br>
+        Trospium &lt; Darifénacine &lt; Solifénacine &lt; 5-HMT (métabolite fésotérodine) &lt; Toltérodine &lt; <strong style="color:var(--red)">Oxybutynine</strong>
+      </div>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <h4>Effets secondaires</h4>
+          <ul>
+            <li>Vision trouble, sécheresse oculaire</li>
+            <li>Sécheresse buccale</li>
+            <li>Dyspepsie, constipation</li>
+            <li><strong>Déficit cognitif</strong>, troubles de mémoire, étourdissements, céphalées</li>
+            <li>Rétention urinaire</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contre-indications</h4>
+          <ul>
+            <li>Glaucome à angle fermé mal contrôlé</li>
+            <li>Rétention urinaire ou gastrique</li>
+            <li>QT long (toltérodine)</li>
+          </ul>
+          <div class="alert alert-danger" style="margin-top:8px">
+            <strong>⚠️ Personnes âgées :</strong> préférer trospium ou darifénacine (faible pénétration SNC)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Agoniste β3-Adrénergique — Mirabégron (Myrbetriq) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Mécanisme :</strong> Stimulation récepteurs β3 → relaxation détrusor pendant le remplissage<br>
+        <strong>Avantage majeur :</strong> Pas d'effets anticholinergiques
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Effets secondaires</h4>
+          <ul>
+            <li>Céphalée</li>
+            <li>Augmentation de la tension artérielle</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contre-indication</h4>
+          <ul>
+            <li>HTA mal contrôlée</li>
+          </ul>
+          <h4>Combinaison possible</h4>
+          <ul>
+            <li>Antimuscarinique + mirabégron pour maximiser la réponse</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">⚖️ Considérations thérapeutiques <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <ul>
+        <li>Délai de réponse : <strong>4 à 12 semaines</strong> pour l'efficacité maximale</li>
+        <li>Tenter minimum 4 semaines si effets secondaires tolérables</li>
+        <li>Tous les médicaments sont d'efficacité équivalente — changer si nécessaire</li>
+        <li>Commencer à faible dose, augmenter selon efficacité/tolérance</li>
+      </ul>
+      <div class="alert alert-danger" style="margin-top:10px">
+        <strong>Homme avec HBP + VHA :</strong> Résidu vésical post-mictionnel <strong>&lt; 200 cc</strong> requis avant d'ajouter un antimuscarinique
+      </div>
+      <p>Peut combiner alpha-bloqueur + antimuscarinique/β3-agoniste si SBAU de vidange ET de stockage.</p>
+      <h4>Toxine botulinique (Botox) — si réfractaire</h4>
+      <ul>
+        <li>VHA réfractaire à la médication avec incontinence</li>
+        <li>Vessie neurogène</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: INCONTINENCE ===== -->
+<div class="page" id="page-inco">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🚿 Incontinence Urinaire</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">📋 Types d'incontinence <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <table>
+        <tbody><tr>
+          <th>Type</th>
+          <th>Mécanisme</th>
+          <th>Traitement</th>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent)">Effort</strong></td>
+          <td>Toux, rire, mise en charge → déficit sphinctérien (innervation ou support)</td>
+          <td><strong>Physiothérapie périnéale (obligatoire)</strong>, pessaire, chirurgie (bandelette)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--orange)">Urgence</strong></td>
+          <td>VHA → contractions involontaires</td>
+          <td>Antimuscariniques, β3-agoniste, Botox</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent2)">Mixte</strong></td>
+          <td>Effort + urgence</td>
+          <td>Combinaison</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--red)">Trop plein</strong></td>
+          <td>Rétention chronique → incontinence</td>
+          <td>Traiter la rétention</td>
+        </tr>
+        <tr>
+          <td><strong>Extra-urétrale</strong></td>
+          <td>Fistule</td>
+          <td>Chirurgie</td>
+        </tr>
+        <tr>
+          <td><strong>Fonctionnelle</strong></td>
+          <td>Immobilité, démence</td>
+          <td>Optimisation fonctionnelle</td>
+        </tr>
+      </tbody></table>
+      <h4 style="margin-top:12px">Facteurs de risque — incontinence d'effort</h4>
+      <ul>
+        <li>HTA, chirurgie pelvienne, toux chronique, obésité, accouchement vaginal</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: NYCTURIE ===== -->
+<div class="page" id="page-nyc">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🌙 Nycturie</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">📖 Définition et DDx <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Définition :</strong> Toute miction après le coucher et avant le réveil — incommodant surtout à partir de <strong>3 mictions+</strong>
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Cause</th>
+          <th>Indices diagnostiques</th>
+        </tr>
+        <tr>
+          <td>VHA</td>
+          <td>Sx irritatifs de jour identiques</td>
+        </tr>
+        <tr>
+          <td>HBP</td>
+          <td>Sx obstructifs de jour identiques</td>
+        </tr>
+        <tr>
+          <td>Infection urinaire</td>
+          <td>Analyse et culture positive</td>
+        </tr>
+        <tr>
+          <td>Petite capacité vésicale</td>
+          <td>Miction &lt; 150 mL</td>
+        </tr>
+        <tr>
+          <td><strong>Polyurie nocturne</strong> (&gt; 25% du volume quotidien)</td>
+          <td>Insensibilité ADH, IRC, œdème périphérique, IC, mauvais contrôle DB</td>
+        </tr>
+        <tr>
+          <td>Trouble du sommeil</td>
+          <td>Fatigue, ronflements, apnée</td>
+        </tr>
+        <tr>
+          <td>Diurétiques</td>
+          <td>Questionnaire et calendrier mictionnel</td>
+        </tr>
+      </tbody></table>
+      <p style="margin-top:10px"><strong>Outil diagnostic :</strong> Calendrier mictionnel</p>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Desmopressine (analogue ADH) — Polyurie nocturne <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Indication :</strong> Polyurie nocturne (&gt; 25% du volume quotidien)<br>
+        <strong>Mécanisme :</strong> Diminue la diurèse nocturne → doit augmenter la diurèse diurne<br>
+        <strong>Prise :</strong> 2h avant le sommeil
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Formulation</th>
+          <th>Dose</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>DDAVP PO</td>
+          <td>0,1 / 0,2 / 0,4 mg</td>
+          <td>Effet de premier passage</td>
+        </tr>
+        <tr>
+          <td>DDAVP-melt (sublinguale)</td>
+          <td>Dose initiale 0,6 mcg</td>
+          <td><span class="badge badge-green">Moins de risque d'hyponatrémie</span> ; NPS C</td>
+        </tr>
+        <tr>
+          <td>DDAVP intranasale</td>
+          <td>0,83 / 1,66 mcg</td>
+          <td><span class="badge badge-green">Moins de risque d'hyponatrémie</span> ; NPS C</td>
+        </tr>
+      </tbody></table>
+      <div class="alert alert-danger" style="margin-top:12px">
+        <strong>⚠️ Risque principal : Hyponatrémie</strong><br>
+        • Limiter les apports liquidiens le soir<br>
+        • Attention : personnes âgées &gt; 65 ans et femmes<br>
+        • Attention : comorbidités (IC, diabète)
+      </div>
+      <h4>Monitoring</h4>
+      <ul>
+        <li>Sodium pré-traitement</li>
+        <li>Électrolytes 3-7 jours post-initiation/augmentation de dose</li>
+        <li>Contrôle à 1 mois, puis périodique</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: INFECTIONS ===== -->
+<div class="page" id="page-infec">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🦠 Infections Urinaires</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔁 Infections Urinaires Récidivantes <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="compare-strip">
+        <div class="compare-col" style="background:rgba(91,141,238,0.1)">
+          <div class="label" style="color:var(--accent)">1. Persistance bactérienne</div>
+          Même bactérie cultivée <strong>&lt; 2 semaines</strong> après traitement ajusté
+        </div>
+        <div class="compare-col" style="background:rgba(38,194,122,0.1)">
+          <div class="label" style="color:var(--green)">2. Réinfection</div>
+          Organisme différent OU même organisme <strong>&gt; 2 semaines</strong> post-traitement (ou culture intermédiaire stérile)
+        </div>
+      </div>
+      <h4 style="margin-top:12px">Facteurs prédisposants (femme)</h4>
+      <ul>
+        <li>Ménopause (syndrome génito-urinaire / atrophie vaginale)</li>
+        <li>ATCD familiaux</li>
+        <li>Activité sexuelle</li>
+      </ul>
+      <h4>Stratégies préventives</h4>
+      <ul>
+        <li>Hygiène adéquate</li>
+        <li>Miction post-coïtale</li>
+        <li>Hydratation</li>
+      </ul>
+      <h4>Si échec mesures de base</h4>
+      <ul>
+        <li>Traitement antibiotique auto-instauré</li>
+        <li>Antibiotiques post-coïtaux</li>
+        <li><strong>Prophylaxie antibiotique au coucher (HS) à faibles doses continues</strong> — pour 6 mois initialement</li>
+        <li>Œstrogènes topiques (post-ménopause)</li>
+      </ul>
+      <div class="alert alert-info" style="margin-top:10px">
+        <strong>Référence en urologie si :</strong> facteurs de risque d'IU compliquée, cause corrigible par chirurgie, doute diagnostique
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🌸 Syndrome génito-urinaire de la ménopause <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <table>
+        <tbody><tr>
+          <th>Produit</th>
+          <th>Concentration</th>
+          <th>Posologie</th>
+        </tr>
+        <tr>
+          <td>Vagifem (comprimé vaginal)</td>
+          <td>10 mcg estradiol</td>
+          <td>1 co intravaginal HS × 2 sem, ensuite 2×/semaine</td>
+        </tr>
+        <tr>
+          <td>Estring (anneau vaginal)</td>
+          <td>7,5 mcg 17β-estradiol/j</td>
+          <td>Changement q 3 mois</td>
+        </tr>
+        <tr>
+          <td>Premarin (crème)</td>
+          <td>0,625 mg œstrogènes conjugués équine/g</td>
+          <td>0,5 g–2 g crème intravaginale cyclique (21/7 jours ou 2×/semaine)</td>
+        </tr>
+        <tr>
+          <td>Estragyn 0,1% (crème)</td>
+          <td>1 mg estrone/g crème</td>
+          <td>2 g–4 g crème/j HS (21/7), ajuster à dose plus faible</td>
+        </tr>
+      </tbody></table>
+      <h4 style="margin-top:10px">Contre-indications</h4>
+      <ul>
+        <li>Saignement utérin non investigué</li>
+        <li>Cancers hormonaux-dépendants (controversé)</li>
+        <li>ATCD thrombose veineuse (à évaluer)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🧫 Traitements alternatifs IU <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <ul>
+        <li><strong>Lactobacilli :</strong> résultats variables selon souche</li>
+        <li><strong>Sels de méthenamine :</strong> traitement à court terme</li>
+        <li><strong>D-mannose :</strong> 1 RCT, peu d'évidence</li>
+        <li><strong>Canneberge :</strong> Cochrane → <em>pas de bénéfice démontré</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔥 Pyélonéphrite Aiguë (PNA) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <h4>Questions cliniques clés</h4>
+      <ol style="padding-left:18px">
+        <li>Est-ce une PNA compliquée?</li>
+        <li>Dois-je l'imager?</li>
+        <li>Dois-je hospitaliser?</li>
+        <li>Quel antibiotique? IV ou PO?</li>
+      </ol>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <h4>Indications d'imagerie (écho ou scan)</h4>
+          <ul>
+            <li>Obstruction potentielle</li>
+            <li>ATCD calculs urinaires</li>
+            <li>ATCD chirurgie urologique</li>
+            <li>Mauvaise réponse ATB après <strong>72h</strong></li>
+            <li>Diabète, MRP en HD ou IRT, vessie neurogène</li>
+            <li>Germe inhabituel (TB, fungi, Proteus)</li>
+            <li>Risque de nécrose papillaire</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Indications d'hospitalisation</h4>
+          <ul>
+            <li>Signes de sepsis (tachycardie, hypotension)</li>
+            <li>Déshydratation, nausées/vomissements</li>
+            <li>Atteinte fonctionnelle</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🚨 Pyélonéphrite Obstructive <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-danger">
+        <strong>🚨 OBSTRUCTION + INFECTION FÉBRILE = URGENCE UROLOGIQUE</strong><br>
+        • Les antibiotiques seuls ne pénètrent pas en amont d'une obstruction<br>
+        • Risque : choc septique et décès<br>
+        • <strong>Traitement = ATB + DRAINAGE URGENT</strong> (sonde urinaire, double-J ou néphrostomie)
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔵 Orchi-Épididymite <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Présentation</h4>
+          <ul>
+            <li>Douleur scrotale progressive</li>
+            <li>Fièvre, Sx urinaires</li>
+            <li>Épididyme/testicule élargi</li>
+            <li>Chaleur/érythème</li>
+            <li>Hydrocèle réactionnelle</li>
+            <li>Signe de Prehn</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Traitement</h4>
+          <ul>
+            <li>ATB BGN si infection urinaire compliquée × 14j</li>
+            <li>ITSS si chlamydia/gonorrhée</li>
+            <li>Suivi 1-2 sem. pour s'assurer pas d'abcès</li>
+          </ul>
+          <h4>Complications</h4>
+          <ul>
+            <li>Abcès (drainage requis)</li>
+            <li>Atrophie testiculaire</li>
+            <li>Fistule cutanée</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🫀 Prostatite Aiguë <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Présentation</h4>
+          <ul>
+            <li>Douleur périnéale</li>
+            <li>SBAU irritatifs et obstructifs</li>
+            <li>Fièvre</li>
+            <li>Douleur exquise au TR</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Traitement</h4>
+          <ul>
+            <li>ATB BGN × 14j</li>
+            <li>Couvrir ITSS si indiqué</li>
+          </ul>
+          <h4>Complications</h4>
+          <ul>
+            <li>Rétention urinaire</li>
+            <li>Abcès (drainage requis)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: CANCER PROSTATE ===== -->
+<div class="page" id="page-cap">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🔬 Cancer de la Prostate</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">📊 Épidémiologie et Dépistage <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="keypoints">
+        <div class="keypoint"><div class="num">#1</div>Incidence au Canada (1 homme sur 8)</div>
+        <div class="keypoint"><div class="num">#3</div>Cause de mortalité masculine (1/6 en mourra)</div>
+      </div>
+      <h4>Facteurs de risque</h4>
+      <ul>
+        <li>Âge, ATCD familiaux, ethnie noire, obésité</li>
+      </ul>
+      <h4>Dépistage (AUC 2017) — TR NÉCESSAIRE</h4>
+      <ul>
+        <li><strong>Espérance de vie &gt; 10 ans</strong> requise</li>
+        <li>Avantages et inconvénients discutés avec le patient (Recommandation C)</li>
+        <li>Débuter à <strong>50 ans</strong> ; <strong>40-45 ans</strong> chez les hommes à risque accru</li>
+        <li>Arrêt du dépistage selon espérance de vie restante</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🧪 Interprétation de l'APS <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <table>
+        <tbody><tr>
+          <th>Valeur APS</th>
+          <th>Interprétation</th>
+        </tr>
+        <tr>
+          <td>40 ans : &lt; 1,0 ; 50 ans : &lt; 2,5 ; 60 ans : &lt; 4,0</td>
+          <td><span class="badge badge-green">Valeur normale selon l'âge</span></td>
+        </tr>
+        <tr>
+          <td>4 – 10</td>
+          <td><span class="badge badge-orange">Zone grise</span></td>
+        </tr>
+        <tr>
+          <td>10 – 20</td>
+          <td><span class="badge badge-red">Zone grise foncée</span></td>
+        </tr>
+        <tr>
+          <td>&gt; 20</td>
+          <td><span class="badge badge-red">Risque élevé cancer + risque de métastases</span></td>
+        </tr>
+      </tbody></table>
+      <h4 style="margin-top:12px">Indices complémentaires</h4>
+      <ul>
+        <li><strong>Vélocité</strong> (4-10) : &lt; 0,35/an normal → &gt; 0,75/an suspect</li>
+        <li><strong>Densité</strong> (APS/volume) : &lt; 0,10 = HBP probable ; &gt; 0,15 = suspect</li>
+      </ul>
+      <p><strong>DDx de l'APS élevé :</strong> HBP (volume), infection (peut monter 20-30 en aigu), manipulation, cancer</p>
+      <div class="alert alert-warning" style="margin-top:10px">
+        <strong>Sous inh 5αR :</strong> si pas de réduction de 50% de l'APS → suspecter cancer. Si augmentation → investigation.
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🩺 Biopsie et Stade clinique <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <h4>Biopsie prostatique</h4>
+          <ul>
+            <li>Approche trans-rectale ou périnéale</li>
+            <li>Ciblée selon IRM (identification cognitive ou fusion d'image)</li>
+            <li>12 biopsies zone périphérique ± ciblées</li>
+            <li>Risques : infection (1-2%), hémorragie (1/500)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Stade clinique (TR)</h4>
+          <table>
+            <tbody><tr><th>Stade</th><th>Toucher rectal</th></tr>
+            <tr><td>cT1</td><td>TR normal</td></tr>
+            <tr><td>cT2</td><td>Bosse sur la prostate</td></tr>
+            <tr><td>cT3</td><td>Bosse dépassant la prostate</td></tr>
+            <tr><td>cT4</td><td>Bosse envahissant rectum/base du péritoine</td></tr>
+          </tbody></table>
+          <p style="margin-top:8px"><strong>Grade :</strong> Score de Gleason (Grade Group)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🎯 Traitements — Cancer localisé <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <h4>Surveillance active — faible risque</h4>
+      <ul>
+        <li>APS q6 mois + TR</li>
+        <li>Biopsie de routine &lt; 1 an, puis q2-3 ans</li>
+        <li>IRM prostate</li>
+        <li>Re-stratification si progression APS ou pathologique</li>
+      </ul>
+      <h4 style="margin-top:12px">Traitements curatifs — risque intermédiaire/élevé</h4>
+      <div class="alert alert-info">Aucune approche supérieure sur le plan oncologique — <strong>décision partagée avec le patient</strong></div>
+      <table style="margin-top:8px">
+        <tbody><tr>
+          <th>Traitement</th>
+          <th>Avantages</th>
+          <th>Inconvénients</th>
+        </tr>
+        <tr>
+          <td><strong>Prostatectomie radicale</strong></td>
+          <td>Pathologie complète, lymphadénectomie PRN</td>
+          <td>Chirurgie, DE &gt; 50%, incontinence 10-15%, sévère 1-2%</td>
+        </tr>
+        <tr>
+          <td><strong>Radiothérapie externe</strong></td>
+          <td>Évite chirurgie, traitement cancer localement avancé</td>
+          <td>10-60 séances, souvent + castration chimique 1-3 ans, cystite/rectite radique</td>
+        </tr>
+        <tr>
+          <td><strong>Curiethérapie</strong></td>
+          <td>Évite chirurgie</td>
+          <td>Limitée au cancer intermédiaire faible (GG2), cystite/rectite radique</td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💉 Thérapie par Privation Androgénique (TPA) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Principe :</strong> CaP est hormonodépendant (testostérone) — TPA = pierre angulaire du traitement avancé/métastatique<br>
+        <strong>Non curatif — retarde l'évolution</strong>
+      </div>
+      <h4>Indications</h4>
+      <ul>
+        <li><strong>Temporaire :</strong> Association à la radiothérapie (1-3 ans)</li>
+        <li><strong>Intermittente :</strong> Récidive biochimique post-traitement local</li>
+        <li><strong>Permanente :</strong> Métastatique (hormono-sensible ou résistant à la castration)</li>
+      </ul>
+      <table style="margin-top:12px">
+        <tbody><tr>
+          <th>Traitement</th>
+          <th>Mécanisme</th>
+          <th>Détails</th>
+        </tr>
+        <tr>
+          <td>Castration chirurgicale (orchidectomie)</td>
+          <td>Ablation cellules de Leydig</td>
+          <td>Définitif, rapide</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green)">Antagoniste LHRH</strong> — Degarelix</td>
+          <td>Bloque récepteur GnRH → ↓ LH → ↓ testostérone</td>
+          <td>SC dépôt 4 sem ; effet rapide en quelques heures ; <strong style="color:var(--green)">PAS de flare</strong></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--red)">Agoniste LHRH</strong> — Leuprolide, Gosereline, Triptoreline</td>
+          <td>Désensibilisation récepteurs GnRH</td>
+          <td>IM ou SC dépôt 1/3/4/6 mois ; <strong style="color:var(--red)">flare à la 1re injection</strong> → couvrir avec antiandrogène</td>
+        </tr>
+        <tr>
+          <td>Antiandrogènes 1re gén. — Bicalutamide</td>
+          <td>Bloque récepteur androgénique</td>
+          <td>PO, jamais en monothérapie ; gynécomastie, risque thrombo-embolique</td>
+        </tr>
+        <tr>
+          <td>Antiandrogènes 2e gén. — Enzalutamide, Darolutamide, Apalutamide</td>
+          <td>Blocage plus puissant du RA</td>
+          <td>PO, utilisé en résistance à la castration ou mCRPC</td>
+        </tr>
+      </tbody></table>
+      <div class="alert alert-danger" style="margin-top:12px">
+        <strong>⚠️ Effets secondaires systémiques TPA :</strong><br>
+        Bouffées de chaleur · Perte de libido / DE · Syndrome métabolique (poids, ↑ gras, ↓ masse musculaire, résistance insuline, dyslipidémie) ·
+        <strong>Événements CV majeurs (1re cause de mortalité autre que le CaP)</strong> · Événements thrombo-emboliques · Ostéopénie/ostéoporose · Démence
+      </div>
+      <h4>Monitoring TPA</h4>
+      <ul>
+        <li>q6-12 mois : TA, poids, tour de taille, lipides, HbA1C</li>
+        <li>Santé osseuse (ODM)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">⚡ Cancer Résistant à la Castration (CPRC) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Définition :</strong> Progression de l'APS ET testostérone « castrée » (&lt; 1,7 nmol/L)
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>Non métastatique</h4>
+          <ul>
+            <li>Manipulation hormonale secondaire</li>
+            <li>Antiandrogène 2e génération si temps de doublement &lt; 10 mois (enzalutamide, darolutamide, apalutamide)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Métastatique</h4>
+          <ul>
+            <li>Chimio (taxanes) : <strong>Docetaxel</strong></li>
+            <li>Antiandrogène 2e gén.</li>
+            <li>Inhibiteur 17α-hydroxylase : <strong>Abiratérone + prednisone</strong></li>
+            <li>Radium 223 (maladie osseuse prédominante)</li>
+            <li>Inhibiteurs PARP (si mutation BRCA)</li>
+          </ul>
+        </div>
+      </div>
+      <h4 style="margin-top:12px">Santé osseuse sous TPA</h4>
+      <ul>
+        <li>Vit D 800-2000 UI/j + Calcium 1200 mg total/j</li>
+        <li>ODM au départ, puis q1-3 ans selon risque</li>
+        <li>Si risque élevé : Alendronate, Risedronate, Denosumab 60 mg SC q6 mois, Acide zolédronique 5 mg IV q1 an</li>
+        <li>CPRC métastatique : Denosumab 120 mg SC q4 sem OU Acide zolédronique 4 mg IV q4 sem (GFR &gt; 30)</li>
+      </ul>
+      <div class="alert alert-warning">⚠️ Surveillance hypocalcémie et risque d'ostéonécrose de la mâchoire</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: DYSFONCTION ERECTILE ===== -->
+<div class="page" id="page-de">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🩺 Dysfonction Érectile (DE)</h3>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">📖 Définition et Épidémiologie <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        Incapacité persistante ou répétée d'obtenir et/ou maintenir une érection suffisante pour permettre une activité sexuelle satisfaisante.<br>
+        <strong>40%</strong> des hommes dans la quarantaine · Prévalence augmente de <strong>~10% par décennie</strong>
+      </div>
+      <p><strong>Mécanismes :</strong> Vasculaire, nerveux, endocrinien, psychogène (souvent combinés)</p>
+      <div class="alert alert-warning" style="margin-top:10px">
+        La DE peut être un signe avant-coureur de problèmes vasculaires.<br>
+        <strong>Un diagnostic de DE seul ne justifie pas une évaluation CV approfondie</strong> — score de Framingham reste meilleur indicateur.
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔍 Évaluation <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <ul>
+        <li>Anamnèse : comorbidités, médicaments, tabac/alcool/drogues, chirurgies/radiothérapie pelviennes, ATCD sexuels</li>
+        <li>Questionnaires : <strong>SHIM / IIEF</strong></li>
+        <li>Bilan : HbA1C, lipides, <strong>testostérone</strong> (si signes d'hypogonadisme ou échec inh PDE5)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">💊 Inhibiteurs de la PDE5 (inh PDE5) <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="alert alert-info">
+        <strong>Mécanisme :</strong> Inhibent la PDE5 → accumulation de GMPc → relaxation muscles lisses corps caverneux → afflux sanguin
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Molécule</th>
+          <th>Nom commercial</th>
+          <th>Durée d'action</th>
+        </tr>
+        <tr>
+          <td>Sildénafil</td>
+          <td>Viagra</td>
+          <td>~4-6h (selon repas et alcool)</td>
+        </tr>
+        <tr>
+          <td>Tadalafil</td>
+          <td>Cialis</td>
+          <td>~36h (option die)</td>
+        </tr>
+        <tr>
+          <td>Vardénafil</td>
+          <td>Levitra</td>
+          <td>~4-6h</td>
+        </tr>
+      </tbody></table>
+      <div class="alert alert-danger" style="margin-top:12px">
+        <strong>⚠️ CI absolue avec les dérivés nitrés</strong> (hypotension sévère)<br>
+        Précaution si HTA mal contrôlée, maladie CV instable
+      </div>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">🔧 Autres traitements DE <span class="toggle">▼</span></div>
+    <div class="section-body">
+      <div class="drug-grid">
+        <div class="drug-card">
+          <h4>Pompe d'érection à vide</h4>
+          <p>Dispositif mécanique non invasif</p>
+        </div>
+        <div class="drug-card">
+          <h4>Alprostadil intra-urétral</h4>
+          <p>Prostaglandine E1 intra-urétrale</p>
+        </div>
+        <div class="drug-card">
+          <h4>Injections intra-caverneuses</h4>
+          <p>Alprostadil seul (Caverject)<br>ou Trimix : alprostadil + papavérine + phentolamine</p>
+        </div>
+        <div class="drug-card">
+          <h4>Remplacement de testostérone</h4>
+          <p>Si hypogonadisme + Sx associés (parfois combiné avec inh PDE5)</p>
+        </div>
+        <div class="drug-card">
+          <h4>Prothèse pénienne</h4>
+          <p>Chirurgicale — option de dernier recours</p>
+        </div>
+      </div>
+      <h4>Modifications des habitudes de vie (en premier)</h4>
+      <ul>
+        <li>Exercice physique</li>
+        <li>Abandon du tabac</li>
+        <li>Réduction alcool et cannabis</li>
+        <li>Modifications alimentaires</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE: FLASHCARDS ===== -->
+<div class="page" id="page-flash">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">🃏 Flashcards</h3>
+
+  <div class="fc-category" id="fc-categories">
+    <button class="active" onclick="selectCategory(&#39;all&#39;, this)">Tout</button>
+    <button onclick="selectCategory(&#39;physio&#39;, this)">Physiologie</button>
+    <button onclick="selectCategory(&#39;hbp&#39;, this)">HBP</button>
+    <button onclick="selectCategory(&#39;vha&#39;, this)">VHA</button>
+    <button onclick="selectCategory(&#39;cap&#39;, this)">Cancer prostate</button>
+    <button onclick="selectCategory(&#39;infec&#39;, this)">Infections</button>
+    <button onclick="selectCategory(&#39;de&#39;, this)">DE</button>
+  </div>
+
+  <div class="fc-stats">
+    <div class="fc-stat"><div class="val" id="fc-total">35</div><div class="lbl">Total</div></div>
+    <div class="fc-stat"><div class="val" style="color:var(--green)" id="fc-known">0</div><div class="lbl">Sus</div></div>
+    <div class="fc-stat"><div class="val" style="color:var(--red)" id="fc-again">0</div><div class="lbl">À revoir</div></div>
+    <div class="fc-stat"><div class="val" style="color:var(--text2)" id="fc-remain">35</div><div class="lbl">Restantes</div></div>
+  </div>
+
+  <div class="fc-nav">
+    <button onclick="prevCard()">← Précédente</button>
+    <button onclick="shuffleCards()" class="primary">🔀 Mélanger</button>
+    <button onclick="resetCards()">↺ Recommencer</button>
+    <span class="fc-progress" id="fc-progress">1 / 35</span>
+  </div>
+
+  <div class="fc-hint">Cliquez sur la carte pour révéler la réponse</div>
+
+  <div class="flashcard-container">
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="fc-face fc-front">
+        <p id="fc-question">Quelle est la capacité vésicale normale?</p>
+      </div>
+      <div class="fc-face fc-back" style="position:absolute;top:0;left:0">
+        <p id="fc-answer">300–700 cc<br>Production urinaire normale : ~1,5 L/j</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fc-result" id="fc-result" style="display:none">
+    <button class="btn-knew" onclick="markCard(true)">✓ Je savais</button>
+    <button class="btn-again" onclick="markCard(false)">✗ À revoir</button>
+  </div>
+  <div style="text-align:center;margin-top:12px;display:none" id="fc-next-btn">
+    <button onclick="nextCard()" style="background:var(--accent);border:none;color:#fff;padding:10px 28px;border-radius:6px;font-size:14px;cursor:pointer">Carte suivante →</button>
+  </div>
+</div>
+
+<!-- ===== PAGE: QUIZ ===== -->
+<div class="page" id="page-quiz">
+  <h3 style="margin-top:4px;color:var(--accent);font-size:16px">📝 Quiz — Urologie IPSSA 2026</h3>
+  <div id="quiz-container"><div class="quiz-q">
+      <div class="question"><strong>Q1.</strong> Quel est le délai d'action des alpha-bloqueurs pour les symptômes obstructifs de l'HBP?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="0" data-oi="0" onclick="answerQuiz(0, 0)">24 heures</button><button class="quiz-opt" data-qi="0" data-oi="1" onclick="answerQuiz(0, 1)">3 jours</button><button class="quiz-opt" data-qi="0" data-oi="2" onclick="answerQuiz(0, 2)">1 semaine</button><button class="quiz-opt" data-qi="0" data-oi="3" onclick="answerQuiz(0, 3)">6-9 mois</button>
+      </div>
+      <div class="quiz-explanation" id="expl-0">Les alpha-bloqueurs agissent en 3 jours sur les symptômes obstructifs. Les inh 5αR prennent 6-9 mois.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q2.</strong> Quel médicament inhibe la 5αR de type I ET type II?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="1" data-oi="0" onclick="answerQuiz(1, 0)">Finastéride (Proscar)</button><button class="quiz-opt" data-qi="1" data-oi="1" onclick="answerQuiz(1, 1)">Dutastéride (Avodart)</button><button class="quiz-opt" data-qi="1" data-oi="2" onclick="answerQuiz(1, 2)">Tamsulosine (Flomax)</button><button class="quiz-opt" data-qi="1" data-oi="3" onclick="answerQuiz(1, 3)">Silodosine (Rapaflo)</button>
+      </div>
+      <div class="quiz-explanation" id="expl-1">Dutastéride (Avodart) inhibe 5αR type I ET type II. Finastéride (Proscar) n'inhibe que le type I.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q3.</strong> La Desmopressine est indiquée pour quelle cause de nycturie?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="2" data-oi="0" onclick="answerQuiz(2, 0)">VHA</button><button class="quiz-opt" data-qi="2" data-oi="1" onclick="answerQuiz(2, 1)">HBP</button><button class="quiz-opt" data-qi="2" data-oi="2" onclick="answerQuiz(2, 2)">Polyurie nocturne (&gt; 25% du volume quotidien)</button><button class="quiz-opt" data-qi="2" data-oi="3" onclick="answerQuiz(2, 3)">Infection urinaire</button>
+      </div>
+      <div class="quiz-explanation" id="expl-2">Desmopressine (DDAVP) = analogue ADH → indiquée pour la polyurie nocturne (&gt; 25% du volume quotidien). Risque principal : hyponatrémie.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q4.</strong> Parmi ces alpha-bloqueurs, lequel a la plus grande sélectivité α1a ET le moins d'hypotension orthostatique?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="3" data-oi="0" onclick="answerQuiz(3, 0)">Alfuzosine (Xatral)</button><button class="quiz-opt" data-qi="3" data-oi="1" onclick="answerQuiz(3, 1)">Tamsulosine (Flomax)</button><button class="quiz-opt" data-qi="3" data-oi="2" onclick="answerQuiz(3, 2)">Silodosine (Rapaflo)</button><button class="quiz-opt" data-qi="3" data-oi="3" onclick="answerQuiz(3, 3)">Oxybutynine</button>
+      </div>
+      <div class="quiz-explanation" id="expl-3">Silodosine a la plus grande sélectivité α1a (+++) et le moins d'hypotension orthostatique (+). Mais elle a le plus d'anéjaculation (+++).</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q5.</strong> HBP + VHA chez un homme. Quel résidu post-mictionnel est requis avant d'ajouter un antimuscarinique?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="4" data-oi="0" onclick="answerQuiz(4, 0)">&lt; 50 cc</button><button class="quiz-opt" data-qi="4" data-oi="1" onclick="answerQuiz(4, 1)">&lt; 100 cc</button><button class="quiz-opt" data-qi="4" data-oi="2" onclick="answerQuiz(4, 2)">&lt; 200 cc</button><button class="quiz-opt" data-qi="4" data-oi="3" onclick="answerQuiz(4, 3)">&lt; 300 cc</button>
+      </div>
+      <div class="quiz-explanation" id="expl-4">Résidu vésical post-mictionnel &lt; 200 cc requis avant d'ajouter un antimuscarinique chez l'homme avec HBP + VHA. Sinon, risque de RUA.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q6.</strong> Quel antimuscarinique a la plus FORTE pénétration SNC (le plus de risque de déficit cognitif)?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="5" data-oi="0" onclick="answerQuiz(5, 0)">Trospium (Trosec)</button><button class="quiz-opt" data-qi="5" data-oi="1" onclick="answerQuiz(5, 1)">Darifénacine (Enablex)</button><button class="quiz-opt" data-qi="5" data-oi="2" onclick="answerQuiz(5, 2)">Toltérodine (Detrol)</button><button class="quiz-opt" data-qi="5" data-oi="3" onclick="answerQuiz(5, 3)">Oxybutynine (Ditropan)</button>
+      </div>
+      <div class="quiz-explanation" id="expl-5">Ordre de pénétration SNC (du moins au plus) : Trospium &lt; Darifénacine &lt; Solifénacine &lt; 5-HMT &lt; Toltérodine &lt; Oxybutynine.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q7.</strong> Quel est l'APS normal pour un homme de 50 ans?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="6" data-oi="0" onclick="answerQuiz(6, 0)">&lt; 1,0</button><button class="quiz-opt" data-qi="6" data-oi="1" onclick="answerQuiz(6, 1)">&lt; 2,5</button><button class="quiz-opt" data-qi="6" data-oi="2" onclick="answerQuiz(6, 2)">&lt; 4,0</button><button class="quiz-opt" data-qi="6" data-oi="3" onclick="answerQuiz(6, 3)">&lt; 10</button>
+      </div>
+      <div class="quiz-explanation" id="expl-6">40 ans : &lt; 1,0 | 50 ans : &lt; 2,5 | 60 ans : &lt; 4,0. La zone grise commence à 4-10.</div>
+    </div><div class="quiz-q">
+      <div class="question"><strong>Q8.</strong> Un homme de 65 ans a un CPRC et une compression médullaire. Quelle TPA choisissez-vous en urgence?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" data-qi="7" data-oi="0" onclick="answerQuiz(7, 0)">Leuprolide (agoniste LHRH)</button><button class="quiz-opt" data-qi="7" data-oi="1" onclick="answerQuiz(7, 1)">Gosereline (agoniste LHRH)</button><button class="quiz-opt" data-qi="7" data-oi="2" onclick="answerQuiz(7, 2)">Degarelix (antagoniste LHRH)</button><button class="quiz-opt" data-qi="7" data-oi="3" onclick="answerQuiz(7, 3)">Bicalutamide</button>
+      </div>
+      <div class="quiz-explanation" id="expl-7">Degarelix (antagoniste LHRH) = pas de flare → à privilégier en urgence (ex. compression médullaire). Les agonistes LHRH causent un flare à la 1re injection.</div>
+    </div></div>
+  <div style="text-align:center;margin-top:16px">
+    <button onclick="resetQuiz()" style="background:var(--accent);border:none;color:#fff;padding:10px 24px;border-radius:6px;font-size:13px;cursor:pointer">🔄 Nouveau quiz</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleSection(header) {
+  const section = header.parentElement;
+  section.classList.toggle('open');
+}
+
+// Clock
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toLocaleTimeString('fr-CA', {hour:'2-digit', minute:'2-digit'});
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ============================================================
+// FLASHCARDS DATA
+// ============================================================
+const allCards = [
+  // PHYSIOLOGIE
+  { cat: 'physio', q: 'Quelle est la capacité vésicale normale?', a: '300–700 cc\nProduction urinaire normale : ~1,5 L/j' },
+  { cat: 'physio', q: 'Quel système nerveux contrôle la phase de REMPLISSAGE vésical?', a: 'Sympathique :\n• β-relaxation du détrusor\n• α-contraction du sphincter interne\nLe cerveau inhibe le parasympathique.' },
+  { cat: 'physio', q: 'Quel système nerveux contrôle la phase de VIDANGE vésical?', a: 'Parasympathique (ACh) :\n→ Contraction du détrusor\n→ Relâchement des sphincters interne et externe' },
+  { cat: 'physio', q: 'Quelle est la fréquence mictionnelle normale?', a: '< 8 fois par jour, sans nycturie, avec capacité à se retenir' },
+  // HBP
+  { cat: 'hbp', q: 'Quelle est la cause principale de l\'HBP?', a: 'DHT (dihydrotestostérone)\n→ Conversion de la testostérone par la 5α-réductase\nHéréditaire, pas de facteurs environnementaux' },
+  { cat: 'hbp', q: 'Quelle est la prévalence de l\'HBP selon l\'âge?', a: '15% à 50 ans → 90% à 80 ans' },
+  { cat: 'hbp', q: 'Quel est le délai d\'action des alpha-bloqueurs pour les Sx obstructifs?', a: '3 jours' },
+  { cat: 'hbp', q: 'Quel est le délai d\'action des inhibiteurs de la 5α-réductase?', a: '6–9 mois\n(Diminue la taille de la prostate de 25%)' },
+  { cat: 'hbp', q: 'Classez les alpha-bloqueurs par sélectivité α1a croissante.', a: 'Alfuzosine (Xatral) < Tamsulosine (Flomax) < Silodosine (Rapaflo)\n\nPour l\'HTO (orthostatic) c\'est l\'inverse :\nSilodosine < Tamsulosine < Alfuzosine' },
+  { cat: 'hbp', q: 'Quelle est la différence entre Finastéride et Dutastéride?', a: 'Finastéride (Proscar) : inhibe 5αR type I seulement\nDutastéride (Avodart) : inhibe 5αR type I ET type II\nGynécomastie : dutastéride > finastéride' },
+  { cat: 'hbp', q: 'Décrire les étapes de PEC d\'une rétention urinaire aiguë (RUA).', a: '1. Sonder le patient\n2. Alpha-bloqueur immédiatement\n3. Attendre ≥ 3 jours / meilleure mobilisation\n4. Tenter sevrage de la sonde\n5. Si échec → cathétérisme intermittent\n6. Long terme → inh 5αR\n7. Retenter sevrage 3-6-9 mois plus tard' },
+  { cat: 'hbp', q: 'Impact des inh 5αR sur l\'APS. Quand suspecter un cancer?', a: '• L\'APS devrait diminuer de 50% avec les inh 5αR\n• Si PAS de réduction de 50% → suspecter cancer\n• Si AUGMENTATION de l\'APS sous inh 5αR → investigation' },
+  // VHA
+  { cat: 'vha', q: 'Qu\'est-ce que la VHA et comment la définit-on?', a: 'Diagnostic d\'exclusion\nContraction soudaine et involontaire du détrusor durant la phase de remplissage\nPrévalence : ~10% (H et F également)' },
+  { cat: 'vha', q: 'Quels antimuscariniques ont la plus faible pénétration SNC?', a: 'Trospium (Trosec) et Darifénacine (Enablex)\n→ Moins de déficit cognitif\n→ À préférer chez les personnes âgées' },
+  { cat: 'vha', q: 'Classez les antimuscariniques par pénétration SNC (moins → plus).', a: 'Trospium < Darifénacine < Solifénacine < 5-HMT (métabolite fésotérodine) < Toltérodine < Oxybutynine' },
+  { cat: 'vha', q: 'Mécanisme du Mirabégron (Myrbetriq)?', a: 'Agoniste β3-adrénergique\n→ Stimulation récepteurs β3 → relaxation du détrusor pendant le remplissage\nAvantage : pas d\'effets anticholinergiques\nCI : HTA mal contrôlée' },
+  { cat: 'vha', q: 'Quel résidu vésical est requis avant d\'ajouter un antimuscarinique chez l\'homme avec HBP+VHA?', a: 'Résidu vésical post-mictionnel < 200 cc\nSinon : risque de RUA!' },
+  { cat: 'vha', q: 'Quel est le délai de réponse des médicaments pour la VHA?', a: '4 à 12 semaines pour l\'efficacité maximale\nTenter minimum 4 semaines si EI tolérables' },
+  // CANCER PROSTATE
+  { cat: 'cap', q: 'Épidémiologie du cancer de la prostate au Canada.', a: '1 homme sur 8 recevra un diagnostic (#1 incidence au Canada)\n1 homme sur 6 avec CaP en mourra (#3 mortalité)' },
+  { cat: 'cap', q: 'À quel âge débuter le dépistage du cancer de la prostate selon l\'AUC 2017?', a: '50 ans en général\n40-45 ans chez les hommes à risque accru (ATCD familiaux, ethnie noire)\nEspérance de vie > 10 ans requise\nTR NÉCESSAIRE' },
+  { cat: 'cap', q: 'Interprétation de l\'APS selon l\'âge.', a: '40 ans : < 1,0 = normal\n50 ans : < 2,5 = normal\n60 ans : < 4,0 = normal\n4-10 = zone grise\n10-20 = zone grise foncée\n> 20 = risque élevé + risque de métastases' },
+  { cat: 'cap', q: 'Différence entre Antagoniste LHRH et Agoniste LHRH.', a: 'Antagoniste LHRH (Degarelix) :\n→ Effet rapide (quelques heures)\n→ PAS de flare\n\nAgoniste LHRH (Leuprolide, Gosereline, Triptoreline) :\n→ IM/SC dépôt 1/3/4/6 mois\n→ FLARE à la 1re injection → couvrir avec antiandrogène!' },
+  { cat: 'cap', q: 'Quelle est la 1re cause de mortalité chez les patients sous TPA (autre que le CaP)?', a: 'Événements cardiovasculaires majeurs\n(Syndrome métabolique, dyslipidémie, résistance à l\'insuline, gain de poids)' },
+  { cat: 'cap', q: 'Définition du CPRC (Cancer de Prostate Résistant à la Castration).', a: 'Progression de l\'APS ET testostérone castrée (< 1,7 nmol/L)' },
+  { cat: 'cap', q: 'Traitement du CPRC métastatique (4 options principales).', a: '1. Docetaxel (taxanes)\n2. Antiandrogène 2e gén. (enzalutamide, darolutamide, apalutamide)\n3. Abiratérone + prednisone (inhibiteur 17α-hydroxylase)\n4. Radium 223 (maladie osseuse prédominante)\n5. Inhibiteurs PARP (si mutation BRCA)' },
+  // INFECTIONS
+  { cat: 'infec', q: 'Quelle est l\'URGENCE absolue en urologie concernant les infections?', a: 'OBSTRUCTION + INFECTION FÉBRILE = URGENCE UROLOGIQUE\n→ ATB seuls ne pénètrent pas en amont d\'une obstruction\n→ Risque : choc septique et décès\n→ Traitement = ATB + DRAINAGE URGENT (sonde, double-J ou néphrostomie)' },
+  { cat: 'infec', q: 'Différence entre persistance bactérienne et réinfection (IU récidivante).', a: 'Persistance bactérienne : même bactérie < 2 semaines après traitement ajusté\n\nRéinfection : organisme différent OU même organisme > 2 semaines post-traitement (ou culture intermédiaire stérile)' },
+  { cat: 'infec', q: 'Indications d\'imagerie dans la pyélonéphrite aiguë.', a: '• Obstruction potentielle\n• ATCD calculs urinaires\n• ATCD chirurgie urologique\n• Mauvaise réponse ATB après 72h\n• Diabète, MRP en HD ou IRT, vessie neurogène\n• Germe inhabituel (TB, fungi, Proteus)\n• Risque de nécrose papillaire' },
+  { cat: 'infec', q: 'Quel est le risque principal de la Desmopressine (DDAVP)?', a: 'Hyponatrémie\n→ Monitoring : Na+ pré-traitement\n→ Électrolytes 3-7 jours post-initiation\n→ Risque ↑ chez personnes âgées > 65 ans, femmes, comorbidités (IC, DB)\n→ Prendre 2h avant le sommeil' },
+  // DE
+  { cat: 'de', q: 'Quelle est la contre-indication absolue des inhibiteurs de la PDE5?', a: 'Dérivés nitrés (hypotension sévère)\nPrécaution : HTA mal contrôlée, maladie CV instable' },
+  { cat: 'de', q: 'Comparaison des inh PDE5 : Sildénafil vs Tadalafil.', a: 'Sildénafil (Viagra) : ~4-6h, affecté par le repas et l\'alcool\nTadalafil (Cialis) : ~36h, option die disponible\nVardénafil (Levitra) : ~4-6h' },
+  { cat: 'de', q: 'Bilan minimal à faire pour une DE.', a: 'HbA1C, lipides, testostérone (si signes d\'hypogonadisme ou échec inh PDE5)\nQuestionnaire SHIM / IIEF\nModifications habitudes de vie EN PREMIER' },
+  // MESSAGES CLÉS
+  { cat: 'hbp', q: 'Messages clés Dr Letendre #1-3', a: '1. SBAU = toujours analyse d\'urine en premier\n2. HBP et VHA = diagnostics d\'exclusion (éliminer les signaux d\'alarme)\n3. Alpha-bloqueur = effet en 3 jours ; inh 5αR = 6-9 mois' },
+  { cat: 'vha', q: 'Messages clés Dr Letendre #5-6 (personnes âgées)', a: '5. Ne jamais utiliser antimuscariniques si résidu > 200 cc chez l\'homme\n6. Chez les personnes âgées : préférer trospium/darifénacine (faible pénétration SNC)' },
+  { cat: 'cap', q: 'Messages clés Dr Letendre #8-10 (TPA)', a: '8. TPA : syndrome métabolique et risque CV = 1re cause de mortalité autre que le CaP\n9. Flare LHRH agoniste à la 1re injection → couvrir avec antiandrogène\n10. Antagoniste LHRH (degarelix) = pas de flare → privilégier en urgence (ex. compression médullaire)' },
+];
+
+// ============================================================
+// FLASHCARDS LOGIC
+// ============================================================
+let currentCards = [...allCards];
+let cardIndex = 0;
+let isFlipped = false;
+let knownCount = 0;
+let againCount = 0;
+
+function selectCategory(cat, btn) {
+  document.querySelectorAll('.fc-category button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCards = cat === 'all' ? [...allCards] : allCards.filter(c => c.cat === cat);
+  resetCards();
+}
+
+function resetCards() {
+  cardIndex = 0;
+  knownCount = 0;
+  againCount = 0;
+  isFlipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('fc-result').style.display = 'none';
+  document.getElementById('fc-next-btn').style.display = 'none';
+  updateCard();
+}
+
+function shuffleCards() {
+  for (let i = currentCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [currentCards[i], currentCards[j]] = [currentCards[j], currentCards[i]];
+  }
+  resetCards();
+}
+
+function updateCard() {
+  const card = currentCards[cardIndex];
+  document.getElementById('fc-question').innerHTML = card ? card.q : '✅ Toutes les cartes complétées!';
+  document.getElementById('fc-answer').innerHTML = card ? card.a.replace(/\n/g, '<br>') : '';
+  document.getElementById('fc-progress').textContent = `${cardIndex + 1} / ${currentCards.length}`;
+  document.getElementById('fc-total').textContent = currentCards.length;
+  document.getElementById('fc-known').textContent = knownCount;
+  document.getElementById('fc-again').textContent = againCount;
+  document.getElementById('fc-remain').textContent = currentCards.length - cardIndex;
+}
+
+function flipCard() {
+  if (!isFlipped) {
+    document.getElementById('flashcard').classList.add('flipped');
+    document.getElementById('fc-result').style.display = 'flex';
+    isFlipped = true;
+  }
+}
+
+function markCard(knew) {
+  if (knew) knownCount++; else againCount++;
+  document.getElementById('fc-result').style.display = 'none';
+  document.getElementById('fc-next-btn').style.display = 'block';
+  document.getElementById('fc-known').textContent = knownCount;
+  document.getElementById('fc-again').textContent = againCount;
+}
+
+function nextCard() {
+  cardIndex++;
+  isFlipped = false;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('fc-next-btn').style.display = 'none';
+  if (cardIndex >= currentCards.length) {
+    document.getElementById('fc-question').innerHTML = `✅ Session terminée!<br><span style="font-size:13px;color:var(--text2)">Sus : ${knownCount} | À revoir : ${againCount}</span>`;
+    document.getElementById('fc-answer').textContent = '';
+    document.getElementById('fc-remain').textContent = '0';
+  } else {
+    updateCard();
+  }
+}
+
+function prevCard() {
+  if (cardIndex > 0) {
+    cardIndex--;
+    isFlipped = false;
+    document.getElementById('flashcard').classList.remove('flipped');
+    document.getElementById('fc-result').style.display = 'none';
+    document.getElementById('fc-next-btn').style.display = 'none';
+    updateCard();
+  }
+}
+
+updateCard();
+
+// ============================================================
+// QUIZ DATA & LOGIC
+// ============================================================
+const quizData = [
+  {
+    q: "Quel est le délai d'action des alpha-bloqueurs pour les symptômes obstructifs de l'HBP?",
+    opts: ["24 heures", "3 jours", "1 semaine", "6-9 mois"],
+    correct: 1,
+    expl: "Les alpha-bloqueurs agissent en 3 jours sur les symptômes obstructifs. Les inh 5αR prennent 6-9 mois."
+  },
+  {
+    q: "Parmi ces alpha-bloqueurs, lequel a la plus grande sélectivité α1a ET le moins d'hypotension orthostatique?",
+    opts: ["Alfuzosine (Xatral)", "Tamsulosine (Flomax)", "Silodosine (Rapaflo)", "Oxybutynine"],
+    correct: 2,
+    expl: "Silodosine a la plus grande sélectivité α1a (+++) et le moins d'hypotension orthostatique (+). Mais elle a le plus d'anéjaculation (+++)."
+  },
+  {
+    q: "HBP + VHA chez un homme. Quel résidu post-mictionnel est requis avant d'ajouter un antimuscarinique?",
+    opts: ["< 50 cc", "< 100 cc", "< 200 cc", "< 300 cc"],
+    correct: 2,
+    expl: "Résidu vésical post-mictionnel < 200 cc requis avant d'ajouter un antimuscarinique chez l'homme avec HBP + VHA. Sinon, risque de RUA."
+  },
+  {
+    q: "Quel antimuscarinique a la plus FORTE pénétration SNC (le plus de risque de déficit cognitif)?",
+    opts: ["Trospium (Trosec)", "Darifénacine (Enablex)", "Toltérodine (Detrol)", "Oxybutynine (Ditropan)"],
+    correct: 3,
+    expl: "Ordre de pénétration SNC (du moins au plus) : Trospium < Darifénacine < Solifénacine < 5-HMT < Toltérodine < Oxybutynine."
+  },
+  {
+    q: "Un homme de 65 ans a un CPRC et une compression médullaire. Quelle TPA choisissez-vous en urgence?",
+    opts: ["Leuprolide (agoniste LHRH)", "Gosereline (agoniste LHRH)", "Degarelix (antagoniste LHRH)", "Bicalutamide"],
+    correct: 2,
+    expl: "Degarelix (antagoniste LHRH) = pas de flare → à privilégier en urgence (ex. compression médullaire). Les agonistes LHRH causent un flare à la 1re injection."
+  },
+  {
+    q: "Lors d'une pyélonéphrite obstructive, quel est le traitement adéquat?",
+    opts: ["ATB seuls IV pendant 7 jours", "ATB + drainage urgent (sonde, double-J ou néphrostomie)", "Chirurgie élective", "AINS + hydratation"],
+    correct: 1,
+    expl: "URGENCE UROLOGIQUE : ATB seuls ne pénètrent pas en amont d'une obstruction → risque choc septique. Traitement = ATB + DRAINAGE URGENT."
+  },
+  {
+    q: "Quel est l'APS normal pour un homme de 50 ans?",
+    opts: ["< 1,0", "< 2,5", "< 4,0", "< 10"],
+    correct: 1,
+    expl: "40 ans : < 1,0 | 50 ans : < 2,5 | 60 ans : < 4,0. La zone grise commence à 4-10."
+  },
+  {
+    q: "Quelle est la 1re cause de mortalité chez les patients sous TPA (autre que le cancer de prostate)?",
+    opts: ["Ostéoporose et fractures", "Événements cardiovasculaires majeurs", "Démence", "Thrombose veineuse"],
+    correct: 1,
+    expl: "Les événements cardiovasculaires majeurs sont la 1re cause de mortalité chez les patients sous TPA. Le syndrome métabolique (poids, dyslipidémie, résistance à l'insuline) contribue."
+  },
+  {
+    q: "La Desmopressine est indiquée pour quelle cause de nycturie?",
+    opts: ["VHA", "HBP", "Polyurie nocturne (> 25% du volume quotidien)", "Infection urinaire"],
+    correct: 2,
+    expl: "Desmopressine (DDAVP) = analogue ADH → indiquée pour la polyurie nocturne (> 25% du volume quotidien). Risque principal : hyponatrémie."
+  },
+  {
+    q: "Quelle est la contre-indication absolue aux inhibiteurs de la PDE5 (ex. Sildénafil)?",
+    opts: ["Diabète mal contrôlé", "Dérivés nitrés", "Insuffisance rénale légère", "Âge > 70 ans"],
+    correct: 1,
+    expl: "CI absolue : dérivés nitrés → hypotension sévère. Les inh PDE5 inhibent la PDE5 → accumulation de GMPc → vasodilatation additive avec les nitrates."
+  },
+  {
+    q: "Quel médicament inhibe la 5αR de type I ET type II?",
+    opts: ["Finastéride (Proscar)", "Dutastéride (Avodart)", "Tamsulosine (Flomax)", "Silodosine (Rapaflo)"],
+    correct: 1,
+    expl: "Dutastéride (Avodart) inhibe 5αR type I ET type II. Finastéride (Proscar) n'inhibe que le type I."
+  },
+  {
+    q: "Quelle est la définition du CPRC (Cancer de Prostate Résistant à la Castration)?",
+    opts: ["APS > 20 ng/mL", "Progression de l'APS + testostérone < 1,7 nmol/L", "Métastases osseuses", "Échec à la prostatectomie"],
+    correct: 1,
+    expl: "CPRC = Progression de l'APS ET testostérone castrée (< 1,7 nmol/L). Les deux critères sont nécessaires."
+  }
+];
+
+let currentQuiz = [];
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function generateQuiz() {
+  const shuffled = [...quizData].sort(() => Math.random() - 0.5).slice(0, 8);
+  currentQuiz = shuffled;
+  quizAnswered = 0;
+  quizCorrect = 0;
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  currentQuiz.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `
+      <div class="question"><strong>Q${qi+1}.</strong> ${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((opt, oi) => `<button class="quiz-opt" data-qi="${qi}" data-oi="${oi}" onclick="answerQuiz(${qi}, ${oi})">${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-explanation" id="expl-${qi}">${q.expl}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function answerQuiz(qi, oi) {
+  const q = currentQuiz[qi];
+  const opts = document.querySelectorAll(`[data-qi="${qi}"]`);
+  opts.forEach(opt => { opt.classList.add('disabled'); opt.onclick = null; });
+  opts[oi].classList.add(oi === q.correct ? 'correct' : 'wrong');
+  if (oi !== q.correct) opts[q.correct].classList.add('correct');
+  document.getElementById(`expl-${qi}`).style.display = 'block';
+  quizAnswered++;
+  if (oi === q.correct) quizCorrect++;
+  if (quizAnswered === currentQuiz.length) {
+    const pct = Math.round(quizCorrect / currentQuiz.length * 100);
+    const msg = pct >= 80 ? '🎉 Excellent! Tu maîtrises bien le contenu.' : pct >= 60 ? '👍 Bien! Revois les flashcards pour consolider.' : '📚 Continue à étudier — les flashcards peuvent aider!';
+    const result = document.createElement('div');
+    result.innerHTML = `<div class="quiz-score">${quizCorrect} / ${currentQuiz.length} (${pct}%)</div><div class="quiz-score-msg">${msg}</div>`;
+    document.getElementById('quiz-container').insertBefore(result, document.getElementById('quiz-container').firstChild);
+  }
+}
+
+function resetQuiz() {
+  generateQuiz();
+}
+
+generateQuiz();
+</script>
+
+
+</body></html>
