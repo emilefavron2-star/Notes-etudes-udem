@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Clinique IPS - Référence Rapide Interactive</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent-red: #dc2626;
+            --accent-bg-red: #fef2f2;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --success-color: #16a34a;
+            --warning-color: #d97706;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background-color: white;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .search-box {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #fafafa;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .specialty-filter {
+            padding: 10px 15px;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f1f5f9;
+        }
+
+        .filter-badge {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            background-color: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-badge.active, .filter-badge:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .menu-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .menu-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 12px 20px 6px 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-left: 4px solid transparent;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .menu-item.active {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Content Area */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+            height: 100%;
+            background-color: #f8fafc;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography & Layout Clinique */
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.15rem;
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Éléments Cliniques Distinctifs */
+        .red-flags {
+            background-color: var(--accent-bg-red);
+            border-left: 5px solid var(--accent-red);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .red-flags h4 {
+            color: var(--accent-red);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .red-flags ul {
+            margin-bottom: 0;
+            list-style-type: square;
+        }
+
+        .red-flags li {
+            color: #7f1d1d;
+            font-weight: 500;
+        }
+
+        .clinical-tip {
+            background-color: #fef3c7;
+            border-left: 5px solid var(--warning-color);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            color: #78350f;
+        }
+
+        /* Tableaux de protocoles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Outils Interactifs (Calculateurs) */
+        .calculator-card {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .calculator-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .calc-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        .calc-option input {
+            cursor: pointer;
+        }
+
+        .calc-result {
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Welcome view */
+        .welcome-view {
+            text-align: center;
+            max-width: 600px;
+            margin: 100px auto;
+        }
+
+        .welcome-view h2 {
+            border: none;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .badge-vital {
+            background: #dc2626;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Guide Clinique IPS</h1>
+            <p>Référence Rapide Synoptique & Interactive</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="globalSearch" placeholder="Rechercher une pathologie, un Rx, un critère..." oninput="filterMenu()">
+        </div>
+
+        <div class="specialty-filter">
+            <span class="filter-badge active" onclick="filterSpecialty('all')">Tous</span>
+            <span class="filter-badge" onclick="filterSpecialty('CARDIO')">Cardiologie</span>
+            <span class="filter-badge" onclick="filterSpecialty('NEPHRO')">Néphrologie</span>
+            <span class="filter-badge" onclick="filterSpecialty('ENDOCRINO')">Endocrinologie</span>
+            <span class="filter-badge" onclick="filterSpecialty('PNEUMO')">Pneumologie</span>
+        </div>
+
+        <div class="menu-items" id="menuContainer">
+            <div class="menu-category" data-spec="CARDIO">Cardiologie</div>
+            <a class="menu-item" data-id="hta-primaire" data-spec="CARDIO" onclick="switchSection('hta-primaire')">1. HTA Primaire</a>
+            <a class="menu-item" data-id="hta-secondaire" data-spec="CARDIO" onclick="switchSection('hta-secondaire')">2. HTA Secondaire</a>
+            <a class="menu-item" data-id="dyslipidemie" data-spec="CARDIO" onclick="switchSection('dyslipidemie')">3. Dyslipidémie (DLP)</a>
+            <a class="menu-item" data-id="mcas-angine" data-spec="CARDIO" onclick="switchSection('mcas-angine')">4. MCAS & Angine Stable</a>
+            <a class="menu-item" data-id="sca" data-spec="CARDIO" onclick="switchSection('sca')">5. Syndromes Coronariens Aigus</a>
+            <a class="menu-item" data-id="fa-flutter" data-spec="CARDIO" onclick="switchSection('fa-flutter')">6. FA & Flutter Auriculaire</a>
+            <a class="menu-item" data-id="insuffisance-cardiaque" data-spec="CARDIO" onclick="switchSection('insuffisance-cardiaque')">7. Insuffisance Cardiaque</a>
+            <a class="menu-item" data-id="stenose-aortique" data-spec="CARDIO" onclick="switchSection('stenose-aortique')">8. Sténose Aortique</a>
+
+            <div class="menu-category" data-spec="NEPHRO">Néphrologie</div>
+            <a class="menu-item" data-id="nephropathies" data-spec="NEPHRO" onclick="switchSection('nephropathies')">14. Syndrome Néphrotique</a>
+
+            <div class="menu-category" data-spec="ENDOCRINO">Endocrinologie</div>
+            <a class="menu-item" data-id="diabete" data-spec="ENDOCRINO" onclick="switchSection('diabete')">23. Diabète & Hypoglycémiants</a>
+
+            <div class="menu-category" data-spec="PNEUMO">Pneumologie</div>
+            <a class="menu-item" data-id="apnee-sommeil" data-spec="PNEUMO" onclick="switchSection('apnee-sommeil')">27. Apnée du Sommeil</a>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div id="welcomeView" class="welcome-view">
+            <h2>Tableau de Bord IPS</h2>
+            <p style="margin-top: 15px; color: var(--text-muted);">Sélectionnez un protocole clinique dans le menu de gauche ou utilisez la recherche instantanée pour afficher les critères diagnostiques, examens paracliniques et arbres de traitement.</p>
+        </div>
+
+        <div id="hta-primaire" class="content-section">
+            <h2>1. HTA PRIMAIRE</h2>
+            <p><strong>Définition :</strong> TA &ge; 130/80 mmHg sans cause identifiable (90-95% des cas). Risque majeur de MCAS, insuffisance cardiaque, AVC, MAP, IRC, FA.</p>
+            
+            <h3>🔍 Manifestations cliniques</h3>
+            <ul>
+                <li>Souvent cliniquement asymptomatique ("tueur silencieux").</li>
+                <li><strong>Urgence hypertensive :</strong> TA &ge; 180/110 mmHg avec atteinte d'un organe cible (encéphalopathie, SCA, dissection aortique, AVC, éclampsie) &rarr; Traitement IV immédiat aux soins critiques.</li>
+                <li><strong>HTA sévère isolée (Urgency) :</strong> TA &ge; 180/110 mmHg <i>sans</i> atteinte d'organe cible &rarr; Contrôle en 24-48h par voie orale.</li>
+            </ul>
+
+            <h3>🧪 Paraclinique & Diagnostic</h3>
+            <p>Diagnostic officiel par MAPA (éveillé &ge; 135/85 ou sur 24h &ge; 130/80 mmHg) ou MPAD (&ge; 130/80 mmHg moyenné sur 5-7 jours).</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bilan de base recommandé</th>
+                        <th>Cibles de recherche d'atteinte d'organe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Électrolytes (Na+, K+), créatinine, DFGe, glycémie à jeun, HbA1c, bilan lipidique, RAC urinaire, ECG de repos.</td>
+                        <td>Hypertrophie ventriculaire gauche (HVG à l'ECG), protéinurie/néphropathie, rétinopathie hypertensive.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>💊 Traitement & Approche Thérapeutique</h3>
+            <ul>
+                <li><strong>Mesures non-pharmaceutiques :</strong> Restriction sodée &le; 2000 mg/jour, diète DASH, exercice physique 30-60 min (4-7x/semaine), modération de l'alcool (&le; 2 cons./jour).</li>
+                <li><strong>1re ligne pharmacologique :</strong> Bithérapie d'emblée recommandée. Choisir 2 agents parmi : IECA ou ARA + Diurétique thiazidique ou BCC dihydropyridine à action prolongée.</li>
+                <li><strong>HTA résistante (&ge; 3 Rx optimisés) :</strong> Ajouter Spironolactone (4e agent) et éliminer activement une cause secondaire.</li>
+            </ul>
+
+            <div class="red-flags">
+                <h4>🚨 Alertes Cliniques Importantes (Red Flags)</h4>
+                <ul>
+                    <li>Papillœdème à l'examen de l'œil (HTA maligne) &rarr; Hospitalisation urgente.</li>
+                    <li>Élévation de la créatinine > 30% suite à l'introduction d'un IECA/ARA &rarr; Éliminer d'urgence une sténose bilatérale de l'artère rénale.</li>
+                    <li>HTA persistante associée à une hypokaliémie spontanée &rarr; Suspecter un hyperaldostéronisme primaire.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="hta-secondaire" class
