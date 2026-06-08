@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratique Clinique de l'HTA - Dr Vallée 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #0d9488;
+            --danger: #e11d48;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 300px;
+            background-color: var(--primary);
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .nav-header {
+            padding: 24px;
+            background-color: #111827;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-header p {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .menu-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 0;
+        }
+
+        .menu-item {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #d1d5db;
+            padding: 12px 24px;
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: white;
+        }
+
+        .menu-item.active {
+            background-color: var(--primary-light);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Main Content Container */
+        main {
+            margin-left: 300px;
+            flex: 1;
+            padding: 40px;
+            max-width: 1200px;
+        }
+
+        .section-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .section-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* Cards & Blocks */
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Interactive Tables */
+        .table-controls {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .search-input {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 100%;
+            max-width: 300px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-light);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Badges & Accents */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge-danger { background-color: #ffe4e6; color: var(--danger); }
+        .badge-success { background-color: #d1fae5; color: var(--success); }
+        .badge-warning { background-color: #fef3c7; color: var(--warning); }
+        .badge-info { background-color: #e0f2fe; color: var(--primary-light); }
+
+        /* Accordion / Toggle Menus */
+        .toggle-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: var(--bg-card);
+            overflow: hidden;
+        }
+
+        .toggle-trigger {
+            width: 100%;
+            padding: 16px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle-trigger:hover {
+            background-color: #f8fafc;
+        }
+
+        .toggle-content {
+            padding: 0 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            border-top: 0 solid var(--border);
+            background-color: #fafafa;
+        }
+
+        .toggle-item.open .toggle-content {
+            padding: 16px;
+            max-height: 1000px;
+            border-top-width: 1px;
+        }
+
+        .toggle-trigger i {
+            transition: transform 0.3s;
+        }
+
+        .toggle-item.open .toggle-trigger i {
+            transform: rotate(180deg);
+        }
+
+        /* Custom Clinical Animations & Live Widgets */
+        .animation-container {
+            background: #111827;
+            border-radius: 12px;
+            padding: 24px;
+            color: white;
+            margin-top: 16px;
+        }
+
+        .interactive-slider {
+            width: 100%;
+            margin: 16px 0;
+            accent-color: var(--danger);
+        }
+
+        .heart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .heart-graphic {
+            font-size: 4rem;
+            color: var(--danger);
+            animation: beat 1s infinite alternate;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.15); }
+        }
+
+        .vessel-graphic {
+            width: 200px;
+            height: 30px;
+            background: #4b5563;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vessel-flow {
+            height: 100%;
+            background: #ef4444;
+            width: 100%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .stat-highlight {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        /* Lists styling */
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        
+        .alert-box {
+            background-color: #fff1f2;
+            border-left: 4px solid var(--danger);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            color: #9f1239;
+        }
+
+        /* Responsive Layout */
+        @media(max-width: 992px) {
+            body { flex-direction: column; }
+            nav { width: 100%; position: relative; height: auto; }
+            main { margin-left: 0; padding: 20px; }
+            .menu-container { display: flex; flex-wrap: wrap; padding: 8px; }
+            .menu-item { width: auto; padding: 8px 16px; border-radius: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-header">
+            <h1>Hypertension Artérielle</h1>
+            <p>Guide Pratique & Suivi — Dr Vallée 2026</p>
+        </div>
+        <div class="menu-container">
+            <button class="menu-item active" onclick="switchSection('epidemiologie')">
+                <span><i class="fa-solid fa-chart-line"></i> &nbsp; Épidémiologie & Bénéfices</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('diagnostic')">
+                <span><i class="fa-solid fa-stethoscope"></i> &nbsp; Diagnostic & Mesures</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('classification')">
+                <span><i class="fa-solid fa-layer-group"></i> &nbsp; HTA Primaire vs Secondaire</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('traitement-non-pharm')">
+                <span><i class="fa-solid fa-apple-whole"></i> &nbsp; Approches Non-Pharm</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('traitement-pharm')">
+                <span><i class="fa-solid fa-capsules"></i> &nbsp; Algorithme Pharmaco</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('refractaire')">
+                <span><i class="fa-solid fa-triangle-exclamation"></i> &nbsp; HTA Réfractaire</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('classes-details')">
+                <span><i class="fa-solid fa-info-circle"></i> &nbsp; Détails des Classes de Rx</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('hyperkaliemie')">
+                <span><i class="fa-solid fa-heart-pulse"></i> &nbsp; Gestion Hyperkaliémie</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('eviter-urgences')">
+                <span><i class="fa-solid fa-ban"></i> &nbsp; Molécules à Éviter & PRN</span>
+            </button>
+            <button class="menu-item" onclick="switchSection('cibles')">
+                <span><i class="fa-solid fa-bullseye"></i> &nbsp; Populations & Cibles 2026</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+
+        <section id="epidemiologie" class="section-panel active">
+            <h2>Définition & Épidémiologie</h2>
+            <p class="subtitle">Aperçu global et impact clinique de la prise en charge de l'HTA.</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-earth-americas" style="color: var(--primary-light);"></i> Prévalence & Impact</h3>
+                    <ul>
+                        <li><strong>Problème de santé publique N°1 mondial (OMS) :</strong> Responsable d'environ 10 millions de décès par an[cite: 9].</li>
+                        <li><strong>Prévalence au Canada (2026) :</strong> Touche environ ~30% de la population adulte[cite: 8].</li>
+                        <li><strong>Diagnostic fréquent :</strong> Représente le Diagnostic N°1 en cliniques externes[cite: 11].</li>
+                        <li><strong>Cohorte de Framingham :</strong> Les adultes normotendus âgés de 55 à 65 ans ont un risque de <strong>90%</strong> de développer une HTA au cours des 20 années suivantes[cite: 10].</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fa-solid fa-shield-heart" style="color: var(--success);"></i> Bénéfices du Traitement</h3>
+                    <p>La réduction tensionnelle démontre des impacts majeurs selon les strates d'âge :</p>
+                    <div style="margin-top: 12px;">
+                        <span class="badge badge-info">&lt; 60 ans</span>
+                        <ul style="margin-top: 8px;">
+                            <li>Réduction du risque d'AVC : <strong>42%</strong> [cite: 14]</li>
+                            <li>Réduction des événements coronariens : <strong>15%</strong> [cite: 15]</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <span class="badge badge-success">&gt; 60 ans</span>
+                        <ul style="margin-top: 8px;">
+                            <li>Réduction de la mortalité globale : <strong>25%</strong> [cite: 17]</li>
+                            <li>Réduction de la mortalité CV : <strong>33%</strong> [cite: 18]</li>
+                            <li>Réduction des AVC : <strong>40%</strong> [cite: 19]</li>
+                            <li>Réduction de la coronaropathie : <strong>15%</strong> [cite: 22]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnostic" class="section-panel">
+            <h2>Méthodes de Diagnostic Validées</h2>
+            <p class="subtitle">Prioriser la précision de la mesure pour éliminer les biais cliniques.</p>
+            
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check"></i> Hiérarchie des méthodes de mesure</h3>
+                <ol>
+                    <li><strong>Auto-mesure à domicile ou en pharmacie :</strong> <span class="badge badge-success">Méthode préférée</span> pour le diagnostic ET le suivi, permettant de contourner efficacement l'effet de blouse blanche[cite: 26, 29].</li>
+                    <li><strong>MAPA (Monitoring Ambulatoire de la Pression Artérielle) :</strong> Évaluation continue en ambulatoire[cite: 27, 28].</li>
+                    <li><strong>Mesures au cabinet :</strong> Idéalement en effectuant la moyenne de mesures multiples[cite: 25].</li>
+                </ol>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Concepts Cliniques Importants</h3>
+                    <div class="toggle-item">
+                        <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                            <span>HTA Blouse Blanche (15-20%)</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="toggle-content">
+                            PA élevée au bureau mais normale en ambulatoire / à domicile[cite: 31].
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                            <span>HTA Masquée (15-20%)</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="toggle-content">
+                            PA normale au bureau mais élevée en ambulatoire / à domicile[cite: 32].
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                            <span>Pseudohypertension & Phénomène d'Osler</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="toggle-content">
+                            <p>TAs faussement élevée par calcification vasculaire rendant les vaisseaux non compressibles. La pression requise pour comprimer l'artère brachiale surpasse la TAs réelle[cite: 33, 34].</p>
+                            <p style="margin-top: 8px;"><strong>Note clé :</strong> La TAd n'est pas affectée et reste fiable[cite: 35]. Fréquent en dialyse, IRC avancée, et athérosclérose oblitérante (ASO)[cite: 33, 36, 39].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Le Plancher Diastolique Physiologique</h3>
+                    <p>La perfusion coronarienne s'effectue principalement pendant la <strong>diastole</strong>[cite: 40]. L'autorégulation coronarienne protège cette perfusion mais s'avère compromise si la TAd descend sous un certain plancher[cite: 41, 43].</p>
+                    
+                    <div class="animation-container">
+                        <label for="tad-slider">Ajuster la TA Diastolique (TAd) : <span id="tad-val" style="font-weight:bold; color:var(--danger)">70</span> mmHg</label>
+                        <input type="range" id="tad-slider" class="interactive-slider" min="45" max="85" value="70" oninput="updateDiastolicAnim(this.value)">
+                        
+                        <div class="heart-container">
+                            <i class="fa-solid fa-heart heart-graphic" id="heart-icon"></i>
+                            <div>
+                                <p id="perfusion-status">Perfusion coronarienne : <span class="badge badge-success">Optimale</span></p>
+                                <div class="vessel-graphic" style="margin-top: 8px;">
+                                    <div id="vessel-flow" class="vessel-flow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top:12px; font-size:0.85rem; color:var(--text-muted);">
+                        * Recommandation Hypertension Canada : Maintenir un <strong>plancher minimal de 60 mmHg</strong> de TAd (Ne pas surtraiter)[cite: 47, 50]. Danger accru chez les personnes âgées, coronariennes ou avec HVG[cite: 44].
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="classification" class="section-panel">
+            <h2>HTA Primaire vs Secondaire</h2>
+            <p class="subtitle">Étiologies et indicateurs cliniques justifiant une investigation exhaustive.</p>
+
+            <div class="card">
+                <h3>HTA Primaire (Essentielle) — 85-90% des cas [cite: 49]</h3>
+                <p>Pathophysiologie multifactorielle liée au profil de la rénine ($1/3$ basse, $1/3$ normale, $1/3$ élevée) impliquant[cite: 51]:</p>
+                <p style="margin-top: 8px;">1. Rétention sodée rénale | 2. SRAA | 3. Système nerveux sympathique | 4. Endothéline, NO, kinines, hyperuricémie[cite: 52, 53, 54, 55].</p>
+            </div>
+
+            <div class="card">
+                <h3>HTA Secondaire — 10-15% des cas [cite: 57]</h3>
+                <p style="margin-bottom: 12px;">À rechercher systématiquement en présence d'une HTA réfractaire ou d'indices ciblés[cite: 58].</p>
+                
+                <div class="table-controls">
+                    <input type="text" id="search-secondary" class="search-input" placeholder="Filtrer par signe ou cause..." onkeyup="filterTable('table-secondary', 'search-secondary')">
+                </div>
+                
+                <div class="table-wrapper">
+                    <table id="table-secondary">
+                        <thead>
+                            <tr>
+                                <th>Signe clinique évocateur</th>
+                                <th>Étiologie sous-jacente suspectée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HTA réfractaire (&gt; 3 molécules à dose max)</td>
+                                <td><span class="badge badge-warning">Top 1 & 2</span> Hyperaldostéronisme primaire, Apnée du sommeil[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>HTA d'apparition subite</td>
+                                <td>HTA endocriniennes[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>Âge &lt; 18 ans ou &lt; 30 ans sans antécédents familiaux</td>
+                                <td>Dysplasie fibromusculaire (DFM), Toutes causes secondaires[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>Augmentation de la créatinine &gt; 30% suite à l'introduction d'un IECA/ARA</td>
+                                <td>Atteinte rénovasculaire[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>Asymétrie rénale à l'imagerie</td>
+                                <td>Atteinte rénovasculaire[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>Triade caractéristique : céphalée + palpitations + sudation paroxystique</td>
+                                <td>Phéochromocytome <span class="badge badge-danger">Top 3</span>[cite: 59, 67].</td>
+                            </tr>
+                            <tr>
+                                <td>HTA associée à une hypokaliémie spontanée</td>
+                                <td>Hyperaldostéronisme primaire[cite: 59].</td>
+                            </tr>
+                            <tr>
+                                <td>Somnolence diurne, ronflement, obésité abdominale</td>
+                                <td>SAS / SHVO (Syndrome d'Apnée du Sommeil)[cite: 59].</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">
+                    <strong>Dépistage Hyperaldostéronisme :</strong> Repose sur le ratio aldostérone/rénine (Normal si ratio &lt; 140)[cite: 61].
+                </p>
+            </div>
+        </section>
+
+        <section id="traitement-non-pharm" class="section-panel">
+            <h2>Traitements Non Pharmacologiques</h2>
+            <p class="subtitle">Mesures hygiéno-diététiques et impact quantifiable sur la pression artérielle.</p>
+
+            <div class="card">
+                <h3>Impact des modifications du mode de vie</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Intervention Intervention</th>
+                                <th>Objectif Clinique</th>
+                                <th>Réduction Moyenne (TAS / TAD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Apport sodique</strong></td>
+                                <td>-100 mmol / jour</td>
+                                <td><span class="badge badge-info">-5,8 / -2,5 mmHg</span> [cite: 88]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Perte de poids</strong></td>
+                                <td>-4,5 kg</td>
+                                <td><span class="badge badge-info">-7,2 / -5,9 mmHg</span> [cite: 88]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Modération de l'alcool</strong></td>
+                                <td>-2,7 consommations / jour</td>
+                                <td><span class="badge badge-info">-4,6 / -2,3 mmHg</span> [cite: 88]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exercice physique</strong></td>
+                                <td>3x / semaine minimum</td>
+                                <td><span class="badge badge-info">-7,4 / -5,8 mmHg</span> [cite: 90]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diète DASH</strong></td>
+                                <td>Alimentation structurée</td>
+                                <td><span class="badge badge-success" style="font-size:0.9rem;">-11,4 / -5,5 mmHg</span> [cite: 90]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="traitement-pharm" class="section-panel">
+            <h2>Traitements Pharmacologiques</h2>
+            <p class="subtitle">Principes directeurs de l'initiation thérapeutique.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-gears"></i> Règle d'or de l'association</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 12px;"><strong>Privilégier la multiplication des molécules à dose basse plutôt que la monothérapie à dose maximale.</strong> [cite: 93]</p>
+                    <div style="background-color: #f0fdf4; padding: 16px; border-left: 4px solid var(--success); border-radius: 4px;">
+                        <i class="fa-solid fa-square-poll-vertical"></i> <strong>Donnée clinique clé :</strong> Ajouter un traitement d'une autre classe thérapeutique s'avère <strong>5 fois plus efficace</strong> que de doubler la dose du médicament initial (Wald DS et al.)[cite: 94].
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-arrow-down-1-9"></i> Séquence d'introduction</h3>
+                    <p><strong>1er choix :</strong> Initier par un <strong>IECA</strong> ou un <strong>ARA</strong>[cite: 96].</p>
+                    <p style="margin-top: 8px;"><strong>Le Triplet Initial Standard :</strong> [cite: 97]</p>
+                    <div id="triad-visual" style="display:flex; gap:8px; margin: 12px 0;">
+                        <span class="badge badge-info" style="padding:10px;">1. IECA ou ARA</span>
+                        <span class="badge badge-info" style="padding:10px;">2. Diurétique Thiazide-like</span>
+                        <span class="badge badge-info" style="padding:10px;">3. BCC</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">* Escalader chaque agent à sa dose maximale validée avant d'introduire la molécule suivante[cite: 98].</p>
+                    <p style="margin-top:8px; color:var(--danger); font-weight:600;"><i class="fa-solid fa-circle-xmark"></i> À ÉVITER : l'HCTZ, la clonidine et les alpha-bloqueurs[cite: 99].</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="refractaire" class="section-panel">
+            <h2>Gestion de l'HTA Réfractaire</h2>
+            <p class="subtitle">Stratégie systématisée pour faire face aux échecs thérapeutiques standards.</p>
+
+            <div class="card">
+                <h3>Définition Clinique</h3>
+                <p>Persistance d'une PA hors cible malgré l'utilisation concomitante de <strong>3 antihypertenseurs à dose maximale</strong> (incluant obligatoirement un diurétique)[cite: 70]. Représente &lt; 5% des patients hypertendus[cite: 70].</p>
+            </div>
+
+            <div class="card">
+                <h3>Algorithme Thérapeutique Étape par Étape</h3>
+                <div style="position: relative; padding-left: 20px; border-left: 2px dashed var(--primary-light);">
+                    <div style="margin-bottom: 12px;"><strong>Étape 1 :</strong> Valider scrupuleusement l'observance thérapeutique du patient[cite: 73].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 2 :</strong> Éliminer formellement un effet de blouse blanche par mesure à domicile ou MAPA[cite: 74].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 3 :</strong> Réévaluer et optimiser les interventions non pharmacologiques[cite: 75].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 4 :</strong> Éliminer un apport alimentaire excessivement riche en NaCl[cite: 76].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 5 :</strong> Exclure les causes secondaires prédominantes (apnée du sommeil, hyperaldostéronisme primaire)[cite: 77].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 6 :</strong> Intégrer la <strong>chronothérapie</strong> (administrer au minimum 1 Rx au coucher)[cite: 78].</div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 7 :</strong> Cesser les prescriptions inappropriées si présentes : HCTZ, clonidine, alpha-bloqueurs[cite: 79].</div>
+                    <div style="margin-bottom: 12px; background: #f8fafc; padding: 10px; border-radius: 6px;">
+                        <strong>Étape 8 : Introduction du 4e médicament : Spironolactone</strong>[cite: 80].
+                        <br><small style="color:var(--text-muted)">* Dosage impératif de l'aldostérone + rénine AVANT la première dose. Suivi de la kaliémie (K+) obligatoire à 1 mois[cite: 82, 83].</small>
+                    </div>
+                    <div style="margin-bottom: 12px;"><strong>Étape 9 : Introduction du 5e médicament : Dérivés nitrés</strong> (visant le renversement de la dysfonction endothéliale)[cite: 84]. Ex : Nitro patch 0,2-0,8 mg/h ou Imdur 30-120 mg die[cite: 85, 217].</div>
+                    <div><strong>Étape 10 :</strong> Discuter une <strong>dénervation rénale</strong> en cas d'échec complet des étapes précédentes[cite: 86].</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="classes-details" class="section-panel">
+            <h2>Détails des Classes Pharmacologiques</h2>
+            <p class="subtitle">Spécificités, pharmacocinétique et hiérarchisation des choix moléculaires.</p>
+
+            <div class="toggle-item">
+                <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                    <span>1. Diurétiques Thiazidiques-like (Hiérarchie & Données)</span> <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="toggle-content">
+                    <p><strong>Mécanisme :</strong> $1/3$ via la baisse du volume plasmatique (natriurèse), $2/3$ par baisse directe des résistances vasculaires périphériques (vasodilatation)[cite: 103, 105]. Fonctionnels à tous les stades de l'IRC[cite: 106].</p>
+                    
+                    <h4 style="margin: 12px 0 6px 0;">Classification préférentielle :</h4>
+                    <ol style="margin-bottom: 12px;">
+                        <li><strong>Indapamide :</strong> Profil métabolique neutre[cite: 120]. Conserve son effet vasodilatateur anti-HTA y compris chez le patient anurique en hémodialyse[cite: 123].</li>
+                        <li><strong>Chlorthalidone (CTLD) :</strong> Offre la demi-vie la plus longue (40-60h) et dispose de la meilleure évidence de réduction cardiovasculaire[cite: 109, 110].</li>
+                        <li><strong>HCTZ : <span class="badge badge-danger">À ÉVITER</span></strong> (Évidence NEJM 2022 : augmentation du risque cardiovasculaire/mortalité comparé à ses alternatives)[cite: 111, 119].</li>
+                    </ol>
+
+                    <table style="margin-top:12px;">
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>Biodisponibilité</th>
+                                <th>Demi-vie (h)</th>
+                                <th>Durée d'action</th>
+                                <th>Profil Métabolique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Indapamide</td>
+                                <td>95%</td>
+                                <td>14 - 25 h</td>
+                                <td>30 h</td>
+                                <td><span class="badge badge-success">Neutre (Exception)</span> [cite: 120]</td>
+                            </tr>
+                            <tr>
+                                <td>Chlorthalidone</td>
+                                <td>65%</td>
+                                <td>40 - 60 h</td>
+                                <td>40 - 72 h</td>
+                                <td>Défavorable (Glycémie/Dyslipidémie) [cite: 119]</td>
+                            </tr>
+                            <tr>
+                                <td>HCTZ</td>
+                                <td>70%</td>
+                                <td>6 - 14 h</td>
+                                <td>6 - 15 h</td>
+                                <td>Défavorable (Glycémie/Dyslipidémie) [cite: 119]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top:12px; background:#f8fafc; padding:12px; border-radius:6px;">
+                        <strong>Grille de substitution de l'HCTZ (si TA contrôlée) :</strong><br>
+                        • HCTZ 12,5 mg ➔ Tenter arrêt (0 mg), réintroduire CTLD 12,5 mg ou Indapamide 0,625 mg si rebond[cite: 133].<br>
+                        • HCTZ 25 mg ➔ Substituer par CTLD 12,5 mg ou Indapamide 0,625 mg[cite: 133].
+                    </div>
+                </div>
+            </div>
+
+            <div class="toggle-item">
+                <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                    <span>2. Bêtabloqueurs (BB)</span> <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="toggle-content">
+                    <p><strong>Indications prioritaires :</strong> MCAS, MVAS / ASO, Insuffisance Cardiaque[cite: 155].</p>
+                    <p><strong>Contre-indication :</strong> À éviter chez les sujets jeunes, actifs ou athlètes (risques de fatigue, dysfonction érectile, vasoconstriction périphérique)[cite: 146, 147].</p>
+                    <p style="margin-top: 8px;"><strong>Molécules vasodilatatrices (à privilégier pour l'effet anti-HTA) :</strong></p>
+                    <ul>
+                        <li><strong>Labétalol :</strong> Alpha-bêta non sélectif (Indiqué en contexte de grossesse et urgences)[cite: 150].</li>
+                        <li><strong>Carvedilol :</strong> Alpha-bêta non sélectif bénéficiant d'effets métaboliques favorables[cite: 151].</li>
+                        <li><strong>Nébivolol :</strong> Hautement cardiosélectif, stimule la production de NO[cite: 152, 154].</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="toggle-item">
+                <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                    <span>3. Bloqueurs des Canaux Calciques (BCC)</span> <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="toggle-content">
+                    <p><strong>A. Dihydropyridiniques (Vasodilatateurs purs) :</strong> Amlodipine (longue demi-vie, prise unique die), Nifédipine, Félodipine[cite: 158, 159, 160, 161].</p>
+                    <p><strong>B. Non-dihydropyridiniques (Effet sur la FC) :</strong> Vérapamil, Diltiazem. <span class="badge badge-danger">Contre-indiqués en IC ou Bradycardie</span>[cite: 162, 163, 164, 165].</p>
+                    <p style="margin-top: 8px; background: #e0f2fe; padding: 10px; border-radius: 4px;">
+                        <i class="fa-solid fa-clock"></i> <strong>Astuce de chronothérapie :</strong> Administrer les BCC de type dihydropyridinique au coucher réduit significativement la tension moyenne sur 24h et atténue la formation d'œdèmes périphériques[cite: 166, 217].
+                    </p>
+                </div>
+            </div>
+
+            <div class="toggle-item">
+                <button class="toggle-trigger" onclick="toggleAccordion(this)">
+                    <span>4. IECA & ARA (Protection Cardiorénale)</span> <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="toggle-content">
+                    <p>Constituent le premier choix thérapeutique pour la grande majorité des patients[cite: 169].</p>
+                    <p><strong>Protection Directe :</strong> Diminution de la pression artérielle systémique[cite: 173].</p>
+                    <p><strong>Protection Indirecte :</strong> Amélioration de la fonction endothéliale, stabilisation des plaques d'athérome, remodelage cardiaque favorable et baisse de la protéinurie par vasodilatation sélective de l'artériole efférente glomérulaire[cite: 177, 178, 180, 182].</p>
+                    <p style="margin-top:8px;"><strong>Règle d'or :</strong> Équivalence stricte d'efficacité entre IECA et ARA. <span class="badge badge-danger">Ne jamais combiner</span> (aucun bénéfice clinique additionnel)[cite: 187]. En cas de toux secondaire induite par accumulation de bradykinine sous IECA (jusqu'à 20% des cas), basculer immédiatement vers un ARA[cite: 184, 186].</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hyperkaliemie" class="section-panel">
+            <h2>Gestion de l'Hyperkaliémie sous ISRAA</h2>
+            <p class="subtitle">Maintenir la protection cardiorénale malgré les perturbations électrolytiques.</p>
+            
+            <div class="alert-box">
+                <h3><i class="fa-solid fa-circle-exclamation"></i> Directive Majeure</h3>
+                <p><strong>NE JAMAIS cesser définitivement les ISRAA (IECA/ARA) en présence d'une hyperkaliémie.</strong> L'arrêt permanent double ou triple le taux de mortalité des patients[cite: 193, 198]. Si un arrêt temporaire s'impose, planifier obligatoirement sa reprise clinique sous un délai inférieur à 1 mois[cite: 199, 200].</p>
+            </div>
+
+            <div class="card">
+                <h3>Stratégies de Prise en Charge Externe (KDIGO)</h3>
+                <ol>
+                    <li>Instaurer un régime alimentaire restreint en potassium et traiter activement toute constipation[cite: 202].</li>
+                    <li>Prendre en charge de façon adéquate une acidose métabolique concomitante[cite: 203].</li>
+                    <li>Associer ou optimiser des diurétiques hypokaliémiants (ou envisager l'ajout d'iSGLT2)[cite: 204].</li>
+                    <li>Interrompre ou réduire les agents hyperkaliémiants non essentiels (K+ oral, AINS)[cite: 205].</li>
+                    <li><strong>Recourir aux liants du potassium si requis :</strong>
+                        <ul>
+                            <li><em>Ancienne génération :</em> SPS (Polystyrène de sodium), SPC (Polystyrène de calcium)[cite: 207].</li>
+                            <li><em>Nouvelle génération (à privilégier) :</em> CZS (Cyclosilicate de zirconium sodique), PSC (Patiromer)[cite: 207].</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="eviter-urgences" class="section-panel">
+            <h2>Médicaments à Éviter & Protocoles d'Urgence</h2>
+            <p class="subtitle">Sécuriser les prescriptions et intervenir efficacement lors des poussées tensionnelles.</p>
+
+            <div class="card">
+                <h3>Médicaments à Proscrire en Routine</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Molécule</th>
+                                <th>Motif du rejet clinique</th>
+                                <th>Alternative thérapeutique préférée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong style="color:var(--danger)">HCTZ</strong></td>
+                                <td>Survenue d'événements vasculaires accrue comparativement à la chlorthalidone/indapamide[cite: 111, 212].</td>
+                                <td>Indapamide ou Chlorthalidone[cite: 212].</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:var(--danger)">Alpha-bloqueurs</strong></td>
+                                <td>Surcroît d'événements CV (Étude ALLHAT). Favorisent l'insuffisance cardiaque à fraction d'éjection préservée (HFpEF)[cite: 212, 214].</td>
+                                <td>Spironolactone ou Dérivés nitrés[cite: 212, 214].</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color:var(--danger)">Clonidine</strong></td>
+                                <td>Risques élevés d'arrêts cardiaques, de sédation sévère, de délirium et de chutes (Étude POISE-2)[cite: 212, 213].</td>
+                                <td>Spironolactone ou Dérivés nitrés[cite: 212, 214].</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Gestion PRN des Poussées Tensionnelles en Urgence</h3>
+                <p><strong>Seuil d'intervention requis :</strong> TA supérieure ou égale à <strong>180 mmHg</strong>[cite: 212].</p>
+                
+                <div style="margin-top:12px;" class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Médicament PRN</th>
+                                <th>Posologie standard</th>
+                                <th>Contre-indications / Précautions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Captopril PO</strong></td>
+                                <td>25 - 50 mg TID PRN</td>
+                                <td>Contre-indication relative : Insuffisance Rénale Aiguë (IRA)[cite: 212].</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Labétalol PO</strong></td>
+                                <td>100 - 400 mg TID PRN</td>
+                                <td><span class="badge badge-danger">CI Absolue : Asthme</span>. Relative : MPOC[cite: 212].</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hydralazine PO</strong></td>
+                                <td>10 - 100 mg q8h PRN</td>
+                                <td>À utiliser selon protocole d'exception[cite: 212].</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert-box" style="margin-top:12px; padding:10px;">
+                    <strong>ALERTE CRITIQUE :</strong> Ne jamais administrer de clonidine en contexte PRN d'urgence (risque majeur d'Infarctus du Myocarde de type 2, de rebond tensionnel sévère et de délirium)[cite: 212].
+                </div>
+            </div>
+        </section>
+
+        <section id="cibles" class="section-panel">
+            <h2>Cibles Interventionnelles & Populations Spécifiques</h2>
+            <p class="subtitle">Personnalisation des cibles thérapeutiques selon le profil des comorbidités.</p>
+
+            <div class="card">
+                <h3>Cibles de Pression Artérielle Systolique (TAS) 2026</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Profil Clinique du Patient</th>
+                                <th>Cible Visée (TAS)</th>
+                                <th>Justification Scientifique / Études</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Haut Risque Cardiovasculaire</strong></td>
+                                <td><span class="badge badge-success" style="font-size:0.95rem;">&lt; 120 mmHg</span></td>
+                                <td><strong>Étude SPRINT (2015) :</strong> Éligibilité si Âge &gt; 75 ans, IRC (DFG &lt; 60), ou risque CV à 10 ans &gt; 15%[cite: 219].</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patient Diabétique</strong></td>
+                                <td><span class="badge badge-success" style="font-size:0.95rem;">&lt; 130 mmHg</span> (viser &lt; 120)</td>
+                                <td><strong>Études récentes ESPRIT (2024) & BPROAD (2024) :</strong> Démontrent un bénéfice net à cibler &lt; 120 mmHg chez le DB2 à haut risque (-21% MACE)[cite: 219].</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sujets Très Âgés (&gt; 80 ans)</strong></td>
+                                <td>Selon critères de risque</td>
+                                <td><span class="badge badge-danger">Avis important :</span> La cible historique permissive de &lt; 150 mmHg pour les patients de 80 ans et plus <strong>n'existe plus</strong>[cite: 219]. Target identique selon tolérance.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 10px; font-size:0.9rem; color:var(--text-muted);">* Note clinique de sécurité : Toujours préserver le <strong>plancher diastolique minimal de 60 mmHg</strong>[cite: 219].</p>
+            </div>
+
+            <div class="card">
+                <h3>Choix Médicamenteux Selon les Comorbidités</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Comorbidité</th>
+                                <th>Premier Choix</th>
+                                <th>Second Choix thérapeutique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MCAS / MVAS / ASO</strong></td>
+                                <td>IECA ou ARA [cite: 220]</td>
+                                <td>Bêtabloqueurs (BB) [cite: 220]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insuffisance Cardiaque (IC)</strong></td>
+                                <td>IECA / ARA / Entresto [cite: 220]</td>
+                                <td>BB, ARM [cite: 220]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diabète (DB)</strong></td>
+                                <td>IECA ou ARA ; ARM (finérénone si NDB) [cite: 221]</td>
+                                <td>iSGLT2, aGLP-1 [cite: 222]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insuffisance Rénale Chronique (IRC)</strong></td>
+                                <td>IECA ou ARA [cite: 222]</td>
+                                <td>Selon tolérance du DFG [cite: 189]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Protéinurie significative</strong></td>
+                                <td>IECA ou ARA [cite: 222]</td>
+                                <td>ARM [cite: 222]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Grossesse</strong></td>
+                                <td>BCC (Nifédipine/Amlodipine), Labétalol [cite: 209, 222]</td>
+                                <td>Méthyldopa (si absence d'alternative) [cite: 214, 222]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patients Afro-Américains</strong></td>
+                                <td>Diurétiques pseudo-thiazidiques [cite: 222]</td>
+                                <td>BCC (Répondent moins bien aux IECA/ARA) [cite: 223]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Tab switching logic
+        function switchSection(sectionId) {
+            // Hide all panels
+            document.querySelectorAll('.section-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            // Deactivate all navigation tabs
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show targets
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Highlight current button
+            const event = window.event;
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            } else {
+                // Fallback for initialization
+                document.querySelector(`[onclick="switchSection('${sectionId}')"]`).classList.add('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        // Accordion Toggle Logic
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('open');
+            
+            const content = item.querySelector('.toggle-content');
+            if (item.classList.contains('open')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = "0px";
+            }
+        }
+
+        // Real-time table filtration
+        function filterTable(tableId, inputId) {
+            const input = document.getElementById(inputId);
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById(tableId);
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < tr.length; i++) {
+                let tdText = tr[i].textContent || tr[i].innerText;
+                if (tdText.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+
+        // Diastolic physiological floor live visualizer
+        function updateDiastolicAnim(val) {
+            document.getElementById('tad-val').innerText = val;
+            const heartIcon = document.getElementById('heart-icon');
+            const statusSpan = document.getElementById('perfusion-status');
+            const vesselFlow = document.getElementById('vessel-flow');
+            
+            // Update flow bar width based on value
+            let pct = ((val - 45) / 40) * 100;
+            if(pct < 10) pct = 10;
+            if(pct > 100) pct = 100;
+            vesselFlow.style.width = pct + "%";
+
+            if (val < 60) {
+                heartIcon.style.color = "var(--warning)";
+                heartIcon.style.animationDuration = "0.4s"; // Distress fast beat
+                statusSpan.innerHTML = '<span class="badge badge-danger">COMPROMISE (Ischémie)</span>';
+                vesselFlow.style.backgroundColor = "var(--warning)";
+            } else {
+                heartIcon.style.color = "var(--danger)";
+                heartIcon.style.animationDuration = "1s"; // Normal physiological beat
+                statusSpan.innerHTML = '<span class="badge badge-success">Optimale</span>';
+                vesselFlow.style.backgroundColor = "#ef4444";
+            }
+        }
+
+        // Initialize state components
+        document.addEventListener("DOMContentLoaded", function() {
+            updateDiastolicAnim(70);
+        });
+    </script>
+</body>
+</html>
