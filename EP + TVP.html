@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Interactif : MTEV (TVP & EP)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-scalable/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #34495e;
+            --accent: #e74c3c;
+            --accent-dark: #c0392b;
+            --bg-main: #f8f9fa;
+            --bg-card: #ffffff;
+            --text: #2c3e50;
+            --text-muted: #7f8c8d;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --sidebar-width: 320px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- SIDEBAR NAV --- */
+        #sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary);
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+        }
+
+        #sidebar.closed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background-color: var(--primary-light);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #ecf0f1;
+        }
+
+        .sidebar-header p {
+            font-size: 0.8rem;
+            color: #bdc3c7;
+        }
+
+        .search-box {
+            padding: 10px 20px;
+            background-color: var(--primary-light);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: rgba(255,255,255,0.15);
+            color: white;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            overflow-y: auto;
+            flex: 1;
+            padding: 10px 0;
+        }
+
+        .sidebar-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-left: 4px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-menu li a:hover, .sidebar-menu li a.active {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: var(--accent);
+            color: white;
+        }
+
+        /* --- MAIN CONTENT --- */
+        #main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            transition: margin-left 0.3s ease;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        #main-content.expanded {
+            margin-left: 0;
+        }
+
+        /* --- TOGGLE BUTTON --- */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: calc(var(--sidebar-width) + 20px);
+            z-index: 101;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: left 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+
+        .toggle-btn.expanded {
+            left: 20px;
+        }
+
+        .toggle-btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* --- UI COMPONENTS & CARDS --- */
+        header {
+            margin-bottom: 40px;
+            margin-top: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .meta-sources {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            scroll-margin-top: 90px;
+        }
+
+        .section-card h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-card h3 {
+            margin: 20px 0 10px 0;
+            color: var(--primary-light);
+            font-size: 1.1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin-left: 24px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Callouts / Alerts */
+        .alert {
+            padding: 15px 20px;
+            background-color: #f8d7da;
+            border-left: 5px solid var(--accent);
+            color: #721c24;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            color: #856404;
+        }
+
+        .alert-info {
+            background-color: #e2f0fe;
+            border-left: 5px solid #3182ce;
+            color: #2c5282;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            color: white;
+            background-color: var(--accent);
+        }
+
+        .badge-blue { background-color: #3182ce; }
+        .badge-orange { background-color: #dd6b20; }
+        .badge-green { background-color: #38a169; }
+
+        /* Flow and flex layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            #sidebar { transform: translateX(-100%); }
+            #main-content { margin-left: 0; padding: 20px; }
+            .toggle-btn { left: 20px; }
+            #sidebar.open { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="toggle-btn" onclick="toggleSidebar()" id="toggle-button">
+        📜 Menu
+    </button>
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h2>MTEV : TVP & EP</h2>
+            <p>Notes de cours & Prise en charge IPS</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Rechercher un objectif..." onkeyup="filterMenu()">
+        </div>
+        <ul class="sidebar-menu" id="menu-list">
+            <li><a href="#obj1" class="menu-item">OBJ 1 - Anatomie veineuse</a></li>
+            <li><a href="#obj2" class="menu-item">OBJ 2 - Lois hémodynamiques</a></li>
+            <li><a href="#obj3" class="menu-item">OBJ 3 - Triade de Virchow</a></li>
+            <li><a href="#obj4" class="menu-item">OBJ 4 - Thrombus vs Embole</a></li>
+            <li><a href="#obj5" class="menu-item">OBJ 5 - Circulation pulmonaire & HTP</a></li>
+            <li><a href="#obj6" class="menu-item">OBJ 6 - Facteurs de risque MTEV</a></li>
+            <li><a href="#obj7" class="menu-item">OBJ 7 - Physiopathologie de l'EP</a></li>
+            <li><a href="#obj8" class="menu-item">OBJ 8 - Signes & Symptômes</a></li>
+            <li><a href="#obj9" class="menu-item">OBJ 9 - Diagnostics différentiels</a></li>
+            <li><a href="#obj10" class="menu-item">OBJ 10 - D-dimères : Se & Sp</a></li>
+            <li><a href="#obj11" class="menu-item">OBJ 11 - Scores & Règles cliniques</a></li>
+            <li><a href="#obj12" class="menu-item">OBJ 12 - Algorithmes de prise en charge</a></li>
+            <li><a href="#obj13" class="menu-item">OBJ 13 - Examens paracliniques</a></li>
+            <li><a href="#obj14" class="menu-item">OBJ 14 - Pronostic de l'EP (sPESI)</a></li>
+            <li><a href="#obj15" class="menu-item">OBJ 15 - Complications de la MTEV</a></li>
+            <li><a href="#obj16" class="menu-item">OBJ 16 - Syndrome post-phlébétique</a></li>
+            <li><a href="#obj17" class="menu-item">OBJ 17 - Anticoagulants & Cascade</a></li>
+            <li><a href="#obj18" class="menu-item">OBJ 18 - Surveillance & Enseignement</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <header>
+            <h1>Maladie Thromboembolique Veineuse (MTEV)</h1>
+            <p class="meta-sources"><strong>Sources intégrées :</strong> Copstead Ch. 14, 15 & 21 | Lanthier (MTEV) | Thrombose Canada (2025) | UpToDate EP (Mars 2026)</p>
+        </header>
+
+        <section id="obj1" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 1</span> Anatomie veineuse des membres inférieurs</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Réseau veineux profond</h3>
+                    <ul>
+                        <li><strong>Distal (mollet) :</strong> Veines tibiales antérieures/postérieures, fibulaires, soléaires et gastrocnémiens.</li>
+                        <li><strong>Proximal :</strong> Veine poplitée &rarr; Veine fémorale &rarr; Veine fémorale commune &rarr; Veine iliaque externe &rarr; Veine iliaque commune &rarr; Veine cave inférieure (VCI).</li>
+                    </ul>
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Piège thérapeutique important :</strong> La <em>veine fémorale superficielle</em> est en réalité une <strong>veine profonde</strong> ! Une thrombose à ce niveau nécessite une anticoagulation systémique.
+                    </div>
+                </div>
+                <div>
+                    <h3>Réseau veineux superficiel</h3>
+                    <ul>
+                        <li><strong>Grande veine saphène :</strong> Cheville jusqu'à la jonction saphéno-fémorale (aine).</li>
+                        <li><strong>Petite veine saphène :</strong> Malléole latérale jusqu'au creux poplité.</li>
+                    </ul>
+                    <p><strong>Distinction clinique majeure :</strong></p>
+                    <ul>
+                        <li><strong>TVP proximale (&ge; poplitée) :</strong> Risque emboligène élevé &rarr; anticoagulation systématique.</li>
+                        <li><strong>TVP distale (sous-poplitée) :</strong> Risque d'extension d'environ 20% &rarr; gestion personnalisée selon le contexte.</li>
+                        <li><strong>Superficie :</strong> Risque faible, <strong>SAUF</strong> si le thrombus s'étend à &lt; 3 cm de la jonction profonde &rarr; anticoagulation requise.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="obj2" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 2</span> Lois hémodynamiques appliquées à la MTEV</h2>
+            <ul>
+                <li><strong>Loi d'Ohm ($Q = \Delta P / R$) :</strong> Le débit ($Q$) est proportionnel au gradient de pression et inversement proportionnel à la résistance ($R$).</li>
+                <li><strong>Loi de Poiseuille ($R = 8\eta l / \pi r^4$) :</strong> La résistance dépend de la viscosité ($\eta$), de la longueur ($l$), et surtout du <strong>rayon ($r^4$)</strong> qui est le facteur dominant. Doubler le rayon augmente le débit par 16 !
+                    <br>&rarr; <em>Application MTEV :</em> L'obstruction diminue le rayon &rarr; &uarr; résistance &rarr; &darr; débit &rarr; <strong>Stase veineuse</strong> &rarr; &uarr; risque de thrombose.
+                </li>
+                <li><strong>Loi de Laplace ($T = P \times r$) :</strong> La tension pariétale ($T$) augmente avec la pression et le rayon.
+                    <br>&rarr; <em>Application EP :</em> L'augmentation abrupte de la postcharge du ventricule droit (VD) provoque une dilatation du VD &rarr; &uarr; tension pariétale &rarr; &uarr; consommation d'O₂ myocardique &rarr; <strong>Risque élevé d'ischémie du VD</strong>.
+                </li>
+            </ul>
+        </section>
+
+        <section id="obj3" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 3</span> Triade de Virchow (Pathogénie de la TVP)</h2>
+            <p>Le développement d'une thrombose repose sur l'interaction de trois facteurs fondamentaux :</p>
+            <ol>
+                <li><strong>Stase veineuse :</strong> Causée par l'immobilisation, l'alitement, les longs voyages, l'insuffisance cardiaque ou les varicosités. <em>Mécanisme :</em> Accumulation locale des facteurs de coagulation et diminution de la clairance de leurs inhibiteurs.</li>
+                <li><strong>Lésion endothéliale :</strong> Provoquée par une chirurgie, un traumatisme, un cathéter veineux central ou une phlébite. <em>Mécanisme :</em> Exposition du collagène sous-endothélial entraînant l'activation plaquettaire et le déclenchement de la cascade de coagulation.</li>
+                <li><strong>Hypercoagulabilité :</strong>
+                    <ul>
+                        <li><em>Innée/Génétique :</em> Mutation du Facteur V Leiden, mutation de la prothrombine G20210A, déficits en protéines C, S ou en antithrombine III (ATIII).</li>
+                        <li><em>Acquise :</em> Cancer actif, grossesse / œstrogènes, syndrome des antiphospholipides (SAPL), obésité, MICI, COVID-19.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="alert alert-info">
+                <strong>💡 Impact clinique :</strong> Distinguer un facteur de risque (FDR) <strong>transitoire</strong> (ex: chirurgie, grossesse) d'un FDR <strong>persistant</strong> (ex: cancer, thrombophilie) est l'élément clé pour déterminer la durée de l'anticoagulation.
+            </div>
+        </section>
+
+        <section id="obj4" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 4</span> Thrombus vs Embole : Altérations du débit</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Thrombus (Obstruction in situ)</h3>
+                    <ul>
+                        <li>Agrégat de fibrine, de plaquettes et de globules rouges formé localement dans le vaisseau.</li>
+                        <li><strong>En amont :</strong> &uarr; pression hydrostatique &rarr; œdème interstitiel.</li>
+                        <li><strong>En aval :</strong> &darr; débit (Loi d'Ohm) &rarr; stase et œdème (veineux) ou ischémie (artériel).</li>
+                        <li>L'occlusion partielle crée de la turbulence, favorisant la croissance du thrombus et son embolisation.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Embole (Obstruction à distance)</h3>
+                    <ul>
+                        <li>Fragment de thrombus détaché de son site initial, propulsé par le flux sanguin.</li>
+                        <li><strong>Trajet classique :</strong> TVP des membres inférieurs &rarr; VCI &rarr; Cœur droit &rarr; Artères pulmonaires &rarr; <strong>Embolie Pulmonaire (EP)</strong>.</li>
+                        <li>L'obstruction pulmonaire aiguë entraîne une hausse brutale des résistances vasculaires pulmonaires, provoquant une augmentation de la postcharge du VD et une dysfonction ventriculaire droite.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="obj5" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 5</span> Circulation pulmonaire & Hypertension Pulmonaire (HTP)</h2>
+            <p>La circulation pulmonaire normale est un système à <strong>basse pression</strong> (PAP moyenne &lt; 20 mmHg), à <strong>haute compliance</strong> et à <strong>haut débit</strong>. Elle possède une réserve vasculaire majeure : jusqu'à 50% du lit peut être oblitéré avant que la PAP n'augmente de façon significative.</p>
+            
+            <h3>Zones de West & Application à l'EP</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zone</th>
+                        <th>Localisation</th>
+                        <th>Rapport V/Q</th>
+                        <th>Signification Physiologique / Effet EP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Zone 1</strong></td>
+                        <td>Apex</td>
+                        <td>&uarr;&uarr; (Espace mort)</td>
+                        <td>Pression alvéolaire &gt; P artérielle. Peu ou pas de perfusion. L'EP crée une <strong>Zone 1 artificielle</strong> (ventilée mais non perfusée).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zone 2</strong></td>
+                        <td>Milieu</td>
+                        <td>Normal</td>
+                        <td>P artérielle &gt; P alvéolaire &gt; P veineuse. Équilibre.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zone 3</strong></td>
+                        <td>Base</td>
+                        <td>&darr; (Shunt relatif)</td>
+                        <td>P artérielle &gt; P veineuse &gt; P alvéolaire. Perfusion maximale.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Physiopathologie de l'HTP aiguë par EP</h3>
+            <ul>
+                <li><strong>Seuil critique :</strong> Une oblitération de <strong>30-50%</strong> du lit vasculaire entraîne une HTP aiguë clinique.</li>
+                <li><strong>Choc obstructif :</strong> Une oblitération de <strong>&gt; 50-75%</strong> engendre un choc obstructif avec risque de mort subite.</li>
+                <li><strong>HTAP-C (Chronologie) :</strong> Des EP récidivantes ou non résolues entraînent une obstruction chronique et un remodelage vasculaire, menant à l'<em>Hypertension pulmonaire thromboembolique chronique</em> (traitée par thromboendartériectomie).</li>
+            </ul>
+        </section>
+
+        <section id="obj6" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 6</span> Facteurs de risque de la MTEV</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Facteurs transitoires Majeurs</h3>
+                    <ul>
+                        <li>Chirurgie majeure &lt; 12 semaines (orthopédique, abdomino-pelvienne)</li>
+                        <li>Fracture d'un membre inférieur</li>
+                        <li>Alitement &ge; 3 jours ou hospitalisation récente</li>
+                        <li>Traumatisme majeur</li>
+                    </ul>
+                    <h3>Facteurs transitoires Mineurs</h3>
+                    <ul>
+                        <li>Voyage prolongé (&gt; 6-8 heures)</li>
+                        <li>Contraceptifs oraux / THS / Grossesse & Post-partum (risque x4-5)</li>
+                        <li>Immobilisation légère ou infection aiguë</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Facteurs Persistants</h3>
+                    <ul>
+                        <li><strong>Cancer actif :</strong> Présent dans 15-20% des cas (cause #1 de MTEV non provoquée).</li>
+                        <li>Antécédent personnel de TVP/EP.</li>
+                        <li>Thrombophilies innées & Syndrome des antiphospholipides (SAPL).</li>
+                        <li>Âge &ge; 65 ans, Obésité (IMC &gt; 30).</li>
+                        <li>Maladies inflammatoires (MICI, LED, syndrome néphrotique).</li>
+                        <li>Corps étranger (cathéter central, pacemaker).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="alert alert-info">
+                <strong>À noter :</strong> Environ 50% des premières lignes d'EP sont d'origine idiopathique (sans aucun facteur de risque identifiable).
+            </div>
+        </section>
+
+        <section id="obj7" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 7</span> Cascade physiopathologique de l'EP</h2>
+            <ol>
+                <li><strong>Obstruction artérielle pulmonaire :</strong> Crée une zone ventilée mais non perfusée (espace mort alvéolaire) &rarr; hypoxie et hypocapnie initiale due à l'hyperventilation.</li>
+                <li><strong>Libération de médiateurs chimiques :</strong> (Sérotonine, histamine, thromboxane A2) &rarr; entraîne une bronchoconstriction réflexe, une vasoconstriction additionnelle et des atélectasies, ce qui aggrave le mismatch V/Q.</li>
+                <li><strong>Dysfonction cardiaque droite :</strong> &uarr; RVP &rarr; &uarr; postcharge du VD &rarr; dilatation et hypokinésie du VD.</li>
+                <li><strong>Atteinte systémique :</strong> Déviation du septum interventriculaire vers la gauche &rarr; &darr; remplissage du ventricule gauche (VG) &rarr; &darr; débit cardiaque &rarr; hypotension &rarr; <strong>Choc obstructif</strong>.</li>
+            </ol>
+            <h3>Les 3 mécanismes de l'hypoxémie :</h3>
+            <ul>
+                <li><strong>Mismatch V/Q :</strong> Zones perfusées mais non/mal ventilées (atélectasies).</li>
+                <li><strong>Shunt intrapulmonaire :</strong> Perfusion de zones complètement non ventilées.</li>
+                <li><strong>&darr; PO₂ veineux mixte :</strong> Le bas débit cardiaque force les tissus périphériques à extraire plus d'O₂, ramenant au cœur un sang veineux très désaturé qui aggrave l'hypoxémie globale.</li>
+            </ul>
+        </section>
+
+        <section id="obj8" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 8</span> Signes et Symptômes Cliniques</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Embolie Pulmonaire (EP)</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Manifestation</th><th>Fréquence</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Dyspnée d'apparition soudaine</td><td>~80% (Le plus fréquent)</td></tr>
+                            <tr><td>Tachypnée (&gt; 20/min)</td><td>~70%</td></tr>
+                            <tr><td>Douleur thoracique pleurétique</td><td>~50%</td></tr>
+                            <tr><td>Tachycardie (&gt; 100/min)</td><td>~40%</td></tr>
+                            <tr><td>Toux / Hémoptysie</td><td>~20% / ~10%</td></tr>
+                            <tr><td>Syncope / Présyncope</td><td>~10%</td></tr>
+                            <tr><td>Signes de TVP concomitante</td><td>~25-50%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Thrombose Veineuse Profonde (TVP)</h3>
+                    <div class="alert alert-warning"><strong>Attention :</strong> 50% des TVP sont cliniquement asymptomatiques !</div>
+                    <ul>
+                        <li><strong>Triade classique :</strong> Œdème unilatéral du MI + Douleur/sensibilité au mollet ou à la cuisse + Érythème/chaleur locale.</li>
+                        <li>Distension des veines superficielles non variqueuses.</li>
+                        <li><em>Signe de Homans :</em> Douleur à la dorsiflexion du pied. Très peu sensible et non spécifique, à ne pas utiliser seul.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Urgences Extrêmes (Red Flags)</h3>
+            <ul>
+                <li><strong>Signes de choc (EP à haut risque) :</strong> Hypotension (TAS &lt; 90 mmHg), distension jugulaire, B2 pulmonaire éclaté, signe de McConnell à l'échographie (hypokinésie des parois du VD avec préservation de l'apex). <span class="badge">5-10% des EP symptomatiques sont fatales dans la première heure.</span></li>
+                <li><strong>Phlegmasia caerulea dolens :</strong> Obstruction veineuse massive et totale &rarr; Œdème massif, douleur intense, cyanose de la fesse/jambe. <strong>Urgence chirurgicale - Risque de gangrène !</strong></li>
+                <li><strong>Phlegmasia alba dolens :</strong> Forme associée à une composante de spasme artériel &rarr; Pâleur extrême et œdème.</li>
+            </ul>
+        </section>
+
+        <section id="obj9" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 9</span> Diagnostics Différentiels</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Pour l'Embolie Pulmonaire</h3>
+                    <ul>
+                        <li><strong>Cardiaque :</strong> SCA (douleur angineuse, sous-décalage ST, cinétique des troponines), Péricardite (douleur soulagée en antéflexion, sus-décalage ST diffus en selle), Décompensation cardiaque (orthopnée, crépitants bilatéraux).</li>
+                        <li><strong>Pulmonaire :</strong> Pneumonie (fièvre, toux productive, infiltrat Rx), Pneumothorax (douleur pleurétique aiguë unilatérale, abolition du murmure vésiculaire), Exacerbation de MPOC.</li>
+                        <li><strong>Vasculaire / Autre :</strong> Dissection aortique (douleur déchirante irradiant au dos, asymétrie des pouls), Attaque de panique (diagnostic d'exclusion).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Pour la TVP</h3>
+                    <ul>
+                        <li>Rupture d'un kyste de Baker.</li>
+                        <li>Cellulite infectieuse.</li>
+                        <li>Hématome musculaire ou élongation du gastrocnémien.</li>
+                        <li>Insuffisance veineuse chronique / Lymphœdème.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="obj10" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 10</span> D-dimères : Sensibilité, Spécificité et Interprétation</h2>
+            <p>Les D-dimères sont des produits de dégradation de la fibrine, marqueurs de l'activation du système fibrinolytique.</p>
+            <table>
+                <thead>
+                    <tr><th>Caractéristique</th><th>Valeur Clinique</th><th>Signification Clinique</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Sensibilité</strong></td><td>&gt; 95%</td><td>Excellente règle d'exclusion (Rule-out). Un test négatif élimine la MTEV.</td></tr>
+                    <tr><td><strong>Spécificité</strong></td><td>40 - 50%</td><td>Faible. Beaucoup de faux positifs (inflammation, cancer, grossesse, chirurgie, âge).</td></tr>
+                    <tr><td><strong>Valeur Prédictive Négative (VPN)</strong></td><td>Très élevée</td><td>Fiable uniquement si la probabilité clinique pré-test est faible ou modérée.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Stratégie d'utilisation et seuils d'ajustement</h3>
+            <ul>
+                <li><strong>Règle d'or :</strong> Ne jamais utiliser les D-dimères seuls. Toujours les coupler à un score clinique de probabilité (Wells). Si la probabilité est <strong>élevée</strong>, le test est inutile : passez directement à l'imagerie.</li>
+                <li><strong>Seuil Standard :</strong> &ge; 500 &mu;g/L.</li>
+                <li><strong>Seuil ajusté à l'âge (&gt; 50 ans) :</strong> $\text{Âge} \times 10\ \mu\text{g/L}$ (Exemple : pour un patient de 72 ans, le seuil de positivité devient 720 &mu;g/L). Cela permet d'augmenter significativement la spécificité sans compromettre la sécurité du test.</li>
+            </ul>
+        </section>
+
+        <section id="obj11" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 11</span> Scores cliniques et Règles de décision</h2>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Score de Wells - TVP (2 niveaux)</h3>
+                    <table>
+                        <thead><tr><th>Critère</th><th>Points</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cancer actif (&lt; 6 mois ou palliatif)</td><td>+1</td></tr>
+                            <tr><td>Paralysie, parésie ou immobilisation plâtrée du MI</td><td>+1</td></tr>
+                            <tr><td>Alitement &gt; 3 j ou chirurgie majeure &lt; 12 semaines</td><td>+1</td></tr>
+                            <tr><td>Sensibilité localisée sur le trajet veineux profond</td><td>+1</td></tr>
+                            <tr><td>Œdème de tout le membre inférieur</td><td>+1</td></tr>
+                            <tr><td>Circonférence du mollet &gt; 3 cm par rapport au côté sain</td><td>+1</td></tr>
+                            <tr><td>Œdème prenant le godet unilatéral</td><td>+1</td></tr>
+                            <tr><td>Veines collatérales superficielles (non variqueuses)</td><td>+1</td></tr>
+                            <tr><td>Antécédent de TVP documentée</td><td>+1</td></tr>
+                            <tr><td>Diagnostic alternatif aussi ou plus probable que la TVP</td><td>-2</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Interprétation TVP :</strong><br>
+                        &bull; <strong>&lt; 2 points :</strong> TVP peu probable &rarr; Effectuer D-dimères.<br>
+                        &bull; <strong>&ge; 2 points :</strong> TVP probable &rarr; Diriger d'emblée vers l'écho-compression (CUS).
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Score de Wells - Embolie Pulmonaire</h3>
+                    <table>
+                        <thead><tr><th>Critère</th><th>Points</th></tr></thead>
+                        <tbody>
+                            <tr><td>Signes cliniques ou symptômes de TVP</td><td>+3</td></tr>
+                            <tr><td>Diagnostic alternatif moins probable que l'EP</td><td>+3</td></tr>
+                            <tr><td>Fréquence cardiaque &gt; 100/min</td><td>+1,5</td></tr>
+                            <tr><td>Immobilisation &ge; 3 j ou chirurgie &lt; 4 semaines</td><td>+1,5</td></tr>
+                            <tr><td>Antécédents personnels de TVP ou d'EP</td><td>+1,5</td></tr>
+                            <tr><td>Hémoptysie</td><td>+1</td></tr>
+                            <tr><td>Cancer actif</td><td>+1</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Interprétation EP :</strong><br>
+                        &bull; <strong>&le; 4 points :</strong> EP peu probable &rarr; Effectuer D-dimères.<br>
+                        &bull; <strong>&gt; 4 points :</strong> EP probable &rarr; Diriger directement vers l'angio-TDM thoracique (CTPA).
+                    </p>
+                </div>
+            </div>
+
+            <h3>Règle PERC (Pulmonary Embolism Rule-out Criteria)</h3>
+            <p>Applicable <strong>uniquement</strong> si la probabilité clinique pré-test est jugée faible. Si les 8 critères suivants sont <strong>tous absents</strong>, l'EP est officiellement exclue sans même doser les D-dimères :</p>
+            <div class="grid-2" style="background:#f1f5f9; padding:15px; border-radius:8px;">
+                <ul>
+                    <li>Âge &ge; 50 ans</li>
+                    <li>Fréquence Cardiaque &ge; 100/min</li>
+                    <li>SpO₂ &lt; 95%</li>
+                    <li>Œdème unilatéral du membre inférieur</td>
+                </ul>
+                <ul>
+                    <li>Hémoptysie</li>
+                    <li>Chirurgie ou trauma récent (&le; 4 semaines)</li>
+                    <li>Antécédent de TVP / EP</li>
+                    <li>Usage d'œstrogènes (contraception/THS)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="obj12" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 12</span> Algorithmes de prise en charge clinique MTEV</h2>
+            
+            <h3>Prise en charge de la suspicion d'EP</h3>
+            <ol>
+                <li><strong>Évaluation de la stabilité hémodynamique :</strong>
+                    <ul>
+                        <li><strong>Patient INSTABLE (TAS &lt; 90 mmHg ou choc) :</strong> Effectuer un CTPA immédiat. Si non disponible, réaliser une échocardiographie au chevet. Si dysfonction du VD confirmée &rarr; débuter immédiatement l'anticoagulation + <strong>Thrombolyse</strong>.</li>
+                        <li><strong>Patient STABLE (TAS &ge; 90 mmHg) :</strong> Calculer le score de Wells EP.</li>
+                    </ul>
+                </li>
+                <li><strong>Si Wells &le; 4 (Peu probable) :</strong> Demander les D-dimères. Si négatifs &rarr; EP exclue. Si positifs &rarr; Réaliser un CTPA.</li>
+                <li><strong>Si Wells &gt; 4 (Probable) :</strong> Passer directement au CTPA (sans faire de D-dimères).</li>
+            </ol>
+            
+            <h3>Prise en charge de la suspicion de TVP</h3>
+            <ol>
+                <li>Calculer le score de Wells TVP.</li>
+                <li><strong>Si &lt; 2 (Peu probable) :</strong> D-dimères. Si négatifs &rarr; TVP exclue. Si positifs &rarr; Planifier une écho-compression (CUS).</li>
+                <li><strong>Si &ge; 2 (Probable) :</strong> Réaliser une écho-compression (CUS) proximale d'emblée.
+                    <ul>
+                        <li><em>CUS positive :</em> TVP confirmée &rarr; Initier le traitement anticoagulant.</li>
+                        <li><em>CUS négative :</em> Réaliser des D-dimères. Si positifs, obligation de <strong>répéter l'écho-compression dans 5 à 7 jours</strong> pour éliminer une extension distale.</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="alert alert-warning">
+                <strong>⚠️ Règle de sécurité IPS :</strong> Si le délai d'accès à l'imagerie est supérieur à 4 heures et que la probabilité clinique est modérée ou élevée, débuter une <strong>anticoagulation empirique</strong> en attente de l'examen.
+            </div>
+        </section>
+
+        <section id="obj13" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 13</span> Examens paracliniques</h2>
+            <ul>
+                <li><strong>Angio-TDM thoracique (CTPA) :</strong> Gold standard pour l'EP (Se ~95% / Sp ~98%). Avantage : identifie un diagnostic alternatif dans 20% des cas et évalue la taille du VD. Limites : rayons ionisants, produit de contraste iodé (rein).</li>
+                <li><strong>Écho-compression veineuse (CUS) :</strong> Gold standard pour la TVP. Le critère diagnostic absolu est la <strong>non-compressibilité</strong> du segment veineux suspecté.</li>
+                <li><strong>Scintigraphie de ventilation/perfusion (V/Q) :</strong> Choix alternatif de première ligne en cas d'insuffisance rénale sévère, d'allergie majeure au produit de contraste, ou chez la femme enceinte / jeune femme (réduit l'irradiation tissulaire mammaire). Exclut l'EP si elle est normale.</li>
+                <li><strong>Échocardiographie :</strong> Essentielle chez le patient instable. Signes évocateurs : dilatation du VD, hypokinésie de la paroi libre avec apex normal (signe de McConnell), déplacement paradoxal du septum interventriculaire.</li>
+                <li><strong>Électrocardiogramme (ECG) :</strong> L'anomalie la plus fréquente est la simple <strong>tachycardie sinusale</strong>. Le pattern classique <strong>S1Q3T3</strong> (onde S en D1, onde Q et T inversée en D3) traduit une surcharge aiguë du VD mais reste peu sensible. On peut également observer un bloc de branche droit (BBD) ou des ondes T négatives de V1 à V4.</li>
+            </ul>
+        </section>
+
+        <section id="obj14" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 14</span> Stratification pronostique (Score sPESI)</h2>
+            <p>Le score <strong>sPESI (Simplified Pulmonary Embolism Severity Index)</strong> guide le clinicien pour déterminer le lieu de traitement (ambulatoire vs hospitalisation).</p>
+            
+            <div class="grid-2">
+                <div>
+                    <table>
+                        <thead><tr><th>Critère sPESI</th><th>Points</th></tr></thead>
+                        <tbody>
+                            <tr><td>Âge &gt; 80 ans</td><td>+1</td></tr>
+                            <tr><td>Cancer actif</td><td>+1</td></tr>
+                            <li>Maladie cardiopulmonaire chronique (BPCO ou IC)</td><td>+1</td></tr>
+                            <tr><td>Fréquence cardiaque &ge; 110/min</td><td>+1</td></tr>
+                            <tr><td>Pression artérielle systolique &lt; 100 mmHg</td><td>+1</td></tr>
+                            <tr><td>Saturation en oxygène SpO₂ &lt; 90%</td><td>+1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Niveaux de Risque & Mortalité à 30 jours</h3>
+                    <ul>
+                        <li><strong>Score = 0 (Bas risque) :</strong> Mortalité &lt; 1%. Éligible pour une <strong>prise en charge ambulatoire (à domicile)</strong> si le contexte social le permet.</li>
+                        <li><strong>Score &ge; 1 (Risque élevé) :</strong> Hospitalisation requise systématiquement.</li>
+                        <li><strong>Risque Intermédiaire-Haut :</strong> sPESI &ge; 1 associés conjointement à des signes de dysfonction du VD à l'imagerie ET à une élévation des biomarqueurs (Troponine / BNP). Surveillance étroite requise.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="obj15" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 15 & 16</span> Complications & Syndrome Post-Phlébétique (SPT)</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Complications aiguës et chroniques</h3>
+                    <ul>
+                        <li><strong>Aiguës :</strong> Choc obstructif, infarctus pulmonaire périphérique (se traduisant par une triade : douleur pleurétique, hémoptysie et opacité en coin à la radiographie thoracique) et arrêt cardiorespiratoire.</li>
+                        <li><strong>Chroniques :</strong> Hypertension pulmonaire thromboembolique chronique (HTAP-C).</li>
+                        <li><strong>Récidive :</strong> Estime à environ 30% à 5 ans en l'absence de traitement anticoagulant prolongé approprié.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Syndrome Post-Phlébétique (SPT)</h3>
+                    <p><strong>Physiopathologie :</strong> La TVP proximale engendre un processus d'inflammation et de fibrose locale &rarr; Destruction définitive des valvules veineuses &rarr; Reflux veineux persistant &rarr; &uarr; pression veineuse ambulatoire et capillaire &rarr; Fuite interstitielle, dépôts d'hémosidérine et lipodermatosclérose.</p>
+                    <p><strong>Clinique :</strong> Lourdeur de la jambe, œdème majoré en fin de journée, crampes, hyperpigmentation cutanée ocre, eczéma veineux et, au stade ultime, <strong>ulcère veineux cutané</strong> (situé typiquement au niveau de la malléole interne).</p>
+                </div>
+            </div>
+            <div class="alert alert-info">
+                <strong>Évaluation et Prévention :</strong> Le diagnostic et la sévérité se mesurent via le <strong>Score de Villalta</strong> (un score &ge; 15 ou la présence d'un ulcère signe un SPT sévère). La prévention repose sur le port de <strong>bas de compression graduée (30-40 mmHg) pendant une durée de 2 ans</strong> initié dès la phase aiguë, couplé à une mobilisation précoce.
+            </div>
+        </section>
+
+        <section id="obj17" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 17</span> Pharmacologie : Anticoagulants et Cascade de coagulation</h2>
+            
+            <h3>Mécanismes d'action ciblés</h3>
+            <table>
+                <thead>
+                    <tr><th>Classe / Molécule</th><th>Cible biologique</th><th>Mécanisme d'action précis</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>HNF / HBPM</strong></td><td>Antithrombine III (ATIII)</td><td>Catalysent l'ATIII, entraînant une inactivation majeure de la thrombine (IIa) et du Facteur Xa.</td></tr>
+                    <tr><td><strong>Fondaparinux</strong></td><td>Facteur Xa</td><td>Inhibiteur sélectif du Facteur Xa via l'antithrombine III.</td></tr>
+                    <tr><td><strong>Warfarine (Coumadin)</strong></td><td>Facteurs II, VII, IX, X</td><td>Antagoniste direct de la Vitamine K. Bloque la synthèse hépatique des facteurs fonctionnels.</td></tr>
+                    <tr><td><strong>AOD (Rivaroxaban, Apixaban)</strong></td><td>Facteur Xa</td><td>Inhibiteurs directs et hautement sélectifs du Facteur Xa actif.</td></tr>
+                    <tr><td><strong>Dabigatran</strong></td><td>Thrombine (IIa)</td><td>Inhibiteur direct et réversible de la thrombine active.</td></tr>
+                    <tr><td><strong>Thrombolytiques (tPA / Alteplase)</strong></td><td>Plasminogène</td><td>Activent le plasminogène en plasmine pour lyser activement la fibrine du caillot formé.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Règles de prescription IPS indispensables</h3>
+            <ul>
+                <li><strong>Héparine Non Fractionnée (HNF) :</strong> Nécessite un suivi strict du TCA (PTT). Préférée si insuffisance rénale terminale.</li>
+                <li><strong>Grossesse :</strong> Utilisation exclusive des <strong>HBPM</strong>. La warfarine est formellement tératogène (T1) et les AOD sont contre-indiqués.</li>
+                <li><strong>Syndrome des Antiphospholipides (SAPL) :</strong> La <strong>warfarine reste le traitement de choix</strong> préféré aux AOD en raison d'un taux de récidive thrombotique anormalement élevé sous AOD.</li>
+            </ul>
+        </section>
+
+        <section id="obj18" class="section-card">
+            <h2><span class="badge badge-blue">OBJ 18</span> Surveillance clinique et Enseignement au patient (Rôle IPS)</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Suivi Clinique et Biologique</h3>
+                    <ul>
+                        <li><strong>Évaluation initiale :</strong> Revoir systématiquement le patient 1 à 2 semaines après l'initiation thérapeutique (tolérance, adhésion, saignements).</li>
+                        <li><strong>Warfarine :</strong> Suivi de l'INR requis au minimum toutes les 4 semaines une fois la dose stabilisée (<strong>Cible thérapeutique : 2.0 - 3.0</strong>).</li>
+                        <li><strong>AOD :</strong> Aucun suivi biologique de routine requis pour la coagulation. Monitorer annuellement la **formule sanguine complète (FSC)** et la **créatinine** pour ajuster la clairance rénale.</li>
+                        <li><strong>Suivi post-MTEV :</strong> Consultations recommandées à J7, 3 mois et 1 an. Évaluer le score de Villalta (SPT) à chaque visite clinique.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Enseignement au patient</h3>
+                    <ul>
+                        <li><strong>Signes d'alerte hémorragique :</strong> Apparition d'ecchymoses anormales, présence de sang dans les selles (méléna) ou les urines, épistaxis prolongé, céphalée intense et subite &rarr; Consultation médicale immédiate.</li>
+                        <li><strong>Règles de vie sous Warfarine :</strong> Maintenir un apport stable et régulier en Vitamine K (éviter les variations brutales de consommation de brocolis, épinards, choux).</li>
+                        <li><strong>Conseils AOD :</strong> Ne jamais broyer les comprimés. Prendre obligatoirement le <em>rivaroxaban</em> au cours d'un repas.</li>
+                        <li><strong>Contre-indications strictes en automédication :</strong> Éviter formellement la prise d'AINS (Ibuprofène, Naproxen) et d'Aspirine sans avis médical.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const toggleBtn = document.getElementById('toggle-button');
+            
+            sidebar.classList.toggle('closed');
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('expanded');
+            toggleBtn.classList.toggle('expanded');
+        }
+
+        // Filter Menu items in Search
+        function filterMenu() {
+            const input = document.getElementById('search-input');
+            const filter = input.value.toUpperCase();
+            const ul = document.getElementById('menu-list');
+            const li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                const a = li[i].getElementsByTagName('a')[0];
+                const textValue = a.textContent || a.innerText;
+                if (textValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Highlight active menu item on scroll
+        const sections = document.querySelectorAll('.section-card');
+        const navLi = document.querySelectorAll('.sidebar-menu li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 120)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
